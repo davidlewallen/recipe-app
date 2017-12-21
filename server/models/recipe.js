@@ -14,7 +14,6 @@ const submit = async (parsedURL) => {
     const exist = dbResults.length > 0 ? true : false;
 
     if (!exist) {
-      console.log('doesnt exist');
       const modData = {
         ...await stripWebsite(parsedURL),
         created: Date.now(),
@@ -23,6 +22,7 @@ const submit = async (parsedURL) => {
       const result = await db().recipe.insertOne(modData);
       return result.ops[0];
     }
+    
     return dbResults[0];
   } catch (err) {
     console.log(err);
