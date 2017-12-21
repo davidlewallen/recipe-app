@@ -1,4 +1,4 @@
-const { db, Mongo } = require('../db');
+const { db } = require('../db');
 const stripWebsite = require('./websiteRules');
 
 const submit = async (parsedURL) => {
@@ -20,9 +20,10 @@ const submit = async (parsedURL) => {
         updated: null,
       };
       const result = await db().recipe.insertOne(modData);
+
       return result.ops[0];
     }
-    
+
     return dbResults[0];
   } catch (err) {
     console.log(err);
