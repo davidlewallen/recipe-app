@@ -6,7 +6,11 @@ const logger = require('morgan');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
+
 const assetFolder = path.join(__dirname, '..', 'build');
+
+const { connectDB } = require('./db');
+
 const routes = require('./routes');
 
 app.use(logger('dev'));
@@ -24,4 +28,13 @@ app.get('*', (req, res) => {
   res.send('404 Page Does Not Exist')
 })
 
-app.listen(PORT, () => console.log('Listening on port 3001'));
+connectDB((err) => {
+  if (err) {
+    return console.log('MongoDB Error:', err);
+  }
+
+  console.log('MongoDB Connected Successfully');
+
+
+  app.listen(PORT, () => console.log('Listening on port 3001'));
+});
