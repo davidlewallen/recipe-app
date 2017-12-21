@@ -9,9 +9,7 @@ const geniuskitchen = require('./geniuskitchen');
 
 const { JSDOM } = jsdom;
 
-const stripWebsite = async (recipeURL) => {
-  const parsedURL = URLParse(recipeURL);
-
+const stripWebsite = async (parsedURL) => {
   try {
     const hostname = parsedURL.hostname;
 
@@ -40,6 +38,7 @@ const stripWebsite = async (recipeURL) => {
       url: {
         hostname: parsedURL.hostname,
         href: parsedURL.href,
+        link: parsedURL.hostname + parsedURL.pathname,
       }
     }
   } catch (err) {
