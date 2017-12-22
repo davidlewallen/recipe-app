@@ -1,36 +1,15 @@
-const { db } = require('../db');
-const stripWebsite = require('./websiteRules');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const submit = async (parsedURL) => {
-  try {
-    const dbResults = await db()
-      .recipe
-      .find({
-        "url.href": {
-          $eq: parsedURL.href
-        }
-      })
-      .toArray();
-    const exist = dbResults.length > 0 ? true : false;
+const RecipesSchema = new Schema({
+  ingredients: [String],
+  instructions: [String],
+  url: {
+    hostname: String,
+    href: String,
+    link: String,
+  },
+  created: { type: Date, default: Date.now },
+})
 
-    if (!exist) {
-      const modData = {
-        ...await stripWebsite(parsedURL),
-        created: Date.now(),
-        updated: null,
-      };
-      const result = await db().recipe.insertOne(modData);
-
-      return result.ops[0];
-    }
-
-    return dbResults[0];
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
-};
-
-module.exports = {
-  submit,
-}
+module.exports = mongoose.model('Recipe', RecipesSchema);
