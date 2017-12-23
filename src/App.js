@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 import axios from 'axios';
 
@@ -8,54 +6,158 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
-      password: '',
+      registerUsername: '',
+      registerPassword: '',
+      loginUsername: '',
+      loginPassword: '',
+      recipeURL: '',
+      recipe: [],
     }
   }
-  register = (event) => {
+  register = async (event) => {
     event.preventDefault();
     const body = {
-      username: this.state.username,
-      password: this.state.password,
+      username: this.state.registerUsername,
+      password: this.state.registerPassword,
     }
 
-    axios.post('/api/account/register', body);
+    try {
+      await axios.post('/api/account/register', body);
+    } catch (err) {
+      console.error(err.config);
+    }
   }
 
-  handleUsername = (event) => {
-    const username = event.target.value;
-    this.setState({ username });
+  login = async (event) => {
+    event.preventDefault();
+    const body = {
+      username: this.state.loginUsername,
+      password: this.state.loginPassword,
+    };
+
+    const result = await axios.post('/api/account/login', body);
+    console.log('login result:', result)
   }
 
-  handlePassword = (event) => {
-    const password = event.target.value;
-    this.setState({ password });
+  submitRecipe = async (event) => {
+    event.preventDefault();
+
+    try {
+      const encodedRecipeURI = encodeURIComponent(this.state.recipeURL)
+      const { data } = await axios.post(`/api/recipe/submit/${encodedRecipeURI}`)
+      this.setState({ recipe: data })
+    } catch (err) {
+      console.error(err);
+    }
   }
+
+  authenticated = async (event) => {
+    event.preventDefault();
+
+    try {
+      const result = await axios.get('/api/account/testAuth');
+      console.log(result.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  testAuth = async () => {
+    const res = await axios.get('/api/recipe');
+    console.log('res', res)
+  }
+
+  handleRegisterUsername = (event) => {
+    const registerUsername = event.target.value;
+    this.setState({ registerUsername });
+  }
+
+  handleRegisterPassword = (event) => {
+    const registerPassword = event.target.value;
+    this.setState({ registerPassword });
+  }
+
+  handleLoginUsername = (event) => {
+    const loginUsername = event.target.value;
+    this.setState({ loginUsername });
+  }
+
+  handleLoginPassword = (event) => {
+    const loginPassword = event.target.value;
+    this.setState({ loginPassword });
+  }
+
+  handleRecipe = (event) => {
+    const recipeURL = event.target.value;
+    this.setState({ recipeURL })
+  }
+
+
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <br />
-        <form>
+        <form className="register">
           <input
             placeholder="Username"
             value={this.state.username}
-            onChange={this.handleUsername}
+            onChange={this.handleRegisterUsername}
           />
           <input
             placeholder="Password"
             value={this.state.password}
-            onChange={this.handlePassword}
+            onChange={this.handleRegisterPassword}
           />
           <button onClick={this.register}>Register</button>
         </form>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <br />
+
+        <form className="login">
+          <input
+            placeholder="Username"
+            value={this.state.loginUsername}
+            onChange={this.handleLoginUsername}
+          />
+          <input
+            placeholder="Password"
+            value={this.state.loginPassword}
+            onChange={this.handleLoginPassword}
+          />
+          <button onClick={this.login}>Login</button>
+        </form>
+
+        <br />
+
+        <form className="submit-recipe">
+          <input
+            placeholder="Recipe URL"
+            value={this.state.recipeURL}
+            onChange={this.handleRecipe}
+          />
+          <button onClick={this.submitRecipe}>Submit</button>
+        </form>
+        
+        <br />
+
+        <button onClick={this.authenticated}>Am I authenticated</button>
+        <button onClick={this.testAuth}>Test Auth</button>
+
+        <br />
+
+        {this.state.recipe.length > 0 && (
+          <div>
+            <ul>
+              {this.state.recipe[0].ingredients.map(ingredient => <li>{ingredient}</li>)}
+            </ul>
+
+            <br />
+
+            <ul>
+              {this.state.recipe[0].instructions.map(instruction => <li>{instruction}</li>)}
+            </ul>
+          </div>
+        )}
       </div>
     );
   }
