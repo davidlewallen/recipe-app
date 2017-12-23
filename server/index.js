@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('morgan');
 const passport = require('passport');
+const session = require('express-session');
 
 const app = express();
 
@@ -18,6 +19,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(assetFolder));
+app.use(session({
+  secret: 'secrets',
+  resave: true,
+  saveUninitialized: false,
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
