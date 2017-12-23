@@ -9,6 +9,7 @@ const RecipesSchema = new Schema({
     href: String,
     link: String,
   },
+  title: String,
   created: { type: Date, default: Date.now },
 })
 
