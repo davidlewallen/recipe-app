@@ -1,4 +1,3 @@
-const URLParse = require('url-parse');
 const jsdom = require('jsdom');
 const axios = require('axios');
 

@@ -26,13 +26,21 @@ const stripInstructions = (dom) => {
   return listOfInstructions;
 }
 
+const stripTitle = (dom) => {
+  const title = dom.window.document.getElementsByClassName('recipe-summary__h1')[0].textContent;
+
+  return title;
+}
+
 const allrecipes = (dom) => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
+  const title = stripTitle(dom);
 
   return {
     'ingredients': ingredients,
     'instructions': instructions,
+    'title': title,
   }
 }
 
