@@ -55,16 +55,11 @@ class App extends Component {
     event.preventDefault();
 
     try {
-      const result = await axios.get('/api/account/testAuth');
+      const result = await axios.get('/api/account/testProtectedRoute');
       console.log(result.data);
     } catch (err) {
       console.error(err);
     }
-  }
-
-  testAuth = async () => {
-    const res = await axios.get('/api/recipe');
-    console.log('res', res)
   }
 
   handleRegisterUsername = (event) => {
