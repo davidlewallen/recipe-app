@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-const { isAuthenticated } = require('./utils');
-
 const Account = require('../models/account');
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
@@ -18,13 +16,9 @@ router.post('/register', function (req, res) {
     }
 
     passport.authenticate('local')(req, res, function () {
-      res.send('Registered')
+      res.send(req.user)
     });
   });
-});
-
-router.get('/testProtectedRoute', isAuthenticated, (req, res) => {
-  res.send('ProtectedRoute')
 });
 
 module.exports = router;
