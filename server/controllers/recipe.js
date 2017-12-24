@@ -11,8 +11,7 @@ const submit = async (req, res) => {
   
   try {
     // Check to see if recipe is already in recipe collection
-    let result;
-    result = await Recipe.find({ 'url.href': parsedURL.href })
+    let result = await Recipe.find({ 'url.href': parsedURL.href })
     const exists = !!result.length;
 
     // If recipe doesnt already exist, strip website and save to recipe
