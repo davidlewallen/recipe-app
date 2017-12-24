@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+const { isAuthenticated } = require('./utils');
+
 const Recipe = require('../controllers/recipe');
 
-router.post('/submit/:recipeURL', Recipe.submit);
+router.use(isAuthenticated);
+
+router.post('/submit/:recipeURL',  Recipe.submit);
 
 module.exports = router;
