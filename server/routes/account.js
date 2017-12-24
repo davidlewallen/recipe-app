@@ -9,13 +9,15 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 });
 
 router.post('/register', function (req, res) {
-  Account.register(new Account({ username: req.body.username }), req.body.password, function (err, account) {
-    if (err) {
-      console.log('error', err);
-      return res.send(err, 409);
-    }
-
-    passport.authenticate('local')(req, res, function () {
+  Account.register(
+    new Account({ username: req.body.username }),
+    req.body.password,
+    function (err, account) {
+      if (err) {
+        console.log('error', err);
+        return res.send(err, 409);
+      }
+  passport.authenticate('local')(req, res, function () {
       res.send(req.user)
     });
   });
