@@ -48,7 +48,7 @@ class App extends Component {
       const encodedRecipeURI = encodeURIComponent(this.state.recipeURL)
       const { data } = await axios.post(`/api/recipe/submit/${encodedRecipeURI}`)
 
-      this.setState({ recipeList: [...this.state.recipeList, data]})
+      this.setState({ recipeList: [...this.state.recipeList, data] })
 
     } catch (err) {
       console.error(err);
