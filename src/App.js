@@ -11,7 +11,7 @@ class App extends Component {
       loginUsername: '',
       loginPassword: '',
       recipeURL: '',
-      recipe: [],
+      recipeList: [],
     }
   }
   register = async (event) => {
@@ -36,7 +36,9 @@ class App extends Component {
     };
 
     const result = await axios.post('/api/account/login', body);
-    console.log('login result:', result)
+    const recipes = await axios.get('/api/recipe');
+
+    this.setState({ recipeList: recipes.data })
   }
 
   submitRecipe = async (event) => {
@@ -45,7 +47,9 @@ class App extends Component {
     try {
       const encodedRecipeURI = encodeURIComponent(this.state.recipeURL)
       const { data } = await axios.post(`/api/recipe/submit/${encodedRecipeURI}`)
-      this.setState({ recipe: data })
+
+      this.setState({ recipeList: [...this.state.recipeList, data] })
+
     } catch (err) {
       console.error(err);
     }
@@ -59,6 +63,15 @@ class App extends Component {
       console.log(result.data);
     } catch (err) {
       console.error(err);
+    }
+  }
+
+  userRecipes = async () => {
+    try {
+      const result = await axios.get('/api/recipe');
+      console.log('result', result)
+    } catch (err) {
+      console.log('err', err);
     }
   }
 
@@ -136,22 +149,14 @@ class App extends Component {
         <br />
 
         <button onClick={this.authenticated}>Am I authenticated</button>
-        <button onClick={this.testAuth}>Test Auth</button>
+        <button onClick={this.userRecipes}>Get User Recipes</button>
 
         <br />
 
-        {this.state.recipe.length > 0 && (
-          <div>
-            <ul>
-              {this.state.recipe[0].ingredients.map(ingredient => <li>{ingredient}</li>)}
-            </ul>
-
-            <br />
-
-            <ul>
-              {this.state.recipe[0].instructions.map(instruction => <li>{instruction}</li>)}
-            </ul>
-          </div>
+        {this.state.recipeList.length > 0 && (
+          <ul>
+            {this.state.recipeList.map((recipe) => <li>{recipe.title}</li>)}
+          </ul>
         )}
       </div>
     );
