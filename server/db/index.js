@@ -5,7 +5,12 @@ const config = JSON.parse(fs.readFileSync('./.config', { encoding: 'utf8' }));
 const username = encodeURIComponent(config.mongodb.username);
 const password = encodeURIComponent(config.mongodb.password);
 
-const uri = `mongodb://${username}:${password}@ds161446.mlab.com:61446/recipe`;
+let uri;
+if (process.env.NODE_ENV === 'prod') {
+  uri = `mongodb://${username}:${password}@ds161446.mlab.com:61446/recipe`;
+} else if (process.env.NODE_ENV === 'dev') {
+  uri = `mongodb://${username}:${password}@ds163836.mlab.com:63836/recipe-dev`;
+}
 mongoose.Promise = global.Promise;
 mongoose.connect(uri, { useMongoClient: true });
 const db = mongoose.connection;
