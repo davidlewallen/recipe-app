@@ -3,7 +3,7 @@ const URLParse = require('url-parse');
 const Recipe = require('../models/recipe');
 const Account = require('../models/account');
 
-const stripWebsite = require('./websiteRules');
+const { stripWebsite, isWebsiteProcessable } = require('./websiteRules');
 
 const get = async (req, res) => {
   const userId = req.user._id;
@@ -32,22 +32,27 @@ const submit = async (req, res) => {
   const userId = req.user._id;
   
   try {
-    // Check to see if recipe is already in recipe collection
-    let result = await Recipe.find({ 'url.href': parsedURL.href })
-    const exists = !!result.length;
+    // Check to see if we can process the provide website
+    if (isWebsiteProcessable(parsedURL)) {
+      // Check to see if recipe is already in recipe collection
+      let result = await Recipe.find({ 'url.href': parsedURL.href })
+      const exists = !!result.length;
 
-    // If recipe doesnt already exist, strip website and save to recipe
-    if (!exists) {
-      const recipe = new Recipe({ ...await stripWebsite(parsedURL) });
-      result = await recipe.save()
+      // If recipe doesnt already exist, strip website and save to recipe
+      if (!exists) {
+        const recipe = new Recipe({ ...await stripWebsite(parsedURL) });
+        result = await recipe.save()
+      }
+
+      // If result is an array target index 0 and grab _id
+      // If result is an object target ._id
+      const recipeId = Array.isArray(result) ? result[0]._id : result._id;
+      await saveRecipeToUser(recipeId, userId);
+
+      return res.json(result);
     }
 
-    // If result is an array target index 0 and grab _id
-    // If result is an object target ._id
-    const recipeId = Array.isArray(result) ? result[0]._id : result._id;
-    await saveRecipeToUser(recipeId, userId);
-
-    res.json(result);
+    res.status(403).json({ processableWebsite: false});
   } catch (err) {
     console.error(err);
     res.send(err, 500);
