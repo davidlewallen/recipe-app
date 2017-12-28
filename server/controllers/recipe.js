@@ -9,13 +9,21 @@ const get = async (req, res) => {
   const userId = req.user._id;
 
   try {
+    res.json(await getSavedRecipes(userId));
+  } catch (err) {
+    res.send(err, 500);
+  }
+}
+
+const getSavedRecipes = async (userId) => {
+  try {
     const savedRecipeResult = await await Account.find({ _id: userId }, 'savedRecipes');
     const recipeIds = savedRecipeResult[0].savedRecipes;
 
-    const listOfRecipes = await Recipe.find({ _id: { $in: recipeIds } });
-    res.json(listOfRecipes);
+    return await Recipe.find({ _id: { $in: recipeIds } });
   } catch (err) {
-    res.send(err, 500);
+    console.log(err);
+    return err;
   }
 }
 
@@ -49,7 +57,7 @@ const submit = async (req, res) => {
 const saveRecipeToUser = async (recipeId, userId) => {
   const result = await Account.find({ savedRecipes: recipeId});
   const isRecipeSaved = !!result.length;
-
+  
   // If user hasnt saved the recipe, add it to account.savedRecipe
   if (!isRecipeSaved) {
     await Account.findByIdAndUpdate(
@@ -60,7 +68,31 @@ const saveRecipeToUser = async (recipeId, userId) => {
   }
 }
 
+const remove = async (req, res) => {
+  const userId = req.user._id;
+  const recipeId = req.params.recipeId;
+
+  try {
+    const savedRecipeResult = await Account.find({ savedRecipes: recipeId });
+    const exists = !!savedRecipeResult.length;
+
+    if (exists) {
+      await Account.findByIdAndUpdate(userId, {
+        $pull: {
+          savedRecipes: recipeId,
+        }
+      })
+    }
+
+    res.json(await getSavedRecipes(userId));
+  } catch (err) {
+    console.log(err);
+    res.send(err, 500);
+  }
+}
+
 module.exports = {
   submit,
   get,
+  remove,
 }
