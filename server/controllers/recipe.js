@@ -9,24 +9,14 @@ const get = async (req, res) => {
   const userId = req.user._id;
 
   try {
-    const savedRecipeResult = await getUserSavedRecipes(userId);
-    const savedRecipeList = savedRecipeResult[0].savedRecipes;
+    const savedRecipeResult = await await Account.find({ _id: userId }, 'savedRecipes');
+    const recipeIds = savedRecipeResult[0].savedRecipes;
 
-    const listOfRecipes = await getListOfRecipes(savedRecipeList);
+    const listOfRecipes = await Recipe.find({ _id: { $in: recipeIds } });
     res.json(listOfRecipes);
   } catch (err) {
     res.send(err, 500);
   }
-}
-
-const getUserSavedRecipes = async (userId) => {
-  const result = await Account.find({ _id: userId }, 'savedRecipes');
-  return result;
-}
-
-const getListOfRecipes = async (listOfRecipeId) => {
-  const result = await Recipe.find({ _id: { $in: listOfRecipeId }});
-  return result;
 }
 
 const submit = async (req, res) => {
