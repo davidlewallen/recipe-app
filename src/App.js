@@ -8,6 +8,9 @@ class App extends Component {
     this.state = {
       registerUsername: '',
       registerPassword: '',
+      registerFirstName: '',
+      registerLastName: '',
+      registerEmail: '',
       loginUsername: '',
       loginPassword: '',
       recipeURL: '',
@@ -19,12 +22,15 @@ class App extends Component {
     const body = {
       username: this.state.registerUsername,
       password: this.state.registerPassword,
+      firstName: this.state.registerFirstName,
+      lastName: this.state.registerLastName,
+      email: this.state.registerEmail,
     }
 
     try {
       await axios.post('/api/account/register', body);
     } catch (err) {
-      console.error(err.config);
+      console.error(err.response.data.message);
     }
   }
 
@@ -35,7 +41,7 @@ class App extends Component {
       password: this.state.loginPassword,
     };
 
-    const result = await axios.post('/api/account/login', body);
+    await axios.post('/api/account/login', body);
     const recipes = await axios.get('/api/recipe');
 
     this.setState({ recipeList: recipes.data })
@@ -85,6 +91,21 @@ class App extends Component {
     this.setState({ registerPassword });
   }
 
+  handleRegisterFirstName = (event) => {
+    const registerFirstName = event.target.value;
+    this.setState({ registerFirstName });
+  }
+
+  handleRegisterLastName = (event) => {
+    const registerLastName = event.target.value;
+    this.setState({ registerLastName });
+  }
+
+  handleRegisterEmail = (event) => {
+    const registerEmail = event.target.value;
+    this.setState({ registerEmail });
+  }
+
   handleLoginUsername = (event) => {
     const loginUsername = event.target.value;
     this.setState({ loginUsername });
@@ -108,13 +129,28 @@ class App extends Component {
         <form className="register">
           <input
             placeholder="Username"
-            value={this.state.username}
+            value={this.state.registerUsername}
             onChange={this.handleRegisterUsername}
           />
           <input
             placeholder="Password"
-            value={this.state.password}
+            value={this.state.registerPassword}
             onChange={this.handleRegisterPassword}
+          />
+          <input
+            placeholder="First Name"
+            value={this.state.registerFirstName}
+            onChange={this.handleRegisterFirstName}
+          />
+          <input
+            placeholder="Last Name"
+            value={this.state.registerLastName}
+            onChange={this.handleRegisterLastName}
+          />
+          <input
+            placeholder="Email Address"
+            value={this.state.registerEmail}
+            onChange={this.handleRegisterEmail}
           />
           <button onClick={this.register}>Register</button>
         </form>
