@@ -81,6 +81,14 @@ class App extends Component {
     }
   }
 
+  deleteRecipe = async (recipeId) => {
+    try {
+      const result = await axios.delete(`/api/recipe/delete/${recipeId}`)
+      this.setState({ recipeList: result.data })
+    } catch (err) {
+      console.log(err);
+    }
+  }
   handleRegisterUsername = (event) => {
     const registerUsername = event.target.value;
     this.setState({ registerUsername });
@@ -191,7 +199,12 @@ class App extends Component {
 
         {this.state.recipeList.length > 0 && (
           <ul>
-            {this.state.recipeList.map((recipe) => <li>{recipe.title}</li>)}
+            {this.state.recipeList.map((recipe) => (
+              <div>
+                <li>{recipe.title}</li>
+                <button onClick={() => this.deleteRecipe(recipe._id)}>Delete</button>
+              </div>
+            ))}
           </ul>
         )}
       </div>
