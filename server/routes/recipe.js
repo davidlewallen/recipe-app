@@ -11,4 +11,6 @@ router.get('/', Recipe.get);
 
 router.post('/submit/:recipeURL',  Recipe.submit);
 
+router.delete('/delete/:recipeId', Recipe.remove);
+
 module.exports = router;
