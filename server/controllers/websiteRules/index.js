@@ -1,36 +1,28 @@
 const jsdom = require('jsdom');
 const axios = require('axios');
 
-const foodnetwork = require('./foodnetwork');
-const allrecipes = require('./allrecipes');
-const myrecipes = require('./myrecipes');
-const geniuskitchen = require('./geniuskitchen');
+const acceptedWebsites = require('./resources/acceptedWebsites');
 
 const { JSDOM } = jsdom;
 
+
 const stripWebsite = async (parsedURL) => {
   try {
+    // Grab hostname from the parsedURL
     const hostname = parsedURL.hostname;
 
+    // Grab html from website
     const res = await axios.get(parsedURL.href);
     const html = res.data;
     const dom = new JSDOM(html);
 
-    let results = {};
+    // Get hostname's strip function by filtering by hostname
+    // returning an array
+    const hostnameFunction = acceptedWebsites.filter(
+      website => website.hostname === hostname
+    )[0].func;
 
-    if (hostname === 'www.foodnetwork.com') {
-      results = { ...foodnetwork(dom) }
-    } else if (hostname === 'allrecipes.com') {
-      results = { ...allrecipes(dom) };
-    } else if (
-      hostname === 'www.myrecipes.com' ||
-      hostname === 'www.realsimple.com' ||
-      hostname === 'www.health.com'
-    ) {
-      results = { ...myrecipes(dom) };
-    } else if (hostname === 'www.geniuskitchen.com') {
-      results = { ...geniuskitchen(dom) };
-    }
+    const results = hostnameFunction(dom)
 
     return {
       ...results,
@@ -45,4 +37,13 @@ const stripWebsite = async (parsedURL) => {
   }
 }
 
-module.exports = stripWebsite
+// Check if we have rules for passed in website, returning true or false
+const isWebsiteProcessable = (parsedURL) => {
+  const hostname = parsedURL.hostname;
+  return !!acceptedWebsites.filter(website => website.hostname === hostname).length
+}
+
+module.exports = {
+  stripWebsite,
+  isWebsiteProcessable,
+}
