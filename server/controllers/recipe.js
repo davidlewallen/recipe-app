@@ -17,8 +17,8 @@ const get = async (req, res) => {
 
 const getSavedRecipes = async (userId) => {
   try {
-    const savedRecipeResult = await await Account.find({ _id: userId }, 'savedRecipes');
-    const recipeIds = savedRecipeResult[0].savedRecipes;
+    const savedRecipeResult = await Account.findById(userId, 'savedRecipes')
+    const recipeIds = savedRecipeResult.savedRecipes;
 
     return await Recipe.find({ _id: { $in: recipeIds } });
   } catch (err) {
