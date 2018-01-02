@@ -56,4 +56,72 @@ describe('Account Model Test', () => {
       }
     })
   });
+
+  describe('find', () => {
+    it('should find an account by _id', async () => {
+      const newAccount = new Account({
+        username: 'testUsername',
+        password: 'testPassword',
+        info: {
+          firstName: 'testFirstName',
+          lastName: 'testLastName',
+          email: 'test@email.com',
+        }
+      });
+      let result = await newAccount.save();
+      const userId = result._id;
+
+      result = await Account.findById(userId);
+      expect(result._id).toEqual(userId);
+    })
+  });
+
+  describe('update', () => {
+    it('should update an account', async () => {
+      const newAccount = new Account({
+        username: 'testUsername',
+        password: 'testPassword',
+        info: {
+          firstName: 'testFirstName',
+          lastName: 'testLastName',
+          email: 'test@email.com',
+        }
+      });
+      let result = await newAccount.save();
+      const userId = result._id;
+
+      await Account.findByIdAndUpdate(
+        userId,
+        {
+          info: {
+            firstName: 'testFirstNameUpdate'
+          }
+        }
+      );
+
+      result = await Account.findById(userId);
+      expect(result.info.firstName).toEqual('testFirstNameUpdate');
+    })
+  });
+
+  describe('remove', () => {
+    it('should remove an account', async () => {
+      const newAccount = new Account({
+        username: 'testUsername',
+        password: 'testPassword',
+        info: {
+          firstName: 'testFirstName',
+          lastName: 'testLastName',
+          email: 'test@email.com',
+        }
+      });
+      let result = await newAccount.save();
+      const userId = result._id;
+
+      await Account.findByIdAndRemove(userId);
+
+      result = await Account.findById(userId);
+      expect(result).toBeNull();
+    })
+  })
 })
