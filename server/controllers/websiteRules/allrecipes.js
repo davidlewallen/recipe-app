@@ -44,4 +44,9 @@ const allrecipes = (dom) => {
   }
 }
 
-module.exports = allrecipes;
+module.exports = {
+  strip: allrecipes,
+  stripIngredients,
+  stripInstructions,
+  stripTitle,
+};

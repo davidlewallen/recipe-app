@@ -26,14 +26,27 @@ const stripInstructions = (dom) => {
   return listOfInstructions
 }
 
+const stripTitle = (dom) => {
+  const title = dom.window.document.getElementsByClassName('o-AssetTitle__a-HeadlineText')[0].textContent;
+
+  return title;
+}
+
 const foodnetwork = (dom) => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
+  const title = stripTitle(dom);
 
   return {
     'ingredients': ingredients,
     'instructions': instructions,
+    'title': title
   }
 }
 
-module.exports = foodnetwork;
+module.exports = {
+  strip: foodnetwork,
+  stripIngredients,
+  stripInstructions,
+  stripTitle,
+};
