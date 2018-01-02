@@ -64,7 +64,7 @@
     "start": "node scripts/start.js",
     "start:server": "cross-env PORT=3001 NODE_ENV=prod nodemon -w ./server ./server/index.js",
     "dev:server": "cross-env PORT=3001 NODE_ENV=dev nodemon -w ./server ./server/index.js",
-    "test:server": "cross-env NODE_ENV=test jest --testPathPattern=/server --watch",
+    "test:server": "cross-env NODE_ENV=test jest --testPathPattern=server --watch",
     "build": "node scripts/build.js",
     "test": "cross-env NODE_ENV=test node scripts/test.js --env=jsdom"
   },
