@@ -5,13 +5,11 @@ const Account = require('../models/account');
 
 const { stripWebsite, isWebsiteProcessable } = require('./websiteRules');
 
-const get = async (req, res) => {
-  const userId = req.user._id;
-
+const get = async (userId) => {
   try {
-    res.json(await getSavedRecipes(userId));
+    return await getSavedRecipes(userId);
   } catch (err) {
-    res.send(err, 500);
+    console.log('err', err);
   }
 }
 
@@ -22,15 +20,13 @@ const getSavedRecipes = async (userId) => {
 
     return await Recipe.find({ _id: { $in: recipeIds } });
   } catch (err) {
-    console.log(err);
-    return err;
+    console.log('err', err);
   }
 }
 
-const submit = async (req, res) => {
-  const parsedURL = URLParse(req.params.recipeURL)
-  const userId = req.user._id;
-  
+const submit = async (recipeURL, userId) => {
+  const parsedURL = URLParse(recipeURL)
+
   try {
     // Check to see if we can process the provide website
     if (isWebsiteProcessable(parsedURL)) {
@@ -49,13 +45,12 @@ const submit = async (req, res) => {
       const recipeId = Array.isArray(result) ? result[0]._id : result._id;
       await saveRecipeToUser(recipeId, userId);
 
-      return res.json(result);
+      return result;
     }
 
-    res.status(403).json({ processableWebsite: false});
+    return { noneProcessable: true };
   } catch (err) {
-    console.error(err);
-    res.send(err, 500);
+    console.log('err', err);
   }
 };
 
@@ -73,10 +68,7 @@ const saveRecipeToUser = async (recipeId, userId) => {
   }
 }
 
-const remove = async (req, res) => {
-  const userId = req.user._id;
-  const recipeId = req.params.recipeId;
-
+const remove = async (recipeId, userId) => {
   try {
     const savedRecipeResult = await Account.find({ savedRecipes: recipeId });
     const exists = !!savedRecipeResult.length;
@@ -89,10 +81,9 @@ const remove = async (req, res) => {
       })
     }
 
-    res.json(await getSavedRecipes(userId));
+    return await getSavedRecipes(userId);
   } catch (err) {
     console.log(err);
-    res.send(err, 500);
   }
 }
 
@@ -100,4 +91,6 @@ module.exports = {
   submit,
   get,
   remove,
+  getSavedRecipes,
+  saveRecipeToUser,
 }

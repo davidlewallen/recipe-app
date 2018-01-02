@@ -24,11 +24,12 @@ router.post('/register', (req, res) => {
         console.log('error', err);
         return res.status(409).send(err);
       }
-  passport.authenticate('local')(req, res, () => {
-      res.send(req.user)
-    });
-  });
-});
+      passport.authenticate('local')(req, res, () => {
+        res.send(req.user)
+      })
+    }
+  )}
+);
 
 router.get('/logout', (req, res) => {
   req.logout();
