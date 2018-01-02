@@ -5,23 +5,6 @@ require('../../db');
 
 const Account = require('../account');
 
-const registerAccount = () => new Promise((resolve, reject) => Account.register(
-  new Account({
-    username: 'test',
-    info: {
-      firstName: 'test',
-      lastName: 'test',
-      email: 'test',
-    },
-  }),
-  new Buffer('test'),
-  (err) => {
-    if (err) { reject(); }
-    console.log(2);
-    resolve(true);
-  }
-));
-
 describe('Account Model Test', () => {
   beforeAll(async () => {
     await Account.remove({});
@@ -72,19 +55,5 @@ describe('Account Model Test', () => {
         expect(err._message).toEqual('Account validation failed')
       }
     })
-  });
-
-  describe.only('register', () => {
-    it('should register a new account in account collection', async () => {
-        let result = await Account.find({});
-        console.log('result', result)
-        expect(result.length).toEqual(0);
-        console.log(1);
-        await registerAccount();
-        console.log(3);
-
-        result = await Account.find({});
-        console.log('result', result)
-    });
   });
 })
