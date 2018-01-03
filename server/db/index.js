@@ -18,4 +18,6 @@ mongoose.Promise = global.Promise;
 mongoose.connect(uri, { useMongoClient: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => console.log('connected mongoose'));
+if (process.env.NODE_ENV !== 'test') {
+  db.once('open', () => console.log('connected mongoose'));
+}

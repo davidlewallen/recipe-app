@@ -4,6 +4,7 @@ const Recipe = require('../models/recipe');
 const Account = require('../models/account');
 
 const { stripWebsite, isWebsiteProcessable } = require('./websiteRules');
+const NPWebsite = require('./npwebsite');
 
 const get = async (userId) => {
   try {
@@ -47,7 +48,9 @@ const submit = async (recipeURL, userId) => {
 
       return result;
     }
-
+    
+    await NPWebsite.save(parsedURL, userId);
+    
     return { noneProcessable: true };
   } catch (err) {
     console.log('err', err);
