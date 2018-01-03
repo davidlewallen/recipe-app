@@ -28,14 +28,27 @@ const stripInstructions = (dom) => {
   return listOfInstructions;
 }
 
+const stripTitle = (dom) => {
+  const title = dom.window.document.getElementsByClassName('recipe-header')[0].children[1].textContent;
+
+  return title;
+}
+
 const geniuskitchen = (dom) => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
+  const title = stripTitle(dom);
 
   return {
     'ingredients': ingredients,
     'instructions': instructions,
+    'title': title,
   };
 }
 
-module.exports = geniuskitchen;
+module.exports = {
+  strip: geniuskitchen,
+  stripIngredients,
+  stripInstructions,
+  stripTitle,
+};
