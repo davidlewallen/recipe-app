@@ -32,8 +32,8 @@ const submit = async (recipeURL, userId) => {
     // Check to see if we can process the provide website
     if (isWebsiteProcessable(parsedURL)) {
       // Check to see if recipe is already in recipe collection
-      let result = await Recipe.find({ 'url.href': parsedURL.href })
-      const exists = !!result.length;
+      let result = await Recipe.findOne({ 'url.href': parsedURL.href })
+      const exists = !!result;
 
       // If recipe doesnt already exist, strip website and save to recipe
       if (!exists) {
