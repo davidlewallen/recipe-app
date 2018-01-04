@@ -8,8 +8,8 @@ const save = async (parsedURL, userId) => {
 
   if (exists) {
     let alreadyAdded = result.submitted.filter(entry => entry.href === href && entry.userId.equals(userId))
-
-    if (!alreadyAdded) {
+    
+    if (!alreadyAdded.length) {
       await NPWebsite.findOneAndUpdate(
         { hostname },
         { $push: { submitted: { href, userId } } }
