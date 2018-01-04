@@ -5,7 +5,13 @@ const passport = require('passport');
 const Account = require('../models/account');
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
-  res.json(req.user);
+  const userObject = {
+    _id: req.user._id,
+    username: req.user.username,
+    savedRecipes: req.user.savedRecipes,
+    info: req.user.info,
+  }
+  res.json(userObject);
 });
 
 router.post('/register', (req, res) => {
@@ -25,7 +31,13 @@ router.post('/register', (req, res) => {
         return res.status(409).send(err);
       }
       passport.authenticate('local')(req, res, () => {
-        res.send(req.user)
+        const userObject = {
+          _id: req.user._id,
+          username: req.user.username,
+          savedRecipes: req.user.savedRecipes,
+          info: req.user.info,
+        }
+        res.send(userObject)
       })
     }
   )}
