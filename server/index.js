@@ -5,6 +5,8 @@ const logger = require('morgan');
 const passport = require('passport');
 const session = require('express-session');
 
+const scheduledTask = require('./utils/scheduledTask');
+
 const app = express();
 
 const PORT = process.env.PORT || 3001;
@@ -43,5 +45,6 @@ app.get('*', (req, res) => {
 })
 
 app.listen(PORT, () => {
+  scheduledTask.runTasks();
   console.log(`API running on port ${PORT}`);
 })

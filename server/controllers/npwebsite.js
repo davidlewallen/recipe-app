@@ -3,14 +3,18 @@ const NPWebsite = require('../models/npwebsite');
 const save = async (parsedURL, userId) => {
   const { hostname, href } = parsedURL;
 
-  const result = await NPWebsite.find({ hostname });
-  const exists = !!result.length;
+  const result = await NPWebsite.findOne({ hostname });
+  const exists = !!result;
 
   if (exists) {
-    await NPWebsite.findOneAndUpdate(
-      { hostname },
-      { $push: { submitted: { href, userId } } }
-    );
+    let alreadyAdded = result.submitted.filter(entry => entry.href === href && entry.userId.equals(userId))
+    
+    if (!alreadyAdded.length) {
+      await NPWebsite.findOneAndUpdate(
+        { hostname },
+        { $push: { submitted: { href, userId } } }
+      );
+    }
   } else {
     const newNPWebsite = new NPWebsite({
       hostname,
@@ -21,6 +25,16 @@ const save = async (parsedURL, userId) => {
   }
 }
 
-module.exports = {
-  save
-};
+const remove = async (id) => {
+  await NPWebsite.findByIdAndRemove(id)
+}
+
+const getNPWebsite = async (npwebsiteId) => {
+  return await NPWebsite.findById(npwebsiteId);
+}
+
+const getHostnames = async () => {
+  return await NPWebsite.find({}).select('hostname');
+}
+
+module.exports = { save, remove, getNPWebsite, getHostnames };
