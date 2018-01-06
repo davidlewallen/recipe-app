@@ -9,7 +9,7 @@ const checkProcessableWebsites = async () => {
   const hostnames = await NPWebsite.getHostnames();
 
   for (const storedWebsite of hostnames) {
-    for (const acceptedWebsite of acceptedWebsites) {
+    for (const acceptedWebsite of acceptedWebsites()) {
 
       if (acceptedWebsite.hostname === storedWebsite.hostname) {
         const storedWebsiteResult = await NPWebsite.getNPWebsite(storedWebsite._id);
