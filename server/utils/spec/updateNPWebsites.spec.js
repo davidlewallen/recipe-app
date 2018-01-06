@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
-require('../../db');
+const server = require('../../db');
 
 const AccountModel = require('../../models/account');
 const NPWebsiteModel = require('../../models/npwebsite');
 const RecipeModel = require('../../models/recipe');
 
+const Account = require('../../controllers/account');
 const Recipe = require('../../controllers/recipe')
 
 const updateNPWebsites = require('../updateNPWebsites');
@@ -16,48 +17,23 @@ describe('updateNPWebsites', () => {
   let user2 = null;
 
   beforeAll(async () => {
-    await clearDB();
+    await server.start();
   })
 
   beforeEach(async (done) => {
-    await clearDB();
+    user = await Account.createTestAccount('1');
+    user2 = await Account.createTestAccount('2');
+    done();
+  });
 
-    AccountModel.register(
-      new AccountModel({
-        username: 'test',
-        info: {
-          firstName: 'test',
-          lastName: 'test',
-          email: 'test',
-        },
-      }),
-      new Buffer('test'),
-      (err, createdUser) => {
-        if (err) console.log('err', err)
-        user = createdUser;
-      }
-    );
-    AccountModel.register(
-      new AccountModel({
-        username: 'test',
-        info: {
-          firstName: 'test',
-          lastName: 'test',
-          email: 'test',
-        },
-      }),
-      new Buffer('test'),
-      (err, createdUser) => {
-        if (err) console.log('err', err)
-        user2 = createdUser;
-        done();
-      }
-    );
+  afterEach(async (done) => {
+    await clearDB();
+    done();
   });
 
   afterAll(async () => {
     await mongoose.connection.close();
-  })
+  });
 
   describe('checkProcessableWebsite', () => {
     it('should update npwebsites, recipes, and account collections if we have new rules and remove entry after complete', async () => {

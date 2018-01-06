@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const parseURL = require('url-parse');
 
-require('../../db');
+const server = require('../../db');
 
 const NPWebsite = require('../npwebsite');
+const Account = require('../account');
 
 const NPWebsiteModel = require('../../models/npwebsite');
-const AccountModel = require('../../models/account');
 
 const clearDB = require('../../utils/clearDB');
 
@@ -15,41 +15,18 @@ describe('NPWebsite Controller Test', () => {
   let user2 = null;
 
   beforeAll(async () => {
-    await clearDB();
+    await server.start();
   });
 
   beforeEach(async (done) => {
-    await clearDB();
+    user = await Account.createTestAccount('1');
+    user2 = await Account.createTestAccount('2');
+    done();
+  });
 
-    AccountModel.register(
-      new AccountModel({
-        username: 'test',
-        info: {
-          firstName: 'test',
-          lastName: 'test',
-          email: 'test',
-        },
-      }),
-      new Buffer('test'),
-      (err, createdUser) => {
-        user = createdUser;
-        AccountModel.register(
-          new AccountModel({
-            username: 'test2',
-            info: {
-              firstName: 'test2',
-              lastName: 'test2',
-              email: 'test2',
-            },
-          }),
-          new Buffer('test2'),
-          (err, createdUser) => {
-            user2 = createdUser;
-            done();
-          }
-        );
-      }
-    );
+  afterEach(async (done) => {
+    await clearDB();
+    done();
   });
 
   afterAll(async () => {
