@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Set up mongo connection
-require('../../db');
+const server = require('../../db');
 
 const Account = require('../account');
 
@@ -11,12 +11,18 @@ const clearDB = require('../../utils/clearDB');
 
 describe('Account Controller Test', () => {
   beforeAll(async () => {
-    await clearDB();
+    await server.start();
   });
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await clearDB();
+    done();
   });
+
+  afterEach(async (done) => {
+    await clearDB();
+    done();
+  })
 
   afterAll(async () => {
     await mongoose.connection.close();

@@ -1,18 +1,24 @@
 const mongoose = require('mongoose');
 
 // Set up mongo connection
-require('../../db');
+const server = require('../../db');
 
 const Account = require('../account');
 
 describe('Account Model Test', () => {
   beforeAll(async () => {
-    await Account.remove({});
+    await server.start();
   })
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await Account.remove({});
+    done();
   });
+
+  afterEach(async (done) => {
+    await Account.remove({});
+    done();
+  })
 
   afterAll(async () => {
     await mongoose.connections.close();
