@@ -14,8 +14,8 @@ describe('Recipe Model Test', () => {
     await Recipe.remove({});
   });
 
-  afterAll(() => {
-    mongoose.connection.close();
+  afterAll(async() => {
+    await mongoose.connection.close();
   });
 
   const mockRecipe = {

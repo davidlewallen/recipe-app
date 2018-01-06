@@ -8,13 +8,18 @@ const Recipe = require('../recipe');
 const RecipeModel = require('../../models/recipe');
 const AccountModel = require('../../models/account');
 
+const clearDB = require('../../utils/clearDB');
+
 describe('Recipe Controller Test', () => {
   let user = null;
 
+  beforeAll(async () => {
+    await clearDB();
+  })
+
   beforeEach(async (done) => {
     // Clean collections
-    await AccountModel.remove({});
-    await RecipeModel.remove({});
+    await clearDB();
 
     // Create a new user
     AccountModel.register(
@@ -32,10 +37,10 @@ describe('Recipe Controller Test', () => {
         done();
       }
     );
-  })
+  });
 
-  afterAll(() => {
-    mongoose.connection.close();
+  afterAll(async () => {
+    await mongoose.connection.close();
   })
 
   describe('Recipe.submit', () => {

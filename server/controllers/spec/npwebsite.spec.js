@@ -4,21 +4,22 @@ const parseURL = require('url-parse');
 require('../../db');
 
 const NPWebsite = require('../npwebsite');
+
 const NPWebsiteModel = require('../../models/npwebsite');
 const AccountModel = require('../../models/account');
+
+const clearDB = require('../../utils/clearDB');
 
 describe('NPWebsite Controller Test', () => {
   let user = null;
   let user2 = null;
-  beforeAll(async (done) => {
-    await AccountModel.remove({});
-    await NPWebsiteModel.remove({});
-    done();
+
+  beforeAll(async () => {
+    await clearDB();
   });
 
   beforeEach(async (done) => {
-    await AccountModel.remove({});
-    await NPWebsiteModel.remove({});
+    await clearDB();
 
     AccountModel.register(
       new AccountModel({
@@ -30,27 +31,29 @@ describe('NPWebsite Controller Test', () => {
         },
       }),
       new Buffer('test'),
-      (err, createdUser) => { user = createdUser; }
-    );
-    AccountModel.register(
-      new AccountModel({
-        username: 'test2',
-        info: {
-          firstName: 'test2',
-          lastName: 'test2',
-          email: 'test2',
-        },
-      }),
-      new Buffer('test2'),
       (err, createdUser) => {
-        user2 = createdUser;
-        done();
+        user = createdUser;
+        AccountModel.register(
+          new AccountModel({
+            username: 'test2',
+            info: {
+              firstName: 'test2',
+              lastName: 'test2',
+              email: 'test2',
+            },
+          }),
+          new Buffer('test2'),
+          (err, createdUser) => {
+            user2 = createdUser;
+            done();
+          }
+        );
       }
     );
   });
 
-  afterAll(() => {
-    mongoose.connection.close()
+  afterAll(async () => {
+    await mongoose.connection.close()
   });
 
   describe('save', () => {

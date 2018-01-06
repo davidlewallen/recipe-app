@@ -14,8 +14,8 @@ describe('Account Model Test', () => {
     await Account.remove({});
   });
 
-  afterAll(() => {
-    mongoose.connections.close();
+  afterAll(async () => {
+    await mongoose.connections.close();
   });
 
   describe('save', () => {
