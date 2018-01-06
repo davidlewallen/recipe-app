@@ -18,7 +18,7 @@ const stripWebsite = async (parsedURL) => {
 
     // Get hostname's strip function by filtering by hostname
     // returning an array
-    const hostnameFunction = acceptedWebsites.filter(
+    const hostnameFunction = acceptedWebsites().filter(
       website => website.hostname === hostname
     )[0].func;
 
@@ -40,7 +40,7 @@ const stripWebsite = async (parsedURL) => {
 // Check if we have rules for passed in website, returning true or false
 const isWebsiteProcessable = (parsedURL) => {
   const hostname = parsedURL.hostname;
-  return !!acceptedWebsites.filter(website => website.hostname === hostname).length
+  return !!acceptedWebsites().filter(website => website.hostname === hostname).length
 }
 
 module.exports = {
