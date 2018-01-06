@@ -5,13 +5,15 @@ const logger = require('morgan');
 const passport = require('passport');
 const session = require('express-session');
 
+const server = require('./db');
+
 const scheduledTask = require('./utils/scheduledTask');
 
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-require('./db');
+server.start();
 
 const assetFolder = path.join(__dirname, '..', 'build');
 

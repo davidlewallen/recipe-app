@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 // Set up mongo connection
-require('../../db');
+const server = require('../../db');
 
 const Recipe = require('../recipe');
+const Account = require('../account');
 
 const RecipeModel = require('../../models/recipe');
 const AccountModel = require('../../models/account');
@@ -14,34 +15,22 @@ describe('Recipe Controller Test', () => {
   let user = null;
 
   beforeAll(async () => {
-    await clearDB();
+    await server.start();
   })
 
   beforeEach(async (done) => {
-    // Clean collections
-    await clearDB();
+    user = await Account.createTestAccount('1');
+    done();
+  });
 
-    // Create a new user
-    AccountModel.register(
-      new AccountModel({
-        username: 'test',
-        info: {
-          firstName: 'test',
-          lastName: 'test',
-          email: 'test',
-        },
-      }),
-      new Buffer('test'),
-      (err, createdUser) => {
-        user = createdUser;
-        done();
-      }
-    );
+  afterEach(async (done) => {
+    await clearDB();
+    done();
   });
 
   afterAll(async () => {
     await mongoose.connection.close();
-  })
+  });
 
   describe('Recipe.submit', () => {
     it('should submit a recipe when recipe doesnt exist', async () => {

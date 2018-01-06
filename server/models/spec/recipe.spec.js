@@ -1,18 +1,24 @@
 const mongoose = require('mongoose');
 
 // Set up mongo connection
-require('../../db');
+const server = require('../../db');
 
 const Recipe = require('../recipe');
 
 describe('Recipe Model Test', () => {
   beforeAll(async () => {
-    await Recipe.remove({});
+    await server.start();
   });
 
-  beforeEach(async () => {
+  beforeEach(async (done) => {
     await Recipe.remove({});
+    done();
   });
+
+  afterEach(async (done) => {
+    await Recipe.remove({});
+    done();
+  })
 
   afterAll(async() => {
     await mongoose.connection.close();
