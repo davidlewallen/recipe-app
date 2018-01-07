@@ -41,12 +41,7 @@ const submit = async (recipeURL, userId) => {
         result = await recipe.save()
       }
 
-      // If result is an array target index 0 and grab _id
-      // If result is an object target ._id
-      const recipeId = Array.isArray(result) ? result[0]._id : result._id;
-      await saveRecipeToUser(recipeId, userId);
-
-      return result;
+      return await saveRecipeToUser(result, userId);
     }
     
     await NPWebsite.save(parsedURL, userId);
@@ -57,9 +52,12 @@ const submit = async (recipeURL, userId) => {
   }
 };
 
-const saveRecipeToUser = async (recipeId, userId) => {
-  const result = await Account.find({ savedRecipes: recipeId});
-  const isRecipeSaved = !!result.length;
+const saveRecipeToUser = async (result, userId) => {
+  // If result is an array target index 0 and grab _id
+  // If result is an object target ._id
+  const recipeId = Array.isArray(result) ? result[0]._id : result._id;
+  const savedRecipeResult = await Account.find({ savedRecipes: recipeId});
+  const isRecipeSaved = !!savedRecipeResult.length;
   
   // If user hasnt saved the recipe, add it to account.savedRecipe
   if (!isRecipeSaved) {
@@ -68,6 +66,10 @@ const saveRecipeToUser = async (recipeId, userId) => {
       { $push: { savedRecipes: recipeId } },
       { new: true },
     );
+
+    return result;
+  } else {
+    return { alreadyAdded: true }
   }
 }
 
