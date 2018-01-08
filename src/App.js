@@ -6,33 +6,33 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      registerUsername: '',
-      registerPassword: '',
-      registerFirstName: '',
-      registerLastName: '',
-      registerEmail: '',
+      // registerUsername: '',
+      // registerPassword: '',
+      // registerFirstName: '',
+      // registerLastName: '',
+      // registerEmail: '',
       loginUsername: '',
       loginPassword: '',
       recipeURL: '',
       recipeList: [],
     }
   }
-  register = async (event) => {
-    event.preventDefault();
-    const body = {
-      username: this.state.registerUsername,
-      password: this.state.registerPassword,
-      firstName: this.state.registerFirstName,
-      lastName: this.state.registerLastName,
-      email: this.state.registerEmail,
-    }
+  // register = async (event) => {
+  //   event.preventDefault();
+  //   const body = {
+  //     username: this.state.registerUsername,
+  //     password: this.state.registerPassword,
+  //     firstName: this.state.registerFirstName,
+  //     lastName: this.state.registerLastName,
+  //     email: this.state.registerEmail,
+  //   }
 
-    try {
-      await axios.post('/api/account/register', body);
-    } catch (err) {
-      console.error(err.response.data.message);
-    }
-  }
+  //   try {
+  //     await axios.post('/api/account/register', body);
+  //   } catch (err) {
+  //     console.error(err.response.data.message);
+  //   }
+  // }
 
   login = async (event) => {
     event.preventDefault();
@@ -95,30 +95,30 @@ class App extends Component {
       console.log(err);
     }
   }
-  handleRegisterUsername = (event) => {
-    const registerUsername = event.target.value;
-    this.setState({ registerUsername });
-  }
+  // handleRegisterUsername = (event) => {
+  //   const registerUsername = event.target.value;
+  //   this.setState({ registerUsername });
+  // }
 
-  handleRegisterPassword = (event) => {
-    const registerPassword = event.target.value;
-    this.setState({ registerPassword });
-  }
+  // handleRegisterPassword = (event) => {
+  //   const registerPassword = event.target.value;
+  //   this.setState({ registerPassword });
+  // }
 
-  handleRegisterFirstName = (event) => {
-    const registerFirstName = event.target.value;
-    this.setState({ registerFirstName });
-  }
+  // handleRegisterFirstName = (event) => {
+  //   const registerFirstName = event.target.value;
+  //   this.setState({ registerFirstName });
+  // }
 
-  handleRegisterLastName = (event) => {
-    const registerLastName = event.target.value;
-    this.setState({ registerLastName });
-  }
+  // handleRegisterLastName = (event) => {
+  //   const registerLastName = event.target.value;
+  //   this.setState({ registerLastName });
+  // }
 
-  handleRegisterEmail = (event) => {
-    const registerEmail = event.target.value;
-    this.setState({ registerEmail });
-  }
+  // handleRegisterEmail = (event) => {
+  //   const registerEmail = event.target.value;
+  //   this.setState({ registerEmail });
+  // }
 
   handleLoginUsername = (event) => {
     const loginUsername = event.target.value;
@@ -140,7 +140,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <form className="register">
+        {/* <form className="register">
           <input
             placeholder="Username"
             value={this.state.registerUsername}
@@ -167,9 +167,9 @@ class App extends Component {
             onChange={this.handleRegisterEmail}
           />
           <button onClick={this.register}>Register</button>
-        </form>
+        </form> */}
 
-        <br />
+        {/* <br /> */}
 
         <form className="login">
           <input
