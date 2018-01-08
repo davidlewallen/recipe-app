@@ -1,8 +1,12 @@
 {
   "proxy": {
     "/api": {
-      "target": "http://localhost:3001"
+      "target": "http://localhost:3001123123"
     }
+  },
+  "engine": {
+    "node": "8.5.0",
+    "npm": "5.3.0"
   },
   "name": "recipe-app",
   "version": "0.1.0",
@@ -62,12 +66,14 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "start:prod": "cross-env NODE_ENV=prod node scripts/build.js && node ./server",
     "server:prod": "cross-env PORT=3001 NODE_ENV=prod nodemon -w ./server ./server/index.js",
     "server:dev": "cross-env PORT=3001 NODE_ENV=dev nodemon -w ./server ./server/index.js",
     "server:test": "cross-env NODE_ENV=test jest --testPathPattern=server --watch --no-cache --i",
     "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "node scripts/build.js",
-    "test": "cross-env NODE_ENV=test node scripts/test.js --env=jsdom"
+    "test": "cross-env NODE_ENV=test node scripts/test.js --env=jsdom",
+    "heroku-prebuild": "node scripts/build.js"
   },
   "jest": {
     "collectCoverageFrom": [
