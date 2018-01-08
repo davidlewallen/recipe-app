@@ -41,6 +41,10 @@ app.get('/', (req, res) => {
   res.sendFile(assetFolder + '/index.html');
 })
 
+app.get('/test', (req, res) => {
+  res.send(true);
+})
+
 app.use('/api', routes);
 
 app.get('*', (req, res) => {
