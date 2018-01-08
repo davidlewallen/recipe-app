@@ -1,1 +1,1 @@
-web: npm run server:prod
+web: node ./server/index.js
