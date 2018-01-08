@@ -70,7 +70,26 @@ describe('Recipe Controller Test', () => {
       const result = await AccountModel.findById(user._id);
       
       expect(result.savedRecipes[0]).toEqual(recipeId);
-    })
+    });
+
+    it.only('should return alreadyAdded if a user has already submitted the recipe', async () => {
+      const url = 'http://allrecipes.com/recipe/24002/famous-butter-chicken/';
+
+      let recipe = await Recipe.submit(url, user._id);
+      const recipeId = recipe._id;
+
+      let result = await AccountModel.findById(user._id);
+      expect(result.savedRecipes.length).toBe(1);
+      expect(result.savedRecipes[0]).toEqual(recipeId);
+
+      recipe = await Recipe.submit(url, user._id);
+      expect(recipe.alreadyAdded).toBeDefined();
+      expect(recipe.alreadyAdded).toBe(true);
+      
+      result = await AccountModel.findById(user._id);
+      expect(result.savedRecipes.length).toBe(1);
+      expect(result.savedRecipes[0]).toEqual(recipeId);
+    });
   })
 
   describe('Recipe.get', () => {

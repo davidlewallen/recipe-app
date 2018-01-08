@@ -38,14 +38,18 @@ const submit = async (recipeURL, userId) => {
       // If recipe doesnt already exist, strip website and save to recipe
       if (!exists) {
         const recipe = new Recipe({ ...await stripWebsite(parsedURL) });
-        result = await recipe.save()
+        result = await recipe.save();
       }
-
       // If result is an array target index 0 and grab _id
       // If result is an object target ._id
       const recipeId = Array.isArray(result) ? result[0]._id : result._id;
-      await saveRecipeToUser(recipeId, userId);
 
+      const savedRecipe = await saveRecipeToUser(recipeId, userId);
+
+      if (!savedRecipe) {
+        return { alreadyAdded: true };
+      }
+      
       return result;
     }
     
@@ -58,16 +62,21 @@ const submit = async (recipeURL, userId) => {
 };
 
 const saveRecipeToUser = async (recipeId, userId) => {
-  const result = await Account.find({ savedRecipes: recipeId});
-  const isRecipeSaved = !!result.length;
+  const savedRecipeResult = await Account.find({ savedRecipes: recipeId});
+  const isRecipeSaved = !!savedRecipeResult.length;
   
   // If user hasnt saved the recipe, add it to account.savedRecipe
+  // Returns true if saved to user and false if not;
   if (!isRecipeSaved) {
     await Account.findByIdAndUpdate(
       userId,
       { $push: { savedRecipes: recipeId } },
       { new: true },
     );
+
+    return true;
+  } else {
+    return false;
   }
 }
 
