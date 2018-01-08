@@ -1,9 +1,4 @@
 {
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:3001123123"
-    }
-  },
   "engine": {
     "node": "8.5.0",
     "npm": "5.3.0"
