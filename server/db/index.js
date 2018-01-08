@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 module.exports = {
   start: async () => {
     let uri;
-    const USERNAME = process.env.NODE_ENV !== 'prod' ? encodeURI(process.env.MONGO_USERNAME) : process.env.MONGO_USERNAME;
-    const PASSWORD = process.env.NODE_ENV !== 'prod' ? encodeURI(process.env.MONGO_PASSWORD) : process.env.MONGO_PASSWORD;
+    const USERNAME = process.env.NODE_ENV === 'prod' ? encodeURI(process.env.MONGO_USERNAME) : process.env.MONGO_USERNAME;
+    const PASSWORD = process.env.NODE_ENV === 'prod' ? encodeURI(process.env.MONGO_PASSWORD) : process.env.MONGO_PASSWORD;
     console.log('USERNAME', USERNAME)
     console.log('PASSWORSD', PASSWORD)
     if (process.env.NODE_ENV === 'dev') {
