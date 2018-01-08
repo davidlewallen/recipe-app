@@ -159,7 +159,7 @@ class App extends Component {
           <input
             placeholder="Last Name"
             value={this.state.registerLastName}
-            onChange={this.handleRegisterLastName}
+            onChange={this.handleRegisterLastName }
           />
           <input
             placeholder="Email Address"
