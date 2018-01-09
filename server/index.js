@@ -1,5 +1,3 @@
-if (process.env.NODE_ENV !== 'prod') require('dotenv').config();
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');

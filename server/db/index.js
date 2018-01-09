@@ -1,9 +1,10 @@
+if (process.env.NODE_ENV !== 'prod') require('dotenv').config();
 const mongoose = require('mongoose');
 
 module.exports = {
   start: async () => {
-    const USERNAME = process.env.NODE_ENV === 'prod' ? encodeURI(process.env.MONGO_USERNAME) : process.env.MONGO_USERNAME;
-    const PASSWORD = process.env.NODE_ENV === 'prod' ? encodeURI(process.env.MONGO_PASSWORD) : process.env.MONGO_PASSWORD;
+    const USERNAME = encodeURIComponent(process.env.MONGO_USERNAME);
+    const PASSWORD = encodeURIComponent(process.env.MONGO_PASSWORD);
 
     let uri;
     

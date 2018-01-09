@@ -18,11 +18,7 @@ router.post('/register', (req, res) => {
   Account.register(
     new Account({
       username: req.body.username,
-      info: {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-      },
+      email: req.body.email,
     }),
     req.body.password,
     (err) => {
@@ -35,7 +31,6 @@ router.post('/register', (req, res) => {
           _id: req.user._id,
           username: req.user.username,
           savedRecipes: req.user.savedRecipes,
-          info: req.user.info,
         }
         res.send(userObject)
       })
