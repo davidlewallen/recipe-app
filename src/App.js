@@ -48,7 +48,6 @@ class App extends Component {
   }
 
   submitRecipe = async (event) => {
-    console.log('submit');
     event.preventDefault();
 
     try {
@@ -56,8 +55,7 @@ class App extends Component {
       const { data } = await axios.post(`/api/recipe/submit/${encodedRecipeURI}`)
 
       if (data.alreadyAdded === false) {
-        console.log('not added');
-        this.setState({ recipeList: [...this.state.recipeList, data] }, () => console.log('this.state.recipeList', this.state.recipeList))
+        this.setState({ recipeList: [...this.state.recipeList, data] })
       }
 
     } catch (err) {
