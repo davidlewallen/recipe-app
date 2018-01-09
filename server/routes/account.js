@@ -16,7 +16,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
     res.json(userObject);
   } else {
     req.logout();
-    res.redirect('/');
+    res.json({ lockdownPhraseMissing: true })
   }
 });
 
