@@ -13,6 +13,7 @@ class App extends Component {
       // registerEmail: '',
       loginUsername: '',
       loginPassword: '',
+      loginPhrase: '',
       recipeURL: '',
       recipeList: [],
     }
@@ -39,12 +40,16 @@ class App extends Component {
     const body = {
       username: this.state.loginUsername,
       password: this.state.loginPassword,
+      lockdownPhrase: this.state.loginPhrase,
     };
 
-    await axios.post('/api/account/login', body);
-    const recipes = await axios.get('/api/recipe');
-
-    this.setState({ recipeList: recipes.data })
+    const { data } = await axios.post('/api/account/login', body);
+    
+    if (!data.lockdownPhraseMissing) {
+      const recipes = await axios.get('/api/recipe');
+  
+      this.setState({ recipeList: recipes.data })
+    }
   }
 
   submitRecipe = async (event) => {
@@ -130,6 +135,11 @@ class App extends Component {
     this.setState({ loginPassword });
   }
 
+  handleLoginPhrase = (event) => {
+    const loginPhrase = event.target.value;
+    this.setState({ loginPhrase });
+  }
+
   handleRecipe = (event) => {
     const recipeURL = event.target.value;
     this.setState({ recipeURL })
@@ -181,6 +191,11 @@ class App extends Component {
             placeholder="Password"
             value={this.state.loginPassword}
             onChange={this.handleLoginPassword}
+          />
+          <input
+            placeholder="Phrase"
+            value={this.state.loginPhrase}
+            onChange={this.handleLoginPhrase}
           />
           <button onClick={this.login}>Login</button>
         </form>
