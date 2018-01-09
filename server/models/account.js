@@ -12,7 +12,11 @@ const AccountSchema = new Schema({
   email: {
     type: String,
     require: true,
-    validate: [isEmail, 'invalid email'],
+    validate: {
+      isAsync: true,
+      validator: isEmail,
+      message: 'invalid email',
+    },
   },
   savedRecipes: [Schema.Types.ObjectId],
 });
