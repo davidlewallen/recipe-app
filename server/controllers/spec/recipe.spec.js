@@ -72,7 +72,7 @@ describe('Recipe Controller Test', () => {
       expect(result.savedRecipes[0]).toEqual(recipeId);
     });
 
-    it.only('should return alreadyAdded if a user has already submitted the recipe', async () => {
+    it('should return alreadyAdded if a user has already submitted the recipe', async () => {
       const url = 'http://allrecipes.com/recipe/24002/famous-butter-chicken/';
 
       let recipe = await Recipe.submit(url, user._id);
