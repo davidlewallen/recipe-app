@@ -1,8 +1,7 @@
 {
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:3001"
-    }
+  "engines": {
+    "node": "8.5.0",
+    "npm": "5.3.0"
   },
   "name": "recipe-app",
   "version": "0.1.0",

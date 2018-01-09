@@ -1,3 +1,5 @@
+if (process.env.NODE_ENV !== 'prod') require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -12,8 +14,6 @@ const scheduledTask = require('./utils/scheduledTask');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
-
-server.start();
 
 const assetFolder = path.join(__dirname, '..', 'build');
 
@@ -46,7 +46,8 @@ app.get('*', (req, res) => {
   res.send('404 Page Does Not Exist')
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  await server.start();
   scheduledTask.runTasks();
   console.log(`API running on port ${PORT}`);
 })
