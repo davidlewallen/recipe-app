@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 module.exports = {
   start: async () => {
-    let uri;
     const USERNAME = process.env.NODE_ENV === 'prod' ? encodeURI(process.env.MONGO_USERNAME) : process.env.MONGO_USERNAME;
     const PASSWORD = process.env.NODE_ENV === 'prod' ? encodeURI(process.env.MONGO_PASSWORD) : process.env.MONGO_PASSWORD;
-    console.log('USERNAME', USERNAME)
-    console.log('PASSWORSD', PASSWORD)
+
+    let uri;
+    
     if (process.env.NODE_ENV === 'dev') {
       uri = `mongodb://${USERNAME}:${PASSWORD}@ds163836.mlab.com:63836/recipe-dev`;
     } else if (process.env.NODE_ENV === 'test') {
