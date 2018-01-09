@@ -4,14 +4,20 @@ const passport = require('passport');
 
 const Account = require('../models/account');
 
+// TODO: Remove lockdown
+// router.post('/login', passport.authenticate('local'), (req, res) => {
 router.post('/login', passport.authenticate('local'), (req, res) => {
-  const userObject = {
-    _id: req.user._id,
-    username: req.user.username,
-    savedRecipes: req.user.savedRecipes,
-    info: req.user.info,
+  if (req.body.lockdownPhrase === process.env.LOCKDOWN_PHRASE) {
+    const userObject = {
+      _id: req.user._id,
+      username: req.user.username,
+      savedRecipes: req.user.savedRecipes,
+    }
+    res.json(userObject);
+  } else {
+    req.logout();
+    res.redirect('/');
   }
-  res.json(userObject);
 });
 
 router.post('/register', (req, res) => {
