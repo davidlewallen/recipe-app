@@ -15,8 +15,6 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-server.start();
-
 const assetFolder = path.join(__dirname, '..', 'build');
 
 const routes = require('./routes');
@@ -48,7 +46,8 @@ app.get('*', (req, res) => {
   res.send('404 Page Does Not Exist')
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  await server.start();
   scheduledTask.runTasks();
   console.log(`API running on port ${PORT}`);
 })
