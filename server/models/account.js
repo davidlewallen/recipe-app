@@ -11,7 +11,7 @@ const AccountSchema = new Schema({
   password: { type: String },
   email: {
     type: String,
-    require: true,
+    required: true,
     validate: {
       isAsync: true,
       validator: isEmail,
