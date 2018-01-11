@@ -9,7 +9,6 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
     _id: req.user._id,
     username: req.user.username,
     savedRecipes: req.user.savedRecipes,
-    info: req.user.info,
   }
   res.json(userObject);
 });
@@ -41,6 +40,13 @@ router.post('/register', (req, res) => {
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
-})
+});
+
+router.get('/auth', (req, res) => {
+  const isAuth = req.isAuthenticated();
+  const result = { isAuth };
+
+  res.json(result);
+});
 
 module.exports = router;

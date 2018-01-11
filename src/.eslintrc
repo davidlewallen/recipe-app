@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["react-app", "airbnb"],
+  "rules": {
+    "no-underscore-dangle": "off",
+    "import/no-unresolved": [
+      2,
+      { "caseSensitive": false }
+    ]
+  }
+}
