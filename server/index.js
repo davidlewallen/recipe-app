@@ -36,16 +36,16 @@ passport.deserializeUser(Account.deserializeUser());
 
 app.get('/', (req, res) => {
   res.sendFile(assetFolder + '/index.html');
-})
+});
 
 app.use('/api', routes);
 
-app.get('*', (req, res) => {
-  res.send('404 Page Does Not Exist')
-})
+app.get('/*', (req, res) => {
+  res.sendFile(assetFolder + '/index.html');
+});
 
 app.listen(PORT, async () => {
   await server.start();
   scheduledTask.runTasks();
   console.log(`API running on port ${PORT}`);
-})
+});
