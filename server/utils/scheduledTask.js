@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const updateNPWebsites = require('./updateNPWebsites');
 
 const updateNPWebsitesTask = () => {
@@ -5,8 +7,15 @@ const updateNPWebsitesTask = () => {
   setInterval(() => updateNPWebsites.checkProcessableWebsites(), interval);
 };
 
+const noSleep = () => {
+  if (process.env.NODE_ENV === 'prod') {
+    setInterval(() => axios.get('http://www.mysavedrecipes.com'), 5000);
+  }
+};
+
 const runTasks = () => {
   updateNPWebsitesTask();
-}
+  noSleep();
+};
 
 module.exports = { runTasks };
