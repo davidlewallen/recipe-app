@@ -9,7 +9,12 @@ const updateNPWebsitesTask = () => {
 
 const noSleep = () => {
   if (process.env.NODE_ENV === 'prod') {
-    setInterval(() => axios.get('http://www.mysavedrecipes.com'), 5000);
+    const maxInterval = 3300000;
+    const minInterval = 1800000;
+
+    const interval = Math.floor(Math.random() * (maxInterval - minInterval + 1)) + minInterval;
+
+    setInterval(() => axios.get('http://www.mysavedrecipes.com'), interval);
   }
 };
 
