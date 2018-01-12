@@ -15,14 +15,7 @@ const propTypes = {
   handleRegisterLastName: func.isRequired,
   registerEmail: string.isRequired,
   handleRegisterEmail: func.isRequired,
-  loginUsername: string.isRequired,
-  handleLoginUsername: func.isRequired,
-  loginPassword: string.isRequired,
-  handleLoginPassword: func.isRequired,
-  loginPhrase: string.isRequired,
-  handleLoginPhrase: func.isRequired,
   register: func.isRequired,
-  login: func.isRequired,
   recipeURL: string.isRequired,
   handleRecipe: func.isRequired,
   submitRecipe: func.isRequired,
@@ -60,27 +53,6 @@ const Homepage = props => (
         onChange={props.handleRegisterEmail}
       />
       <button onClick={props.register}>Register</button>
-    </form>
-
-    <br />
-
-    <form className="login">
-      <input
-        placeholder="Username"
-        value={props.loginUsername}
-        onChange={props.handleLoginUsername}
-      />
-      <input
-        placeholder="Password"
-        value={props.loginPassword}
-        onChange={props.handleLoginPassword}
-      />
-      <input
-        placeholder="Phrase"
-        value={props.loginPhrase}
-        onChange={props.handleLoginPhrase}
-      />
-      <button onClick={props.login}>Login</button>
     </form>
 
     <br />
