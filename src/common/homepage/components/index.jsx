@@ -35,7 +35,7 @@ const Homepage = props => (
   <div>
     <form className="register">
       <input
-        placeholder="Usernam1111e"
+        placeholder="Username"
         value={props.registerUsername}
         onChange={props.handleRegisterUsername}
       />
