@@ -77,7 +77,7 @@ class App extends Component {
       const encodedRecipeURI = encodeURIComponent(this.state.recipe.url);
       const { data } = await axios.post(`/api/recipe/submit/${encodedRecipeURI}`);
 
-      if (data.alreadyAdded === false) {
+      if (!data.alreadyAdded) {
         this.setState(prevState => ({
           recipe: {
             ...prevState.recipe,
