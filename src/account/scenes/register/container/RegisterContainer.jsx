@@ -17,6 +17,10 @@ class RegisterContainer extends Component {
       username: '',
       password: '',
       email: '',
+      error: {
+        value: false,
+        message: '',
+      },
     };
   }
 
@@ -35,6 +39,14 @@ class RegisterContainer extends Component {
       this.props.history.replace('/');
     } catch (err) {
       console.error(err.response.data.message);
+      if (err.response.status === 409) {
+        this.setState({
+          error: {
+            value: true,
+            message: err.response.data.message,
+          },
+        });
+      }
     }
   }
 
@@ -62,6 +74,7 @@ class RegisterContainer extends Component {
       email={this.state.email}
       handleEmail={this.handleEmail}
       register={this.register}
+      error={this.state.error}
     />
   );
 }
