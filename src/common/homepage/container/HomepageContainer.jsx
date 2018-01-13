@@ -20,11 +20,6 @@ class App extends Component {
         lastname: '',
         email: '',
       },
-      login: {
-        username: '',
-        password: '',
-        phrase: '',
-      },
       recipe: {
         url: '',
         list: [],
@@ -32,8 +27,14 @@ class App extends Component {
     };
   }
 
-  componentWillMount = () => {
-    this.checkIsAuth();
+  componentWillMount = async () => {
+    await this.initialize();
+  }
+
+  getUserRecipes = async () => {
+    const { data: recipes } = await axios.get('/api/recipe');
+
+    await this.setState(prevState => ({ recipe: { ...prevState.recipe, list: recipes } }));
   }
 
   checkIsAuth = async () => {
@@ -42,6 +43,11 @@ class App extends Component {
     if (data.isAuth === false) {
       this.props.history.replace('/account/login');
     }
+  }
+
+  initialize = async () => {
+    await this.checkIsAuth();
+    await this.getUserRecipes();
   }
 
   register = async (event) => {
@@ -64,26 +70,6 @@ class App extends Component {
     }
   }
 
-  login = async (event) => {
-    event.preventDefault();
-
-    const { login } = this.state;
-
-    const body = {
-      username: login.username,
-      password: login.password,
-      lockdownPhrase: login.phrase,
-    };
-
-    const { data } = await axios.post('/api/account/login', body);
-
-    if (!data.lockdownPhraseMissing) {
-      const { data: recipes } = await axios.get('/api/recipe');
-
-      await this.setState(prevState => ({ recipe: { ...prevState.recipe, list: recipes } }));
-    }
-  }
-
   submitRecipe = async (event) => {
     event.preventDefault();
 
@@ -91,7 +77,7 @@ class App extends Component {
       const encodedRecipeURI = encodeURIComponent(this.state.recipe.url);
       const { data } = await axios.post(`/api/recipe/submit/${encodedRecipeURI}`);
 
-      if (data.alreadyAdded === false) {
+      if (!data.alreadyAdded) {
         this.setState(prevState => ({
           recipe: {
             ...prevState.recipe,
@@ -191,35 +177,6 @@ class App extends Component {
     }));
   }
 
-  handleLoginUsername = (event) => {
-    const username = event.target.value;
-    this.setState(prevState => ({
-      login: {
-        ...prevState.login,
-        username,
-      },
-    }));
-  }
-
-  handleLoginPassword = (event) => {
-    const password = event.target.value;
-    this.setState(prevState => ({
-      login: {
-        ...prevState.login,
-        password,
-      },
-    }));
-  }
-
-  handleLoginPhrase = (event) => {
-    const phrase = event.target.value;
-    this.setState(prevState => ({
-      login: {
-        ...prevState.login,
-        phrase,
-      },
-    }));
-  }
 
   handleRecipe = (event) => {
     const url = event.target.value;
@@ -239,9 +196,6 @@ class App extends Component {
       registerFirstName={this.state.register.firstname}
       registerLastName={this.state.register.lastname}
       registerEmail={this.state.register.email}
-      loginUsername={this.state.login.username}
-      loginPassword={this.state.login.password}
-      loginPhrase={this.state.login.phrase}
       recipeURL={this.state.recipe.url}
       recipeList={this.state.recipe.list}
       handleRegisterUsername={this.handleRegisterUsername}
@@ -254,7 +208,6 @@ class App extends Component {
       handleLoginPhrase={this.handleLoginPhrase}
       handleRecipe={this.handleRecipe}
       register={this.register}
-      login={this.login}
       submitRecipe={this.submitRecipe}
       authenticated={this.authenticated}
       userRecipes={this.userRecipes}
