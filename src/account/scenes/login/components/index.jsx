@@ -29,11 +29,7 @@ const Login = props => (
         value={props.password}
         onChange={props.handlePassword}
       />
-      <button
-        onClick={props.login}
-      >
-        Login
-      </button>
+      <button onClick={props.login}>Login</button>
     </form>
 
     <div>
