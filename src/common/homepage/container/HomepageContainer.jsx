@@ -27,8 +27,14 @@ class App extends Component {
     };
   }
 
-  componentWillMount = () => {
-    this.checkIsAuth();
+  componentWillMount = async () => {
+    await this.initialize();
+  }
+
+  getUserRecipes = async () => {
+    const { data: recipes } = await axios.get('/api/recipe');
+
+    await this.setState(prevState => ({ recipe: { ...prevState.recipe, list: recipes } }));
   }
 
   checkIsAuth = async () => {
@@ -37,6 +43,11 @@ class App extends Component {
     if (data.isAuth === false) {
       this.props.history.replace('/account/login');
     }
+  }
+
+  initialize = async () => {
+    await this.checkIsAuth();
+    await this.getUserRecipes();
   }
 
   register = async (event) => {
