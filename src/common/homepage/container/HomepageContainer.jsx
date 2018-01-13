@@ -116,9 +116,6 @@ class App extends Component {
     <Homepage
       recipeURL={this.state.recipe.url}
       recipeList={this.state.recipe.list}
-      handleLoginUsername={this.handleLoginUsername}
-      handleLoginPassword={this.handleLoginPassword}
-      handleLoginPhrase={this.handleLoginPhrase}
       handleRecipe={this.handleRecipe}
       submitRecipe={this.submitRecipe}
       authenticated={this.authenticated}
