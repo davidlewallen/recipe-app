@@ -67,26 +67,6 @@ class App extends Component {
     }
   }
 
-  authenticated = async (event) => {
-    event.preventDefault();
-
-    try {
-      const result = await axios.get('/api/account/testProtectedRoute');
-      console.log(result.data);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  userRecipes = async () => {
-    try {
-      const result = await axios.get('/api/recipe');
-      console.log('result', result);
-    } catch (err) {
-      console.log('err', err);
-    }
-  }
-
   deleteRecipe = async (recipeId) => {
     try {
       const { data: recipes } = await axios.delete(`/api/recipe/delete/${recipeId}`);
@@ -118,8 +98,6 @@ class App extends Component {
       recipeList={this.state.recipe.list}
       handleRecipe={this.handleRecipe}
       submitRecipe={this.submitRecipe}
-      authenticated={this.authenticated}
-      userRecipes={this.userRecipes}
     />
   );
 }

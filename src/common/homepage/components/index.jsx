@@ -8,8 +8,6 @@ const propTypes = {
   recipeURL: string.isRequired,
   handleRecipe: func.isRequired,
   submitRecipe: func.isRequired,
-  authenticated: func.isRequired,
-  userRecipes: func.isRequired,
   recipeList: arrayOf(object).isRequired,
 };
 
@@ -23,11 +21,6 @@ const Homepage = props => (
       />
       <button onClick={props.submitRecipe}>Submit</button>
     </form>
-
-    <br />
-
-    <button onClick={props.authenticated}>Am I authenticated</button>
-    <button onClick={props.userRecipes}>Get User Recipes</button>
 
     <br />
 
