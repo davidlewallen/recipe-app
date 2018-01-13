@@ -16,6 +16,7 @@ class LoginContainer extends Component {
     this.state = {
       username: '',
       password: '',
+      error: false,
     };
   }
 
@@ -25,20 +26,18 @@ class LoginContainer extends Component {
     try {
       const { username, password } = this.state;
 
-      if (username || password) {
-        const body = { username, password };
+      const body = { username, password };
 
-        const result = await axios.post('/api/account/login', body);
+      const result = await axios.post('/api/account/login', body);
 
-        if (result.status === 200) {
-          this.props.history.replace('/');
-        }
-      } else {
-        // do something here to validate fields
+      if (result.status === 200) {
+        this.props.history.replace('/');
       }
     } catch (err) {
-      if (err.response.status === 401) {
-        console.log('Account doesnt exist');
+      const { response } = err;
+      if (response.status === 400 || response.status === 401) {
+        this.clearFields();
+        this.setState({ error: true });
       }
     }
   }
@@ -53,12 +52,17 @@ class LoginContainer extends Component {
     this.setState({ password });
   }
 
+  clearFields = () => {
+    this.setState({ username: '', password: '' });
+  }
+
   render = () => (
     <Login
       username={this.state.username}
       handleUsername={this.handleUsername}
       password={this.state.password}
       handlePassword={this.handlePassword}
+      error={this.state.error}
       login={this.login}
     />
   )
