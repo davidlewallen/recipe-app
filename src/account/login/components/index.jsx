@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const { string, func } = PropTypes;
 const propTypes = {
@@ -11,19 +12,27 @@ const propTypes = {
 };
 
 const Login = props => (
-  <form className="login">
-    <input
-      placeholder="Username"
-      value={props.username}
-      onChange={props.handleUsername}
-    />
-    <input
-      placeholder="Password"
-      value={props.password}
-      onChange={props.handlePassword}
-    />
-    <button onClick={props.login}>Login</button>
-  </form>
+  <div className="login-container">
+    <form className="login">
+      <input
+        placeholder="Username"
+        value={props.username}
+        onChange={props.handleUsername}
+      />
+      <input
+        placeholder="Password"
+        value={props.password}
+        onChange={props.handlePassword}
+      />
+      <button onClick={props.login}>Login</button>
+    </form>
+
+    <div>
+      <p>
+        New to My Saved Recipes? <Link to="/account/register">Create an account.</Link>
+      </p>
+    </div>
+  </div>
 );
 
 Login.propTypes = propTypes;
