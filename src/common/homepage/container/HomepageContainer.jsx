@@ -13,13 +13,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      register: {
-        username: '',
-        password: '',
-        firstname: '',
-        lastname: '',
-        email: '',
-      },
       recipe: {
         url: '',
         list: [],
@@ -48,26 +41,6 @@ class App extends Component {
   initialize = async () => {
     await this.checkIsAuth();
     await this.getUserRecipes();
-  }
-
-  register = async (event) => {
-    event.preventDefault();
-
-    const { register } = this.state;
-
-    const body = {
-      username: register.username,
-      password: register.password,
-      firstName: register.firstname,
-      lastName: register.lastname,
-      email: register.email,
-    };
-
-    try {
-      await axios.post('/api/account/register', body);
-    } catch (err) {
-      console.error(err.response.data.message);
-    }
   }
 
   submitRecipe = async (event) => {
@@ -127,56 +100,6 @@ class App extends Component {
       console.log(err);
     }
   }
-  handleRegisterUsername = (event) => {
-    const username = event.target.value;
-    this.setState(prevState => ({
-      register: {
-        ...prevState.register,
-        username,
-      },
-    }));
-  }
-
-  handleRegisterPassword = (event) => {
-    const password = event.target.value;
-    this.setState(prevState => ({
-      register: {
-        ...prevState.register,
-        password,
-      },
-    }));
-  }
-
-  handleRegisterFirstName = (event) => {
-    const firstname = event.target.value;
-    this.setState(prevState => ({
-      register: {
-        ...prevState.register,
-        firstname,
-      },
-    }));
-  }
-
-  handleRegisterLastName = (event) => {
-    const lastname = event.target.value;
-    this.setState(prevState => ({
-      register: {
-        ...prevState.register,
-        lastname,
-      },
-    }));
-  }
-
-  handleRegisterEmail = (event) => {
-    const email = event.target.value;
-    this.setState(prevState => ({
-      register: {
-        ...prevState.register,
-        email,
-      },
-    }));
-  }
-
 
   handleRecipe = (event) => {
     const url = event.target.value;
@@ -191,23 +114,9 @@ class App extends Component {
 
   render = () => (
     <Homepage
-      registerUsername={this.state.register.username}
-      registerPassword={this.state.register.password}
-      registerFirstName={this.state.register.firstname}
-      registerLastName={this.state.register.lastname}
-      registerEmail={this.state.register.email}
       recipeURL={this.state.recipe.url}
       recipeList={this.state.recipe.list}
-      handleRegisterUsername={this.handleRegisterUsername}
-      handleRegisterPassword={this.handleRegisterPassword}
-      handleRegisterFirstName={this.handleRegisterFirstName}
-      handleRegisterLastName={this.handleRegisterLastName}
-      handleRegisterEmail={this.handleRegisterEmail}
-      handleLoginUsername={this.handleLoginUsername}
-      handleLoginPassword={this.handleLoginPassword}
-      handleLoginPhrase={this.handleLoginPhrase}
       handleRecipe={this.handleRecipe}
-      register={this.register}
       submitRecipe={this.submitRecipe}
       authenticated={this.authenticated}
       userRecipes={this.userRecipes}
