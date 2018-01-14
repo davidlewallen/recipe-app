@@ -15,7 +15,7 @@ const AccountSchema = new Schema({
     validate: {
       isAsync: true,
       validator: isEmail,
-      message: 'invalid email',
+      message: 'Invalid email address.',
     },
   },
   savedRecipes: [Schema.Types.ObjectId],
