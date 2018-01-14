@@ -27,7 +27,7 @@ const Homepage = props => (
     {props.recipeList.length > 0 && (
       <ul>
         {props.recipeList.map(recipe => (
-          <div>
+          <div key={recipe._id}>
             <li>{recipe.title}</li>
             <button onClick={() => props.deleteRecipe(recipe._id)}>Delete</button>
           </div>

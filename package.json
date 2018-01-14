@@ -76,7 +76,8 @@
       "src/**/*.{js,jsx,mjs}"
     ],
     "setupFiles": [
-      "<rootDir>/config/polyfills.js"
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/config/enzymeSetup.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
@@ -116,6 +117,8 @@
     "root": true
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-airbnb": "^16.1.0",
     "jest-cli": "^22.0.4"
   }
