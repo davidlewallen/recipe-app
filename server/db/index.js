@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV !== 'prod') require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const mongoose = require('mongoose');
 
 module.exports = {
