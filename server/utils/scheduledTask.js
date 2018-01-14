@@ -8,7 +8,7 @@ const updateNPWebsitesTask = () => {
 };
 
 const noSleep = () => {
-  if (process.env.NODE_ENV === 'prod') {
+  if (process.env.NODE_ENV === 'production') {
     const maxInterval = 3300000;
     const minInterval = 1800000;
 
