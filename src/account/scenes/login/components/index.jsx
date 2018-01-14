@@ -14,8 +14,8 @@ const propTypes = {
 
 const Login = props => (
   <div className="login-container">
-    {props.error && (
-      <p>Incorrect username and/or password.</p>
+    {props.error.value && (
+      <p>{props.error.message}</p>
     )}
 
     <form className="login">
