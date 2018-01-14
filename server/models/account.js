@@ -11,11 +11,11 @@ const AccountSchema = new Schema({
   password: { type: String },
   email: {
     type: String,
-    required: true,
+    required: [true, 'No email given.'],
     validate: {
       isAsync: true,
       validator: isEmail,
-      message: 'invalid email',
+      message: 'Invalid email address.',
     },
   },
   savedRecipes: [Schema.Types.ObjectId],

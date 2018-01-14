@@ -39,7 +39,7 @@ class RegisterContainer extends Component {
       this.props.history.replace('/');
     } catch (err) {
       console.error(err.response.data.message);
-      if (err.response.status === 409) {
+      if (err.response.status === 409 || err.response.status === 400) {
         this.setState({
           error: {
             value: true,

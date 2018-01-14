@@ -16,7 +16,10 @@ class LoginContainer extends Component {
     this.state = {
       username: '',
       password: '',
-      error: false,
+      error: {
+        value: false,
+        message: '',
+      },
     };
   }
 
@@ -35,9 +38,14 @@ class LoginContainer extends Component {
       }
     } catch (err) {
       const { response } = err;
-      if (response.status === 400 || response.status === 401) {
+      if (response.status === 400) {
         this.clearFields();
-        this.setState({ error: true });
+        this.setState({
+          error: {
+            value: true,
+            message: response.data.message,
+          },
+        });
       }
     }
   }
