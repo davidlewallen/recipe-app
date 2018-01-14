@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import Homepage from '../components';
+
+import { Recipe, Account } from '../../../utils/api';
 
 const { shape, func } = PropTypes;
 const propTypes = {
@@ -25,13 +26,18 @@ class App extends Component {
   }
 
   getUserRecipes = async () => {
-    const { data: recipes } = await axios.get('/api/recipe');
+    const { data: recipes } = await Recipe.getRecipes();
 
-    await this.setState(prevState => ({ recipe: { ...prevState.recipe, list: recipes } }));
+    await this.setState(prevState => ({
+      recipe: {
+        ...prevState.recipe,
+        list: recipes,
+      },
+    }));
   }
 
   checkIsAuth = async () => {
-    const { data } = await axios.get('/api/account/auth');
+    const { data } = await Account.auth();
 
     if (data.isAuth === false) {
       this.props.history.replace('/account/login');
@@ -48,7 +54,7 @@ class App extends Component {
 
     try {
       const encodedRecipeURI = encodeURIComponent(this.state.recipe.url);
-      const { data } = await axios.post(`/api/recipe/submit/${encodedRecipeURI}`);
+      const { data } = await Recipe.submitRecipe(encodedRecipeURI);
 
       if (!data.alreadyAdded) {
         this.setState(prevState => ({
@@ -69,11 +75,12 @@ class App extends Component {
 
   deleteRecipe = async (recipeId) => {
     try {
-      const { data: recipes } = await axios.delete(`/api/recipe/delete/${recipeId}`);
+      const { data: recipes } = await Recipe.deleteRecipe(recipeId);
+
       this.setState(prevState => ({
         recipe: {
           ...prevState.recipe,
-          list: [...this.state.recipe.list, ...recipes],
+          list: recipes,
         },
       }));
     } catch (err) {
@@ -98,6 +105,7 @@ class App extends Component {
       recipeList={this.state.recipe.list}
       handleRecipe={this.handleRecipe}
       submitRecipe={this.submitRecipe}
+      deleteRecipe={this.deleteRecipe}
     />
   );
 }
