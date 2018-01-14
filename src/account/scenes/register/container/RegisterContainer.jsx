@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import Register from '../components';
+
+import { Account } from '../../../../common/utils/api';
 
 const { shape, func } = PropTypes;
 const propTypes = {
@@ -35,10 +36,9 @@ class RegisterContainer extends Component {
     };
 
     try {
-      await axios.post('/api/account/register', body);
+      await Account.register(body);
       this.props.history.replace('/');
     } catch (err) {
-      console.error(err.response.data.message);
       if (err.response.status === 409 || err.response.status === 400) {
         this.setState({
           error: {
