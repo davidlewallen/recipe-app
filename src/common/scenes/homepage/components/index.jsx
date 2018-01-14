@@ -8,6 +8,7 @@ const propTypes = {
   recipeURL: string.isRequired,
   handleRecipe: func.isRequired,
   submitRecipe: func.isRequired,
+  deleteRecipe: func.isRequired, // eslint-disable-line
   recipeList: arrayOf(object).isRequired,
 };
 
