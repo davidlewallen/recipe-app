@@ -5,58 +5,14 @@ const {
   string, func, arrayOf, object,
 } = PropTypes;
 const propTypes = {
-  registerUsername: string.isRequired,
-  handleRegisterUsername: func.isRequired,
-  registerPassword: string.isRequired,
-  handleRegisterPassword: func.isRequired,
-  registerFirstName: string.isRequired,
-  handleRegisterFirstName: func.isRequired,
-  registerLastName: string.isRequired,
-  handleRegisterLastName: func.isRequired,
-  registerEmail: string.isRequired,
-  handleRegisterEmail: func.isRequired,
-  register: func.isRequired,
   recipeURL: string.isRequired,
   handleRecipe: func.isRequired,
   submitRecipe: func.isRequired,
-  authenticated: func.isRequired,
-  userRecipes: func.isRequired,
   recipeList: arrayOf(object).isRequired,
 };
 
 const Homepage = props => (
   <div>
-    <form className="register">
-      <input
-        placeholder="Username"
-        value={props.registerUsername}
-        onChange={props.handleRegisterUsername}
-      />
-      <input
-        placeholder="Password"
-        value={props.registerPassword}
-        onChange={props.handleRegisterPassword}
-      />
-      <input
-        placeholder="First Name"
-        value={props.registerFirstName}
-        onChange={props.handleRegisterFirstName}
-      />
-      <input
-        placeholder="Last Name"
-        value={props.registerLastName}
-        onChange={props.handleRegisterLastName}
-      />
-      <input
-        placeholder="Email Address"
-        value={props.registerEmail}
-        onChange={props.handleRegisterEmail}
-      />
-      <button onClick={props.register}>Register</button>
-    </form>
-
-    <br />
-
     <form className="submit-recipe">
       <input
         placeholder="Recipe URL"
@@ -65,11 +21,6 @@ const Homepage = props => (
       />
       <button onClick={props.submitRecipe}>Submit</button>
     </form>
-
-    <br />
-
-    <button onClick={props.authenticated}>Am I authenticated</button>
-    <button onClick={props.userRecipes}>Get User Recipes</button>
 
     <br />
 
