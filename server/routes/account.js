@@ -64,6 +64,10 @@ router.post('/register', (req, res) => {
     (err) => {
       if (err) {
         console.log('error', err);
+        if (err.hasOwnProperty('_message')) {
+          return res.status(400).json({ message: err.errors.email.message });
+        }
+
         return res.status(409).send(err);
       }
       passport.authenticate('local')(req, res, () => {
