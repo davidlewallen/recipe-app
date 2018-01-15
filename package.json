@@ -117,6 +117,7 @@
     "root": true
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.10.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-airbnb": "^16.1.0",
