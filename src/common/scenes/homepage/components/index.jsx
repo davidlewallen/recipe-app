@@ -20,15 +20,19 @@ const Homepage = props => (
         value={props.recipeURL}
         onChange={props.handleRecipe}
       />
-      <button onClick={props.submitRecipe}>Submit</button>
+      <button
+        onClick={props.submitRecipe}
+      >
+        Submit
+      </button>
     </form>
 
     <br />
 
     {props.recipeList.length > 0 && (
-      <ul>
+      <ul className="recipe-list">
         {props.recipeList.map(recipe => (
-          <div key={recipe._id}>
+          <div className="recipe-container" key={recipe._id}>
             <li>{recipe.title}</li>
             <button onClick={() => props.deleteRecipe(recipe._id)}>Delete</button>
           </div>
