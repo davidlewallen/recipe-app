@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Homepage from '../components';
@@ -10,7 +10,7 @@ const propTypes = {
   history: shape({ replace: func }).isRequired,
 };
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = {
