@@ -38,11 +38,11 @@ class App extends React.Component {
 
   checkIsAuth = async () => {
     try {
-    const { data } = await Account.auth();
+      const { data } = await Account.auth();
 
-    if (data.isAuth === false) {
-      this.props.history.replace('/account/login');
-    }
+      if (data.isAuth === false) {
+        this.props.history.replace('/account/login');
+      }
     } catch (err) {
       console.log('err', err);
     }
