@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Homepage from '../components';
@@ -10,7 +10,7 @@ const propTypes = {
   history: shape({ replace: func }).isRequired,
 };
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -37,10 +37,14 @@ class App extends Component {
   }
 
   checkIsAuth = async () => {
-    const { data } = await Account.auth();
+    try {
+      const { data } = await Account.auth();
 
-    if (data.isAuth === false) {
-      this.props.history.replace('/account/login');
+      if (data.isAuth === false) {
+        this.props.history.replace('/account/login');
+      }
+    } catch (err) {
+      console.log('err', err);
     }
   }
 

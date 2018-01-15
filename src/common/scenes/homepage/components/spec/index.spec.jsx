@@ -8,6 +8,7 @@ describe('Homepage snapshot test', () => {
     recipeURL: 'www.testrecipeurl.com',
     handleRecipe: () => {},
     submitRecipe: () => {},
+    deleteRecipe: () => {},
     recipeList: [{ title: 'Recipe 1', _id: 1 }, { title: 'Recipe 2', _id: 2 }],
   };
 
