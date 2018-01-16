@@ -22,17 +22,19 @@ const Login = props => (
 
     <form className="login">
       <input
+        className="username-input"
         placeholder="Username"
         value={props.username}
         onChange={props.handleUsername}
       />
       <input
+        className="password-input"
         placeholder="Password"
         type="password"
         value={props.password}
         onChange={props.handlePassword}
       />
-      <button onClick={props.login}>Login</button>
+      <button className="login-button" onClick={props.login}>Login</button>
     </form>
 
     <div>
