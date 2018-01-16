@@ -37,22 +37,26 @@ ShallowWrapper {
           className="register"
         >
           <input
+            className="username-input"
             onChange={[Function]}
             placeholder="Username"
             value="testUsername"
           />
           <input
+            className="password-input"
             onChange={[Function]}
             placeholder="Password"
             type="password"
             value="testPassword"
           />
           <input
+            className="email-input"
             onChange={[Function]}
             placeholder="Email Address"
             value="test@email.com"
           />
           <button
+            className="register-button"
             onClick={[Function]}
           >
             Register
@@ -71,22 +75,26 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <input
+              className="username-input"
               onChange={[Function]}
               placeholder="Username"
               value="testUsername"
             />,
             <input
+              className="password-input"
               onChange={[Function]}
               placeholder="Password"
               type="password"
               value="testPassword"
             />,
             <input
+              className="email-input"
               onChange={[Function]}
               placeholder="Email Address"
               value="test@email.com"
             />,
             <button
+              className="register-button"
               onClick={[Function]}
             >
               Register
@@ -101,6 +109,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "className": "username-input",
               "onChange": [Function],
               "placeholder": "Username",
               "value": "testUsername",
@@ -114,6 +123,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "className": "password-input",
               "onChange": [Function],
               "placeholder": "Password",
               "type": "password",
@@ -128,6 +138,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "className": "email-input",
               "onChange": [Function],
               "placeholder": "Email Address",
               "value": "test@email.com",
@@ -142,6 +153,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "Register",
+              "className": "register-button",
               "onClick": [Function],
             },
             "ref": null,
@@ -166,22 +178,26 @@ ShallowWrapper {
             className="register"
           >
             <input
+              className="username-input"
               onChange={[Function]}
               placeholder="Username"
               value="testUsername"
             />
             <input
+              className="password-input"
               onChange={[Function]}
               placeholder="Password"
               type="password"
               value="testPassword"
             />
             <input
+              className="email-input"
               onChange={[Function]}
               placeholder="Email Address"
               value="test@email.com"
             />
             <button
+              className="register-button"
               onClick={[Function]}
             >
               Register
@@ -200,22 +216,26 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <input
+                className="username-input"
                 onChange={[Function]}
                 placeholder="Username"
                 value="testUsername"
               />,
               <input
+                className="password-input"
                 onChange={[Function]}
                 placeholder="Password"
                 type="password"
                 value="testPassword"
               />,
               <input
+                className="email-input"
                 onChange={[Function]}
                 placeholder="Email Address"
                 value="test@email.com"
               />,
               <button
+                className="register-button"
                 onClick={[Function]}
               >
                 Register
@@ -230,6 +250,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "className": "username-input",
                 "onChange": [Function],
                 "placeholder": "Username",
                 "value": "testUsername",
@@ -243,6 +264,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "className": "password-input",
                 "onChange": [Function],
                 "placeholder": "Password",
                 "type": "password",
@@ -257,6 +279,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "className": "email-input",
                 "onChange": [Function],
                 "placeholder": "Email Address",
                 "value": "test@email.com",
@@ -271,6 +294,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "Register",
+                "className": "register-button",
                 "onClick": [Function],
               },
               "ref": null,

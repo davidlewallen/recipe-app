@@ -22,22 +22,30 @@ const Register = props => (
     )}
     <form className="register">
       <input
+        className="username-input"
         placeholder="Username"
         value={props.username}
         onChange={props.handleUsername}
       />
       <input
+        className="password-input"
         placeholder="Password"
         type="password"
         value={props.password}
         onChange={props.handlePassword}
       />
       <input
+        className="email-input"
         placeholder="Email Address"
         value={props.email}
         onChange={props.handleEmail}
       />
-      <button onClick={props.register}>Register</button>
+      <button
+        className="register-button"
+        onClick={props.register}
+      >
+        Register
+      </button>
     </form>
   </div>
 );
