@@ -1,0 +1,319 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register component snapshot test should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Register
+    email="test@email.com"
+    error={
+      Object {
+        "message": "",
+        "value": false,
+      }
+    }
+    handleEmail={[Function]}
+    handlePassword={[Function]}
+    handleUsername={[Function]}
+    password="testPassword"
+    register={[Function]}
+    username="testUsername"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        false,
+        <form
+          className="register"
+        >
+          <input
+            className="username-input"
+            onChange={[Function]}
+            placeholder="Username"
+            value="testUsername"
+          />
+          <input
+            className="password-input"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value="testPassword"
+          />
+          <input
+            className="email-input"
+            onChange={[Function]}
+            placeholder="Email Address"
+            value="test@email.com"
+          />
+          <button
+            className="register-button"
+            onClick={[Function]}
+          >
+            Register
+          </button>
+        </form>,
+      ],
+      "className": "register-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="username-input"
+              onChange={[Function]}
+              placeholder="Username"
+              value="testUsername"
+            />,
+            <input
+              className="password-input"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value="testPassword"
+            />,
+            <input
+              className="email-input"
+              onChange={[Function]}
+              placeholder="Email Address"
+              value="test@email.com"
+            />,
+            <button
+              className="register-button"
+              onClick={[Function]}
+            >
+              Register
+            </button>,
+          ],
+          "className": "register",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "username-input",
+              "onChange": [Function],
+              "placeholder": "Username",
+              "value": "testUsername",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "password-input",
+              "onChange": [Function],
+              "placeholder": "Password",
+              "type": "password",
+              "value": "testPassword",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "email-input",
+              "onChange": [Function],
+              "placeholder": "Email Address",
+              "value": "test@email.com",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Register",
+              "className": "register-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Register",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          false,
+          <form
+            className="register"
+          >
+            <input
+              className="username-input"
+              onChange={[Function]}
+              placeholder="Username"
+              value="testUsername"
+            />
+            <input
+              className="password-input"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value="testPassword"
+            />
+            <input
+              className="email-input"
+              onChange={[Function]}
+              placeholder="Email Address"
+              value="test@email.com"
+            />
+            <button
+              className="register-button"
+              onClick={[Function]}
+            >
+              Register
+            </button>
+          </form>,
+        ],
+        "className": "register-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="username-input"
+                onChange={[Function]}
+                placeholder="Username"
+                value="testUsername"
+              />,
+              <input
+                className="password-input"
+                onChange={[Function]}
+                placeholder="Password"
+                type="password"
+                value="testPassword"
+              />,
+              <input
+                className="email-input"
+                onChange={[Function]}
+                placeholder="Email Address"
+                value="test@email.com"
+              />,
+              <button
+                className="register-button"
+                onClick={[Function]}
+              >
+                Register
+              </button>,
+            ],
+            "className": "register",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "username-input",
+                "onChange": [Function],
+                "placeholder": "Username",
+                "value": "testUsername",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "password-input",
+                "onChange": [Function],
+                "placeholder": "Password",
+                "type": "password",
+                "value": "testPassword",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "email-input",
+                "onChange": [Function],
+                "placeholder": "Email Address",
+                "value": "test@email.com",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Register",
+                "className": "register-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Register",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

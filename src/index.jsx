@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import HomepageContainer from './common/homepage/container/HomepageContainer';
+import HomepageContainer from './common/scenes/homepage/container/HomepageContainer';
 import Account from './account/routes';
 
 ReactDOM.render(

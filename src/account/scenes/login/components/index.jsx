@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const { string, func, bool } = PropTypes;
+const {
+  string, func, shape, bool,
+} = PropTypes;
 const propTypes = {
   username: string.isRequired,
   handleUsername: func.isRequired,
   password: string.isRequired,
   handlePassword: func.isRequired,
-  error: bool.isRequired,
+  error: shape({ value: bool, message: string }).isRequired,
   login: func.isRequired,
 };
 
@@ -20,17 +22,19 @@ const Login = props => (
 
     <form className="login">
       <input
+        className="username-input"
         placeholder="Username"
         value={props.username}
         onChange={props.handleUsername}
       />
       <input
+        className="password-input"
         placeholder="Password"
         type="password"
         value={props.password}
         onChange={props.handlePassword}
       />
-      <button onClick={props.login}>Login</button>
+      <button className="login-button" onClick={props.login}>Login</button>
     </form>
 
     <div>

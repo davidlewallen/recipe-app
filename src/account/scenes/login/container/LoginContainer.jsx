@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import Login from '../components';
+
+import { Account } from '../../../../common/utils/api';
 
 const { shape, func } = PropTypes;
 const propTypes = {
@@ -31,7 +32,7 @@ class LoginContainer extends Component {
 
       const body = { username, password };
 
-      const result = await axios.post('/api/account/login', body);
+      const result = await Account.login(body);
 
       if (result.status === 200) {
         this.props.history.replace('/');

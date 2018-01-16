@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component snapshot test should match snapshot 1`] = `
+<div
+  className="login-container"
+>
+  <form
+    className="login"
+  >
+    <input
+      className="username-input"
+      onChange={[Function]}
+      placeholder="Username"
+      value="testUsername"
+    />
+    <input
+      className="password-input"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value="testPassword"
+    />
+    <button
+      className="login-button"
+      onClick={[Function]}
+    >
+      Login
+    </button>
+  </form>
+  <div>
+    <p>
+      New to My Saved Recipes? 
+      <Link
+        replace={false}
+        to="/account/register"
+      >
+        Create an account.
+      </Link>
+    </p>
+  </div>
+</div>
+`;
