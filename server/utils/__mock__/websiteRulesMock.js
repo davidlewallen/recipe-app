@@ -80,6 +80,7 @@ module.exports = {
       '17) Display as an edible centerpiece at your next holiday gathering. Cut the cake into slices to serve, revealing the red peppermint swirled interior.'
     ],
     title: 'Melting Snowman Cake',
+    totalTime: '3 hr 10 min',
     full: {
       ingredients: [
         '5 3/4 cups all-purpose flour',
