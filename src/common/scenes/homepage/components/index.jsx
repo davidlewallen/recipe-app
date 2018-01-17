@@ -1,46 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Grid, Row, Col } from 'react-bootstrap';
 
-const {
-  string, func, arrayOf, object,
-} = PropTypes;
-const propTypes = {
-  recipeURL: string.isRequired,
-  handleRecipe: func.isRequired,
-  submitRecipe: func.isRequired,
-  deleteRecipe: func.isRequired, // eslint-disable-line
-  recipeList: arrayOf(object).isRequired,
-};
+import '../assets/index.css';
 
-const Homepage = props => (
-  <div>
-    <form className="submit-recipe">
-      <input
-        placeholder="Recipe URL"
-        value={props.recipeURL}
-        onChange={props.handleRecipe}
-      />
-      <button
-        onClick={props.submitRecipe}
-      >
-        Submit
-      </button>
-    </form>
-
-    <br />
-
-    {props.recipeList.length > 0 && (
-      <ul className="recipe-list">
-        {props.recipeList.map(recipe => (
-          <div className="recipe-container" key={recipe._id}>
-            <li>{recipe.title}</li>
-            <button onClick={() => props.deleteRecipe(recipe._id)}>Delete</button>
-          </div>
-        ))}
-      </ul>
-    )}
-  </div>
+const Homepage = () => (
+  <Grid fluid bsClass="container">
+    <Row>
+      <Col xs={6} xsOffset={3}>
+        <div className="title">My Saved Recipes</div>
+      </Col>
+    </Row>
+    <Row>
+      <Col xs={2} xsOffset={5} bsClass="login-col">
+        <div className="login">Login</div>
+      </Col>
+    </Row>
+  </Grid>
 );
 
-Homepage.propTypes = propTypes;
 export default Homepage;
