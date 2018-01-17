@@ -1,5 +1,10 @@
 const stripIngredients = (dom) => {
-  const containingUl = dom.window.document.getElementsByClassName('ingredient-list')[0];
+  const containingUl = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('ingredient-list')[0]
+  );
   const listOfContainingLi = containingUl.children;
 
   const listOfIngredients = [];
@@ -8,10 +13,15 @@ const stripIngredients = (dom) => {
   }
 
   return listOfIngredients;
-}
+};
 
 const stripInstructions = (dom) => {
-  const containingDiv = dom.window.document.getElementsByClassName('directions-inner')[0];
+  const containingDiv = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('directions-inner')[0]
+  );
   const containingOl = containingDiv.children[1];
   const listOfIngredientsLi = containingOl.children;
 
@@ -26,29 +36,48 @@ const stripInstructions = (dom) => {
   }
 
   return listOfInstructions;
-}
+};
 
 const stripTitle = (dom) => {
-  const title = dom.window.document.getElementsByClassName('recipe-header')[0].children[1].textContent;
+  const title = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('recipe-header')[0].children[1].textContent
+  );
 
   return title;
-}
+};
+
+const stripTime = (dom) => {
+  const totalTime = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('time')[0].textContent.split(':')[1].trim()
+  );
+
+  return totalTime;
+};
 
 const geniuskitchen = (dom) => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
   const title = stripTitle(dom);
+  const totalTime = stripTime(dom);
 
   return {
     'ingredients': ingredients,
     'instructions': instructions,
     'title': title,
+    'totalTime': totalTime
   };
-}
+};
 
 module.exports = {
   strip: geniuskitchen,
   stripIngredients,
   stripInstructions,
   stripTitle,
+  stripTime,
 };

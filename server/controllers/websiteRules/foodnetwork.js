@@ -77,4 +77,5 @@ module.exports = {
   stripIngredients,
   stripInstructions,
   stripTitle,
+  stripTime,
 };
