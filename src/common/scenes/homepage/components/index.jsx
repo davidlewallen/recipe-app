@@ -1,46 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Grid, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const {
-  string, func, arrayOf, object,
-} = PropTypes;
-const propTypes = {
-  recipeURL: string.isRequired,
-  handleRecipe: func.isRequired,
-  submitRecipe: func.isRequired,
-  deleteRecipe: func.isRequired, // eslint-disable-line
-  recipeList: arrayOf(object).isRequired,
-};
+import '../assets/index.css';
 
-const Homepage = props => (
-  <div>
-    <form className="submit-recipe">
-      <input
-        placeholder="Recipe URL"
-        value={props.recipeURL}
-        onChange={props.handleRecipe}
-      />
-      <button
-        onClick={props.submitRecipe}
+const Homepage = () => (
+  <Grid className="homepage align-center">
+    <Row>
+      <Col xs={12} sm={6} smOffset={3}>
+        <h1>My Saved Recipes</h1>
+      </Col>
+    </Row>
+    <Row>
+      <Col
+        className="login align-center"
+        xs={2}
+        xsOffset={5}
       >
-        Submit
-      </button>
-    </form>
-
-    <br />
-
-    {props.recipeList.length > 0 && (
-      <ul className="recipe-list">
-        {props.recipeList.map(recipe => (
-          <div className="recipe-container" key={recipe._id}>
-            <li>{recipe.title}</li>
-            <button onClick={() => props.deleteRecipe(recipe._id)}>Delete</button>
-          </div>
-        ))}
-      </ul>
-    )}
-  </div>
+        <Link
+          className="link align-center border"
+          to="/account/login"
+        >
+          Login
+        </Link>
+      </Col>
+    </Row>
+  </Grid>
 );
 
-Homepage.propTypes = propTypes;
 export default Homepage;

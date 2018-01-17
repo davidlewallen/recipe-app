@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Homepage from '../';
+import Dashboard from '../';
 
-describe('Homepage snapshot test', () => {
+describe('Dashboard snapshot test', () => {
   const props = {
     recipeURL: 'www.testrecipeurl.com',
     handleRecipe: () => {},
@@ -13,7 +13,7 @@ describe('Homepage snapshot test', () => {
   };
 
   it('should match snapshot', () => {
-    const component = shallow(<Homepage {...props} />);
+    const component = shallow(<Dashboard {...props} />);
 
     expect(component).toMatchSnapshot();
   });
