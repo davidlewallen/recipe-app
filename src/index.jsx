@@ -8,6 +8,8 @@ import HomepageContainer from './common/scenes/homepage/container/HomepageContai
 import DashboardRoutes from './dashboard/routes';
 import Account from './account/routes';
 
+import './common/assets/styles/app.css';
+
 ReactDOM.render(
   <Router>
     <Switch>
