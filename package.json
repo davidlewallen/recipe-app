@@ -22,6 +22,7 @@
     "css-loader": "0.28.7",
     "dotenv": "4.0.0",
     "eslint": "4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-config-react-app": "^2.0.1",
     "eslint-loader": "1.9.0",
     "eslint-plugin-flowtype": "2.39.1",
@@ -63,13 +64,15 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "node ./server/index.js",
+    "start:dev": "node scripts/start.js",
     "server:prod": "cross-env PORT=3001 NODE_ENV=production nodemon -w ./server ./server/index.js",
     "server:dev": "cross-env PORT=3001 NODE_ENV=dev nodemon -w ./server ./server/index.js",
     "server:test": "cross-env NODE_ENV=test jest --testPathPattern=server --watch --no-cache --i",
     "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "node scripts/build.js",
-    "test": "cross-env NODE_ENV=test node scripts/test.js --env=jsdom"
+    "test": "cross-env NODE_ENV=test node scripts/test.js --env=jsdom",
+    "heroku-postbuild": "npm run build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -120,7 +123,6 @@
     "axios-mock-adapter": "^1.10.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint-config-airbnb": "^16.1.0",
     "jest-cli": "^22.0.4"
   }
 }
