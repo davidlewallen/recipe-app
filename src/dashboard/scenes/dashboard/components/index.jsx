@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
+
+import '../assets/styles/index.css';
 
 const {
   string, func, arrayOf, object,
@@ -13,33 +16,65 @@ const propTypes = {
 };
 
 const Dashboard = props => (
-  <div>
-    <form className="submit-recipe">
-      <input
-        placeholder="Recipe URL"
-        value={props.recipeURL}
-        onChange={props.handleRecipe}
-      />
-      <button
-        onClick={props.submitRecipe}
-      >
-        Submit
-      </button>
-    </form>
-
-    <br />
+  <Grid className="dashboard">
+    <Row>
+      <Col>
+        <form className="submit-recipe align-center my">
+          <input
+            placeholder="Recipe URL"
+            value={props.recipeURL}
+            onChange={props.handleRecipe}
+          />
+          <button
+            onClick={props.submitRecipe}
+          >
+            Submit
+          </button>
+        </form>
+      </Col>
+    </Row>
 
     {props.recipeList.length > 0 && (
-      <ul className="recipe-list">
+      <Row className="recipe-container">
         {props.recipeList.map(recipe => (
-          <div className="recipe-container" key={recipe._id}>
-            <li>{recipe.title}</li>
-            <button onClick={() => props.deleteRecipe(recipe._id)}>Delete</button>
-          </div>
+          <Col
+            className="margin-bottom"
+            xs={12}
+            sm={6}
+            md={3}
+          >
+            <div className="recipe">
+              <Row>
+                <Col xs={12} className="card border" key={recipe._id}>
+                  <Row>
+                    <Col xs={12} className="header align-center">
+                      <div>{recipe.title}</div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={12} className="footer">
+                      <Row>
+                        <Col className="align-center" xs={6}>{recipe.time || 'n/a'}</Col>
+                        <Col className="align-center" xs={6}>
+                          <Button
+                            bsStyle="danger"
+                            bsSize="xsmall"
+                            onClick={() => props.deleteRecipe(recipe._id)}
+                          >
+                            Delete
+                          </Button>
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </div>
+          </Col>
         ))}
-      </ul>
+      </Row>
     )}
-  </div>
+  </Grid>
 );
 
 Dashboard.propTypes = propTypes;
