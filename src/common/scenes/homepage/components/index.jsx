@@ -1,18 +1,28 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import '../assets/index.css';
 
 const Homepage = () => (
-  <Grid fluid bsClass="container">
+  <Grid className="homepage align-center">
     <Row>
-      <Col xs={6} xsOffset={3}>
-        <div className="title">My Saved Recipes</div>
+      <Col xs={12} sm={6} smOffset={3}>
+        <h1>My Saved Recipes</h1>
       </Col>
     </Row>
     <Row>
-      <Col xs={2} xsOffset={5} bsClass="login-col">
-        <div className="login">Login</div>
+      <Col
+        className="login align-center"
+        xs={2}
+        xsOffset={5}
+      >
+        <Link
+          className="link align-center border"
+          to="/account/login"
+        >
+          Login
+        </Link>
       </Col>
     </Row>
   </Grid>
