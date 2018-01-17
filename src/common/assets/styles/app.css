@@ -1,8 +1,30 @@
-body h1 {
-  font-family: 'Playfair Display', serif;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
 }
 
+.align-center {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5em;
+}
+
+.border {
+  border: 1px solid #333;
+  border-radius: 1em;
+  padding: 0 15px;
+}
+
+.mt {
+  margin-top: 20px;
+}
+
+.my {
+  margin: 20px 0;
+}
+
+.margin-bottom {
+  margin-bottom: 30px;
+}
