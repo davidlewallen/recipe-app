@@ -1,6 +1,13 @@
+const formatTime = require('../../utils/formatTime');
+
 const stripIngredients = (dom) => {
-  const listOfIngredientsSpan = dom.window.document.getElementsByClassName('recipe-ingred_txt');
-  
+  const listOfIngredientsSpan = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('recipe-ingred_txt')
+  );
+
   const listOfIngredients = [];
   for (const label of listOfIngredientsSpan) {
     if (label.className === 'recipe-ingred_txt added') {
@@ -9,10 +16,15 @@ const stripIngredients = (dom) => {
   }
 
   return listOfIngredients;
-}
+};
 
 const stripInstructions = (dom) => {
-  const listOfInstructionsSpan = dom.window.document.getElementsByClassName('recipe-directions__list--item');
+  const listOfInstructionsSpan = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('recipe-directions__list--item')
+  );
 
   const listOfInstructions = [];
   let counter = 1;
@@ -24,29 +36,48 @@ const stripInstructions = (dom) => {
   }
 
   return listOfInstructions;
-}
+};
 
 const stripTitle = (dom) => {
-  const title = dom.window.document.getElementsByClassName('recipe-summary__h1')[0].textContent;
+  const title = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('recipe-summary__h1')[0].textContent
+  );
 
   return title;
-}
+};
+
+const stripTime = (dom) => {
+  const totalTime = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('ready-in-time')[0].textContent
+  );
+
+  return formatTime(totalTime);
+};
 
 const allrecipes = (dom) => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
   const title = stripTitle(dom);
+  const totalTime = stripTime(dom);
 
   return {
     'ingredients': ingredients,
     'instructions': instructions,
     'title': title,
-  }
-}
+    'totalTime': totalTime,
+  };
+};
 
 module.exports = {
   strip: allrecipes,
   stripIngredients,
   stripInstructions,
   stripTitle,
+  stripTime,
 };

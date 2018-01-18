@@ -70,6 +70,7 @@
     "server:prod": "cross-env PORT=3001 NODE_ENV=production nodemon -w ./server ./server/index.js",
     "server:dev": "cross-env PORT=3001 NODE_ENV=dev nodemon -w ./server ./server/index.js",
     "server:test": "cross-env NODE_ENV=test jest --testPathPattern=server --watch --no-cache --i",
+    "server:test:inspect": "cross-env NODE_ENV=test node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --testPathPattern=server --watch --no-cache",
     "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "node scripts/build.js",
     "test": "cross-env NODE_ENV=test node scripts/test.js --env=jsdom",
