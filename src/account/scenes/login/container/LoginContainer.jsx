@@ -32,11 +32,8 @@ class LoginContainer extends Component {
 
       const body = { username, password };
 
-      const result = await Account.login(body);
-
-      if (result.status === 200) {
-        this.props.history.replace('/');
-      }
+      await Account.login(body);
+      this.props.history.replace('/');
     } catch (err) {
       const { response } = err;
       if (response.status === 400) {

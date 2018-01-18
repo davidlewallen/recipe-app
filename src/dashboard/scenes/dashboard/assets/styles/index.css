@@ -1,0 +1,34 @@
+.recipe-container>.recipe>div.recipe-card{
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+
+.recipe {
+  position: relative;
+  width: 100%;
+}
+
+.recipe:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.recipe .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.recipe .header {
+  position: absolute;
+  top: 5%;
+}
+
+.recipe .footer {
+  position: absolute;
+  top: 85%;
+  padding-top: 6px;
+}

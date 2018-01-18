@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 
-import HomepageContainer from '../HomepageContainer';
+import DashboardContainer from '../DashboardContainer';
 
 const mock = new MockAdapter(axios);
 
-describe('HomepageContainer test', () => {
+describe('DashboardContainer test', () => {
   const mockHistory = { history: { replace: jest.fn() } };
   const mockRecipeList = [
     { title: 'recipe 1', _id: 1 }, { title: 'recipe 2', _id: 2 },
@@ -31,7 +31,7 @@ describe('HomepageContainer test', () => {
       .onDelete('/api/recipe/delete/1')
       .reply(200, [mockRecipeList[1]]);
 
-    wrapper = shallow(<HomepageContainer {...props} />);
+    wrapper = shallow(<DashboardContainer {...props} />);
     instance = wrapper.instance();
   });
 
