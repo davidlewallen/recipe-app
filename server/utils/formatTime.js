@@ -35,7 +35,8 @@ const singleTime = (splitTime) => {
 
 const formatTime = (time) => {
   let formattedTime = [];
-  const splitTime = time.split(' ');
+  const lowerCaseTime = time.toLowerCase();
+  const splitTime = lowerCaseTime.split(' ');
 
   splitTime.forEach(item => {
     if (splitTime.length === 1) {
