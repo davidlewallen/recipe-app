@@ -1,3 +1,5 @@
+const formatTime = require('../../utils/formatTime');
+
 const stripIngredients = (dom) => {
   const listOfIngredientsSpan = (
     dom
@@ -55,7 +57,7 @@ const stripTime = (dom) => {
     .getElementsByClassName('ready-in-time')[0].textContent
   );
 
-  return totalTime;
+  return formatTime(totalTime);
 };
 
 const allrecipes = (dom) => {

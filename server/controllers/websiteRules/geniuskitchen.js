@@ -1,3 +1,5 @@
+const formatTime = require('../../utils/formatTime');
+
 const stripIngredients = (dom) => {
   const containingUl = (
     dom
@@ -57,7 +59,7 @@ const stripTime = (dom) => {
     .getElementsByClassName('time')[0].textContent.split(':')[1].trim()
   );
 
-  return totalTime;
+  return formatTime(totalTime);
 };
 
 const geniuskitchen = (dom) => {

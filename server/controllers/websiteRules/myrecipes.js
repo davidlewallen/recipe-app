@@ -1,3 +1,5 @@
+const formatTime = require('../../utils/formatTime');
+
 const stripIngredients = (dom) => {
   const containingDiv = (
     dom
@@ -57,7 +59,7 @@ const stripTime = (dom) => {
     .getElementsByClassName('recipe-meta-item-body')[1]
   );
 
-  const cleanUp = totalTime ? totalTime.textContent.trim() : 'n/a';
+  const cleanUp = totalTime ? formatTime(totalTime.textContent.trim()) : 'n/a';
 
   return cleanUp;
 };

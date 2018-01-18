@@ -1,3 +1,5 @@
+const formatTime = require('../../utils/formatTime');
+
 const stripIngredients = (dom) => {
   const listOfIngredientsLabel = (
     dom
@@ -55,7 +57,7 @@ const stripTime = (dom) => {
     .getElementsByClassName('o-RecipeInfo__a-Description--Total')[0].textContent
   );
 
-  return totalTime;
+  return formatTime(totalTime);
 };
 
 const foodnetwork = (dom) => {
