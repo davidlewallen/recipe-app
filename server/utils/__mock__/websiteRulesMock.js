@@ -15,7 +15,7 @@ module.exports = {
       '4) Bake in the preheated oven for 40 minutes, or until chicken is no longer pink and juices run clear.'
     ],
     title: 'Famous Butter Chicken',
-    totalTime: '55 m',
+    totalTime: '55 minutes',
     full: {
       ingredients: [
         '2 eggs, beaten',
@@ -30,7 +30,7 @@ module.exports = {
         '3) Arrange coated chicken in a 9x13 inch baking dish. Place pieces of butter around the chicken.',
         '4) Bake in the preheated oven for 40 minutes, or until chicken is no longer pink and juices run clear.'],
       title: 'Famous Butter Chicken',
-      totalTime: '55 m',
+      totalTime: '55 minutes',
     },
   },
   foodnetwork: {
@@ -82,7 +82,7 @@ module.exports = {
       '17) Display as an edible centerpiece at your next holiday gathering. Cut the cake into slices to serve, revealing the red peppermint swirled interior.'
     ],
     title: 'Melting Snowman Cake',
-    totalTime: '3 hr 10 min',
+    totalTime: '3 hours 10 minutes',
     full: {
       ingredients: [
         '5 3/4 cups all-purpose flour',
@@ -131,7 +131,7 @@ module.exports = {
         '17) Display as an edible centerpiece at your next holiday gathering. Cut the cake into slices to serve, revealing the red peppermint swirled interior.'
       ],
       title: 'Melting Snowman Cake',
-      totalTime: '3 hr 10 min',
+      totalTime: '3 hours 10 minutes',
     }
   },
   geniuskitchen: {
@@ -154,7 +154,7 @@ module.exports = {
       '5) Add the avocado, berries and seeds and toss all together. Do not add the dressing, avocado, berries or seeds to the salad until just before serving.'
     ],
     title: 'Citrusy Kale Salad W/ Blueberries and Pepitas (& Variations)',
-    totalTime: '20mins',
+    totalTime: '20 minutes',
     full: {
       ingredients:
         ['1  bunch curly kale (I tried lacinato kale and next time will try Russian kale)',
@@ -173,7 +173,7 @@ module.exports = {
           '4) Whisk together lemon and orange juice and zest, remaining 1 Tbsp olive oil and honey. Season with a small amount of salt and pepper to taste. Pour dressing over the kale leaves.',
           '5) Add the avocado, berries and seeds and toss all together. Do not add the dressing, avocado, berries or seeds to the salad until just before serving.'],
       title: 'Citrusy Kale Salad W/ Blueberries and Pepitas (& Variations)',
-      totalTime: '20mins',
+      totalTime: '20 minutes',
     }
   },
   myrecipes: {
@@ -196,7 +196,7 @@ module.exports = {
       "3) Immediately transfer granola to a large bowl and let cool completely, stirring occasionally. (Granola will crisp as it cools.) When it's cool, toss in goji berries. Store leftovers in an airtight container for up to 2 weeks."
     ],
     title: 'Superfood Crunch Granola',
-    totalTime: '1 Hour',
+    totalTime: '1 hour',
     full: {
       ingredients:
         ['2 cups old-fashioned rolled oats',
@@ -217,7 +217,7 @@ module.exports = {
           '2) Divide mixture between 2 large rimmed baking sheets and spread out evenly. Bake until golden and toasted, 40 to 45 minutes, stirring every 10 to 15 minutes and switching pans from top to bottom and front to back halfway through.',
           '3) Immediately transfer granola to a large bowl and let cool completely, stirring occasionally. (Granola will crisp as it cools.) When it\'s cool, toss in goji berries. Store leftovers in an airtight container for up to 2 weeks.'],
       title: 'Superfood Crunch Granola',
-      totalTime: '1 Hour',
+      totalTime: '1 hour',
     }
   },
   realsimple: {
@@ -240,7 +240,7 @@ module.exports = {
       '3) Pour mushroom mixture through a fine wire-mesh strainer into a bowl, reserving liquid. Finely chop mushrooms.',
       '4) Add barley, chopped mushrooms, reserved mushroom liquid, and remaining 1 teaspoon salt to beef mixture. Increase heat to medium-high, and return to a boil. Reduce heat to medium-low, and simmer 30 minutes. Add rutabaga and carrots, and simmer until barley, vegetables, and beef are tender, 20 to 25 minutes. Add Brussels sprouts and pepper, and cook until Brussels sprouts are just tender, about 5 minutes. Sprinkle servings with parsley.'],
     title: 'Beef-and-Barley Soup With Porcini',
-    totalTime: '2 Hours 10 Mins',
+    totalTime: '2 hours 10 minutes',
     full: {
       ingredients:
         ['1 ounce dried porcini mushrooms',
@@ -263,7 +263,7 @@ module.exports = {
           '3) Pour mushroom mixture through a fine wire-mesh strainer into a bowl, reserving liquid. Finely chop mushrooms.',
           '4) Add barley, chopped mushrooms, reserved mushroom liquid, and remaining 1 teaspoon salt to beef mixture. Increase heat to medium-high, and return to a boil. Reduce heat to medium-low, and simmer 30 minutes. Add rutabaga and carrots, and simmer until barley, vegetables, and beef are tender, 20 to 25 minutes. Add Brussels sprouts and pepper, and cook until Brussels sprouts are just tender, about 5 minutes. Sprinkle servings with parsley.'],
       title: 'Beef-and-Barley Soup With Porcini',
-      totalTime: '2 Hours 10 Mins',
+      totalTime: '2 hours 10 minutes',
     }
   },
   health: {
