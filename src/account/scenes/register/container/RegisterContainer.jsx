@@ -37,7 +37,7 @@ class RegisterContainer extends Component {
 
     try {
       await Account.register(body);
-      this.props.history.replace('/');
+      this.props.history.replace('/dashboard');
     } catch (err) {
       if (err.response.status === 409 || err.response.status === 400) {
         this.setState({

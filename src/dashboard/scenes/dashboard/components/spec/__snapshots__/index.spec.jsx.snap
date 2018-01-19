@@ -12,6 +12,7 @@ ShallowWrapper {
         Object {
           "_id": 1,
           "title": "Recipe 1",
+          "totalTime": "1 hour 10 minutes",
         },
         Object {
           "_id": 2,
@@ -121,7 +122,7 @@ ShallowWrapper {
                           componentClass="div"
                           xs={6}
                         >
-                          n/a
+                          1 hour 10 minutes
                         </Col>
                         <Col
                           bsClass="col"
@@ -406,7 +407,7 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
-                            n/a
+                            1 hour 10 minutes
                           </Col>
                           <Col
                             bsClass="col"
@@ -576,7 +577,7 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
-                            n/a
+                            1 hour 10 minutes
                           </Col>
                           <Col
                             bsClass="col"
@@ -659,7 +660,7 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
-                            n/a
+                            1 hour 10 minutes
                           </Col>
                           <Col
                             bsClass="col"
@@ -734,7 +735,7 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
-                            n/a
+                            1 hour 10 minutes
                           </Col>
                           <Col
                             bsClass="col"
@@ -803,7 +804,7 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
-                              n/a
+                              1 hour 10 minutes
                             </Col>
                             <Col
                               bsClass="col"
@@ -903,7 +904,7 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
-                              n/a
+                              1 hour 10 minutes
                             </Col>
                             <Col
                               bsClass="col"
@@ -944,7 +945,7 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
-                              n/a
+                              1 hour 10 minutes
                             </Col>
                             <Col
                               bsClass="col"
@@ -983,7 +984,7 @@ ShallowWrapper {
                                 componentClass="div"
                                 xs={6}
                               >
-                                n/a
+                                1 hour 10 minutes
                               </Col>,
                               <Col
                                 bsClass="col"
@@ -1014,13 +1015,13 @@ ShallowWrapper {
                               "nodeType": "class",
                               "props": Object {
                                 "bsClass": "col",
-                                "children": "n/a",
+                                "children": "1 hour 10 minutes",
                                 "className": "align-center",
                                 "componentClass": "div",
                                 "xs": 6,
                               },
                               "ref": null,
-                              "rendered": "n/a",
+                              "rendered": "1 hour 10 minutes",
                               "type": [Function],
                             },
                             Object {
@@ -1739,7 +1740,7 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
-                            n/a
+                            1 hour 10 minutes
                           </Col>
                           <Col
                             bsClass="col"
@@ -2024,7 +2025,7 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
-                              n/a
+                              1 hour 10 minutes
                             </Col>
                             <Col
                               bsClass="col"
@@ -2194,7 +2195,7 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
-                              n/a
+                              1 hour 10 minutes
                             </Col>
                             <Col
                               bsClass="col"
@@ -2277,7 +2278,7 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
-                              n/a
+                              1 hour 10 minutes
                             </Col>
                             <Col
                               bsClass="col"
@@ -2352,7 +2353,7 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
-                              n/a
+                              1 hour 10 minutes
                             </Col>
                             <Col
                               bsClass="col"
@@ -2421,7 +2422,7 @@ ShallowWrapper {
                                 componentClass="div"
                                 xs={6}
                               >
-                                n/a
+                                1 hour 10 minutes
                               </Col>
                               <Col
                                 bsClass="col"
@@ -2521,7 +2522,7 @@ ShallowWrapper {
                                 componentClass="div"
                                 xs={6}
                               >
-                                n/a
+                                1 hour 10 minutes
                               </Col>
                               <Col
                                 bsClass="col"
@@ -2562,7 +2563,7 @@ ShallowWrapper {
                                 componentClass="div"
                                 xs={6}
                               >
-                                n/a
+                                1 hour 10 minutes
                               </Col>
                               <Col
                                 bsClass="col"
@@ -2601,7 +2602,7 @@ ShallowWrapper {
                                   componentClass="div"
                                   xs={6}
                                 >
-                                  n/a
+                                  1 hour 10 minutes
                                 </Col>,
                                 <Col
                                   bsClass="col"
@@ -2632,13 +2633,13 @@ ShallowWrapper {
                                 "nodeType": "class",
                                 "props": Object {
                                   "bsClass": "col",
-                                  "children": "n/a",
+                                  "children": "1 hour 10 minutes",
                                   "className": "align-center",
                                   "componentClass": "div",
                                   "xs": 6,
                                 },
                                 "ref": null,
-                                "rendered": "n/a",
+                                "rendered": "1 hour 10 minutes",
                                 "type": [Function],
                               },
                               Object {
@@ -3263,504 +3264,6 @@ ShallowWrapper {
         },
       ],
       "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
-`;
-
-exports[`Homepage snapshot test should match snapshot 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Homepage
-    handleRecipe={[Function]}
-    recipeList={
-      Array [
-        Object {
-          "_id": 1,
-          "title": "Recipe 1",
-        },
-        Object {
-          "_id": 2,
-          "title": "Recipe 2",
-        },
-      ]
-    }
-    recipeURL="www.testrecipeurl.com"
-    submitRecipe={[Function]}
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <form
-          className="submit-recipe"
-        >
-          <input
-            onChange={[Function]}
-            placeholder="Recipe URL"
-            value="www.testrecipeurl.com"
-          />
-          <button
-            onClick={[Function]}
-          >
-            Submit
-          </button>
-        </form>,
-        <br />,
-        <ul>
-          <div>
-            <li>
-              Recipe 1
-            </li>
-            <button
-              onClick={[Function]}
-            >
-              Delete
-            </button>
-          </div>
-          <div>
-            <li>
-              Recipe 2
-            </li>
-            <button
-              onClick={[Function]}
-            >
-              Delete
-            </button>
-          </div>
-        </ul>,
-      ],
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <input
-              onChange={[Function]}
-              placeholder="Recipe URL"
-              value="www.testrecipeurl.com"
-            />,
-            <button
-              onClick={[Function]}
-            >
-              Submit
-            </button>,
-          ],
-          "className": "submit-recipe",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "onChange": [Function],
-              "placeholder": "Recipe URL",
-              "value": "www.testrecipeurl.com",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": "input",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Submit",
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": "Submit",
-            "type": "button",
-          },
-        ],
-        "type": "form",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": "br",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <div>
-              <li>
-                Recipe 1
-              </li>
-              <button
-                onClick={[Function]}
-              >
-                Delete
-              </button>
-            </div>,
-            <div>
-              <li>
-                Recipe 2
-              </li>
-              <button
-                onClick={[Function]}
-              >
-                Delete
-              </button>
-            </div>,
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "1",
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <li>
-                  Recipe 1
-                </li>,
-                <button
-                  onClick={[Function]}
-                >
-                  Delete
-                </button>,
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Recipe 1",
-                },
-                "ref": null,
-                "rendered": "Recipe 1",
-                "type": "li",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Delete",
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Delete",
-                "type": "button",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": "2",
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <li>
-                  Recipe 2
-                </li>,
-                <button
-                  onClick={[Function]}
-                >
-                  Delete
-                </button>,
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Recipe 2",
-                },
-                "ref": null,
-                "rendered": "Recipe 2",
-                "type": "li",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Delete",
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Delete",
-                "type": "button",
-              },
-            ],
-            "type": "div",
-          },
-        ],
-        "type": "ul",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <form
-            className="submit-recipe"
-          >
-            <input
-              onChange={[Function]}
-              placeholder="Recipe URL"
-              value="www.testrecipeurl.com"
-            />
-            <button
-              onClick={[Function]}
-            >
-              Submit
-            </button>
-          </form>,
-          <br />,
-          <ul>
-            <div>
-              <li>
-                Recipe 1
-              </li>
-              <button
-                onClick={[Function]}
-              >
-                Delete
-              </button>
-            </div>
-            <div>
-              <li>
-                Recipe 2
-              </li>
-              <button
-                onClick={[Function]}
-              >
-                Delete
-              </button>
-            </div>
-          </ul>,
-        ],
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <input
-                onChange={[Function]}
-                placeholder="Recipe URL"
-                value="www.testrecipeurl.com"
-              />,
-              <button
-                onClick={[Function]}
-              >
-                Submit
-              </button>,
-            ],
-            "className": "submit-recipe",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "onChange": [Function],
-                "placeholder": "Recipe URL",
-                "value": "www.testrecipeurl.com",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": "input",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Submit",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Submit",
-              "type": "button",
-            },
-          ],
-          "type": "form",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "br",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <div>
-                <li>
-                  Recipe 1
-                </li>
-                <button
-                  onClick={[Function]}
-                >
-                  Delete
-                </button>
-              </div>,
-              <div>
-                <li>
-                  Recipe 2
-                </li>
-                <button
-                  onClick={[Function]}
-                >
-                  Delete
-                </button>
-              </div>,
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "1",
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <li>
-                    Recipe 1
-                  </li>,
-                  <button
-                    onClick={[Function]}
-                  >
-                    Delete
-                  </button>,
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Recipe 1",
-                  },
-                  "ref": null,
-                  "rendered": "Recipe 1",
-                  "type": "li",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Delete",
-                    "onClick": [Function],
-                  },
-                  "ref": null,
-                  "rendered": "Delete",
-                  "type": "button",
-                },
-              ],
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": "2",
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <li>
-                    Recipe 2
-                  </li>,
-                  <button
-                    onClick={[Function]}
-                  >
-                    Delete
-                  </button>,
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Recipe 2",
-                  },
-                  "ref": null,
-                  "rendered": "Recipe 2",
-                  "type": "li",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Delete",
-                    "onClick": [Function],
-                  },
-                  "ref": null,
-                  "rendered": "Delete",
-                  "type": "button",
-                },
-              ],
-              "type": "div",
-            },
-          ],
-          "type": "ul",
-        },
-      ],
-      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
