@@ -55,7 +55,7 @@ const submit = async (recipeURL, userId) => {
     
     await NPWebsite.save(parsedURL, userId);
     
-    return { noneProcessable: true };
+    return { nonProcessable: true };
   } catch (err) {
     console.log('err', err);
   }
