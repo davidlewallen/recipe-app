@@ -54,12 +54,12 @@ describe('Recipe Controller Test', () => {
       expect(result.length).toEqual(1);
     });
 
-    it('should return noneProcessable if url is not processable', async () => {
+    it('should return nonProcessable if url is not processable', async () => {
       const url = 'http://http://www.seriouseats.com/recipes/2017/12/braised-chicken-aji-amarillo-coconut-milk-recipe.html/';
 
       const result = await Recipe.submit(url, user._id);
 
-      expect(result.noneProcessable).toEqual(true);
+      expect(result.nonProcessable).toEqual(true);
     });
 
     it('should add recipe id to account.savedRecipes array', async () => {
