@@ -23,6 +23,7 @@ describe('Dashboard snapshot test', () => {
     const recipe = component.find('.recipe');
     const footer = recipe.find('.footer');
     const time = footer.find('Col');
-    expect(time.at(1).text()).toBe('n/a');
+
+    expect(time.at(1).props().children).toBe('n/a');
   });
 });
