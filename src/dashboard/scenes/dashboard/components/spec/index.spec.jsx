@@ -23,10 +23,6 @@ describe('Dashboard snapshot test', () => {
     const recipe = component.find('.recipe');
     const footer = recipe.find('.footer');
     const time = footer.find('Col');
-    // console.log('recipe.debug()', recipe.debug())
-    // console.log('footer.debug()', footer.debug())
-    console.log(time.length)
-    console.log('time.debug()', time.debug())
     expect(time.at(1).text()).toBe('n/a');
   });
 });
