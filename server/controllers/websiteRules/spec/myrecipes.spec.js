@@ -1,9 +1,15 @@
 const axios = require('axios');
-const jsdom = require('jsdom')
+const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;
 
-const { strip, stripIngredients, stripInstructions, stripTitle } = require('../myrecipes');
+const {
+  strip,
+  stripIngredients,
+  stripInstructions,
+  stripTitle,
+  stripTime,
+} = require('../myrecipes');
 
 const expectedData = require('../../../utils/__mock__/websiteRulesMock');
 
@@ -38,6 +44,14 @@ describe('MyRecipes Rules Test', () => {
       const results = stripTitle(dom);
 
       expect(results).toEqual(expectedData.myrecipes.title);
+    });
+  });
+
+  describe('stripTime', () => {
+    it('should strip time from website', () => {
+      const results = stripTime(dom);
+
+      expect(results).toEqual(expectedData.myrecipes.totalTime);
     })
   })
 
@@ -46,6 +60,6 @@ describe('MyRecipes Rules Test', () => {
       const results = strip(dom);
 
       expect(results).toEqual(expectedData.myrecipes.full);
-    })
-  })
-})
+    });
+  });
+});

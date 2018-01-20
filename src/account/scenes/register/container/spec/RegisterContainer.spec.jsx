@@ -56,7 +56,7 @@ describe('RegisterContainer test', () => {
       instance.setState(mockState);
       mock.onPost('/api/account/register').reply(200, { savedRecipes: [], _id: 1, username: 'testUsername' });
       await instance.register({ preventDefault: jest.fn() });
-      expect(instance.props.history.replace).toHaveBeenCalledWith('/');
+      expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');
     });
 
     it('should update error state on 409s', async () => {

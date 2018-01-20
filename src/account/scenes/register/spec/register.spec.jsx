@@ -94,7 +94,7 @@ describe('Login Full Rendering Test', () => {
     wrapper.find('button.register-button').simulate('click', { preventDefault: jest.fn() });
     setImmediate(() => {
       expect(spy).toHaveBeenCalled();
-      expect(instance.props.history.replace).toHaveBeenCalledWith('/');
+      expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');
       done();
     });
   });

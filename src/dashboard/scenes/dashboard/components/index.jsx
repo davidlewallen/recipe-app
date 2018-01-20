@@ -54,7 +54,7 @@ const Dashboard = props => (
                   <Row>
                     <Col xs={12} className="footer">
                       <Row>
-                        <Col className="align-center" xs={6}>{recipe.time || 'n/a'}</Col>
+                        <Col className="align-center" xs={6}>{recipe.totalTime || 'n/a'}</Col>
                         <Col className="align-center" xs={6}>
                           <Button
                             bsStyle="danger"

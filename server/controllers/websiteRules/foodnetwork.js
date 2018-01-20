@@ -1,16 +1,28 @@
+const formatTime = require('../../utils/formatTime');
+
 const stripIngredients = (dom) => {
-  const listOfIngredientsLabel = dom.window.document.getElementsByClassName('o-Ingredients__a-ListItemText');
+  const listOfIngredientsLabel = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('o-Ingredients__a-ListItemText')
+  );
 
   const listOfIngredients = [];
-  for(const label of listOfIngredientsLabel) {
+  for (const label of listOfIngredientsLabel) {
     listOfIngredients.push(label.textContent);
   }
 
   return listOfIngredients;
-}
+};
 
 const stripInstructions = (dom) => {
-  const containingDiv = dom.window.document.getElementsByClassName('o-Method__m-Body')[0];
+  const containingDiv = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('o-Method__m-Body')[0]
+  );
 
   const listOfP = containingDiv.children;
 
@@ -23,30 +35,49 @@ const stripInstructions = (dom) => {
     }
   }
 
-  return listOfInstructions
-}
+  return listOfInstructions;
+};
 
 const stripTitle = (dom) => {
-  const title = dom.window.document.getElementsByClassName('o-AssetTitle__a-HeadlineText')[0].textContent;
+  const title = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('o-AssetTitle__a-HeadlineText')[0].textContent
+  );
 
   return title;
-}
+};
+
+const stripTime = (dom) => {
+  const totalTime = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('o-RecipeInfo__a-Description--Total')[0].textContent
+  );
+
+  return formatTime(totalTime);
+};
 
 const foodnetwork = (dom) => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
   const title = stripTitle(dom);
+  const totalTime = stripTime(dom);
 
   return {
     'ingredients': ingredients,
     'instructions': instructions,
-    'title': title
-  }
-}
+    'title': title,
+    'totalTime': totalTime,
+  };
+};
 
 module.exports = {
   strip: foodnetwork,
   stripIngredients,
   stripInstructions,
   stripTitle,
+  stripTime,
 };

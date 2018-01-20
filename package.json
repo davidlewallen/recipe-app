@@ -70,10 +70,12 @@
     "server:prod": "cross-env PORT=3001 NODE_ENV=production nodemon -w ./server ./server/index.js",
     "server:dev": "cross-env PORT=3001 NODE_ENV=dev nodemon -w ./server ./server/index.js",
     "server:test": "cross-env NODE_ENV=test jest --testPathPattern=server --watch --no-cache --i",
+    "server:test:inspect": "cross-env NODE_ENV=test node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --testPathPattern=server --watch --no-cache",
     "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "node scripts/build.js",
     "test": "cross-env NODE_ENV=test node scripts/test.js --env=jsdom",
-    "heroku-postbuild": "npm run build"
+    "heroku-posbuild": "npm run build",
+    "prepush": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --forceExit && jest --testPathPattern=server --no-cache --i --forceExit"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -124,6 +126,7 @@
     "axios-mock-adapter": "^1.10.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "husky": "^0.14.3",
     "jest-cli": "^22.0.4"
   }
 }
