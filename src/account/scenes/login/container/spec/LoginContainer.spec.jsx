@@ -55,7 +55,7 @@ describe('LoginContainer test', () => {
       });
 
       await instance.login({ preventDefault: jest.fn() });
-      expect(instance.props.history.replace).toHaveBeenCalledWith('/');
+      expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');
     });
 
     it('should update error state with 400s', async () => {
