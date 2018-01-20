@@ -9,7 +9,19 @@ describe('Dashboard snapshot test', () => {
     handleRecipe: () => {},
     submitRecipe: () => {},
     deleteRecipe: () => {},
-    recipeList: [{ title: 'Recipe 1', _id: 1, totalTime: '1 hour 10 minutes' }, { title: 'Recipe 2', _id: 2 }],
+    recipeList: [
+      { title: 'Recipe 1', _id: 1, totalTime: '1 hour 10 minutes' },
+      { title: 'Recipe 2', _id: 2 }
+    ],
+    showModal: false,
+    handleModalClose: jest.fn(),
+    selectedRecipe: {
+      title: 'title',
+      ingredients: ['1'],
+      instructions: ['2'],
+      totalTime: '1 hour',
+      url: { href: 'www.randomurl.com' },
+    },
   };
 
   it('should match snapshot', () => {

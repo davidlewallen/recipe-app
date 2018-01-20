@@ -58,6 +58,7 @@
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
     "url-parse": "^1.2.0",
+    "uuid": "^3.2.1",
     "validator": "^9.2.0",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
@@ -73,7 +74,7 @@
     "server:test:inspect": "cross-env NODE_ENV=test node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --testPathPattern=server --watch --no-cache",
     "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "node scripts/build.js",
-    "test": "cross-env NODE_ENV=test node scripts/test.js --env=jsdom",
+    "test": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch",
     "heroku-posbuild": "npm run build",
     "prepush": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --forceExit && jest --testPathPattern=server --no-cache --i --forceExit"
   },
