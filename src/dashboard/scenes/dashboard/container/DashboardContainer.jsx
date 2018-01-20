@@ -18,6 +18,16 @@ class DashboardContainer extends React.Component {
         url: '',
         list: [],
       },
+      showModal: false,
+      selectedRecipe: {
+        title: '',
+        ingredients: [],
+        instructions: [],
+        totalTime: '',
+        url: {
+          href: '',
+        },
+      },
     };
   }
 
@@ -102,6 +112,16 @@ class DashboardContainer extends React.Component {
     }));
   }
 
+  handleModalClose = () => {
+    this.setState({ showModal: false });
+  }
+
+  viewRecipe = (recipe) => {
+    this.setState({
+      showModal: true,
+      selectedRecipe: recipe,
+    });
+  }
 
   render = () => (
     <Dashboard
@@ -110,6 +130,10 @@ class DashboardContainer extends React.Component {
       handleRecipe={this.handleRecipe}
       submitRecipe={this.submitRecipe}
       deleteRecipe={this.deleteRecipe}
+      showModal={this.state.showModal}
+      handleModalClose={this.handleModalClose}
+      viewRecipe={this.viewRecipe}
+      selectedRecipe={this.state.selectedRecipe}
     />
   );
 }

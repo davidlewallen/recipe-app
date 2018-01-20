@@ -56,12 +56,7 @@ describe('DashboardContainer test', () => {
 
     it('should update state with the user\'s recipes', async () => {
       await instance.getUserRecipes();
-      expect(instance.state).toEqual({
-        recipe: {
-          url: '',
-          list: mockRecipeList,
-        },
-      });
+      expect(instance.state.recipe.list).toEqual(mockRecipeList);
     });
   });
 
@@ -90,17 +85,11 @@ describe('DashboardContainer test', () => {
   });
 
   describe('initialize', () => {
-    it('should call checkIsAuth', async () => {
+    it('should call checkIsAuth and getUsersRecipes', async () => {
       const spy = jest.spyOn(instance, 'checkIsAuth');
       const spy2 = jest.spyOn(instance, 'getUserRecipes');
       await instance.initialize();
       expect(spy).toHaveBeenCalled();
-      expect(instance.state).toEqual({
-        recipe: {
-          url: '',
-          list: mockRecipeList,
-        },
-      });
       expect(spy2).toHaveBeenCalled();
     });
   });
@@ -127,6 +116,14 @@ describe('DashboardContainer test', () => {
 
       await instance.submitRecipe({ preventDefault: jest.fn() });
       expect(instance.state.recipe.list).toEqual([mockRecipeList[0]]);
+    });
+
+    it('should not add a blank recipe card if nonProcessable: true', async () => {
+      mock.reset();
+      mock.onPost('/api/recie/submit/randomurl').reply(200, { nonProcessable: true });
+
+      await instance.submitRecipe({ preventDefault: jest.fn() });
+      expect(instance.state.recipe.list).toEqual([]);
     });
 
     it('should alert the user if website is not processable', async () => {
@@ -166,6 +163,34 @@ describe('DashboardContainer test', () => {
       expect(instance.state.recipe.url).toEqual('');
       instance.handleRecipe({ target: { value: 'test' } });
       expect(instance.state.recipe.url).toEqual('test');
+    });
+  });
+
+  describe('handleModalClose', () => {
+    it('should call handleModalClose and update state', () => {
+      const spy = jest.spyOn(instance, 'handleModalClose');
+
+      expect(instance.state.showModal).toBe(false);
+
+      instance.setState({ showModal: true });
+      instance.handleModalClose();
+      expect(spy).toHaveBeenCalled();
+      expect(instance.state.showModal).toBe(false);
+    });
+  });
+
+  describe('viewRecipe', () => {
+    it('should call viewRecipe', () => {
+      const spy = jest.spyOn(instance, 'viewRecipe');
+      instance.viewRecipe({ ...mockRecipeList[0] });
+
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it('should update selectedRecipe and showModal', () => {
+      instance.viewRecipe({ ...mockRecipeList[0] });
+      expect(instance.state.showModal).toBe(true);
+      expect(instance.state.selectedRecipe).toEqual(mockRecipeList[0]);
     });
   });
 });

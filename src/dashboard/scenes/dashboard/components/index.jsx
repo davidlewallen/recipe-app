@@ -2,10 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 
+import RecipeModal from '../../../components/recipe-modal/components';
+
 import '../assets/styles/index.css';
 
 const {
-  string, func, arrayOf, object,
+  string,
+  func,
+  arrayOf,
+  object,
+  bool,
+  shape,
 } = PropTypes;
 const propTypes = {
   recipeURL: string.isRequired,
@@ -13,6 +20,15 @@ const propTypes = {
   submitRecipe: func.isRequired,
   deleteRecipe: func.isRequired, // eslint-disable-line
   recipeList: arrayOf(object).isRequired,
+  showModal: bool.isRequired,
+  handleModalClose: func.isRequired,
+  selectedRecipe: shape({
+    title: string,
+    ingredients: arrayOf(string),
+    instructions: arrayOf(string),
+    totalTime: string,
+    url: shape({ href: string.isRequired }).isRequired,
+  }).isRequired,
 };
 
 const Dashboard = props => (
@@ -33,6 +49,13 @@ const Dashboard = props => (
         </form>
       </Col>
     </Row>
+
+    <RecipeModal
+      showModal={props.showModal}
+      handleModalClose={props.handleModalClose}
+      selectedRecipe={props.selectedRecipe}
+      deleteRecipe={props.deleteRecipe}
+    />
 
     {props.recipeList.length > 0 && (
       <Row className="recipe-container">
@@ -56,6 +79,13 @@ const Dashboard = props => (
                       <Row>
                         <Col className="align-center" xs={6}>{recipe.totalTime || 'n/a'}</Col>
                         <Col className="align-center" xs={6}>
+                          <Button
+                            bsStyle="primary"
+                            bsSize="xsmall"
+                            onClick={() => props.viewRecipe(recipe)}
+                          >
+                            View
+                          </Button>
                           <Button
                             bsStyle="danger"
                             bsSize="xsmall"

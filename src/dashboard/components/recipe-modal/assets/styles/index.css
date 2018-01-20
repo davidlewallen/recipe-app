@@ -1,0 +1,18 @@
+.recipe-modal .title span.total-time {
+  float: right;
+  padding-right: 2%;
+}
+
+.recipe-modal .body .ingredient-title {
+  font-size: 2em;
+  padding-bottom: 10px;
+}
+
+.recipe-modal .body .instruction-title {
+  font-size: 2em;
+  padding: 5px 0 10px 0;
+}
+
+.recipe-modal .modal-footer .recipe-link {
+  float: left;
+}

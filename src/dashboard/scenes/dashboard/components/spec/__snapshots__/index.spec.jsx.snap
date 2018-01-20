@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Dashboard
     deleteRecipe={[Function]}
+    handleModalClose={[MockFunction]}
     handleRecipe={[Function]}
     recipeList={
       Array [
@@ -21,6 +22,22 @@ ShallowWrapper {
       ]
     }
     recipeURL="www.testrecipeurl.com"
+    selectedRecipe={
+      Object {
+        "ingredients": Array [
+          "1",
+        ],
+        "instructions": Array [
+          "2",
+        ],
+        "title": "title",
+        "totalTime": "1 hour",
+        "url": Object {
+          "href": "www.randomurl.com",
+        },
+      }
+    }
+    showModal={false}
     submitRecipe={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -61,6 +78,26 @@ ShallowWrapper {
             </form>
           </Col>
         </Row>,
+        <RecipeModal
+          deleteRecipe={[Function]}
+          handleModalClose={[MockFunction]}
+          selectedRecipe={
+            Object {
+              "ingredients": Array [
+                "1",
+              ],
+              "instructions": Array [
+                "2",
+              ],
+              "title": "title",
+              "totalTime": "1 hour",
+              "url": Object {
+                "href": "www.randomurl.com",
+              },
+            }
+          }
+          showModal={false}
+        />,
         <Row
           bsClass="row"
           className="recipe-container"
@@ -130,6 +167,17 @@ ShallowWrapper {
                           componentClass="div"
                           xs={6}
                         >
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            View
+                          </Button>
                           <Button
                             active={false}
                             block={false}
@@ -213,6 +261,17 @@ ShallowWrapper {
                           componentClass="div"
                           xs={6}
                         >
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            View
+                          </Button>
                           <Button
                             active={false}
                             block={false}
@@ -347,6 +406,32 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "deleteRecipe": [Function],
+          "handleModalClose": [MockFunction],
+          "selectedRecipe": Object {
+            "ingredients": Array [
+              "1",
+            ],
+            "instructions": Array [
+              "2",
+            ],
+            "title": "title",
+            "totalTime": "1 hour",
+            "url": Object {
+              "href": "www.randomurl.com",
+            },
+          },
+          "showModal": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "class",
         "props": Object {
           "bsClass": "row",
@@ -415,6 +500,17 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
                             <Button
                               active={false}
                               block={false}
@@ -498,6 +594,17 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
                             <Button
                               active={false}
                               block={false}
@@ -590,6 +697,17 @@ ShallowWrapper {
                               block={false}
                               bsClass="btn"
                               bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
                               bsStyle="danger"
                               disabled={false}
                               onClick={[Function]}
@@ -673,6 +791,17 @@ ShallowWrapper {
                               block={false}
                               bsClass="btn"
                               bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
                               bsStyle="danger"
                               disabled={false}
                               onClick={[Function]}
@@ -748,6 +877,17 @@ ShallowWrapper {
                               block={false}
                               bsClass="btn"
                               bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
                               bsStyle="danger"
                               disabled={false}
                               onClick={[Function]}
@@ -812,6 +952,17 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
                               <Button
                                 active={false}
                                 block={false}
@@ -917,6 +1068,17 @@ ShallowWrapper {
                                 block={false}
                                 bsClass="btn"
                                 bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
                                 bsStyle="danger"
                                 disabled={false}
                                 onClick={[Function]}
@@ -953,6 +1115,17 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
                               <Button
                                 active={false}
                                 block={false}
@@ -997,6 +1170,17 @@ ShallowWrapper {
                                   block={false}
                                   bsClass="btn"
                                   bsSize="xsmall"
+                                  bsStyle="primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                >
+                                  View
+                                </Button>
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
+                                  bsSize="xsmall"
                                   bsStyle="danger"
                                   disabled={false}
                                   onClick={[Function]}
@@ -1030,40 +1214,73 @@ ShallowWrapper {
                               "nodeType": "class",
                               "props": Object {
                                 "bsClass": "col",
-                                "children": <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>,
+                                "children": Array [
+                                  <Button
+                                    active={false}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsSize="xsmall"
+                                    bsStyle="primary"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                  >
+                                    View
+                                  </Button>,
+                                  <Button
+                                    active={false}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsSize="xsmall"
+                                    bsStyle="danger"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                  >
+                                    Delete
+                                  </Button>,
+                                ],
                                 "className": "align-center",
                                 "componentClass": "div",
                                 "xs": 6,
                               },
                               "ref": null,
-                              "rendered": Object {
-                                "instance": null,
-                                "key": undefined,
-                                "nodeType": "class",
-                                "props": Object {
-                                  "active": false,
-                                  "block": false,
-                                  "bsClass": "btn",
-                                  "bsSize": "xsmall",
-                                  "bsStyle": "danger",
-                                  "children": "Delete",
-                                  "disabled": false,
-                                  "onClick": [Function],
+                              "rendered": Array [
+                                Object {
+                                  "instance": null,
+                                  "key": undefined,
+                                  "nodeType": "class",
+                                  "props": Object {
+                                    "active": false,
+                                    "block": false,
+                                    "bsClass": "btn",
+                                    "bsSize": "xsmall",
+                                    "bsStyle": "primary",
+                                    "children": "View",
+                                    "disabled": false,
+                                    "onClick": [Function],
+                                  },
+                                  "ref": null,
+                                  "rendered": "View",
+                                  "type": [Function],
                                 },
-                                "ref": null,
-                                "rendered": "Delete",
-                                "type": [Function],
-                              },
+                                Object {
+                                  "instance": null,
+                                  "key": undefined,
+                                  "nodeType": "class",
+                                  "props": Object {
+                                    "active": false,
+                                    "block": false,
+                                    "bsClass": "btn",
+                                    "bsSize": "xsmall",
+                                    "bsStyle": "danger",
+                                    "children": "Delete",
+                                    "disabled": false,
+                                    "onClick": [Function],
+                                  },
+                                  "ref": null,
+                                  "rendered": "Delete",
+                                  "type": [Function],
+                                },
+                              ],
                               "type": [Function],
                             },
                           ],
@@ -1144,6 +1361,17 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
                             <Button
                               active={false}
                               block={false}
@@ -1232,6 +1460,17 @@ ShallowWrapper {
                               block={false}
                               bsClass="btn"
                               bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
                               bsStyle="danger"
                               disabled={false}
                               onClick={[Function]}
@@ -1307,6 +1546,17 @@ ShallowWrapper {
                               block={false}
                               bsClass="btn"
                               bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
                               bsStyle="danger"
                               disabled={false}
                               onClick={[Function]}
@@ -1371,6 +1621,17 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
                               <Button
                                 active={false}
                                 block={false}
@@ -1476,6 +1737,17 @@ ShallowWrapper {
                                 block={false}
                                 bsClass="btn"
                                 bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
                                 bsStyle="danger"
                                 disabled={false}
                                 onClick={[Function]}
@@ -1512,6 +1784,17 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
                               <Button
                                 active={false}
                                 block={false}
@@ -1556,6 +1839,17 @@ ShallowWrapper {
                                   block={false}
                                   bsClass="btn"
                                   bsSize="xsmall"
+                                  bsStyle="primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                >
+                                  View
+                                </Button>
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
+                                  bsSize="xsmall"
                                   bsStyle="danger"
                                   disabled={false}
                                   onClick={[Function]}
@@ -1589,40 +1883,73 @@ ShallowWrapper {
                               "nodeType": "class",
                               "props": Object {
                                 "bsClass": "col",
-                                "children": <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>,
+                                "children": Array [
+                                  <Button
+                                    active={false}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsSize="xsmall"
+                                    bsStyle="primary"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                  >
+                                    View
+                                  </Button>,
+                                  <Button
+                                    active={false}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsSize="xsmall"
+                                    bsStyle="danger"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                  >
+                                    Delete
+                                  </Button>,
+                                ],
                                 "className": "align-center",
                                 "componentClass": "div",
                                 "xs": 6,
                               },
                               "ref": null,
-                              "rendered": Object {
-                                "instance": null,
-                                "key": undefined,
-                                "nodeType": "class",
-                                "props": Object {
-                                  "active": false,
-                                  "block": false,
-                                  "bsClass": "btn",
-                                  "bsSize": "xsmall",
-                                  "bsStyle": "danger",
-                                  "children": "Delete",
-                                  "disabled": false,
-                                  "onClick": [Function],
+                              "rendered": Array [
+                                Object {
+                                  "instance": null,
+                                  "key": undefined,
+                                  "nodeType": "class",
+                                  "props": Object {
+                                    "active": false,
+                                    "block": false,
+                                    "bsClass": "btn",
+                                    "bsSize": "xsmall",
+                                    "bsStyle": "primary",
+                                    "children": "View",
+                                    "disabled": false,
+                                    "onClick": [Function],
+                                  },
+                                  "ref": null,
+                                  "rendered": "View",
+                                  "type": [Function],
                                 },
-                                "ref": null,
-                                "rendered": "Delete",
-                                "type": [Function],
-                              },
+                                Object {
+                                  "instance": null,
+                                  "key": undefined,
+                                  "nodeType": "class",
+                                  "props": Object {
+                                    "active": false,
+                                    "block": false,
+                                    "bsClass": "btn",
+                                    "bsSize": "xsmall",
+                                    "bsStyle": "danger",
+                                    "children": "Delete",
+                                    "disabled": false,
+                                    "onClick": [Function],
+                                  },
+                                  "ref": null,
+                                  "rendered": "Delete",
+                                  "type": [Function],
+                                },
+                              ],
                               "type": [Function],
                             },
                           ],
@@ -1679,6 +2006,26 @@ ShallowWrapper {
               </form>
             </Col>
           </Row>,
+          <RecipeModal
+            deleteRecipe={[Function]}
+            handleModalClose={[MockFunction]}
+            selectedRecipe={
+              Object {
+                "ingredients": Array [
+                  "1",
+                ],
+                "instructions": Array [
+                  "2",
+                ],
+                "title": "title",
+                "totalTime": "1 hour",
+                "url": Object {
+                  "href": "www.randomurl.com",
+                },
+              }
+            }
+            showModal={false}
+          />,
           <Row
             bsClass="row"
             className="recipe-container"
@@ -1748,6 +2095,17 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
                             <Button
                               active={false}
                               block={false}
@@ -1831,6 +2189,17 @@ ShallowWrapper {
                             componentClass="div"
                             xs={6}
                           >
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              View
+                            </Button>
                             <Button
                               active={false}
                               block={false}
@@ -1965,6 +2334,32 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "deleteRecipe": [Function],
+            "handleModalClose": [MockFunction],
+            "selectedRecipe": Object {
+              "ingredients": Array [
+                "1",
+              ],
+              "instructions": Array [
+                "2",
+              ],
+              "title": "title",
+              "totalTime": "1 hour",
+              "url": Object {
+                "href": "www.randomurl.com",
+              },
+            },
+            "showModal": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "class",
           "props": Object {
             "bsClass": "row",
@@ -2033,6 +2428,17 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
                               <Button
                                 active={false}
                                 block={false}
@@ -2116,6 +2522,17 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
                               <Button
                                 active={false}
                                 block={false}
@@ -2208,6 +2625,17 @@ ShallowWrapper {
                                 block={false}
                                 bsClass="btn"
                                 bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
                                 bsStyle="danger"
                                 disabled={false}
                                 onClick={[Function]}
@@ -2291,6 +2719,17 @@ ShallowWrapper {
                                 block={false}
                                 bsClass="btn"
                                 bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
                                 bsStyle="danger"
                                 disabled={false}
                                 onClick={[Function]}
@@ -2366,6 +2805,17 @@ ShallowWrapper {
                                 block={false}
                                 bsClass="btn"
                                 bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
                                 bsStyle="danger"
                                 disabled={false}
                                 onClick={[Function]}
@@ -2430,6 +2880,17 @@ ShallowWrapper {
                                 componentClass="div"
                                 xs={6}
                               >
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
+                                  bsSize="xsmall"
+                                  bsStyle="primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                >
+                                  View
+                                </Button>
                                 <Button
                                   active={false}
                                   block={false}
@@ -2535,6 +2996,17 @@ ShallowWrapper {
                                   block={false}
                                   bsClass="btn"
                                   bsSize="xsmall"
+                                  bsStyle="primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                >
+                                  View
+                                </Button>
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
+                                  bsSize="xsmall"
                                   bsStyle="danger"
                                   disabled={false}
                                   onClick={[Function]}
@@ -2571,6 +3043,17 @@ ShallowWrapper {
                                 componentClass="div"
                                 xs={6}
                               >
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
+                                  bsSize="xsmall"
+                                  bsStyle="primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                >
+                                  View
+                                </Button>
                                 <Button
                                   active={false}
                                   block={false}
@@ -2615,6 +3098,17 @@ ShallowWrapper {
                                     block={false}
                                     bsClass="btn"
                                     bsSize="xsmall"
+                                    bsStyle="primary"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                  >
+                                    View
+                                  </Button>
+                                  <Button
+                                    active={false}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsSize="xsmall"
                                     bsStyle="danger"
                                     disabled={false}
                                     onClick={[Function]}
@@ -2648,40 +3142,73 @@ ShallowWrapper {
                                 "nodeType": "class",
                                 "props": Object {
                                   "bsClass": "col",
-                                  "children": <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="danger"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    Delete
-                                  </Button>,
+                                  "children": Array [
+                                    <Button
+                                      active={false}
+                                      block={false}
+                                      bsClass="btn"
+                                      bsSize="xsmall"
+                                      bsStyle="primary"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                    >
+                                      View
+                                    </Button>,
+                                    <Button
+                                      active={false}
+                                      block={false}
+                                      bsClass="btn"
+                                      bsSize="xsmall"
+                                      bsStyle="danger"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                    >
+                                      Delete
+                                    </Button>,
+                                  ],
                                   "className": "align-center",
                                   "componentClass": "div",
                                   "xs": 6,
                                 },
                                 "ref": null,
-                                "rendered": Object {
-                                  "instance": null,
-                                  "key": undefined,
-                                  "nodeType": "class",
-                                  "props": Object {
-                                    "active": false,
-                                    "block": false,
-                                    "bsClass": "btn",
-                                    "bsSize": "xsmall",
-                                    "bsStyle": "danger",
-                                    "children": "Delete",
-                                    "disabled": false,
-                                    "onClick": [Function],
+                                "rendered": Array [
+                                  Object {
+                                    "instance": null,
+                                    "key": undefined,
+                                    "nodeType": "class",
+                                    "props": Object {
+                                      "active": false,
+                                      "block": false,
+                                      "bsClass": "btn",
+                                      "bsSize": "xsmall",
+                                      "bsStyle": "primary",
+                                      "children": "View",
+                                      "disabled": false,
+                                      "onClick": [Function],
+                                    },
+                                    "ref": null,
+                                    "rendered": "View",
+                                    "type": [Function],
                                   },
-                                  "ref": null,
-                                  "rendered": "Delete",
-                                  "type": [Function],
-                                },
+                                  Object {
+                                    "instance": null,
+                                    "key": undefined,
+                                    "nodeType": "class",
+                                    "props": Object {
+                                      "active": false,
+                                      "block": false,
+                                      "bsClass": "btn",
+                                      "bsSize": "xsmall",
+                                      "bsStyle": "danger",
+                                      "children": "Delete",
+                                      "disabled": false,
+                                      "onClick": [Function],
+                                    },
+                                    "ref": null,
+                                    "rendered": "Delete",
+                                    "type": [Function],
+                                  },
+                                ],
                                 "type": [Function],
                               },
                             ],
@@ -2762,6 +3289,17 @@ ShallowWrapper {
                               componentClass="div"
                               xs={6}
                             >
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
                               <Button
                                 active={false}
                                 block={false}
@@ -2850,6 +3388,17 @@ ShallowWrapper {
                                 block={false}
                                 bsClass="btn"
                                 bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
                                 bsStyle="danger"
                                 disabled={false}
                                 onClick={[Function]}
@@ -2925,6 +3474,17 @@ ShallowWrapper {
                                 block={false}
                                 bsClass="btn"
                                 bsSize="xsmall"
+                                bsStyle="primary"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                View
+                              </Button>
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
                                 bsStyle="danger"
                                 disabled={false}
                                 onClick={[Function]}
@@ -2989,6 +3549,17 @@ ShallowWrapper {
                                 componentClass="div"
                                 xs={6}
                               >
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
+                                  bsSize="xsmall"
+                                  bsStyle="primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                >
+                                  View
+                                </Button>
                                 <Button
                                   active={false}
                                   block={false}
@@ -3094,6 +3665,17 @@ ShallowWrapper {
                                   block={false}
                                   bsClass="btn"
                                   bsSize="xsmall"
+                                  bsStyle="primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                >
+                                  View
+                                </Button>
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
+                                  bsSize="xsmall"
                                   bsStyle="danger"
                                   disabled={false}
                                   onClick={[Function]}
@@ -3130,6 +3712,17 @@ ShallowWrapper {
                                 componentClass="div"
                                 xs={6}
                               >
+                                <Button
+                                  active={false}
+                                  block={false}
+                                  bsClass="btn"
+                                  bsSize="xsmall"
+                                  bsStyle="primary"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                >
+                                  View
+                                </Button>
                                 <Button
                                   active={false}
                                   block={false}
@@ -3174,6 +3767,17 @@ ShallowWrapper {
                                     block={false}
                                     bsClass="btn"
                                     bsSize="xsmall"
+                                    bsStyle="primary"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                  >
+                                    View
+                                  </Button>
+                                  <Button
+                                    active={false}
+                                    block={false}
+                                    bsClass="btn"
+                                    bsSize="xsmall"
                                     bsStyle="danger"
                                     disabled={false}
                                     onClick={[Function]}
@@ -3207,40 +3811,73 @@ ShallowWrapper {
                                 "nodeType": "class",
                                 "props": Object {
                                   "bsClass": "col",
-                                  "children": <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="danger"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    Delete
-                                  </Button>,
+                                  "children": Array [
+                                    <Button
+                                      active={false}
+                                      block={false}
+                                      bsClass="btn"
+                                      bsSize="xsmall"
+                                      bsStyle="primary"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                    >
+                                      View
+                                    </Button>,
+                                    <Button
+                                      active={false}
+                                      block={false}
+                                      bsClass="btn"
+                                      bsSize="xsmall"
+                                      bsStyle="danger"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                    >
+                                      Delete
+                                    </Button>,
+                                  ],
                                   "className": "align-center",
                                   "componentClass": "div",
                                   "xs": 6,
                                 },
                                 "ref": null,
-                                "rendered": Object {
-                                  "instance": null,
-                                  "key": undefined,
-                                  "nodeType": "class",
-                                  "props": Object {
-                                    "active": false,
-                                    "block": false,
-                                    "bsClass": "btn",
-                                    "bsSize": "xsmall",
-                                    "bsStyle": "danger",
-                                    "children": "Delete",
-                                    "disabled": false,
-                                    "onClick": [Function],
+                                "rendered": Array [
+                                  Object {
+                                    "instance": null,
+                                    "key": undefined,
+                                    "nodeType": "class",
+                                    "props": Object {
+                                      "active": false,
+                                      "block": false,
+                                      "bsClass": "btn",
+                                      "bsSize": "xsmall",
+                                      "bsStyle": "primary",
+                                      "children": "View",
+                                      "disabled": false,
+                                      "onClick": [Function],
+                                    },
+                                    "ref": null,
+                                    "rendered": "View",
+                                    "type": [Function],
                                   },
-                                  "ref": null,
-                                  "rendered": "Delete",
-                                  "type": [Function],
-                                },
+                                  Object {
+                                    "instance": null,
+                                    "key": undefined,
+                                    "nodeType": "class",
+                                    "props": Object {
+                                      "active": false,
+                                      "block": false,
+                                      "bsClass": "btn",
+                                      "bsSize": "xsmall",
+                                      "bsStyle": "danger",
+                                      "children": "Delete",
+                                      "disabled": false,
+                                      "onClick": [Function],
+                                    },
+                                    "ref": null,
+                                    "rendered": "Delete",
+                                    "type": [Function],
+                                  },
+                                ],
                                 "type": [Function],
                               },
                             ],
