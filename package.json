@@ -53,6 +53,7 @@
     "react-bootstrap": "^0.32.0",
     "react-dev-utils": "^4.2.1",
     "react-dom": "^16.2.0",
+    "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -75,6 +76,7 @@
     "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "node scripts/build.js",
     "test": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch",
+    "test:coverage": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch --coverage",        
     "heroku-postbuild": "npm run build",
     "prepush": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --forceExit && jest --testPathPattern=server --no-cache --i --forceExit"
   },
