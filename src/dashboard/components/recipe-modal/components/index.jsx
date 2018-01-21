@@ -37,7 +37,7 @@ const RecipeModal = props => (
     >
       <Modal.Title className="title">
         <span>{props.selectedRecipe.title}</span>
-        <span className="total-time">Total Time: {props.selectedRecipe.totalTime}</span>
+        <span className="total-time">Total Time: {props.selectedRecipe.totalTime || 'n/a'}</span>
       </Modal.Title>
     </Modal.Header>
     <Modal.Body className="body">
