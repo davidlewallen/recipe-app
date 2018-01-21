@@ -90,7 +90,28 @@ describe('Recipe Controller Test', () => {
       expect(result.savedRecipes.length).toBe(1);
       expect(result.savedRecipes[0]).toEqual(recipeId);
     });
-  })
+
+    it('should add recipe to user even if another user has it added already', async () => {
+      const url = 'http://allrecipes.com/recipe/24002/famous-butter-chicken/';
+
+      const user2 = await Account.createTestAccount('2');
+
+      let recipe = await Recipe.submit(url, user._id);
+      let recipeId = recipe._id;
+
+      let result = await AccountModel.findById(user._id);
+      expect(result.savedRecipes.length).toBe(1);
+      expect(result.savedRecipes[0]).toEqual(recipeId);
+
+
+      recipe = await Recipe.submit(url, user2._id);
+      recipeId = recipe._id;
+
+      result = await AccountModel.findById(user2._id);
+      expect(result.savedRecipes.length).toBe(1);
+      expect(result.savedRecipes[0]).toEqual(recipeId);
+    });
+  });
 
   describe('Recipe.get', () => {
     it('should get recipes that a user has submitted', async () => {
