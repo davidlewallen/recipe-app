@@ -6,7 +6,8 @@ const RecipeModel = require('../models/recipe');
 const { stripWebsite } = require('../controllers/websiteRules');
 
 const updateRecipes = async () => {
-  if (process.env.NODE_ENV !== 'production') {
+  const NODE_ENV = process.env.NODE_ENV;
+  if (NODE_ENV !== 'production' && NODE_ENV !== 'test') {
     process.env.NODE_ENV = 'dev';
     const envResults = fs.readFileSync('../../.env', 'utf8').split('\n');
     envResults.forEach(env => {
@@ -24,7 +25,9 @@ const updateRecipes = async () => {
       const strippedWebsite = await stripWebsite(parsedURL);
       await RecipeModel.findByIdAndUpdate(recipe._id, strippedWebsite);
     }
-    process.exit(0);
+    if (NODE_ENV !== 'production' && NODE_ENV !== 'test') {
+      process.exit(0);
+    }
   } catch (err) {
     console.log('err', err);
   }
