@@ -22,7 +22,7 @@ const stripWebsite = async (parsedURL) => {
       website => website.hostname === hostname
     )[0].func;
 
-    const results = hostnameFunction(dom)
+    const results = hostnameFunction(dom);
 
     return {
       ...results,
@@ -31,19 +31,19 @@ const stripWebsite = async (parsedURL) => {
         href: parsedURL.href,
         link: parsedURL.hostname + parsedURL.pathname,
       }
-    }
+    };
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 // Check if we have rules for passed in website, returning true or false
 const isWebsiteProcessable = (parsedURL) => {
   const hostname = parsedURL.hostname;
-  return !!acceptedWebsites().filter(website => website.hostname === hostname).length
-}
+  return !!acceptedWebsites().filter(website => website.hostname === hostname).length;
+};
 
 module.exports = {
   stripWebsite,
   isWebsiteProcessable,
-}
+};
