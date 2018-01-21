@@ -1,4 +1,6 @@
-if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const mongoose = require('mongoose');
 
 module.exports = {
@@ -7,14 +9,15 @@ module.exports = {
     const PASSWORD = encodeURIComponent(process.env.MONGO_PASSWORD);
 
     let uri;
-    
+
     if (process.env.NODE_ENV === 'dev') {
       uri = `mongodb://${USERNAME}:${PASSWORD}@ds163836.mlab.com:63836/recipe-dev`;
     } else if (process.env.NODE_ENV === 'test') {
-      uri = `mongodb://${USERNAME}:${PASSWORD}@ds133547.mlab.com:33547/recipe-test`
+      uri = `mongodb://${USERNAME}:${PASSWORD}@ds133547.mlab.com:33547/recipe-test`;
     } else {
       uri = `mongodb://${USERNAME}:${PASSWORD}@ds161446.mlab.com:61446/recipe`;
     }
+
     mongoose.Promise = global.Promise;
     await mongoose.connect(uri, { useMongoClient: true });
     const db = mongoose.connection;
@@ -23,4 +26,4 @@ module.exports = {
       db.once('open', () => console.log('connected mongoose'));
     }
   }
-}
+};
