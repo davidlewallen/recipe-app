@@ -45,14 +45,12 @@ const submit = async (recipeURL, userId) => {
       const recipeId = Array.isArray(result) ? result[0]._id : result._id;
 
       const savedRecipe = await saveRecipeToUser(recipeId, userId);
-
       if (!savedRecipe) {
         return { alreadyAdded: true };
       }
       
       return result;
     }
-    
     await NPWebsite.save(parsedURL, userId);
     
     return { nonProcessable: true };
@@ -62,7 +60,12 @@ const submit = async (recipeURL, userId) => {
 };
 
 const saveRecipeToUser = async (recipeId, userId) => {
-  const savedRecipeResult = await Account.find({ savedRecipes: recipeId});
+  const savedRecipeResult = await Account.find({
+    $and: [
+      { _id: userId },
+      { savedRecipes: recipeId }
+    ]
+  });
   const isRecipeSaved = !!savedRecipeResult.length;
   
   // If user hasnt saved the recipe, add it to account.savedRecipe
