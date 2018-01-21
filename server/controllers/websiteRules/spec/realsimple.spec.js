@@ -9,6 +9,7 @@ const {
   stripInstructions,
   stripTitle,
   stripTime,
+  stripImageURL,
 } = require('../myrecipes');
 
 const expectedData = require('../../../utils/__mock__/websiteRulesMock');
@@ -52,6 +53,14 @@ describe('RealSimple Rules Test', () => {
       const results = stripTime(dom);
 
       expect(results).toEqual(expectedData.realsimple.totalTime);
+    });
+  });
+
+  describe('stripImageURL', () => {
+    it('should strip image from website', () => {
+      const results = stripImageURL(dom);
+
+      expect(results).toEqual(expectedData.realsimple.imageURL);
     });
   });
 
