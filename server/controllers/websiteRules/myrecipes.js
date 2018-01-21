@@ -64,17 +64,33 @@ const stripTime = (dom) => {
   return cleanUp;
 };
 
+const stripImageURL = (dom) => {
+  const imageURL = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('image-container')[0]
+    .children[0]
+    .dataset
+    .src
+  );
+
+  return imageURL;
+};
+
 const myrecipes = (dom) => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
   const title = stripTitle(dom);
   const totalTime = stripTime(dom);
+  const imageURL = stripImageURL(dom);
 
   return {
     'ingredients': ingredients,
     'instructions': instructions,
     'title': title,
-    'totalTime': totalTime
+    'totalTime': totalTime,
+    'imageURL': imageURL,
   };
 };
 
@@ -84,4 +100,5 @@ module.exports = {
   stripInstructions,
   stripTitle,
   stripTime,
+  stripImageURL,
 };
