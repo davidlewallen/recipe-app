@@ -5,6 +5,7 @@ const RecipesSchema = new Schema({
   ingredients: [String],
   instructions: [String],
   totalTime: String,
+  imageURL: String,
   url: {
     hostname: String,
     href: String,
