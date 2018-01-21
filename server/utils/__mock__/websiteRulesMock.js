@@ -16,6 +16,7 @@ module.exports = {
     ],
     title: 'Famous Butter Chicken',
     totalTime: '55 minutes',
+    imageURL: 'http://images.media-allrecipes.com/userphotos/560x315/296379.jpg',
     full: {
       ingredients: [
         '2 eggs, beaten',
@@ -31,6 +32,7 @@ module.exports = {
         '4) Bake in the preheated oven for 40 minutes, or until chicken is no longer pink and juices run clear.'],
       title: 'Famous Butter Chicken',
       totalTime: '55 minutes',
+      imageURL: 'http://images.media-allrecipes.com/userphotos/560x315/296379.jpg',
     },
   },
   foodnetwork: {
@@ -83,6 +85,7 @@ module.exports = {
     ],
     title: 'Melting Snowman Cake',
     totalTime: '3 hours 10 minutes',
+    imageURL: '//food.fnr.sndimg.com/content/dam/images/food/fullset/2017/11/30/0/FN_Melting-Snowman-Cake-heather-baird_s4x3.jpg.rend.hgtvcom.616.462.suffix/1512068551842.jpeg',
     full: {
       ingredients: [
         '5 3/4 cups all-purpose flour',
@@ -132,6 +135,7 @@ module.exports = {
       ],
       title: 'Melting Snowman Cake',
       totalTime: '3 hours 10 minutes',
+      imageURL: '//food.fnr.sndimg.com/content/dam/images/food/fullset/2017/11/30/0/FN_Melting-Snowman-Cake-heather-baird_s4x3.jpg.rend.hgtvcom.616.462.suffix/1512068551842.jpeg',
     }
   },
   geniuskitchen: {
@@ -155,6 +159,7 @@ module.exports = {
     ],
     title: 'Citrusy Kale Salad W/ Blueberries and Pepitas (& Variations)',
     totalTime: '20 minutes',
+    imageURL: 'http://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/25/94/MwrTLl9tTi5LzTfU9XdA_kale%20salad-9820.jpg',
     full: {
       ingredients:
         ['1  bunch curly kale (I tried lacinato kale and next time will try Russian kale)',
@@ -174,6 +179,7 @@ module.exports = {
           '5) Add the avocado, berries and seeds and toss all together. Do not add the dressing, avocado, berries or seeds to the salad until just before serving.'],
       title: 'Citrusy Kale Salad W/ Blueberries and Pepitas (& Variations)',
       totalTime: '20 minutes',
+      imageURL: 'http://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/25/94/MwrTLl9tTi5LzTfU9XdA_kale%20salad-9820.jpg',
     }
   },
   myrecipes: {
@@ -197,6 +203,7 @@ module.exports = {
     ],
     title: 'Superfood Crunch Granola',
     totalTime: '1 hour',
+    imageURL: 'http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=y0NyIBOU',
     full: {
       ingredients:
         ['2 cups old-fashioned rolled oats',
@@ -218,7 +225,7 @@ module.exports = {
           '3) Immediately transfer granola to a large bowl and let cool completely, stirring occasionally. (Granola will crisp as it cools.) When it\'s cool, toss in goji berries. Store leftovers in an airtight container for up to 2 weeks.'],
       title: 'Superfood Crunch Granola',
       totalTime: '1 hour',
-    }
+      imageURL: 'http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=y0NyIBOU',    }
   },
   realsimple: {
     ingredients: ['1 ounce dried porcini mushrooms',
@@ -241,6 +248,7 @@ module.exports = {
       '4) Add barley, chopped mushrooms, reserved mushroom liquid, and remaining 1 teaspoon salt to beef mixture. Increase heat to medium-high, and return to a boil. Reduce heat to medium-low, and simmer 30 minutes. Add rutabaga and carrots, and simmer until barley, vegetables, and beef are tender, 20 to 25 minutes. Add Brussels sprouts and pepper, and cook until Brussels sprouts are just tender, about 5 minutes. Sprinkle servings with parsley.'],
     title: 'Beef-and-Barley Soup With Porcini',
     totalTime: '2 hours 10 minutes',
+    imageURL: 'https://cdn-image.realsimple.com/sites/default/files/styles/portrait_435x518/public/1483995143/beef-barley-soup.jpg?itok=Rx_saul7',
     full: {
       ingredients:
         ['1 ounce dried porcini mushrooms',
@@ -264,6 +272,7 @@ module.exports = {
           '4) Add barley, chopped mushrooms, reserved mushroom liquid, and remaining 1 teaspoon salt to beef mixture. Increase heat to medium-high, and return to a boil. Reduce heat to medium-low, and simmer 30 minutes. Add rutabaga and carrots, and simmer until barley, vegetables, and beef are tender, 20 to 25 minutes. Add Brussels sprouts and pepper, and cook until Brussels sprouts are just tender, about 5 minutes. Sprinkle servings with parsley.'],
       title: 'Beef-and-Barley Soup With Porcini',
       totalTime: '2 hours 10 minutes',
+      imageURL: 'https://cdn-image.realsimple.com/sites/default/files/styles/portrait_435x518/public/1483995143/beef-barley-soup.jpg?itok=Rx_saul7',
     }
   },
   health: {
@@ -273,6 +282,7 @@ module.exports = {
     instructions: ['1) Place all ingredients in a blender with 4 cups cool water; blend until smooth. Refrigerate for 30 minutes. Strain through a fine-mesh sieve into glasses and serve, or refrigerate to serve later.\n                          '],
     title: 'Cucumber Mint Tonic',
     totalTime: 'n/a',
+    imageURL: 'http://cdn-img.health.com/sites/default/files/styles/large_16_9/public/1512581277/cucumber-mint-tonic-blast-bloat.jpg?itok=JsI7UNJs',
     full: {
       ingredients:
         ['3 tablespoons fresh mint leaves',
@@ -282,6 +292,7 @@ module.exports = {
         ['1) Place all ingredients in a blender with 4 cups cool water; blend until smooth. Refrigerate for 30 minutes. Strain through a fine-mesh sieve into glasses and serve, or refrigerate to serve later.\n                          '],
       title: 'Cucumber Mint Tonic',
       totalTime: 'n/a',
+      imageURL: 'http://cdn-img.health.com/sites/default/files/styles/large_16_9/public/1512581277/cucumber-mint-tonic-blast-bloat.jpg?itok=JsI7UNJs',
     }
   }
 };

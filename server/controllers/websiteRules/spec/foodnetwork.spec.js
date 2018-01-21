@@ -8,7 +8,8 @@ const {
   stripIngredients,
   stripInstructions,
   stripTitle,
-  stripTime
+  stripTime,
+  stripImageURL,
 } = require('../foodnetwork');
 
 const expectedData = require('../../../utils/__mock__/websiteRulesMock');
@@ -52,6 +53,14 @@ describe('Foodnetwork Rules Test', () => {
       const results = stripTime(dom);
 
       expect(results).toEqual(expectedData.foodnetwork.totalTime);
+    });
+  });
+
+  describe('stripImageURL', () => {
+    it('should strip image url from website', () => {
+      const results = stripImageURL(dom);
+
+      expect(results).toEqual(expectedData.foodnetwork.imageURL);
     });
   });
 

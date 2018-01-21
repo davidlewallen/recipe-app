@@ -9,6 +9,7 @@ const {
   stripInstructions,
   stripTitle,
   stripTime,
+  stripImageURL,
 } = require('../myrecipes');
 
 const expectedData = require('../../../utils/__mock__/websiteRulesMock');
@@ -52,8 +53,16 @@ describe('MyRecipes Rules Test', () => {
       const results = stripTime(dom);
 
       expect(results).toEqual(expectedData.myrecipes.totalTime);
-    })
-  })
+    });
+  });
+
+  describe('stripImageURL', () => {
+    it('should strip image from website', () => {
+      const results = stripImageURL(dom);
+
+      expect(results).toEqual(expectedData.myrecipes.imageURL);
+    });
+  });
 
   describe('strip', () => {
     it('should strip ingredients, instructions, title, and build an object', () => {

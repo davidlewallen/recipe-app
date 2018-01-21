@@ -60,17 +60,30 @@ const stripTime = (dom) => {
   return formatTime(totalTime);
 };
 
+const stripImageURL = (dom) => {
+  const imageURL = (
+    dom
+    .window
+    .document
+    .getElementsByClassName('o-AssetMultiMedia__a-Image')[0].src
+  );
+
+  return imageURL;
+};
+
 const foodnetwork = (dom) => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
   const title = stripTitle(dom);
   const totalTime = stripTime(dom);
+  const imageURL = stripImageURL(dom);
 
   return {
     'ingredients': ingredients,
     'instructions': instructions,
     'title': title,
     'totalTime': totalTime,
+    'imageURL': imageURL,
   };
 };
 
@@ -80,4 +93,5 @@ module.exports = {
   stripInstructions,
   stripTitle,
   stripTime,
+  stripImageURL,
 };
