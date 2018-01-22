@@ -28,6 +28,8 @@
   width: 230px;
   height: 170px;
   margin-top: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .recipe .card .recipe-image {
