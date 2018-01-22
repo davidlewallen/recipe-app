@@ -71,12 +71,12 @@ class DashboardContainer extends React.Component {
       const { data } = await Recipe.submitRecipe(encodedRecipeURI);
 
       if (!data.nonProcessable && !data.alreadyAdded) {
-        this.setState(prevState => ({
+        this.setState({
           recipe: {
-            ...prevState.recipe,
+            url: '',
             list: [...this.state.recipe.list, data],
           },
-        }));
+        });
       }
     } catch (err) {
       console.error(err.response);

@@ -68,33 +68,42 @@ const Dashboard = props => (
           >
             <div className="recipe">
               <Row>
-                <Col xs={12} className="card border" key={recipe._id}>
+                <Col xs={12} className="card" key={recipe._id}>
                   <Row>
                     <Col xs={12} className="header align-center">
                       <div>{recipe.title}</div>
                     </Col>
                   </Row>
                   <Row>
+                    <Col xs={12}>
+                      <div className="image-container">
+                        <img
+                          className="recipe-image"
+                          alt={recipe.title}
+                          src={recipe.imageURL}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
                     <Col xs={12} className="footer">
-                      <Row>
-                        <Col className="align-center" xs={6}>{recipe.totalTime || 'n/a'}</Col>
-                        <Col className="align-center" xs={6}>
-                          <Button
-                            bsStyle="primary"
-                            bsSize="xsmall"
-                            onClick={() => props.viewRecipe(recipe)}
-                          >
-                            View
-                          </Button>
-                          <Button
-                            bsStyle="danger"
-                            bsSize="xsmall"
-                            onClick={() => props.deleteRecipe(recipe._id)}
-                          >
-                            Delete
-                          </Button>
-                        </Col>
-                      </Row>
+                      <Button
+                        className="float-left"
+                        bsStyle="primary"
+                        bsSize="xsmall"
+                        onClick={() => props.viewRecipe(recipe)}
+                      >
+                        View
+                      </Button>
+                      {recipe.totalTime || 'n/a'}
+                      <Button
+                        className="float-right"
+                        bsStyle="danger"
+                        bsSize="xsmall"
+                        onClick={() => props.deleteRecipe(recipe._id)}
+                      >
+                        Delete
+                      </Button>
                     </Col>
                   </Row>
                 </Col>
