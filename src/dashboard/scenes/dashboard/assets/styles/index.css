@@ -6,6 +6,8 @@
 .recipe {
   position: relative;
   width: 100%;
+  border: 1px solid #333;
+  border-radius: 1em;
 }
 
 .recipe:before {
@@ -20,6 +22,22 @@
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+.recipe .card .image-container {
+  width: 230px;
+  height: 170px;
+  margin-top: 40px;
+}
+
+.recipe .card .recipe-image {
+  max-width: 230px;
+  max-height: 170px;
+  box-shadow: 0 0 6px 0px black;
+  border-radius: 1em; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .recipe .header {
