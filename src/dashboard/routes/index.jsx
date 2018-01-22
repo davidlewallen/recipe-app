@@ -14,8 +14,9 @@ const DashboardRoutes = props => (
   <Switch>
     <Route
       path="/dashboard"
-      render={() => (
+      render={({ history }) => (
         <DashboardContainer
+          history={history}
           recipes={props.recipes}
           updateRecipes={props.updateRecipes}
         />
