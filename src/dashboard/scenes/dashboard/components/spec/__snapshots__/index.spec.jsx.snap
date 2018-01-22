@@ -120,7 +120,7 @@ ShallowWrapper {
               >
                 <Col
                   bsClass="col"
-                  className="card border"
+                  className="card"
                   componentClass="div"
                   xs={12}
                 >
@@ -136,6 +136,26 @@ ShallowWrapper {
                     >
                       <div>
                         Recipe 1
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row
+                    bsClass="row"
+                    componentClass="div"
+                  >
+                    <Col
+                      bsClass="col"
+                      componentClass="div"
+                      xs={12}
+                    >
+                      <div
+                        className="image-container"
+                      >
+                        <img
+                          alt="Recipe 1"
+                          className="recipe-image"
+                          src={undefined}
+                        />
                       </div>
                     </Col>
                   </Row>
@@ -197,7 +217,7 @@ ShallowWrapper {
               >
                 <Col
                   bsClass="col"
-                  className="card border"
+                  className="card"
                   componentClass="div"
                   xs={12}
                 >
@@ -213,6 +233,26 @@ ShallowWrapper {
                     >
                       <div>
                         Recipe 2
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row
+                    bsClass="row"
+                    componentClass="div"
+                  >
+                    <Col
+                      bsClass="col"
+                      componentClass="div"
+                      xs={12}
+                    >
+                      <div
+                        className="image-container"
+                      >
+                        <img
+                          alt="Recipe 2"
+                          className="recipe-image"
+                          src={undefined}
+                        />
                       </div>
                     </Col>
                   </Row>
@@ -419,7 +459,7 @@ ShallowWrapper {
                 >
                   <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -435,6 +475,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 1
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 1"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -496,7 +556,7 @@ ShallowWrapper {
                 >
                   <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -512,6 +572,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 2
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 2"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -577,7 +657,7 @@ ShallowWrapper {
                 >
                   <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -593,6 +673,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 1
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 1"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -654,7 +754,7 @@ ShallowWrapper {
                 >
                   <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -670,6 +770,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 1
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 1"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -723,7 +843,7 @@ ShallowWrapper {
                   "bsClass": "row",
                   "children": <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -739,6 +859,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 1
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 1"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -811,6 +951,26 @@ ShallowWrapper {
                       >
                         <Col
                           bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 1"
+                              className="recipe-image"
+                              src={undefined}
+                            />
+                          </div>
+                        </Col>
+                      </Row>,
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
                           className="footer"
                           componentClass="div"
                           xs={12}
@@ -843,7 +1003,7 @@ ShallowWrapper {
                         </Col>
                       </Row>,
                     ],
-                    "className": "card border",
+                    "className": "card",
                     "componentClass": "div",
                     "xs": 12,
                   },
@@ -891,6 +1051,81 @@ ShallowWrapper {
                           },
                           "ref": null,
                           "rendered": "Recipe 1",
+                          "type": "div",
+                        },
+                        "type": [Function],
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "bsClass": "row",
+                        "children": <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 1"
+                              className="recipe-image"
+                              src={undefined}
+                            />
+                          </div>
+                        </Col>,
+                        "componentClass": "div",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "bsClass": "col",
+                          "children": <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 1"
+                              className="recipe-image"
+                              src={undefined}
+                            />
+                          </div>,
+                          "componentClass": "div",
+                          "xs": 12,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <img
+                              alt="Recipe 1"
+                              className="recipe-image"
+                              src={undefined}
+                            />,
+                            "className": "image-container",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "alt": "Recipe 1",
+                              "className": "recipe-image",
+                              "src": undefined,
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "img",
+                          },
                           "type": "div",
                         },
                         "type": [Function],
@@ -1045,7 +1280,7 @@ ShallowWrapper {
                 >
                   <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -1061,6 +1296,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 2
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 2"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -1122,7 +1377,7 @@ ShallowWrapper {
                 >
                   <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -1138,6 +1393,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 2
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 2"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -1191,7 +1466,7 @@ ShallowWrapper {
                   "bsClass": "row",
                   "children": <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -1207,6 +1482,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 2
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 2"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -1279,6 +1574,26 @@ ShallowWrapper {
                       >
                         <Col
                           bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 2"
+                              className="recipe-image"
+                              src={undefined}
+                            />
+                          </div>
+                        </Col>
+                      </Row>,
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
                           className="footer"
                           componentClass="div"
                           xs={12}
@@ -1311,7 +1626,7 @@ ShallowWrapper {
                         </Col>
                       </Row>,
                     ],
-                    "className": "card border",
+                    "className": "card",
                     "componentClass": "div",
                     "xs": 12,
                   },
@@ -1359,6 +1674,81 @@ ShallowWrapper {
                           },
                           "ref": null,
                           "rendered": "Recipe 2",
+                          "type": "div",
+                        },
+                        "type": [Function],
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "bsClass": "row",
+                        "children": <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 2"
+                              className="recipe-image"
+                              src={undefined}
+                            />
+                          </div>
+                        </Col>,
+                        "componentClass": "div",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "bsClass": "col",
+                          "children": <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 2"
+                              className="recipe-image"
+                              src={undefined}
+                            />
+                          </div>,
+                          "componentClass": "div",
+                          "xs": 12,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <img
+                              alt="Recipe 2"
+                              className="recipe-image"
+                              src={undefined}
+                            />,
+                            "className": "image-container",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "alt": "Recipe 2",
+                              "className": "recipe-image",
+                              "src": undefined,
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "img",
+                          },
                           "type": "div",
                         },
                         "type": [Function],
@@ -1578,7 +1968,7 @@ ShallowWrapper {
                 >
                   <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -1594,6 +1984,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 1
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 1"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -1655,7 +2065,7 @@ ShallowWrapper {
                 >
                   <Col
                     bsClass="col"
-                    className="card border"
+                    className="card"
                     componentClass="div"
                     xs={12}
                   >
@@ -1671,6 +2081,26 @@ ShallowWrapper {
                       >
                         <div>
                           Recipe 2
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        xs={12}
+                      >
+                        <div
+                          className="image-container"
+                        >
+                          <img
+                            alt="Recipe 2"
+                            className="recipe-image"
+                            src={undefined}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -1877,7 +2307,7 @@ ShallowWrapper {
                   >
                     <Col
                       bsClass="col"
-                      className="card border"
+                      className="card"
                       componentClass="div"
                       xs={12}
                     >
@@ -1893,6 +2323,26 @@ ShallowWrapper {
                         >
                           <div>
                             Recipe 1
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 1"
+                              className="recipe-image"
+                              src={undefined}
+                            />
                           </div>
                         </Col>
                       </Row>
@@ -1954,7 +2404,7 @@ ShallowWrapper {
                   >
                     <Col
                       bsClass="col"
-                      className="card border"
+                      className="card"
                       componentClass="div"
                       xs={12}
                     >
@@ -1970,6 +2420,26 @@ ShallowWrapper {
                         >
                           <div>
                             Recipe 2
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 2"
+                              className="recipe-image"
+                              src={undefined}
+                            />
                           </div>
                         </Col>
                       </Row>
@@ -2035,7 +2505,7 @@ ShallowWrapper {
                   >
                     <Col
                       bsClass="col"
-                      className="card border"
+                      className="card"
                       componentClass="div"
                       xs={12}
                     >
@@ -2051,6 +2521,26 @@ ShallowWrapper {
                         >
                           <div>
                             Recipe 1
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 1"
+                              className="recipe-image"
+                              src={undefined}
+                            />
                           </div>
                         </Col>
                       </Row>
@@ -2112,7 +2602,7 @@ ShallowWrapper {
                   >
                     <Col
                       bsClass="col"
-                      className="card border"
+                      className="card"
                       componentClass="div"
                       xs={12}
                     >
@@ -2128,6 +2618,26 @@ ShallowWrapper {
                         >
                           <div>
                             Recipe 1
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 1"
+                              className="recipe-image"
+                              src={undefined}
+                            />
                           </div>
                         </Col>
                       </Row>
@@ -2181,7 +2691,7 @@ ShallowWrapper {
                     "bsClass": "row",
                     "children": <Col
                       bsClass="col"
-                      className="card border"
+                      className="card"
                       componentClass="div"
                       xs={12}
                     >
@@ -2197,6 +2707,26 @@ ShallowWrapper {
                         >
                           <div>
                             Recipe 1
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 1"
+                              className="recipe-image"
+                              src={undefined}
+                            />
                           </div>
                         </Col>
                       </Row>
@@ -2269,6 +2799,26 @@ ShallowWrapper {
                         >
                           <Col
                             bsClass="col"
+                            componentClass="div"
+                            xs={12}
+                          >
+                            <div
+                              className="image-container"
+                            >
+                              <img
+                                alt="Recipe 1"
+                                className="recipe-image"
+                                src={undefined}
+                              />
+                            </div>
+                          </Col>
+                        </Row>,
+                        <Row
+                          bsClass="row"
+                          componentClass="div"
+                        >
+                          <Col
+                            bsClass="col"
                             className="footer"
                             componentClass="div"
                             xs={12}
@@ -2301,7 +2851,7 @@ ShallowWrapper {
                           </Col>
                         </Row>,
                       ],
-                      "className": "card border",
+                      "className": "card",
                       "componentClass": "div",
                       "xs": 12,
                     },
@@ -2349,6 +2899,81 @@ ShallowWrapper {
                             },
                             "ref": null,
                             "rendered": "Recipe 1",
+                            "type": "div",
+                          },
+                          "type": [Function],
+                        },
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "bsClass": "row",
+                          "children": <Col
+                            bsClass="col"
+                            componentClass="div"
+                            xs={12}
+                          >
+                            <div
+                              className="image-container"
+                            >
+                              <img
+                                alt="Recipe 1"
+                                className="recipe-image"
+                                src={undefined}
+                              />
+                            </div>
+                          </Col>,
+                          "componentClass": "div",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "bsClass": "col",
+                            "children": <div
+                              className="image-container"
+                            >
+                              <img
+                                alt="Recipe 1"
+                                className="recipe-image"
+                                src={undefined}
+                              />
+                            </div>,
+                            "componentClass": "div",
+                            "xs": 12,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <img
+                                alt="Recipe 1"
+                                className="recipe-image"
+                                src={undefined}
+                              />,
+                              "className": "image-container",
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "alt": "Recipe 1",
+                                "className": "recipe-image",
+                                "src": undefined,
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "img",
+                            },
                             "type": "div",
                           },
                           "type": [Function],
@@ -2503,7 +3128,7 @@ ShallowWrapper {
                   >
                     <Col
                       bsClass="col"
-                      className="card border"
+                      className="card"
                       componentClass="div"
                       xs={12}
                     >
@@ -2519,6 +3144,26 @@ ShallowWrapper {
                         >
                           <div>
                             Recipe 2
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 2"
+                              className="recipe-image"
+                              src={undefined}
+                            />
                           </div>
                         </Col>
                       </Row>
@@ -2580,7 +3225,7 @@ ShallowWrapper {
                   >
                     <Col
                       bsClass="col"
-                      className="card border"
+                      className="card"
                       componentClass="div"
                       xs={12}
                     >
@@ -2596,6 +3241,26 @@ ShallowWrapper {
                         >
                           <div>
                             Recipe 2
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 2"
+                              className="recipe-image"
+                              src={undefined}
+                            />
                           </div>
                         </Col>
                       </Row>
@@ -2649,7 +3314,7 @@ ShallowWrapper {
                     "bsClass": "row",
                     "children": <Col
                       bsClass="col"
-                      className="card border"
+                      className="card"
                       componentClass="div"
                       xs={12}
                     >
@@ -2665,6 +3330,26 @@ ShallowWrapper {
                         >
                           <div>
                             Recipe 2
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row
+                        bsClass="row"
+                        componentClass="div"
+                      >
+                        <Col
+                          bsClass="col"
+                          componentClass="div"
+                          xs={12}
+                        >
+                          <div
+                            className="image-container"
+                          >
+                            <img
+                              alt="Recipe 2"
+                              className="recipe-image"
+                              src={undefined}
+                            />
                           </div>
                         </Col>
                       </Row>
@@ -2737,6 +3422,26 @@ ShallowWrapper {
                         >
                           <Col
                             bsClass="col"
+                            componentClass="div"
+                            xs={12}
+                          >
+                            <div
+                              className="image-container"
+                            >
+                              <img
+                                alt="Recipe 2"
+                                className="recipe-image"
+                                src={undefined}
+                              />
+                            </div>
+                          </Col>
+                        </Row>,
+                        <Row
+                          bsClass="row"
+                          componentClass="div"
+                        >
+                          <Col
+                            bsClass="col"
                             className="footer"
                             componentClass="div"
                             xs={12}
@@ -2769,7 +3474,7 @@ ShallowWrapper {
                           </Col>
                         </Row>,
                       ],
-                      "className": "card border",
+                      "className": "card",
                       "componentClass": "div",
                       "xs": 12,
                     },
@@ -2817,6 +3522,81 @@ ShallowWrapper {
                             },
                             "ref": null,
                             "rendered": "Recipe 2",
+                            "type": "div",
+                          },
+                          "type": [Function],
+                        },
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "bsClass": "row",
+                          "children": <Col
+                            bsClass="col"
+                            componentClass="div"
+                            xs={12}
+                          >
+                            <div
+                              className="image-container"
+                            >
+                              <img
+                                alt="Recipe 2"
+                                className="recipe-image"
+                                src={undefined}
+                              />
+                            </div>
+                          </Col>,
+                          "componentClass": "div",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "bsClass": "col",
+                            "children": <div
+                              className="image-container"
+                            >
+                              <img
+                                alt="Recipe 2"
+                                className="recipe-image"
+                                src={undefined}
+                              />
+                            </div>,
+                            "componentClass": "div",
+                            "xs": 12,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <img
+                                alt="Recipe 2"
+                                className="recipe-image"
+                                src={undefined}
+                              />,
+                              "className": "image-container",
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "alt": "Recipe 2",
+                                "className": "recipe-image",
+                                "src": undefined,
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "img",
+                            },
                             "type": "div",
                           },
                           "type": [Function],
