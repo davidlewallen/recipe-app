@@ -7,6 +7,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 const { func } = PropTypes;
 const propTypes = {
   logout: func.isRequired,
+  handleModalOpen: func.isRequired,
 };
 
 const Header = props => (
@@ -19,7 +20,7 @@ const Header = props => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
-        <NavItem eventKey={1} href="#">
+        <NavItem eventKey={1} onClick={props.handleModalOpen}>
           + Add Recipe
         </NavItem>
         <LinkContainer to="/account">
