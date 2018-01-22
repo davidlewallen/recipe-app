@@ -68,10 +68,21 @@ const Dashboard = props => (
           >
             <div className="recipe">
               <Row>
-                <Col xs={12} className="card border" key={recipe._id}>
+                <Col xs={12} className="card" key={recipe._id}>
                   <Row>
                     <Col xs={12} className="header align-center">
                       <div>{recipe.title}</div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={12}>
+                      <div className="image-container">
+                        <img
+                          className="recipe-image"
+                          alt={recipe.title}
+                          src={recipe.imageURL}
+                        />
+                      </div>
                     </Col>
                   </Row>
                   <Row>
