@@ -76,25 +76,23 @@ const Dashboard = props => (
                   </Row>
                   <Row>
                     <Col xs={12} className="footer">
-                      <Row>
-                        <Col className="align-center" xs={6}>{recipe.totalTime || 'n/a'}</Col>
-                        <Col className="align-center" xs={6}>
-                          <Button
-                            bsStyle="primary"
-                            bsSize="xsmall"
-                            onClick={() => props.viewRecipe(recipe)}
-                          >
-                            View
-                          </Button>
-                          <Button
-                            bsStyle="danger"
-                            bsSize="xsmall"
-                            onClick={() => props.deleteRecipe(recipe._id)}
-                          >
-                            Delete
-                          </Button>
-                        </Col>
-                      </Row>
+                      <Button
+                        className="float-left"
+                        bsStyle="primary"
+                        bsSize="xsmall"
+                        onClick={() => props.viewRecipe(recipe)}
+                      >
+                        View
+                      </Button>
+                      {recipe.totalTime || 'n/a'}
+                      <Button
+                        className="float-right"
+                        bsStyle="danger"
+                        bsSize="xsmall"
+                        onClick={() => props.deleteRecipe(recipe._id)}
+                      >
+                        Delete
+                      </Button>
                     </Col>
                   </Row>
                 </Col>
