@@ -149,48 +149,31 @@ ShallowWrapper {
                       componentClass="div"
                       xs={12}
                     >
-                      <Row
-                        bsClass="row"
-                        componentClass="div"
+                      <Button
+                        active={false}
+                        block={false}
+                        bsClass="btn"
+                        bsSize="xsmall"
+                        bsStyle="primary"
+                        className="float-left"
+                        disabled={false}
+                        onClick={[Function]}
                       >
-                        <Col
-                          bsClass="col"
-                          className="align-center"
-                          componentClass="div"
-                          xs={6}
-                        >
-                          1 hour 10 minutes
-                        </Col>
-                        <Col
-                          bsClass="col"
-                          className="align-center"
-                          componentClass="div"
-                          xs={6}
-                        >
-                          <Button
-                            active={false}
-                            block={false}
-                            bsClass="btn"
-                            bsSize="xsmall"
-                            bsStyle="primary"
-                            disabled={false}
-                            onClick={[Function]}
-                          >
-                            View
-                          </Button>
-                          <Button
-                            active={false}
-                            block={false}
-                            bsClass="btn"
-                            bsSize="xsmall"
-                            bsStyle="danger"
-                            disabled={false}
-                            onClick={[Function]}
-                          >
-                            Delete
-                          </Button>
-                        </Col>
-                      </Row>
+                        View
+                      </Button>
+                      1 hour 10 minutes
+                      <Button
+                        active={false}
+                        block={false}
+                        bsClass="btn"
+                        bsSize="xsmall"
+                        bsStyle="danger"
+                        className="float-right"
+                        disabled={false}
+                        onClick={[Function]}
+                      >
+                        Delete
+                      </Button>
                     </Col>
                   </Row>
                 </Col>
@@ -243,48 +226,31 @@ ShallowWrapper {
                       componentClass="div"
                       xs={12}
                     >
-                      <Row
-                        bsClass="row"
-                        componentClass="div"
+                      <Button
+                        active={false}
+                        block={false}
+                        bsClass="btn"
+                        bsSize="xsmall"
+                        bsStyle="primary"
+                        className="float-left"
+                        disabled={false}
+                        onClick={[Function]}
                       >
-                        <Col
-                          bsClass="col"
-                          className="align-center"
-                          componentClass="div"
-                          xs={6}
-                        >
-                          n/a
-                        </Col>
-                        <Col
-                          bsClass="col"
-                          className="align-center"
-                          componentClass="div"
-                          xs={6}
-                        >
-                          <Button
-                            active={false}
-                            block={false}
-                            bsClass="btn"
-                            bsSize="xsmall"
-                            bsStyle="primary"
-                            disabled={false}
-                            onClick={[Function]}
-                          >
-                            View
-                          </Button>
-                          <Button
-                            active={false}
-                            block={false}
-                            bsClass="btn"
-                            bsSize="xsmall"
-                            bsStyle="danger"
-                            disabled={false}
-                            onClick={[Function]}
-                          >
-                            Delete
-                          </Button>
-                        </Col>
-                      </Row>
+                        View
+                      </Button>
+                      n/a
+                      <Button
+                        active={false}
+                        block={false}
+                        bsClass="btn"
+                        bsSize="xsmall"
+                        bsStyle="danger"
+                        className="float-right"
+                        disabled={false}
+                        onClick={[Function]}
+                      >
+                        Delete
+                      </Button>
                     </Col>
                   </Row>
                 </Col>
@@ -482,48 +448,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            1 hour 10 minutes
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        1 hour 10 minutes
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>
@@ -576,48 +525,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            n/a
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        n/a
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>
@@ -674,48 +606,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            1 hour 10 minutes
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        1 hour 10 minutes
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>
@@ -768,48 +683,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            1 hour 10 minutes
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        1 hour 10 minutes
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>
@@ -854,48 +752,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            1 hour 10 minutes
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        1 hour 10 minutes
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>,
@@ -934,48 +815,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              1 hour 10 minutes
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          1 hour 10 minutes
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>,
                     ],
@@ -1045,48 +909,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              1 hour 10 minutes
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          1 hour 10 minutes
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>,
                         "componentClass": "div",
                       },
@@ -1097,195 +944,79 @@ ShallowWrapper {
                         "nodeType": "class",
                         "props": Object {
                           "bsClass": "col",
-                          "children": <Row
-                            bsClass="row"
-                            componentClass="div"
-                          >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
+                          "children": Array [
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              className="float-left"
+                              disabled={false}
+                              onClick={[Function]}
                             >
-                              1 hour 10 minutes
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
+                              View
+                            </Button>,
+                            "1 hour 10 minutes",
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="danger"
+                              className="float-right"
+                              disabled={false}
+                              onClick={[Function]}
                             >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>,
+                              Delete
+                            </Button>,
+                          ],
                           "className": "footer",
                           "componentClass": "div",
                           "xs": 12,
                         },
                         "ref": null,
-                        "rendered": Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "class",
-                          "props": Object {
-                            "bsClass": "row",
-                            "children": Array [
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                1 hour 10 minutes
-                              </Col>,
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  View
-                                </Button>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>
-                              </Col>,
-                            ],
-                            "componentClass": "div",
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "class",
+                            "props": Object {
+                              "active": false,
+                              "block": false,
+                              "bsClass": "btn",
+                              "bsSize": "xsmall",
+                              "bsStyle": "primary",
+                              "children": "View",
+                              "className": "float-left",
+                              "disabled": false,
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": "View",
+                            "type": [Function],
                           },
-                          "ref": null,
-                          "rendered": Array [
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "bsClass": "col",
-                                "children": "1 hour 10 minutes",
-                                "className": "align-center",
-                                "componentClass": "div",
-                                "xs": 6,
-                              },
-                              "ref": null,
-                              "rendered": "1 hour 10 minutes",
-                              "type": [Function],
+                          "1 hour 10 minutes",
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "class",
+                            "props": Object {
+                              "active": false,
+                              "block": false,
+                              "bsClass": "btn",
+                              "bsSize": "xsmall",
+                              "bsStyle": "danger",
+                              "children": "Delete",
+                              "className": "float-right",
+                              "disabled": false,
+                              "onClick": [Function],
                             },
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "bsClass": "col",
-                                "children": Array [
-                                  <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="primary"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    View
-                                  </Button>,
-                                  <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="danger"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    Delete
-                                  </Button>,
-                                ],
-                                "className": "align-center",
-                                "componentClass": "div",
-                                "xs": 6,
-                              },
-                              "ref": null,
-                              "rendered": Array [
-                                Object {
-                                  "instance": null,
-                                  "key": undefined,
-                                  "nodeType": "class",
-                                  "props": Object {
-                                    "active": false,
-                                    "block": false,
-                                    "bsClass": "btn",
-                                    "bsSize": "xsmall",
-                                    "bsStyle": "primary",
-                                    "children": "View",
-                                    "disabled": false,
-                                    "onClick": [Function],
-                                  },
-                                  "ref": null,
-                                  "rendered": "View",
-                                  "type": [Function],
-                                },
-                                Object {
-                                  "instance": null,
-                                  "key": undefined,
-                                  "nodeType": "class",
-                                  "props": Object {
-                                    "active": false,
-                                    "block": false,
-                                    "bsClass": "btn",
-                                    "bsSize": "xsmall",
-                                    "bsStyle": "danger",
-                                    "children": "Delete",
-                                    "disabled": false,
-                                    "onClick": [Function],
-                                  },
-                                  "ref": null,
-                                  "rendered": "Delete",
-                                  "type": [Function],
-                                },
-                              ],
-                              "type": [Function],
-                            },
-                          ],
-                          "type": [Function],
-                        },
+                            "ref": null,
+                            "rendered": "Delete",
+                            "type": [Function],
+                          },
+                        ],
                         "type": [Function],
                       },
                       "type": [Function],
@@ -1343,48 +1074,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            n/a
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        n/a
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>
@@ -1437,48 +1151,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            n/a
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        n/a
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>
@@ -1523,48 +1220,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            n/a
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        n/a
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>,
@@ -1603,48 +1283,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              n/a
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          n/a
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>,
                     ],
@@ -1714,48 +1377,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              n/a
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          n/a
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>,
                         "componentClass": "div",
                       },
@@ -1766,195 +1412,79 @@ ShallowWrapper {
                         "nodeType": "class",
                         "props": Object {
                           "bsClass": "col",
-                          "children": <Row
-                            bsClass="row"
-                            componentClass="div"
-                          >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
+                          "children": Array [
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              className="float-left"
+                              disabled={false}
+                              onClick={[Function]}
                             >
-                              n/a
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
+                              View
+                            </Button>,
+                            "n/a",
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="danger"
+                              className="float-right"
+                              disabled={false}
+                              onClick={[Function]}
                             >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>,
+                              Delete
+                            </Button>,
+                          ],
                           "className": "footer",
                           "componentClass": "div",
                           "xs": 12,
                         },
                         "ref": null,
-                        "rendered": Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "class",
-                          "props": Object {
-                            "bsClass": "row",
-                            "children": Array [
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                n/a
-                              </Col>,
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  View
-                                </Button>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>
-                              </Col>,
-                            ],
-                            "componentClass": "div",
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "class",
+                            "props": Object {
+                              "active": false,
+                              "block": false,
+                              "bsClass": "btn",
+                              "bsSize": "xsmall",
+                              "bsStyle": "primary",
+                              "children": "View",
+                              "className": "float-left",
+                              "disabled": false,
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": "View",
+                            "type": [Function],
                           },
-                          "ref": null,
-                          "rendered": Array [
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "bsClass": "col",
-                                "children": "n/a",
-                                "className": "align-center",
-                                "componentClass": "div",
-                                "xs": 6,
-                              },
-                              "ref": null,
-                              "rendered": "n/a",
-                              "type": [Function],
+                          "n/a",
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "class",
+                            "props": Object {
+                              "active": false,
+                              "block": false,
+                              "bsClass": "btn",
+                              "bsSize": "xsmall",
+                              "bsStyle": "danger",
+                              "children": "Delete",
+                              "className": "float-right",
+                              "disabled": false,
+                              "onClick": [Function],
                             },
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "bsClass": "col",
-                                "children": Array [
-                                  <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="primary"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    View
-                                  </Button>,
-                                  <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="danger"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    Delete
-                                  </Button>,
-                                ],
-                                "className": "align-center",
-                                "componentClass": "div",
-                                "xs": 6,
-                              },
-                              "ref": null,
-                              "rendered": Array [
-                                Object {
-                                  "instance": null,
-                                  "key": undefined,
-                                  "nodeType": "class",
-                                  "props": Object {
-                                    "active": false,
-                                    "block": false,
-                                    "bsClass": "btn",
-                                    "bsSize": "xsmall",
-                                    "bsStyle": "primary",
-                                    "children": "View",
-                                    "disabled": false,
-                                    "onClick": [Function],
-                                  },
-                                  "ref": null,
-                                  "rendered": "View",
-                                  "type": [Function],
-                                },
-                                Object {
-                                  "instance": null,
-                                  "key": undefined,
-                                  "nodeType": "class",
-                                  "props": Object {
-                                    "active": false,
-                                    "block": false,
-                                    "bsClass": "btn",
-                                    "bsSize": "xsmall",
-                                    "bsStyle": "danger",
-                                    "children": "Delete",
-                                    "disabled": false,
-                                    "onClick": [Function],
-                                  },
-                                  "ref": null,
-                                  "rendered": "Delete",
-                                  "type": [Function],
-                                },
-                              ],
-                              "type": [Function],
-                            },
-                          ],
-                          "type": [Function],
-                        },
+                            "ref": null,
+                            "rendered": "Delete",
+                            "type": [Function],
+                          },
+                        ],
                         "type": [Function],
                       },
                       "type": [Function],
@@ -2077,48 +1607,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            1 hour 10 minutes
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        1 hour 10 minutes
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>
@@ -2171,48 +1684,31 @@ ShallowWrapper {
                         componentClass="div"
                         xs={12}
                       >
-                        <Row
-                          bsClass="row"
-                          componentClass="div"
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="primary"
+                          className="float-left"
+                          disabled={false}
+                          onClick={[Function]}
                         >
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            n/a
-                          </Col>
-                          <Col
-                            bsClass="col"
-                            className="align-center"
-                            componentClass="div"
-                            xs={6}
-                          >
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="primary"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              View
-                            </Button>
-                            <Button
-                              active={false}
-                              block={false}
-                              bsClass="btn"
-                              bsSize="xsmall"
-                              bsStyle="danger"
-                              disabled={false}
-                              onClick={[Function]}
-                            >
-                              Delete
-                            </Button>
-                          </Col>
-                        </Row>
+                          View
+                        </Button>
+                        n/a
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsSize="xsmall"
+                          bsStyle="danger"
+                          className="float-right"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          Delete
+                        </Button>
                       </Col>
                     </Row>
                   </Col>
@@ -2410,48 +1906,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              1 hour 10 minutes
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          1 hour 10 minutes
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     </Col>
@@ -2504,48 +1983,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              n/a
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          n/a
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     </Col>
@@ -2602,48 +2064,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              1 hour 10 minutes
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          1 hour 10 minutes
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     </Col>
@@ -2696,48 +2141,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              1 hour 10 minutes
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          1 hour 10 minutes
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     </Col>
@@ -2782,48 +2210,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              1 hour 10 minutes
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          1 hour 10 minutes
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     </Col>,
@@ -2862,48 +2273,31 @@ ShallowWrapper {
                             componentClass="div"
                             xs={12}
                           >
-                            <Row
-                              bsClass="row"
-                              componentClass="div"
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              className="float-left"
+                              disabled={false}
+                              onClick={[Function]}
                             >
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                1 hour 10 minutes
-                              </Col>
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  View
-                                </Button>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>
-                              </Col>
-                            </Row>
+                              View
+                            </Button>
+                            1 hour 10 minutes
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="danger"
+                              className="float-right"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              Delete
+                            </Button>
                           </Col>
                         </Row>,
                       ],
@@ -2973,48 +2367,31 @@ ShallowWrapper {
                             componentClass="div"
                             xs={12}
                           >
-                            <Row
-                              bsClass="row"
-                              componentClass="div"
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              className="float-left"
+                              disabled={false}
+                              onClick={[Function]}
                             >
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                1 hour 10 minutes
-                              </Col>
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  View
-                                </Button>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>
-                              </Col>
-                            </Row>
+                              View
+                            </Button>
+                            1 hour 10 minutes
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="danger"
+                              className="float-right"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              Delete
+                            </Button>
                           </Col>,
                           "componentClass": "div",
                         },
@@ -3025,195 +2402,79 @@ ShallowWrapper {
                           "nodeType": "class",
                           "props": Object {
                             "bsClass": "col",
-                            "children": <Row
-                              bsClass="row"
-                              componentClass="div"
-                            >
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
+                            "children": Array [
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                className="float-left"
+                                disabled={false}
+                                onClick={[Function]}
                               >
-                                1 hour 10 minutes
-                              </Col>
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
+                                View
+                              </Button>,
+                              "1 hour 10 minutes",
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="danger"
+                                className="float-right"
+                                disabled={false}
+                                onClick={[Function]}
                               >
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  View
-                                </Button>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>
-                              </Col>
-                            </Row>,
+                                Delete
+                              </Button>,
+                            ],
                             "className": "footer",
                             "componentClass": "div",
                             "xs": 12,
                           },
                           "ref": null,
-                          "rendered": Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "class",
-                            "props": Object {
-                              "bsClass": "row",
-                              "children": Array [
-                                <Col
-                                  bsClass="col"
-                                  className="align-center"
-                                  componentClass="div"
-                                  xs={6}
-                                >
-                                  1 hour 10 minutes
-                                </Col>,
-                                <Col
-                                  bsClass="col"
-                                  className="align-center"
-                                  componentClass="div"
-                                  xs={6}
-                                >
-                                  <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="primary"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    View
-                                  </Button>
-                                  <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="danger"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    Delete
-                                  </Button>
-                                </Col>,
-                              ],
-                              "componentClass": "div",
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "class",
+                              "props": Object {
+                                "active": false,
+                                "block": false,
+                                "bsClass": "btn",
+                                "bsSize": "xsmall",
+                                "bsStyle": "primary",
+                                "children": "View",
+                                "className": "float-left",
+                                "disabled": false,
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": "View",
+                              "type": [Function],
                             },
-                            "ref": null,
-                            "rendered": Array [
-                              Object {
-                                "instance": null,
-                                "key": undefined,
-                                "nodeType": "class",
-                                "props": Object {
-                                  "bsClass": "col",
-                                  "children": "1 hour 10 minutes",
-                                  "className": "align-center",
-                                  "componentClass": "div",
-                                  "xs": 6,
-                                },
-                                "ref": null,
-                                "rendered": "1 hour 10 minutes",
-                                "type": [Function],
+                            "1 hour 10 minutes",
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "class",
+                              "props": Object {
+                                "active": false,
+                                "block": false,
+                                "bsClass": "btn",
+                                "bsSize": "xsmall",
+                                "bsStyle": "danger",
+                                "children": "Delete",
+                                "className": "float-right",
+                                "disabled": false,
+                                "onClick": [Function],
                               },
-                              Object {
-                                "instance": null,
-                                "key": undefined,
-                                "nodeType": "class",
-                                "props": Object {
-                                  "bsClass": "col",
-                                  "children": Array [
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsSize="xsmall"
-                                      bsStyle="primary"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                    >
-                                      View
-                                    </Button>,
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsSize="xsmall"
-                                      bsStyle="danger"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                    >
-                                      Delete
-                                    </Button>,
-                                  ],
-                                  "className": "align-center",
-                                  "componentClass": "div",
-                                  "xs": 6,
-                                },
-                                "ref": null,
-                                "rendered": Array [
-                                  Object {
-                                    "instance": null,
-                                    "key": undefined,
-                                    "nodeType": "class",
-                                    "props": Object {
-                                      "active": false,
-                                      "block": false,
-                                      "bsClass": "btn",
-                                      "bsSize": "xsmall",
-                                      "bsStyle": "primary",
-                                      "children": "View",
-                                      "disabled": false,
-                                      "onClick": [Function],
-                                    },
-                                    "ref": null,
-                                    "rendered": "View",
-                                    "type": [Function],
-                                  },
-                                  Object {
-                                    "instance": null,
-                                    "key": undefined,
-                                    "nodeType": "class",
-                                    "props": Object {
-                                      "active": false,
-                                      "block": false,
-                                      "bsClass": "btn",
-                                      "bsSize": "xsmall",
-                                      "bsStyle": "danger",
-                                      "children": "Delete",
-                                      "disabled": false,
-                                      "onClick": [Function],
-                                    },
-                                    "ref": null,
-                                    "rendered": "Delete",
-                                    "type": [Function],
-                                  },
-                                ],
-                                "type": [Function],
-                              },
-                            ],
-                            "type": [Function],
-                          },
+                              "ref": null,
+                              "rendered": "Delete",
+                              "type": [Function],
+                            },
+                          ],
                           "type": [Function],
                         },
                         "type": [Function],
@@ -3271,48 +2532,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              n/a
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          n/a
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     </Col>
@@ -3365,48 +2609,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              n/a
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          n/a
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     </Col>
@@ -3451,48 +2678,31 @@ ShallowWrapper {
                           componentClass="div"
                           xs={12}
                         >
-                          <Row
-                            bsClass="row"
-                            componentClass="div"
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="primary"
+                            className="float-left"
+                            disabled={false}
+                            onClick={[Function]}
                           >
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              n/a
-                            </Col>
-                            <Col
-                              bsClass="col"
-                              className="align-center"
-                              componentClass="div"
-                              xs={6}
-                            >
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="primary"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                View
-                              </Button>
-                              <Button
-                                active={false}
-                                block={false}
-                                bsClass="btn"
-                                bsSize="xsmall"
-                                bsStyle="danger"
-                                disabled={false}
-                                onClick={[Function]}
-                              >
-                                Delete
-                              </Button>
-                            </Col>
-                          </Row>
+                            View
+                          </Button>
+                          n/a
+                          <Button
+                            active={false}
+                            block={false}
+                            bsClass="btn"
+                            bsSize="xsmall"
+                            bsStyle="danger"
+                            className="float-right"
+                            disabled={false}
+                            onClick={[Function]}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     </Col>,
@@ -3531,48 +2741,31 @@ ShallowWrapper {
                             componentClass="div"
                             xs={12}
                           >
-                            <Row
-                              bsClass="row"
-                              componentClass="div"
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              className="float-left"
+                              disabled={false}
+                              onClick={[Function]}
                             >
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                n/a
-                              </Col>
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  View
-                                </Button>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>
-                              </Col>
-                            </Row>
+                              View
+                            </Button>
+                            n/a
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="danger"
+                              className="float-right"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              Delete
+                            </Button>
                           </Col>
                         </Row>,
                       ],
@@ -3642,48 +2835,31 @@ ShallowWrapper {
                             componentClass="div"
                             xs={12}
                           >
-                            <Row
-                              bsClass="row"
-                              componentClass="div"
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="primary"
+                              className="float-left"
+                              disabled={false}
+                              onClick={[Function]}
                             >
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                n/a
-                              </Col>
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
-                              >
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  View
-                                </Button>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>
-                              </Col>
-                            </Row>
+                              View
+                            </Button>
+                            n/a
+                            <Button
+                              active={false}
+                              block={false}
+                              bsClass="btn"
+                              bsSize="xsmall"
+                              bsStyle="danger"
+                              className="float-right"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              Delete
+                            </Button>
                           </Col>,
                           "componentClass": "div",
                         },
@@ -3694,195 +2870,79 @@ ShallowWrapper {
                           "nodeType": "class",
                           "props": Object {
                             "bsClass": "col",
-                            "children": <Row
-                              bsClass="row"
-                              componentClass="div"
-                            >
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
+                            "children": Array [
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="primary"
+                                className="float-left"
+                                disabled={false}
+                                onClick={[Function]}
                               >
-                                n/a
-                              </Col>
-                              <Col
-                                bsClass="col"
-                                className="align-center"
-                                componentClass="div"
-                                xs={6}
+                                View
+                              </Button>,
+                              "n/a",
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsSize="xsmall"
+                                bsStyle="danger"
+                                className="float-right"
+                                disabled={false}
+                                onClick={[Function]}
                               >
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  View
-                                </Button>
-                                <Button
-                                  active={false}
-                                  block={false}
-                                  bsClass="btn"
-                                  bsSize="xsmall"
-                                  bsStyle="danger"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  Delete
-                                </Button>
-                              </Col>
-                            </Row>,
+                                Delete
+                              </Button>,
+                            ],
                             "className": "footer",
                             "componentClass": "div",
                             "xs": 12,
                           },
                           "ref": null,
-                          "rendered": Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "class",
-                            "props": Object {
-                              "bsClass": "row",
-                              "children": Array [
-                                <Col
-                                  bsClass="col"
-                                  className="align-center"
-                                  componentClass="div"
-                                  xs={6}
-                                >
-                                  n/a
-                                </Col>,
-                                <Col
-                                  bsClass="col"
-                                  className="align-center"
-                                  componentClass="div"
-                                  xs={6}
-                                >
-                                  <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="primary"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    View
-                                  </Button>
-                                  <Button
-                                    active={false}
-                                    block={false}
-                                    bsClass="btn"
-                                    bsSize="xsmall"
-                                    bsStyle="danger"
-                                    disabled={false}
-                                    onClick={[Function]}
-                                  >
-                                    Delete
-                                  </Button>
-                                </Col>,
-                              ],
-                              "componentClass": "div",
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "class",
+                              "props": Object {
+                                "active": false,
+                                "block": false,
+                                "bsClass": "btn",
+                                "bsSize": "xsmall",
+                                "bsStyle": "primary",
+                                "children": "View",
+                                "className": "float-left",
+                                "disabled": false,
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": "View",
+                              "type": [Function],
                             },
-                            "ref": null,
-                            "rendered": Array [
-                              Object {
-                                "instance": null,
-                                "key": undefined,
-                                "nodeType": "class",
-                                "props": Object {
-                                  "bsClass": "col",
-                                  "children": "n/a",
-                                  "className": "align-center",
-                                  "componentClass": "div",
-                                  "xs": 6,
-                                },
-                                "ref": null,
-                                "rendered": "n/a",
-                                "type": [Function],
+                            "n/a",
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "class",
+                              "props": Object {
+                                "active": false,
+                                "block": false,
+                                "bsClass": "btn",
+                                "bsSize": "xsmall",
+                                "bsStyle": "danger",
+                                "children": "Delete",
+                                "className": "float-right",
+                                "disabled": false,
+                                "onClick": [Function],
                               },
-                              Object {
-                                "instance": null,
-                                "key": undefined,
-                                "nodeType": "class",
-                                "props": Object {
-                                  "bsClass": "col",
-                                  "children": Array [
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsSize="xsmall"
-                                      bsStyle="primary"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                    >
-                                      View
-                                    </Button>,
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
-                                      bsSize="xsmall"
-                                      bsStyle="danger"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                    >
-                                      Delete
-                                    </Button>,
-                                  ],
-                                  "className": "align-center",
-                                  "componentClass": "div",
-                                  "xs": 6,
-                                },
-                                "ref": null,
-                                "rendered": Array [
-                                  Object {
-                                    "instance": null,
-                                    "key": undefined,
-                                    "nodeType": "class",
-                                    "props": Object {
-                                      "active": false,
-                                      "block": false,
-                                      "bsClass": "btn",
-                                      "bsSize": "xsmall",
-                                      "bsStyle": "primary",
-                                      "children": "View",
-                                      "disabled": false,
-                                      "onClick": [Function],
-                                    },
-                                    "ref": null,
-                                    "rendered": "View",
-                                    "type": [Function],
-                                  },
-                                  Object {
-                                    "instance": null,
-                                    "key": undefined,
-                                    "nodeType": "class",
-                                    "props": Object {
-                                      "active": false,
-                                      "block": false,
-                                      "bsClass": "btn",
-                                      "bsSize": "xsmall",
-                                      "bsStyle": "danger",
-                                      "children": "Delete",
-                                      "disabled": false,
-                                      "onClick": [Function],
-                                    },
-                                    "ref": null,
-                                    "rendered": "Delete",
-                                    "type": [Function],
-                                  },
-                                ],
-                                "type": [Function],
-                              },
-                            ],
-                            "type": [Function],
-                          },
+                              "ref": null,
+                              "rendered": "Delete",
+                              "type": [Function],
+                            },
+                          ],
                           "type": [Function],
                         },
                         "type": [Function],

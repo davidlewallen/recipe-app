@@ -11,7 +11,7 @@ describe('Dashboard snapshot test', () => {
     deleteRecipe: () => {},
     recipeList: [
       { title: 'Recipe 1', _id: 1, totalTime: '1 hour 10 minutes' },
-      { title: 'Recipe 2', _id: 2 }
+      { title: 'Recipe 2', _id: 2 },
     ],
     showModal: false,
     handleModalClose: jest.fn(),
@@ -36,6 +36,6 @@ describe('Dashboard snapshot test', () => {
     const footer = recipe.find('.footer');
     const time = footer.find('Col');
 
-    expect(time.at(1).props().children).toBe('n/a');
+    expect(time.children().at(1).text()).toBe('n/a');
   });
 });
