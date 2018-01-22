@@ -78,8 +78,7 @@
     "build": "node scripts/build.js",
     "test": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch --coverage",
-    "heroku-postbuild": "npm run build",
-    "prepush": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --forceExit && jest --testPathPattern=server --no-cache --i --forceExit"
+    "heroku-postbuild": "npm run build"
   },
   "jest": {
     "collectCoverageFrom": [
