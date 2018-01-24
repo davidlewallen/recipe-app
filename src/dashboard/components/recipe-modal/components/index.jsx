@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
-import { v1 as uuid } from 'uuid';
+
+import genKey from '../../../../common/utils/randomKeys';
 
 import '../assets/styles/index.css';
 
@@ -19,7 +20,7 @@ const propTypes = {
     title: string.isRequired,
     ingredients: arrayOf(string).isRequired,
     instructions: arrayOf(string).isRequired,
-    totalTime: string.isRequired,
+    totalTime: string,
     url: shape({ href: string.isRequired }).isRequired,
   }).isRequired,
   deleteRecipe: func.isRequired,
@@ -43,12 +44,12 @@ const RecipeModal = props => (
     <Modal.Body className="body">
       <div className="ingredient-title">Ingredients:</div>
       {props.selectedRecipe.ingredients.map(ingredient => (
-        <div className="ingredient" key={uuid()}>- {ingredient}</div>
+        <div className="ingredient" key={genKey(ingredient)}>- {ingredient}</div>
       ))}
 
       <div className="instruction-title">Instructions:</div>
-      {props.selectedRecipe.instructions.map(ingredient => (
-        <div className="instruction" key={uuid()}>{ingredient}</div>
+      {props.selectedRecipe.instructions.map(instruction => (
+        <div className="instruction" key={genKey(instruction)}>{instruction}</div>
       ))}
     </Modal.Body>
     <Modal.Footer>
