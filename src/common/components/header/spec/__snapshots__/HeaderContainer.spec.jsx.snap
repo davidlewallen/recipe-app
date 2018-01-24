@@ -26,28 +26,14 @@ ShallowWrapper {
       "children": Array [
         <SubmitRecipeContainer
           handleModalClose={[Function]}
+          recipes={undefined}
           show={false}
-          updateRecipes={[Function]}
+          updateRecipes={undefined}
         />,
         <Header
           handleModalOpen={[Function]}
           logout={[Function]}
         />,
-        <Switch>
-          <Route
-            component={[Function]}
-            exact={true}
-            path="/"
-          />
-          <Route
-            path="/dashboard"
-            render={[Function]}
-          />
-          <Route
-            component={[Function]}
-            path="/account"
-          />
-        </Switch>,
       ],
     },
     "ref": null,
@@ -58,8 +44,9 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "handleModalClose": [Function],
+          "recipes": undefined,
           "show": false,
-          "updateRecipes": [Function],
+          "updateRecipes": undefined,
         },
         "ref": null,
         "rendered": null,
@@ -77,69 +64,6 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            <Route
-              component={[Function]}
-              exact={true}
-              path="/"
-            />,
-            <Route
-              path="/dashboard"
-              render={[Function]}
-            />,
-            <Route
-              component={[Function]}
-              path="/account"
-            />,
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "exact": true,
-              "path": "/",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "path": "/dashboard",
-              "render": [Function],
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "path": "/account",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-        ],
-        "type": [Function],
-      },
     ],
     "type": "div",
   },
@@ -152,28 +76,14 @@ ShallowWrapper {
         "children": Array [
           <SubmitRecipeContainer
             handleModalClose={[Function]}
+            recipes={undefined}
             show={false}
-            updateRecipes={[Function]}
+            updateRecipes={undefined}
           />,
           <Header
             handleModalOpen={[Function]}
             logout={[Function]}
           />,
-          <Switch>
-            <Route
-              component={[Function]}
-              exact={true}
-              path="/"
-            />
-            <Route
-              path="/dashboard"
-              render={[Function]}
-            />
-            <Route
-              component={[Function]}
-              path="/account"
-            />
-          </Switch>,
         ],
       },
       "ref": null,
@@ -184,8 +94,9 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "handleModalClose": [Function],
+            "recipes": undefined,
             "show": false,
-            "updateRecipes": [Function],
+            "updateRecipes": undefined,
           },
           "ref": null,
           "rendered": null,
@@ -201,69 +112,6 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": Array [
-              <Route
-                component={[Function]}
-                exact={true}
-                path="/"
-              />,
-              <Route
-                path="/dashboard"
-                render={[Function]}
-              />,
-              <Route
-                component={[Function]}
-                path="/account"
-              />,
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "component": [Function],
-                "exact": true,
-                "path": "/",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "path": "/dashboard",
-                "render": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "component": [Function],
-                "path": "/account",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
           "type": [Function],
         },
       ],
