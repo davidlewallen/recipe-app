@@ -75,16 +75,6 @@ class DashboardContainer extends React.Component {
     }
   }
 
-  handleRecipe = (event) => {
-    const url = event.target.value;
-    this.setState(prevState => ({
-      recipe: {
-        ...prevState.recipe,
-        url,
-      },
-    }));
-  }
-
   handleModalClose = () => {
     this.setState({ showModal: false });
   }
@@ -99,7 +89,6 @@ class DashboardContainer extends React.Component {
   render = () => (
     <Dashboard
       recipes={this.props.recipes}
-      handleRecipe={this.handleRecipe}
       deleteRecipe={this.deleteRecipe}
       showModal={this.state.showModal}
       handleModalClose={this.handleModalClose}
