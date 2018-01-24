@@ -4,8 +4,6 @@ import { Grid, Row, Col, Button } from 'react-bootstrap';
 
 import RecipeModal from '../../../components/recipe-modal/components';
 
-import genKey from '../../../../common/utils/randomKeys';
-
 import '../assets/styles/index.css';
 
 const {
@@ -48,11 +46,11 @@ const Dashboard = props => (
             xs={12}
             sm={6}
             md={3}
-            key={genKey(recipe.title)}
+            key={recipe._id}
           >
             <div className="recipe">
               <Row>
-                <Col xs={12} className="card" key={recipe._id}>
+                <Col xs={12} className="card">
                   <Row>
                     <Col xs={12} className="header align-center">
                       <div>{recipe.title}</div>

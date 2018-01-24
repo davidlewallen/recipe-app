@@ -20,6 +20,7 @@ const propTypes = {
 class DashboardContainer extends React.Component {
   constructor() {
     super();
+
     this.state = {
       showModal: false,
       selectedRecipe: {
@@ -64,12 +65,7 @@ class DashboardContainer extends React.Component {
     try {
       const { data: recipes } = await Recipe.deleteRecipe(recipeId);
 
-      this.setState(prevState => ({
-        recipe: {
-          ...prevState.recipe,
-          list: recipes,
-        },
-      }));
+      this.props.updateRecipes(recipes);
     } catch (err) {
       console.log(err);
     }

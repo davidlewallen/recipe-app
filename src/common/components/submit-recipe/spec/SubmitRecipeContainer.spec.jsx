@@ -16,6 +16,7 @@ describe('SubmitRecipeContainer test', () => {
     show: false,
     handleModalClose: jest.fn(),
     updateRecipes: jest.fn(),
+    recipes: [],
   };
 
   let wrapper = null;
@@ -61,16 +62,22 @@ describe('SubmitRecipeContainer test', () => {
       instance.setState({ url: 'randomurl' });
 
       await instance.submitRecipe({ preventDefault: jest.fn() });
-      expect(mockProps.handleModalClose).toHaveBeenCalled();
+      setTimeout(() => {
+        expect(mockProps.handleModalClose).toHaveBeenCalled();
+      });
     });
 
-    it('should clear url state and call updateRecipes with returned value', async () => {
+    it('should clear url state and call updateRecipes with returned value as the first index', async () => {
       mock.onPost('/api/recipe/submit/randomurl').reply(200, mockRecipeList[0]);
+      wrapper.setProps({ recipes: [mockRecipeList[1]] });
       instance.setState({ url: 'randomurl' });
 
       await instance.submitRecipe({ preventDefault: jest.fn() });
       expect(instance.state.url).toBe('');
-      expect(mockProps.updateRecipes).toHaveBeenCalledWith([mockRecipeList[0]]);
+      setTimeout(() => {
+        expect(mockProps.updateRecipes)
+          .toHaveBeenCalledWith([mockRecipeList[0], mockRecipeList[1]]);
+      });
     });
 
     it('should not call updateRecipes if alreadyAdded: true', async () => {

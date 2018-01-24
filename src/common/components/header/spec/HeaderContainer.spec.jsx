@@ -10,7 +10,11 @@ const mock = new MockAdapter(axios);
 describe('HeaderContainer', () => {
   const mockHistory = { history: { replace: jest.fn() } };
 
-  const props = { ...mockHistory };
+  const props = {
+    ...mockHistory,
+    updateRecipes: jest.fn(),
+    recipes: [],
+  };
 
   let wrapper = null;
   let instance = null;
