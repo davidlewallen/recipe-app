@@ -4,6 +4,8 @@ import { Grid, Row, Col, Button } from 'react-bootstrap';
 
 import RecipeModal from '../../../components/recipe-modal/components';
 
+import genKey from '../../../../common/utils/randomKeys';
+
 import '../assets/styles/index.css';
 
 const {
@@ -26,6 +28,7 @@ const propTypes = {
     totalTime: string,
     url: shape({ href: string.isRequired }).isRequired,
   }).isRequired,
+  viewRecipe: func.isRequired,// eslint-disable-line
 };
 
 const Dashboard = props => (
@@ -45,6 +48,7 @@ const Dashboard = props => (
             xs={12}
             sm={6}
             md={3}
+            key={genKey(recipe.title)}
           >
             <div className="recipe">
               <Row>
