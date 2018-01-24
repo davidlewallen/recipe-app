@@ -110,13 +110,14 @@ describe('DashboardContainer test', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should delete a recipe and update state', async () => {
-      instance.setState({
-        recipe: { url: '', list: mockRecipeList },
-        selectedRecipe: { url: { href: '' } },
-      });
+    it('should call updateRecipes', async () => {
       await instance.deleteRecipe(1);
-      expect(instance.state.recipe.list).toEqual([mockRecipeList[1]]);
+      expect(props.updateRecipes).toHaveBeenCalled();
+    });
+
+    it('should delete a recipe and update state', async () => {
+      await instance.deleteRecipe(1);
+      expect(props.updateRecipes).toHaveBeenCalledWith([mockRecipeList[1]]);
     });
   });
 
