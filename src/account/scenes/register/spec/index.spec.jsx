@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Register from '../';
+import Register from '../components';
 
 describe('Register component snapshot test', () => {
   const props = {
