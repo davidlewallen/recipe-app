@@ -10,6 +10,8 @@ ShallowWrapper {
         "replace": [MockFunction],
       }
     }
+    recipes={Array []}
+    updateRecipes={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -26,9 +28,9 @@ ShallowWrapper {
       "children": Array [
         <SubmitRecipeContainer
           handleModalClose={[Function]}
-          recipes={undefined}
+          recipes={Array []}
           show={false}
-          updateRecipes={undefined}
+          updateRecipes={[MockFunction]}
         />,
         <Header
           handleModalOpen={[Function]}
@@ -44,9 +46,9 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "handleModalClose": [Function],
-          "recipes": undefined,
+          "recipes": Array [],
           "show": false,
-          "updateRecipes": undefined,
+          "updateRecipes": [MockFunction],
         },
         "ref": null,
         "rendered": null,
@@ -76,9 +78,9 @@ ShallowWrapper {
         "children": Array [
           <SubmitRecipeContainer
             handleModalClose={[Function]}
-            recipes={undefined}
+            recipes={Array []}
             show={false}
-            updateRecipes={undefined}
+            updateRecipes={[MockFunction]}
           />,
           <Header
             handleModalOpen={[Function]}
@@ -94,9 +96,9 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "handleModalClose": [Function],
-            "recipes": undefined,
+            "recipes": Array [],
             "show": false,
-            "updateRecipes": undefined,
+            "updateRecipes": [MockFunction],
           },
           "ref": null,
           "rendered": null,
