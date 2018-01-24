@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
+// import { LinkContainer } from 'react-router-bootstrap';
 
 const { func } = PropTypes;
 const propTypes = {
   logout: func.isRequired,
+  handleModalOpen: func.isRequired,
 };
 
 const Header = props => (
@@ -19,14 +20,14 @@ const Header = props => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
-        <NavItem eventKey={1} href="#">
+        <NavItem eventKey={1} onClick={props.handleModalOpen}>
           + Add Recipe
         </NavItem>
-        <LinkContainer to="/account">
+        {/* <LinkContainer to="/account">
           <NavItem eventKey={2}>
             Account
           </NavItem>
-        </LinkContainer>
+        </LinkContainer> */}
         <NavItem eventKey={3} onClick={props.logout}>
           Logout
         </NavItem>

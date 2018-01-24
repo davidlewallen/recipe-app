@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
-import HeaderContainer from '../HeaderContainer';
+import HeaderContainer from '../container/HeaderContainer';
 
 const mock = new MockAdapter(axios);
 
