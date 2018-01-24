@@ -5,6 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Header
+    handleModalOpen={[MockFunction]}
     logout={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -44,25 +45,10 @@ ShallowWrapper {
               active={false}
               disabled={false}
               eventKey={1}
-              href="#"
+              onClick={[MockFunction]}
             >
               + Add Recipe
             </NavItem>
-            <LinkContainer
-              activeClassName="active"
-              exact={false}
-              replace={false}
-              strict={false}
-              to="/account"
-            >
-              <NavItem
-                active={false}
-                disabled={false}
-                eventKey={2}
-              >
-                Account
-              </NavItem>
-            </LinkContainer>
             <NavItem
               active={false}
               disabled={false}
@@ -154,25 +140,10 @@ ShallowWrapper {
               active={false}
               disabled={false}
               eventKey={1}
-              href="#"
+              onClick={[MockFunction]}
             >
               + Add Recipe
             </NavItem>
-            <LinkContainer
-              activeClassName="active"
-              exact={false}
-              replace={false}
-              strict={false}
-              to="/account"
-            >
-              <NavItem
-                active={false}
-                disabled={false}
-                eventKey={2}
-              >
-                Account
-              </NavItem>
-            </LinkContainer>
             <NavItem
               active={false}
               disabled={false}
@@ -195,25 +166,10 @@ ShallowWrapper {
                 active={false}
                 disabled={false}
                 eventKey={1}
-                href="#"
+                onClick={[MockFunction]}
               >
                 + Add Recipe
               </NavItem>,
-              <LinkContainer
-                activeClassName="active"
-                exact={false}
-                replace={false}
-                strict={false}
-                to="/account"
-              >
-                <NavItem
-                  active={false}
-                  disabled={false}
-                  eventKey={2}
-                >
-                  Account
-                </NavItem>
-              </LinkContainer>,
               <NavItem
                 active={false}
                 disabled={false}
@@ -239,45 +195,10 @@ ShallowWrapper {
                 "children": "+ Add Recipe",
                 "disabled": false,
                 "eventKey": 1,
-                "href": "#",
+                "onClick": [MockFunction],
               },
               "ref": null,
               "rendered": "+ Add Recipe",
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "activeClassName": "active",
-                "children": <NavItem
-                  active={false}
-                  disabled={false}
-                  eventKey={2}
-                >
-                  Account
-                </NavItem>,
-                "exact": false,
-                "replace": false,
-                "strict": false,
-                "to": "/account",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "active": false,
-                  "children": "Account",
-                  "disabled": false,
-                  "eventKey": 2,
-                },
-                "ref": null,
-                "rendered": "Account",
-                "type": [Function],
-              },
               "type": [Function],
             },
             Object {
@@ -334,25 +255,10 @@ ShallowWrapper {
                 active={false}
                 disabled={false}
                 eventKey={1}
-                href="#"
+                onClick={[MockFunction]}
               >
                 + Add Recipe
               </NavItem>
-              <LinkContainer
-                activeClassName="active"
-                exact={false}
-                replace={false}
-                strict={false}
-                to="/account"
-              >
-                <NavItem
-                  active={false}
-                  disabled={false}
-                  eventKey={2}
-                >
-                  Account
-                </NavItem>
-              </LinkContainer>
               <NavItem
                 active={false}
                 disabled={false}
@@ -444,25 +350,10 @@ ShallowWrapper {
                 active={false}
                 disabled={false}
                 eventKey={1}
-                href="#"
+                onClick={[MockFunction]}
               >
                 + Add Recipe
               </NavItem>
-              <LinkContainer
-                activeClassName="active"
-                exact={false}
-                replace={false}
-                strict={false}
-                to="/account"
-              >
-                <NavItem
-                  active={false}
-                  disabled={false}
-                  eventKey={2}
-                >
-                  Account
-                </NavItem>
-              </LinkContainer>
               <NavItem
                 active={false}
                 disabled={false}
@@ -485,25 +376,10 @@ ShallowWrapper {
                   active={false}
                   disabled={false}
                   eventKey={1}
-                  href="#"
+                  onClick={[MockFunction]}
                 >
                   + Add Recipe
                 </NavItem>,
-                <LinkContainer
-                  activeClassName="active"
-                  exact={false}
-                  replace={false}
-                  strict={false}
-                  to="/account"
-                >
-                  <NavItem
-                    active={false}
-                    disabled={false}
-                    eventKey={2}
-                  >
-                    Account
-                  </NavItem>
-                </LinkContainer>,
                 <NavItem
                   active={false}
                   disabled={false}
@@ -529,45 +405,10 @@ ShallowWrapper {
                   "children": "+ Add Recipe",
                   "disabled": false,
                   "eventKey": 1,
-                  "href": "#",
+                  "onClick": [MockFunction],
                 },
                 "ref": null,
                 "rendered": "+ Add Recipe",
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "activeClassName": "active",
-                  "children": <NavItem
-                    active={false}
-                    disabled={false}
-                    eventKey={2}
-                  >
-                    Account
-                  </NavItem>,
-                  "exact": false,
-                  "replace": false,
-                  "strict": false,
-                  "to": "/account",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "active": false,
-                    "children": "Account",
-                    "disabled": false,
-                    "eventKey": 2,
-                  },
-                  "ref": null,
-                  "rendered": "Account",
-                  "type": [Function],
-                },
                 "type": [Function],
               },
               Object {
