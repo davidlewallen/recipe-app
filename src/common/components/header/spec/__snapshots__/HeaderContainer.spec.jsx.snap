@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderContainer should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <HeaderContainer
+    history={
+      Object {
+        "replace": [MockFunction],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <SubmitRecipeContainer
+          handleModalClose={[Function]}
+          show={false}
+          updateRecipes={[Function]}
+        />,
+        <Header
+          handleModalOpen={[Function]}
+          logout={[Function]}
+        />,
+        <Switch>
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/"
+          />
+          <Route
+            path="/dashboard"
+            render={[Function]}
+          />
+          <Route
+            component={[Function]}
+            path="/account"
+          />
+        </Switch>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "handleModalClose": [Function],
+          "show": false,
+          "updateRecipes": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleModalOpen": [Function],
+          "logout": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/"
+            />,
+            <Route
+              path="/dashboard"
+              render={[Function]}
+            />,
+            <Route
+              component={[Function]}
+              path="/account"
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "exact": true,
+              "path": "/",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "path": "/dashboard",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "path": "/account",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <SubmitRecipeContainer
+            handleModalClose={[Function]}
+            show={false}
+            updateRecipes={[Function]}
+          />,
+          <Header
+            handleModalOpen={[Function]}
+            logout={[Function]}
+          />,
+          <Switch>
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/"
+            />
+            <Route
+              path="/dashboard"
+              render={[Function]}
+            />
+            <Route
+              component={[Function]}
+              path="/account"
+            />
+          </Switch>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "handleModalClose": [Function],
+            "show": false,
+            "updateRecipes": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleModalOpen": [Function],
+            "logout": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Route
+                component={[Function]}
+                exact={true}
+                path="/"
+              />,
+              <Route
+                path="/dashboard"
+                render={[Function]}
+              />,
+              <Route
+                component={[Function]}
+                path="/account"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "exact": true,
+                "path": "/",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "path": "/dashboard",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "path": "/account",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
