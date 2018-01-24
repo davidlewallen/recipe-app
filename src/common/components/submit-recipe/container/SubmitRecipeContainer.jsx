@@ -5,11 +5,17 @@ import { Recipe } from '../../../utils/api';
 
 import SubmitRecipe from '../components';
 
-const { func, bool } = PropTypes;
+const {
+  func,
+  bool,
+  arrayOf,
+  object,
+} = PropTypes;
 const propTypes = {
   show: bool.isRequired,
   handleModalClose: func.isRequired,
   updateRecipes: func.isRequired,
+  recipes: arrayOf(object.isRequired).isRequired,
 };
 
 class SubmitRecipeContainer extends React.Component {
@@ -32,7 +38,7 @@ class SubmitRecipeContainer extends React.Component {
 
       if (!data.nonProcessable && !data.alreadyAdded) {
         this.setState({ url: '' });
-        this.props.updateRecipes([data]);
+        this.props.updateRecipes([data, ...this.props.recipes]);
       }
       this.props.handleModalClose();
     } catch (err) {
