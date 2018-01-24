@@ -24,7 +24,7 @@ describe('DashboardContainer test', () => {
   let instance = null;
 
   beforeEach(() => {
-    jest.resetAllMocks();
+    jest.clearAllMocks();
 
     mock.reset();
     mock
@@ -103,50 +103,6 @@ describe('DashboardContainer test', () => {
     });
   });
 
-  // describe('submitRecipe', () => {
-  //   it('should call submitRecipe', () => {
-  //     const spy = jest.spyOn(instance, 'submitRecipe');
-  //     instance.submitRecipe({ preventDefault: jest.fn() });
-  //     window.console.error = jest.fn();
-  //     expect(spy).toHaveBeenCalled();
-  //   });
-
-  //   it('should submit a recipe and update state', async () => {
-  //     mock.onPost('/api/recipe/submit/randomurl').reply(200, mockRecipeList[0]);
-  //     instance.setState({ recipe: { url: 'randomurl', list: [] } });
-
-  //     await instance.submitRecipe({ preventDefault: jest.fn() });
-  //     expect(instance.state.recipe.list).toEqual([mockRecipeList[0]]);
-  //   });
-
-  //   it('should submit a recipe but not update state if alreadyAdded: true', async () => {
-  //     mock.onPost('/api/recipe/submit/randomurl').reply(200, { alreadyAdded: true });
-  //     instance.setState({ recipe: { url: 'randomurl', list: [mockRecipeList[0]] } });
-
-  //     await instance.submitRecipe({ preventDefault: jest.fn() });
-  //     expect(instance.state.recipe.list).toEqual([mockRecipeList[0]]);
-  //   });
-
-  //   it('should not add a blank recipe card if nonProcessable: true', async () => {
-  //     mock.reset();
-  //     mock.onPost('/api/recie/submit/randomurl').reply(200, { nonProcessable: true });
-
-  //     await instance.submitRecipe({ preventDefault: jest.fn() });
-  //     expect(instance.state.recipe.list).toEqual([]);
-  //   });
-
-  //   it('should alert the user if website is not processable', async () => {
-  //     mock.reset();
-  //     mock.onPost('/api/recipe/submit/randomurl').reply(403, { nonProcessable: true });
-  //     instance.setState({ recipe: { url: 'randomurl', list: [] } });
-  //     window.alert = jest.fn();
-  //     window.console.error = jest.fn();
-
-  //     await instance.submitRecipe({ preventDefault: jest.fn() });
-  //     expect(window.alert).toHaveBeenCalled();
-  //   });
-  // });
-
   describe('deleteRecipe', () => {
     it('should call deleteRecipe', async () => {
       const spy = jest.spyOn(instance, 'deleteRecipe');
@@ -163,20 +119,6 @@ describe('DashboardContainer test', () => {
       expect(instance.state.recipe.list).toEqual([mockRecipeList[1]]);
     });
   });
-
-  // describe('handleRecipe', () => {
-  //   it('should call handleRecipe', () => {
-  //     const spy = jest.spyOn(instance, 'handleRecipe');
-  //     instance.handleRecipe({ target: { value: '' } });
-  //     expect(spy).toHaveBeenCalled();
-  //   });
-
-  //   it('should update url state', () => {
-  //     expect(instance.state.recipe.url).toEqual('');
-  //     instance.handleRecipe({ target: { value: 'test' } });
-  //     expect(instance.state.recipe.url).toEqual('test');
-  //   });
-  // });
 
   describe('handleModalClose', () => {
     it('should call handleModalClose and update state', () => {
