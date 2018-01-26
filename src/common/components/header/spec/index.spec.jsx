@@ -5,7 +5,6 @@ import Header from '../components';
 
 describe('Header component', () => {
   let wrapper = null;
-  let instance = null;
 
   const mockProps = {
     logout: jest.fn(),
@@ -14,7 +13,6 @@ describe('Header component', () => {
 
   beforeEach(() => {
     wrapper = shallow(<Header {...mockProps} />);
-    instance = wrapper.instance();
   });
 
   it('should match snapshot', () => {
