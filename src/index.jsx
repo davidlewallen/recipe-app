@@ -7,6 +7,7 @@ import HomepageContainer from './common/scenes/homepage/container/HomepageContai
 import DashboardRoutes from './dashboard/routes';
 import AccountRoutes from './account/routes';
 
+import { Account } from './common/utils/api';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -18,11 +19,22 @@ class AppContainer extends React.Component {
 
     this.state = {
       recipes: [],
+      isAuth: false,
     };
   }
+
+  componentWillMount = async () => {
+    const { data } = await Account.auth();
+    this.setState({ isAuth: data.isAuth });
+  }
+
   updateRecipes = (updatedRecipes) => {
     const isArray = Array.isArray(updatedRecipes);
     this.setState({ recipes: isArray ? updatedRecipes : [updatedRecipes] });
+  }
+
+  updateAuth = (authValue) => {
+    this.setState({ isAuth: authValue });
   }
 
   render = () => (
@@ -32,7 +44,9 @@ class AppContainer extends React.Component {
           <HeaderContainer
             recipes={this.state.recipes}
             updateRecipes={this.updateRecipes}
+            updateAuth={this.updateAuth}
             history={history}
+            isAuth={this.state.isAuth}
           />
         )}
       />
@@ -47,7 +61,12 @@ class AppContainer extends React.Component {
             />
           )}
         />
-        <Route path="/account" component={AccountRoutes} />
+        <Route
+          path="/account"
+          render={() => (
+            <AccountRoutes updateAuth={this.updateAuth} />
+          )}
+        />
       </Switch>
     </div>
   )
