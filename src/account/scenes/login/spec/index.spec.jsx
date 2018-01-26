@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Login from '../';
+import Login from '../components';
 
 describe('Login component snapshot test', () => {
   const props = {

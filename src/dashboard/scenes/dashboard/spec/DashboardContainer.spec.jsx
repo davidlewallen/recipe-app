@@ -3,24 +3,41 @@ import { shallow } from 'enzyme';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 
-import DashboardContainer from '../DashboardContainer';
+import DashboardContainer from '../container/DashboardContainer';
 
 const mock = new MockAdapter(axios);
 
 describe('DashboardContainer test', () => {
   const mockHistory = { history: { replace: jest.fn() } };
   const mockRecipeList = [
-    { title: 'recipe 1', _id: 1 }, { title: 'recipe 2', _id: 2 },
+    {
+      title: 'recipe 1',
+      _id: 1,
+      url: {
+        href: 'recipe1',
+      },
+    },
+    {
+      title: 'recipe 2',
+      _id: 2,
+      url: {
+        href: 'recipe2',
+      },
+    },
   ];
   const mockGetAuth = { isAuth: true };
 
-  const props = { ...mockHistory };
+  const props = {
+    ...mockHistory,
+    updateRecipes: jest.fn(),
+    recipes: [],
+  };
 
   let wrapper = null;
   let instance = null;
 
   beforeEach(() => {
-    jest.resetAllMocks();
+    jest.clearAllMocks();
 
     mock.reset();
     mock
@@ -32,11 +49,16 @@ describe('DashboardContainer test', () => {
       .reply(200, [mockRecipeList[1]]);
 
     wrapper = shallow(<DashboardContainer {...props} />);
+    wrapper.setState({ selectedRecipe: { url: { href: '' } } });
     instance = wrapper.instance();
   });
 
   afterAll(() => {
     mock.restore();
+  });
+
+  it('should render', () => {
+    expect(wrapper).toBeTruthy();
   });
 
   describe('componentWillMount', () => {
@@ -54,9 +76,9 @@ describe('DashboardContainer test', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should update state with the user\'s recipes', async () => {
+    it('should call updateRecipes with the user\'s recipes', async () => {
       await instance.getUserRecipes();
-      expect(instance.state.recipe.list).toEqual(mockRecipeList);
+      expect(instance.props.updateRecipes).toHaveBeenCalledWith(mockRecipeList);
     });
   });
 
@@ -94,50 +116,6 @@ describe('DashboardContainer test', () => {
     });
   });
 
-  describe('submitRecipe', () => {
-    it('should call submitRecipe', () => {
-      const spy = jest.spyOn(instance, 'submitRecipe');
-      instance.submitRecipe({ preventDefault: jest.fn() });
-      window.console.error = jest.fn();
-      expect(spy).toHaveBeenCalled();
-    });
-
-    it('should submit a recipe and update state', async () => {
-      mock.onPost('/api/recipe/submit/randomurl').reply(200, mockRecipeList[0]);
-      instance.setState({ recipe: { url: 'randomurl', list: [] } });
-
-      await instance.submitRecipe({ preventDefault: jest.fn() });
-      expect(instance.state.recipe.list).toEqual([mockRecipeList[0]]);
-    });
-
-    it('should submit a recipe but not update state if alreadyAdded: true', async () => {
-      mock.onPost('/api/recipe/submit/randomurl').reply(200, { alreadyAdded: true });
-      instance.setState({ recipe: { url: 'randomurl', list: [mockRecipeList[0]] } });
-
-      await instance.submitRecipe({ preventDefault: jest.fn() });
-      expect(instance.state.recipe.list).toEqual([mockRecipeList[0]]);
-    });
-
-    it('should not add a blank recipe card if nonProcessable: true', async () => {
-      mock.reset();
-      mock.onPost('/api/recie/submit/randomurl').reply(200, { nonProcessable: true });
-
-      await instance.submitRecipe({ preventDefault: jest.fn() });
-      expect(instance.state.recipe.list).toEqual([]);
-    });
-
-    it('should alert the user if website is not processable', async () => {
-      mock.reset();
-      mock.onPost('/api/recipe/submit/randomurl').reply(403, { nonProcessable: true });
-      instance.setState({ recipe: { url: 'randomurl', list: [] } });
-      window.alert = jest.fn();
-      window.console.error = jest.fn();
-
-      await instance.submitRecipe({ preventDefault: jest.fn() });
-      expect(window.alert).toHaveBeenCalled();
-    });
-  });
-
   describe('deleteRecipe', () => {
     it('should call deleteRecipe', async () => {
       const spy = jest.spyOn(instance, 'deleteRecipe');
@@ -145,24 +123,14 @@ describe('DashboardContainer test', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should delete a recipe and update state', async () => {
-      instance.setState({ recipe: { url: '', list: mockRecipeList } });
+    it('should call updateRecipes', async () => {
       await instance.deleteRecipe(1);
-      expect(instance.state.recipe.list).toEqual([mockRecipeList[1]]);
-    });
-  });
-
-  describe('handleRecipe', () => {
-    it('should call handleRecipe', () => {
-      const spy = jest.spyOn(instance, 'handleRecipe');
-      instance.handleRecipe({ target: { value: '' } });
-      expect(spy).toHaveBeenCalled();
+      expect(props.updateRecipes).toHaveBeenCalled();
     });
 
-    it('should update url state', () => {
-      expect(instance.state.recipe.url).toEqual('');
-      instance.handleRecipe({ target: { value: 'test' } });
-      expect(instance.state.recipe.url).toEqual('test');
+    it('should delete a recipe and update state', async () => {
+      await instance.deleteRecipe(1);
+      expect(props.updateRecipes).toHaveBeenCalledWith([mockRecipeList[1]]);
     });
   });
 
@@ -172,7 +140,10 @@ describe('DashboardContainer test', () => {
 
       expect(instance.state.showModal).toBe(false);
 
-      instance.setState({ showModal: true });
+      instance.setState({
+        showModal: true,
+        selectedRecipe: { url: { href: '' } },
+      });
       instance.handleModalClose();
       expect(spy).toHaveBeenCalled();
       expect(instance.state.showModal).toBe(false);

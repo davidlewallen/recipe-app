@@ -15,11 +15,8 @@ const {
   shape,
 } = PropTypes;
 const propTypes = {
-  recipeURL: string.isRequired,
-  handleRecipe: func.isRequired,
-  submitRecipe: func.isRequired,
   deleteRecipe: func.isRequired, // eslint-disable-line
-  recipeList: arrayOf(object).isRequired,
+  recipes: arrayOf(object).isRequired,
   showModal: bool.isRequired,
   handleModalClose: func.isRequired,
   selectedRecipe: shape({
@@ -29,27 +26,11 @@ const propTypes = {
     totalTime: string,
     url: shape({ href: string.isRequired }).isRequired,
   }).isRequired,
+  viewRecipe: func.isRequired,// eslint-disable-line
 };
 
 const Dashboard = props => (
   <Grid className="dashboard">
-    <Row>
-      <Col>
-        <form className="submit-recipe align-center my">
-          <input
-            placeholder="Recipe URL"
-            value={props.recipeURL}
-            onChange={props.handleRecipe}
-          />
-          <button
-            onClick={props.submitRecipe}
-          >
-            Submit
-          </button>
-        </form>
-      </Col>
-    </Row>
-
     <RecipeModal
       showModal={props.showModal}
       handleModalClose={props.handleModalClose}
@@ -57,18 +38,19 @@ const Dashboard = props => (
       deleteRecipe={props.deleteRecipe}
     />
 
-    {props.recipeList.length > 0 && (
+    {props.recipes.length > 0 && (
       <Row className="recipe-container">
-        {props.recipeList.map(recipe => (
+        {props.recipes.map(recipe => (
           <Col
             className="margin-bottom"
             xs={12}
             sm={6}
             md={3}
+            key={recipe._id}
           >
             <div className="recipe">
               <Row>
-                <Col xs={12} className="card" key={recipe._id}>
+                <Col xs={12} className="card">
                   <Row>
                     <Col xs={12} className="header align-center">
                       <div>{recipe.title}</div>

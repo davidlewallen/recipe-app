@@ -5,19 +5,23 @@ import Dashboard from '../components';
 
 import { Recipe, Account } from '../../../../common/utils/api';
 
-const { shape, func } = PropTypes;
+const {
+  shape,
+  func,
+  arrayOf,
+  object,
+} = PropTypes;
 const propTypes = {
   history: shape({ replace: func }).isRequired,
+  recipes: arrayOf(object.isRequired).isRequired,
+  updateRecipes: func.isRequired,
 };
 
 class DashboardContainer extends React.Component {
   constructor() {
     super();
+
     this.state = {
-      recipe: {
-        url: '',
-        list: [],
-      },
       showModal: false,
       selectedRecipe: {
         title: '',
@@ -37,13 +41,7 @@ class DashboardContainer extends React.Component {
 
   getUserRecipes = async () => {
     const { data: recipes } = await Recipe.getRecipes();
-
-    await this.setState(prevState => ({
-      recipe: {
-        ...prevState.recipe,
-        list: recipes,
-      },
-    }));
+    this.props.updateRecipes(recipes);
   }
 
   checkIsAuth = async () => {
@@ -63,53 +61,14 @@ class DashboardContainer extends React.Component {
     await this.getUserRecipes();
   }
 
-  submitRecipe = async (event) => {
-    event.preventDefault();
-
-    try {
-      const encodedRecipeURI = encodeURIComponent(this.state.recipe.url);
-      const { data } = await Recipe.submitRecipe(encodedRecipeURI);
-
-      if (!data.nonProcessable && !data.alreadyAdded) {
-        this.setState({
-          recipe: {
-            url: '',
-            list: [...this.state.recipe.list, data],
-          },
-        });
-      }
-    } catch (err) {
-      console.error(err.response);
-
-      if (err && err.response && err.response.status === 403) {
-        alert('We cant process this website currently');
-      }
-    }
-  }
-
   deleteRecipe = async (recipeId) => {
     try {
       const { data: recipes } = await Recipe.deleteRecipe(recipeId);
 
-      this.setState(prevState => ({
-        recipe: {
-          ...prevState.recipe,
-          list: recipes,
-        },
-      }));
+      this.props.updateRecipes(recipes);
     } catch (err) {
       console.log(err);
     }
-  }
-
-  handleRecipe = (event) => {
-    const url = event.target.value;
-    this.setState(prevState => ({
-      recipe: {
-        ...prevState.recipe,
-        url,
-      },
-    }));
   }
 
   handleModalClose = () => {
@@ -125,10 +84,7 @@ class DashboardContainer extends React.Component {
 
   render = () => (
     <Dashboard
-      recipeURL={this.state.recipe.url}
-      recipeList={this.state.recipe.list}
-      handleRecipe={this.handleRecipe}
-      submitRecipe={this.submitRecipe}
+      recipes={this.props.recipes}
       deleteRecipe={this.deleteRecipe}
       showModal={this.state.showModal}
       handleModalClose={this.handleModalClose}

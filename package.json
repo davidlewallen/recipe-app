@@ -77,10 +77,14 @@
     "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "node scripts/build.js",
     "test": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch",
+    "test:inspect": "cross-env NODE_ENV=test node --inspect-brk ./node_modules/jest/bin/jest.js --testPathPattern=src --env=jsdom --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch --coverage",
     "heroku-postbuild": "npm run build"
   },
   "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
     ],
@@ -129,6 +133,7 @@
     "axios-mock-adapter": "^1.10.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
     "husky": "^0.14.3",
     "jest-cli": "^22.0.4"
   }

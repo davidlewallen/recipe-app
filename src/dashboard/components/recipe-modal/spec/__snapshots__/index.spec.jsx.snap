@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeModal component should match snapshot 1`] = `
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  className="recipe-modal"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[MockFunction]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  show={false}
+>
+  <ModalHeader
+    bsClass="modal-header"
+    className="header"
+    closeButton={true}
+    closeLabel="Close"
+  >
+    <ModalTitle
+      bsClass="modal-title"
+      className="title"
+      componentClass="h4"
+    >
+      <span>
+        test
+      </span>
+      <span
+        className="total-time"
+      >
+        Total Time: 
+        1 hour
+      </span>
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    className="body"
+    componentClass="div"
+  >
+    <div
+      className="ingredient-title"
+    >
+      Ingredients:
+    </div>
+    <div
+      className="ingredient"
+      key="a347ccac-5c74-51c8-b109-9dea71b3111e"
+    >
+      - 
+      1
+    </div>
+    <div
+      className="instruction-title"
+    >
+      Instructions:
+    </div>
+    <div
+      className="instruction"
+      key="a347ccac-5c74-51c8-b109-9dea71b3111e"
+    >
+      1
+    </div>
+  </ModalBody>
+  <ModalFooter
+    bsClass="modal-footer"
+    componentClass="div"
+  >
+    <a
+      className="recipe-link"
+      href="randomurl.com"
+      target="_blank"
+    >
+      Click here to view original recipe
+    </a>
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsSize="small"
+      bsStyle="danger"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Delete
+    </Button>
+  </ModalFooter>
+</Modal>
+`;
+
+exports[`RecipeModal component should match snapshot with modal open 1`] = `
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  className="recipe-modal"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[MockFunction]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  show={true}
+>
+  <ModalHeader
+    bsClass="modal-header"
+    className="header"
+    closeButton={true}
+    closeLabel="Close"
+  >
+    <ModalTitle
+      bsClass="modal-title"
+      className="title"
+      componentClass="h4"
+    >
+      <span>
+        test
+      </span>
+      <span
+        className="total-time"
+      >
+        Total Time: 
+        1 hour
+      </span>
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    className="body"
+    componentClass="div"
+  >
+    <div
+      className="ingredient-title"
+    >
+      Ingredients:
+    </div>
+    <div
+      className="ingredient"
+      key="a347ccac-5c74-51c8-b109-9dea71b3111e"
+    >
+      - 
+      1
+    </div>
+    <div
+      className="instruction-title"
+    >
+      Instructions:
+    </div>
+    <div
+      className="instruction"
+      key="a347ccac-5c74-51c8-b109-9dea71b3111e"
+    >
+      1
+    </div>
+  </ModalBody>
+  <ModalFooter
+    bsClass="modal-footer"
+    componentClass="div"
+  >
+    <a
+      className="recipe-link"
+      href="randomurl.com"
+      target="_blank"
+    >
+      Click here to view original recipe
+    </a>
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsSize="small"
+      bsStyle="danger"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Delete
+    </Button>
+  </ModalFooter>
+</Modal>
+`;

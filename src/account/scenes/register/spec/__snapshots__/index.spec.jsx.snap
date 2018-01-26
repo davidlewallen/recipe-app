@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register component snapshot test should display error messages 1`] = `
+<div
+  className="register-container"
+>
+  <p>
+    testError
+  </p>
+  <form
+    className="register"
+  >
+    <input
+      className="username-input"
+      onChange={[Function]}
+      placeholder="Username"
+      value="testUsername"
+    />
+    <input
+      className="password-input"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value="testPassword"
+    />
+    <input
+      className="email-input"
+      onChange={[Function]}
+      placeholder="Email Address"
+      value="test@email.com"
+    />
+    <button
+      className="register-button"
+      onClick={[Function]}
+    >
+      Register
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Register component snapshot test should match snapshot 1`] = `
+<div
+  className="register-container"
+>
+  <form
+    className="register"
+  >
+    <input
+      className="username-input"
+      onChange={[Function]}
+      placeholder="Username"
+      value="testUsername"
+    />
+    <input
+      className="password-input"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value="testPassword"
+    />
+    <input
+      className="email-input"
+      onChange={[Function]}
+      placeholder="Email Address"
+      value="test@email.com"
+    />
+    <button
+      className="register-button"
+      onClick={[Function]}
+    >
+      Register
+    </button>
+  </form>
+</div>
+`;

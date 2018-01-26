@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot 1`] = `
+<Uncontrolled(Navbar)
+  bsStyle="default"
+  fluid={true}
+  inverse={true}
+>
+  <NavbarHeader>
+    <NavbarBrand>
+      <Link
+        replace={false}
+        to="/dashboard"
+      >
+        My Saved Recipes
+      </Link>
+    </NavbarBrand>
+    <NavbarToggle />
+  </NavbarHeader>
+  <NavbarCollapse>
+    <Nav
+      bsClass="nav"
+      justified={false}
+      pullLeft={false}
+      pullRight={true}
+      stacked={false}
+    >
+      <NavItem
+        active={false}
+        disabled={false}
+        eventKey={1}
+        onClick={[MockFunction]}
+      >
+        + Add Recipe
+      </NavItem>
+      <NavItem
+        active={false}
+        disabled={false}
+        eventKey={3}
+        onClick={[MockFunction]}
+      >
+        Logout
+      </NavItem>
+    </Nav>
+  </NavbarCollapse>
+</Uncontrolled(Navbar)>
+`;
