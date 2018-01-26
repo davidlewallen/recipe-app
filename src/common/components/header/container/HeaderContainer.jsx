@@ -11,11 +11,14 @@ const {
   func,
   arrayOf,
   object,
+  bool,
 } = PropTypes;
 const propTypes = {
   history: shape({ replace: func.isRequired }).isRequired,
   updateRecipes: func.isRequired,
   recipes: arrayOf(object.isRequired).isRequired,
+  isAuth: bool.isRequired,
+  updateAuth: func.isRequired,
 };
 
 class HeaderContainer extends React.Component {
@@ -29,6 +32,7 @@ class HeaderContainer extends React.Component {
 
   logout = async () => {
     await Account.logout();
+    this.props.updateAuth(false);
     this.props.history.replace('/');
   }
 
@@ -51,6 +55,7 @@ class HeaderContainer extends React.Component {
       <Header
         logout={this.logout}
         handleModalOpen={this.handleModalOpen}
+        isAuth={this.props.isAuth}
       />
     </div>
   );
