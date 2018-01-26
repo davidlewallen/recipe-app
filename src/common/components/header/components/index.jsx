@@ -4,10 +4,11 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 // import { LinkContainer } from 'react-router-bootstrap';
 
-const { func } = PropTypes;
+const { func, bool } = PropTypes;
 const propTypes = {
   logout: func.isRequired,
   handleModalOpen: func.isRequired,
+  isAuth: bool.isRequired,
 };
 
 const Header = props => (
@@ -16,7 +17,9 @@ const Header = props => (
       <Navbar.Brand>
         <Link to="/dashboard">My Saved Recipes</Link>
       </Navbar.Brand>
-      <Navbar.Toggle />
+      {props.isAuth && (
+        <Navbar.Toggle />
+      )}
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
