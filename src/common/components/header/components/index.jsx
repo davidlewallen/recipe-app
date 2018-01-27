@@ -12,10 +12,10 @@ const propTypes = {
 };
 
 const Header = props => (
-  <Navbar inverse fluid>
+  <Navbar inverse fluid collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to="/dashboard">My Saved Recipes</Link>
+        <Link to={props.isAuth ? '/dashboard' : '/'}>My Saved Recipes</Link>
       </Navbar.Brand>
       {props.isAuth && (
         <Navbar.Toggle />
