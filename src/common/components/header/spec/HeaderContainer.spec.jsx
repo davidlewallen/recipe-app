@@ -48,4 +48,22 @@ describe('HeaderContainer', () => {
       expect(instance.props.history.replace).toHaveBeenCalledWith('/');
     });
   });
+
+  describe('handleModalOpen', () => {
+    it('should set showModal state to true when called', () => {
+      const spy = jest.spyOn(instance, 'handleModalOpen');
+      instance.handleModalOpen();
+      expect(spy).toHaveBeenCalled();
+      expect(instance.state.showModal).toBe(true);
+    });
+  });
+
+  describe('handleModalClose', () => {
+    it('should set showModal state to false when called', () => {
+      const spy = jest.spyOn(instance, 'handleModalClose');
+      instance.handleModalClose();
+      expect(spy).toHaveBeenCalled();
+      expect(instance.state.showModal).toBe(false);
+    });
+  });
 });
