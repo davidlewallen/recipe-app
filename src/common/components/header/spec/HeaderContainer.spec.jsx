@@ -14,6 +14,8 @@ describe('HeaderContainer', () => {
     ...mockHistory,
     updateRecipes: jest.fn(),
     recipes: [],
+    isAuth: true,
+    updateAuth: jest.fn(),
   };
 
   let wrapper = null;
@@ -34,6 +36,7 @@ describe('HeaderContainer', () => {
 
   describe('logout', () => {
     it('should call logout', () => {
+      mock.onGet('/api/account/logout').reply(200);
       const spy = jest.spyOn(instance, 'logout');
       instance.logout();
       expect(spy).toHaveBeenCalled();

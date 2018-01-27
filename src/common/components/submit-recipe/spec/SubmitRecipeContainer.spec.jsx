@@ -51,6 +51,7 @@ describe('SubmitRecipeContainer test', () => {
 
   describe('submitRecipe', () => {
     it('should call submitRecipe', () => {
+      mock.onPost('/api/recipe/submit/%27%27').reply(200);
       const spy = jest.spyOn(instance, 'submitRecipe');
       instance.submitRecipe({ preventDefault: jest.fn() });
       window.console.error = jest.fn();
@@ -89,7 +90,7 @@ describe('SubmitRecipeContainer test', () => {
     });
 
     it('should not call updateRecipes if nonProcessable: true', async () => {
-      mock.onPost('/api/recie/submit/randomurl').reply(200, { nonProcessable: true });
+      mock.onPost('/api/recie/submit/%27%27').reply(200, { nonProcessable: true });
 
       await instance.submitRecipe({ preventDefault: jest.fn() });
       expect(mockProps.updateRecipes).toHaveBeenCalledTimes(0);

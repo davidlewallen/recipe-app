@@ -9,6 +9,7 @@ describe('Header component', () => {
   const mockProps = {
     logout: jest.fn(),
     handleModalOpen: jest.fn(),
+    isAuth: true,
   };
 
   beforeEach(() => {

@@ -18,7 +18,10 @@ describe('LoginContainer test', () => {
     },
   };
 
-  const props = { ...mockHistory };
+  const props = {
+    ...mockHistory,
+    updateAuth: jest.fn(),
+  };
 
   let wrapper = null;
   let instance = null;
@@ -41,6 +44,7 @@ describe('LoginContainer test', () => {
 
   describe('login', () => {
     it('should call login', () => {
+      mock.onPost('/api/account/login').reply(200);
       const spy = jest.spyOn(instance, 'login');
       instance.login({ preventDefault: jest.fn() });
       expect(spy).toHaveBeenCalled();
