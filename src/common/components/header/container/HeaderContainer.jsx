@@ -30,8 +30,8 @@ class HeaderContainer extends React.Component {
     };
   }
 
-  logout = async () => {
-    await Account.logout();
+  logout = () => {
+    Account.logout();
     this.props.updateAuth(false);
     this.props.history.replace('/');
   }
