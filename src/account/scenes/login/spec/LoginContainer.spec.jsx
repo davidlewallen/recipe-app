@@ -64,12 +64,10 @@ describe('LoginContainer test', () => {
 
     it('should update error state with 400s', async () => {
       mock.onPost('/api/account/login').reply(400, { message: 'error' });
-      instance.setState({
-        ...mockState,
-        username: '',
-      });
+      const spy = jest.spyOn(instance, 'clearFields');
       await instance.login({ preventDefault: jest.fn() });
       expect(instance.state.error).toEqual({ value: true, message: 'error' });
+      expect(spy).toHaveBeenCalled();
     });
   });
 
