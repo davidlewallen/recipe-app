@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitRecipe component should render and match snapshot 1`] = `
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  className="submit-recipe-modal"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[MockFunction]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  show={false}
+>
+  <ModalHeader
+    bsClass="modal-header"
+    className="header"
+    closeButton={true}
+    closeLabel="Close"
+  >
+    <ModalTitle
+      bsClass="modal-title"
+      className="title"
+      componentClass="h4"
+    >
+      Submit Recipe
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    className="body"
+    componentClass="div"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        componentClass="div"
+        md={8}
+        xs={12}
+      >
+        <input
+          onChange={[MockFunction]}
+          placeholder="Recipe URL"
+          value=""
+        />
+      </Col>
+      <Col
+        bsClass="col"
+        componentClass="div"
+        md={4}
+        xs={12}
+      >
+        <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          onClick={[MockFunction]}
+        >
+          Submit
+        </Button>
+      </Col>
+    </Row>
+  </ModalBody>
+</Modal>
+`;
