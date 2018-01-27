@@ -32,7 +32,7 @@ class AppContainer extends React.Component {
       error => (
         error.response.status === 401 && this.props.location.pathname !== '/'
           ? this.props.history.push('/account/login')
-          : error
+          : Promise.reject(error)
       ),
     );
 
