@@ -18,7 +18,10 @@ describe('LoginContainer test', () => {
     },
   };
 
-  const props = { ...mockHistory };
+  const props = {
+    ...mockHistory,
+    updateAuth: jest.fn(),
+  };
 
   let wrapper = null;
   let instance = null;
@@ -41,6 +44,7 @@ describe('LoginContainer test', () => {
 
   describe('login', () => {
     it('should call login', () => {
+      mock.onPost('/api/account/login').reply(200);
       const spy = jest.spyOn(instance, 'login');
       instance.login({ preventDefault: jest.fn() });
       expect(spy).toHaveBeenCalled();
@@ -60,12 +64,10 @@ describe('LoginContainer test', () => {
 
     it('should update error state with 400s', async () => {
       mock.onPost('/api/account/login').reply(400, { message: 'error' });
-      instance.setState({
-        ...mockState,
-        username: '',
-      });
+      const spy = jest.spyOn(instance, 'clearFields');
       await instance.login({ preventDefault: jest.fn() });
       expect(instance.state.error).toEqual({ value: true, message: 'error' });
+      expect(spy).toHaveBeenCalled();
     });
   });
 

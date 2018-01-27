@@ -14,6 +14,7 @@
     "jsx-a11y/anchor-is-valid": [ "error", {
       "component": ["Link"],
       "aspects": ["noHref"]
-    }]
+    }],
+    "function-paren-newline": "off"
   }
 }
