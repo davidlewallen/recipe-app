@@ -14,9 +14,9 @@ const AccountRoutes = props => (
   <Switch>
     <Route
       path="/account/login"
-      render={({ history }) => (
+      render={routeProps => (
         <LoginContainer
-          history={history}
+          {...routeProps}
           updateAuth={props.updateAuth}
         />
       )}
