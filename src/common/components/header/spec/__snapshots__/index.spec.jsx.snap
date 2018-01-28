@@ -3,6 +3,7 @@
 exports[`Header component should match snapshot 1`] = `
 <Uncontrolled(Navbar)
   bsStyle="default"
+  collapseOnSelect={true}
   fluid={true}
   inverse={true}
 >

@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 
 import Dashboard from '../components';
 
-import { Recipe, Account } from '../../../../common/utils/api';
+import { Recipe } from '../../../../common/utils/api';
 
 const {
-  shape,
   func,
   arrayOf,
   object,
 } = PropTypes;
 const propTypes = {
-  history: shape({ replace: func }).isRequired,
   recipes: arrayOf(object.isRequired).isRequired,
   updateRecipes: func.isRequired,
 };
@@ -22,6 +20,7 @@ class DashboardContainer extends React.Component {
     super();
 
     this.state = {
+      loading: true,
       showModal: false,
       selectedRecipe: {
         title: '',
@@ -32,33 +31,23 @@ class DashboardContainer extends React.Component {
           href: '',
         },
       },
+      searchValue: '',
     };
   }
 
   componentWillMount = async () => {
-    await this.initialize();
+    await this.getUserRecipes();
   }
 
   getUserRecipes = async () => {
-    const { data: recipes } = await Recipe.getRecipes();
-    this.props.updateRecipes(recipes);
-  }
-
-  checkIsAuth = async () => {
     try {
-      const { data } = await Account.auth();
-
-      if (data.isAuth === false) {
-        this.props.history.replace('/account/login');
-      }
+      this.setState({ loading: true });
+      const { data: recipes } = await Recipe.getRecipes();
+      this.props.updateRecipes(recipes);
+      this.setState({ loading: false });
     } catch (err) {
-      console.log('err', err);
+      console.log(err);
     }
-  }
-
-  initialize = async () => {
-    await this.checkIsAuth();
-    await this.getUserRecipes();
   }
 
   deleteRecipe = async (recipeId) => {
@@ -82,14 +71,21 @@ class DashboardContainer extends React.Component {
     });
   }
 
+  handleSearch = (event) => {
+    this.setState({ searchValue: event.target.value });
+  }
+
   render = () => (
     <Dashboard
+      loading={this.state.loading}
       recipes={this.props.recipes}
       deleteRecipe={this.deleteRecipe}
       showModal={this.state.showModal}
       handleModalClose={this.handleModalClose}
       viewRecipe={this.viewRecipe}
       selectedRecipe={this.state.selectedRecipe}
+      searchValue={this.state.searchValue}
+      handleSearch={this.handleSearch}
     />
   );
 }

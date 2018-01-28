@@ -9,6 +9,7 @@ describe('Header component', () => {
   const mockProps = {
     logout: jest.fn(),
     handleModalOpen: jest.fn(),
+    isAuth: true,
   };
 
   beforeEach(() => {
@@ -28,4 +29,13 @@ describe('Header component', () => {
     wrapper.find('NavItem').at(1).simulate('click');
     expect(mockProps.logout).toHaveBeenCalledTimes(1);
   });
+
+  it('logo should link to "/dashboard" if isAuth = true', () => {
+    expect(wrapper.find('Link').prop('to')).toBe('/dashboard');
+  });
+
+  it('logo should link to "/" if isAuth = false', () => {
+    wrapper.setProps({ isAuth: false });
+    expect(wrapper.find('Link').prop('to')).toBe('/');
+  })
 });

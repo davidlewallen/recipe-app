@@ -62,8 +62,8 @@ describe('DashboardContainer test', () => {
   });
 
   describe('componentWillMount', () => {
-    it('should call initialize', () => {
-      const spy = jest.spyOn(instance, 'initialize');
+    it('should call getUserRecipes', () => {
+      const spy = jest.spyOn(instance, 'getUserRecipes');
       instance.componentWillMount();
       expect(spy).toHaveBeenCalled();
     });
@@ -80,39 +80,15 @@ describe('DashboardContainer test', () => {
       await instance.getUserRecipes();
       expect(instance.props.updateRecipes).toHaveBeenCalledWith(mockRecipeList);
     });
-  });
 
-  describe('checkIsAuth', () => {
-    it('should call checkIsAuth', () => {
-      const spy = jest.spyOn(instance, 'checkIsAuth');
-      instance.checkIsAuth();
-      expect(spy).toHaveBeenCalled();
-    });
-
-    it('should call history.replace with \'/\' args if isAuth: false', async () => {
+    it('should log an error if getUserRecipes api fails', async () => {
       mock.reset();
-      mock.onGet('/api/account/auth').reply(200, { isAuth: false });
-
-      const spy = jest.spyOn(instance.props.history, 'replace');
-      await instance.checkIsAuth();
-      expect(spy).toHaveBeenCalled();
-      expect(spy).toHaveBeenCalledWith('/account/login');
-    });
-
-    it('should not call history.replace if isAuth: true', async () => {
-      const spy = jest.spyOn(instance.props.history, 'replace');
-      await instance.checkIsAuth();
-      expect(spy).toHaveBeenCalledTimes(0);
-    });
-  });
-
-  describe('initialize', () => {
-    it('should call checkIsAuth and getUsersRecipes', async () => {
-      const spy = jest.spyOn(instance, 'checkIsAuth');
-      const spy2 = jest.spyOn(instance, 'getUserRecipes');
-      await instance.initialize();
-      expect(spy).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
+      mock.onGet().reply(500);
+      const clog = console.log;
+      window.console.log = jest.fn();
+      await instance.getUserRecipes();
+      expect(window.console.log).toHaveBeenCalled();
+      window.console.log = clog;
     });
   });
 
@@ -131,6 +107,16 @@ describe('DashboardContainer test', () => {
     it('should delete a recipe and update state', async () => {
       await instance.deleteRecipe(1);
       expect(props.updateRecipes).toHaveBeenCalledWith([mockRecipeList[1]]);
+    });
+
+    it('should log error if request is bad', async () => {
+      mock.reset();
+      mock.onDelete().reply(500);
+      const clog = console.log;
+      window.console.log = jest.fn();
+      await instance.deleteRecipe(1);
+      expect(window.console.log).toHaveBeenCalled();
+      window.console.log = clog;
     });
   });
 
@@ -162,6 +148,13 @@ describe('DashboardContainer test', () => {
       instance.viewRecipe({ ...mockRecipeList[0] });
       expect(instance.state.showModal).toBe(true);
       expect(instance.state.selectedRecipe).toEqual(mockRecipeList[0]);
+    });
+  });
+
+  describe('handleSearch', () => {
+    it('should update searchValue state', () => {
+      instance.handleSearch({ target: { value: 'test' } });
+      expect(instance.state.searchValue).toBe('test');
     });
   });
 });

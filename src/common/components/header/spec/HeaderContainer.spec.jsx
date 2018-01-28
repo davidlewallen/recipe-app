@@ -14,6 +14,8 @@ describe('HeaderContainer', () => {
     ...mockHistory,
     updateRecipes: jest.fn(),
     recipes: [],
+    isAuth: true,
+    updateAuth: jest.fn(),
   };
 
   let wrapper = null;
@@ -34,6 +36,7 @@ describe('HeaderContainer', () => {
 
   describe('logout', () => {
     it('should call logout', () => {
+      mock.onGet('/api/account/logout').reply(200);
       const spy = jest.spyOn(instance, 'logout');
       instance.logout();
       expect(spy).toHaveBeenCalled();
@@ -43,6 +46,24 @@ describe('HeaderContainer', () => {
       mock.onGet('/api/account/logout').reply(200);
       await instance.logout();
       expect(instance.props.history.replace).toHaveBeenCalledWith('/');
+    });
+  });
+
+  describe('handleModalOpen', () => {
+    it('should set showModal state to true when called', () => {
+      const spy = jest.spyOn(instance, 'handleModalOpen');
+      instance.handleModalOpen();
+      expect(spy).toHaveBeenCalled();
+      expect(instance.state.showModal).toBe(true);
+    });
+  });
+
+  describe('handleModalClose', () => {
+    it('should set showModal state to false when called', () => {
+      const spy = jest.spyOn(instance, 'handleModalClose');
+      instance.handleModalClose();
+      expect(spy).toHaveBeenCalled();
+      expect(instance.state.showModal).toBe(false);
     });
   });
 });

@@ -65,16 +65,11 @@ const stripTime = (dom) => {
 };
 
 const stripImageURL = (dom) => {
-  const imageURL = (
-    dom
-    .window
-    .document
-    .getElementsByClassName('image-container')[0]
-    .children[0]
-    .dataset
-    .src
-  );
-
+  let imageURL = '';
+  const element = dom.window.document.getElementsByClassName('image-container')[0];
+  if (element) {
+    imageURL = element.children[0].dataset.src;
+  }
   return imageURL;
 };
 

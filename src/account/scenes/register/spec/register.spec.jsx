@@ -92,7 +92,7 @@ describe('Login Full Rendering Test', () => {
     instance.setState(mockState);
 
     wrapper.find('button.register-button').simulate('click', { preventDefault: jest.fn() });
-    setImmediate(() => {
+    setTimeout(() => {
       expect(spy).toHaveBeenCalled();
       expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');
       done();

@@ -8,6 +8,7 @@ import { Account } from '../../../../common/utils/api';
 const { shape, func } = PropTypes;
 const propTypes = {
   history: shape({ replace: func }).isRequired,
+  updateAuth: func.isRequired,
 };
 
 class LoginContainer extends Component {
@@ -33,6 +34,7 @@ class LoginContainer extends Component {
       const body = { username, password };
 
       await Account.login(body);
+      this.props.updateAuth(true);
       this.props.history.replace('/dashboard');
     } catch (err) {
       const { response } = err;

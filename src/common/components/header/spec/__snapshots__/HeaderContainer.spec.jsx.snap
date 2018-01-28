@@ -10,6 +10,7 @@ exports[`HeaderContainer should render 1`] = `
   />
   <Header
     handleModalOpen={[Function]}
+    isAuth={true}
     logout={[Function]}
   />
 </div>

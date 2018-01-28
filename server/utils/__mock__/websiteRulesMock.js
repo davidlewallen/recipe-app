@@ -282,7 +282,7 @@ module.exports = {
     instructions: ['1) Place all ingredients in a blender with 4 cups cool water; blend until smooth. Refrigerate for 30 minutes. Strain through a fine-mesh sieve into glasses and serve, or refrigerate to serve later.\n                          '],
     title: 'Cucumber Mint Tonic',
     totalTime: 'n/a',
-    imageURL: 'http://cdn-img.health.com/sites/default/files/styles/large_16_9/public/1512581277/cucumber-mint-tonic-blast-bloat.jpg?itok=JsI7UNJs',
+    imageURL: '',
     full: {
       ingredients:
         ['3 tablespoons fresh mint leaves',
@@ -292,7 +292,7 @@ module.exports = {
         ['1) Place all ingredients in a blender with 4 cups cool water; blend until smooth. Refrigerate for 30 minutes. Strain through a fine-mesh sieve into glasses and serve, or refrigerate to serve later.\n                          '],
       title: 'Cucumber Mint Tonic',
       totalTime: 'n/a',
-      imageURL: 'http://cdn-img.health.com/sites/default/files/styles/large_16_9/public/1512581277/cucumber-mint-tonic-blast-bloat.jpg?itok=JsI7UNJs',
+      imageURL: '',
     }
   }
 };
