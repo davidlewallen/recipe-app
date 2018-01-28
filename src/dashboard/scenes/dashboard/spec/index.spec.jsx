@@ -68,6 +68,14 @@ describe('Dashboard snapshot test', () => {
     expect(recipes.length).toBe(2);
   });
 
+  it('should render filtered recipes based on recipe title', () => {
+    const component = shallow(<Dashboard {...props} />);
+    expect(component.find('div.recipe').length).toBe(2);
+    component.setProps({ searchValue: 'Recipe 1' });
+    expect(component.find('div.recipe').length).toBe(1);
+    expect(component.find('div.recipe').find('div').at(1).text()).toBe(props.recipes[0].title);
+  });
+
   it('should display the title', () => {
     const component = shallow(<Dashboard {...props} />);
     const title = component.find('.header').at(0).childAt(0);
