@@ -81,7 +81,8 @@
     "test:v": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch --verbose",
     "test:inspect": "cross-env NODE_ENV=test node --inspect-brk ./node_modules/jest/bin/jest.js --testPathPattern=src --env=jsdom --watch --verbose",
     "test:coverage": "cross-env NODE_ENV=test jest --testPathPattern=src --env=jsdom --watch --coverage",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "flow": "flow"
   },
   "jest": {
     "snapshotSerializers": [
