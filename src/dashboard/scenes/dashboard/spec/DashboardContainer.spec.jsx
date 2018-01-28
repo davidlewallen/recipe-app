@@ -62,8 +62,8 @@ describe('DashboardContainer test', () => {
   });
 
   describe('componentWillMount', () => {
-    it('should call initialize', () => {
-      const spy = jest.spyOn(instance, 'initialize');
+    it('should call getUserRecipes', () => {
+      const spy = jest.spyOn(instance, 'getUserRecipes');
       instance.componentWillMount();
       expect(spy).toHaveBeenCalled();
     });
@@ -79,40 +79,6 @@ describe('DashboardContainer test', () => {
     it('should call updateRecipes with the user\'s recipes', async () => {
       await instance.getUserRecipes();
       expect(instance.props.updateRecipes).toHaveBeenCalledWith(mockRecipeList);
-    });
-  });
-
-  describe('checkIsAuth', () => {
-    it('should call checkIsAuth', () => {
-      const spy = jest.spyOn(instance, 'checkIsAuth');
-      instance.checkIsAuth();
-      expect(spy).toHaveBeenCalled();
-    });
-
-    it('should call history.replace with \'/\' args if isAuth: false', async () => {
-      mock.reset();
-      mock.onGet('/api/account/auth').reply(200, { isAuth: false });
-
-      const spy = jest.spyOn(instance.props.history, 'replace');
-      await instance.checkIsAuth();
-      expect(spy).toHaveBeenCalled();
-      expect(spy).toHaveBeenCalledWith('/account/login');
-    });
-
-    it('should not call history.replace if isAuth: true', async () => {
-      const spy = jest.spyOn(instance.props.history, 'replace');
-      await instance.checkIsAuth();
-      expect(spy).toHaveBeenCalledTimes(0);
-    });
-  });
-
-  describe('initialize', () => {
-    it('should call checkIsAuth and getUsersRecipes', async () => {
-      const spy = jest.spyOn(instance, 'checkIsAuth');
-      const spy2 = jest.spyOn(instance, 'getUserRecipes');
-      await instance.initialize();
-      expect(spy).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
     });
   });
 
