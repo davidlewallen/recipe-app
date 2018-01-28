@@ -80,6 +80,16 @@ describe('DashboardContainer test', () => {
       await instance.getUserRecipes();
       expect(instance.props.updateRecipes).toHaveBeenCalledWith(mockRecipeList);
     });
+
+    it('should log an error if getUserRecipes api fails', async () => {
+      mock.reset();
+      mock.onGet().reply(500);
+      const clog = console.log;
+      window.console.log = jest.fn();
+      await instance.getUserRecipes();
+      expect(window.console.log).toHaveBeenCalled();
+      window.console.log = clog;
+    });
   });
 
   describe('deleteRecipe', () => {
@@ -102,10 +112,11 @@ describe('DashboardContainer test', () => {
     it('should log error if request is bad', async () => {
       mock.reset();
       mock.onDelete().reply(500);
-      const spy = jest.spyOn(global.console, 'log');
+      const clog = console.log;
+      window.console.log = jest.fn();
       await instance.deleteRecipe(1);
-      expect(spy).toHaveBeenCalled();
-      spy.mockRestore();
+      expect(window.console.log).toHaveBeenCalled();
+      window.console.log = clog;
     });
   });
 
@@ -137,6 +148,13 @@ describe('DashboardContainer test', () => {
       instance.viewRecipe({ ...mockRecipeList[0] });
       expect(instance.state.showModal).toBe(true);
       expect(instance.state.selectedRecipe).toEqual(mockRecipeList[0]);
+    });
+  });
+
+  describe('handleSearch', () => {
+    it('should update searchValue state', () => {
+      instance.handleSearch({ target: { value: 'test' } });
+      expect(instance.state.searchValue).toBe('test');
     });
   });
 });
