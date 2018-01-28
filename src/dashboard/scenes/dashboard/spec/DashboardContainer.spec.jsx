@@ -98,6 +98,15 @@ describe('DashboardContainer test', () => {
       await instance.deleteRecipe(1);
       expect(props.updateRecipes).toHaveBeenCalledWith([mockRecipeList[1]]);
     });
+
+    it('should log error if request is bad', async () => {
+      mock.reset();
+      mock.onDelete().reply(500);
+      const spy = jest.spyOn(global.console, 'log');
+      await instance.deleteRecipe(1);
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
+    });
   });
 
   describe('handleModalClose', () => {
