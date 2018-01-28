@@ -38,8 +38,12 @@ class DashboardContainer extends React.Component {
   }
 
   getUserRecipes = async () => {
-    const { data: recipes } = await Recipe.getRecipes();
-    this.props.updateRecipes(recipes);
+    try {
+      const { data: recipes } = await Recipe.getRecipes();
+      this.props.updateRecipes(recipes);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   deleteRecipe = async (recipeId) => {
