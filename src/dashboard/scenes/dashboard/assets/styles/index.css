@@ -1,9 +1,16 @@
-.recipe-container>.recipe>div.recipe-card{
+/* .recipe-container .recipe div.recipe-card{
   padding: 0 15px;
   margin-bottom: 30px;
 }
 
-.recipe {
+.recipe-container .recipe-search {
+  width: 100%;
+  border-radius: 1em;
+  padding-left: 5px;
+  margin-bottom: 6%;
+}
+
+.recipe .card {
   position: relative;
   width: 100%;
   border: 1px solid #333;
@@ -52,4 +59,28 @@
   top: 85%;
   padding-top: 6px;
   text-align: center
+} */
+
+img.recipe-image {
+  width: 100%;
+  margin: 20px 0;
+  box-shadow: 0 0 6px 0px #3333338c;
+  border-radius: 1em; 
+}
+
+.recipe-search {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recipe-search input {
+  width: 100%;
+  border-radius: 1em;
+  padding-left: 10px;
+}
+
+.recipe {
+  border: 2px solid #3333338c;
+  border-radius: 1em;
+  padding: 20px;
 }

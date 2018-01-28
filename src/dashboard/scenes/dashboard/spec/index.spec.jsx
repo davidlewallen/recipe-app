@@ -29,6 +29,9 @@ describe('Dashboard snapshot test', () => {
       totalTime: '1 hour',
       url: { href: 'www.randomurl.com' },
     },
+    loading: false,
+    searchValue: '',
+    handleSearch: jest.fn(),
   };
 
   it('should match snapshot', () => {
@@ -42,7 +45,12 @@ describe('Dashboard snapshot test', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render a .recipe-container if recipes length > 0', () => {
+  it('should render Jumbotron with no recipe text if recipes length is falsy and loading is falsy', () => {
+    const component = shallow(<Dashboard {...props} recipes={[]} />);
+    expect(component.find('Jumbotron').exists()).toBe(true);
+  });
+
+  it('should render a .recipe-container if recipes length is truthy', () => {
     const component = shallow(<Dashboard {...props} />);
     const recipeContainer = component.find('.recipe-container');
     expect(recipeContainer.length).toBe(1);
@@ -58,6 +66,14 @@ describe('Dashboard snapshot test', () => {
     const component = shallow(<Dashboard {...props} />);
     const recipes = component.find('.recipe');
     expect(recipes.length).toBe(2);
+  });
+
+  it('should render filtered recipes based on recipe title', () => {
+    const component = shallow(<Dashboard {...props} />);
+    expect(component.find('div.recipe').length).toBe(2);
+    component.setProps({ searchValue: 'Recipe 1' });
+    expect(component.find('div.recipe').length).toBe(1);
+    expect(component.find('div.recipe').find('div').at(1).text()).toBe(props.recipes[0].title);
   });
 
   it('should display the title', () => {

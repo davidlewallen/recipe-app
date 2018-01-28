@@ -20,6 +20,7 @@ class DashboardContainer extends React.Component {
     super();
 
     this.state = {
+      loading: true,
       showModal: false,
       selectedRecipe: {
         title: '',
@@ -30,6 +31,7 @@ class DashboardContainer extends React.Component {
           href: '',
         },
       },
+      searchValue: '',
     };
   }
 
@@ -38,8 +40,14 @@ class DashboardContainer extends React.Component {
   }
 
   getUserRecipes = async () => {
-    const { data: recipes } = await Recipe.getRecipes();
-    this.props.updateRecipes(recipes);
+    try {
+      this.setState({ loading: true });
+      const { data: recipes } = await Recipe.getRecipes();
+      this.props.updateRecipes(recipes);
+      this.setState({ loading: false });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   deleteRecipe = async (recipeId) => {
@@ -63,14 +71,21 @@ class DashboardContainer extends React.Component {
     });
   }
 
+  handleSearch = (event) => {
+    this.setState({ searchValue: event.target.value });
+  }
+
   render = () => (
     <Dashboard
+      loading={this.state.loading}
       recipes={this.props.recipes}
       deleteRecipe={this.deleteRecipe}
       showModal={this.state.showModal}
       handleModalClose={this.handleModalClose}
       viewRecipe={this.viewRecipe}
       selectedRecipe={this.state.selectedRecipe}
+      searchValue={this.state.searchValue}
+      handleSearch={this.handleSearch}
     />
   );
 }
