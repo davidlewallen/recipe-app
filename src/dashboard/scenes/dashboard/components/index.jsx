@@ -52,9 +52,8 @@ const Dashboard = props => (
       </Row>
     ) : (
       <Row className="recipe-container">
-        <Col xs={12}>
+        <Col xs={12} className="recipe-search">
           <input
-            className="recipe-search"
             placeholder="Search..."
             value={props.searchValue}
             onChange={props.handleSearch}
@@ -91,7 +90,7 @@ const Dashboard = props => (
                         </Col>
                       </Row>
                       <Row>
-                        <Col xs={12} className="footer">
+                        <Col xs={12} className="footer align-center">
                           <Button
                             className="float-left"
                             bsStyle="primary"
