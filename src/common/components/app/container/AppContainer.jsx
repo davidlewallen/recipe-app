@@ -1,7 +1,9 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
+
+import { Recipe } from '../../../types/recipe';
 
 import HeaderContainer from '../../../components/header/container/HeaderContainer';
 import HomepageContainer from '../../../scenes/homepage/container/HomepageContainer';
@@ -10,28 +12,30 @@ import AccountRoutes from '../../../../account/routes';
 
 import { Account } from '../../../utils/api';
 
+type Props = {
+  history: {
+    push: (location: string) => void,
+    replace: (location: string) => void,
+  },
+  location: { pathanme: string },
+}
 
-const { func, shape, string } = PropTypes;
-const propTypes = {
-  history: shape({ push: func.isRequired }).isRequired,
-  location: shape({ pathname: string.isRequired }).isRequired,
-};
-class AppContainer extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      recipes: [],
-      isAuth: false,
-    };
+type State = {
+  recipes: Array<Recipe>,
+  isAuth: boolean,
+}
+class AppContainer extends React.Component<Props, State> {
+  state = {
+    recipes: [],
+    isAuth: false,
   }
 
   componentWillMount = async () => {
     axios.interceptors.response.use(
       response => response,
       error => (
-        error.response.status === 401 && this.props.location.pathname !== '/'
           ? this.props.history.push('/account/login')
+        error.response.status === 401 && this.props.location.pathname !== '/'
           : Promise.reject(error)
       ),
     );
@@ -40,12 +44,12 @@ class AppContainer extends React.Component {
     this.setState({ isAuth: data.isAuth });
   }
 
-  updateRecipes = (updatedRecipes) => {
+  updateRecipes = (updatedRecipes: Array<Recipe>): void => {
     const isArray = Array.isArray(updatedRecipes);
     this.setState({ recipes: isArray ? updatedRecipes : [updatedRecipes] });
   }
 
-  updateAuth = (authValue) => {
+  updateAuth = (authValue: boolean): void => {
     this.setState({ isAuth: authValue });
   }
 
@@ -78,5 +82,4 @@ class AppContainer extends React.Component {
   )
 }
 
-AppContainer.propTypes = propTypes;
 export default AppContainer;

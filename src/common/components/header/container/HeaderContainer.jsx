@@ -1,46 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 
 import { Account } from '../../../utils/api';
+
+import { Recipe } from '../../../types/recipe';
 
 import Header from '../components';
 import SubmitRecipe from '../../submit-recipe/container/SubmitRecipeContainer';
 
-const {
-  shape,
-  func,
-  arrayOf,
-  object,
-  bool,
-} = PropTypes;
-const propTypes = {
-  history: shape({ replace: func.isRequired }).isRequired,
-  updateRecipes: func.isRequired,
-  recipes: arrayOf(object.isRequired).isRequired,
-  isAuth: bool.isRequired,
-  updateAuth: func.isRequired,
+type Props = {
+  history: { replace: (location: string) => void },
+  updateRecipes: (recipeList: Array<Recipe>) => void,
+  recipes: Array<Recipe>,
+  isAuth: boolean,
+  updateAuth: (isAuth: boolean) => void,
 };
 
-class HeaderContainer extends React.Component {
-  constructor() {
-    super();
+type State = {
+  showModal: boolean,
+}
 
-    this.state = {
-      showModal: false,
-    };
+class HeaderContainer extends React.Component<Props, State> {
+  state = {
+    showModal: false,
   }
 
-  logout = () => {
+  logout = (): void => {
     Account.logout();
     this.props.updateAuth(false);
     this.props.history.replace('/');
   }
 
-  handleModalOpen = () => {
+  handleModalOpen = (): void => {
     this.setState({ showModal: true });
   }
 
-  handleModalClose = () => {
+  handleModalClose = (): void => {
     this.setState({ showModal: false });
   }
 
@@ -61,5 +56,4 @@ class HeaderContainer extends React.Component {
   );
 }
 
-HeaderContainer.propTypes = propTypes;
 export default HeaderContainer;

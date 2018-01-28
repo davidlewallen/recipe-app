@@ -1,17 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 // import { LinkContainer } from 'react-router-bootstrap';
 
-const { func, bool } = PropTypes;
-const propTypes = {
-  logout: func.isRequired,
-  handleModalOpen: func.isRequired,
-  isAuth: bool.isRequired,
-};
+type Props = {
+  logout: () => void,
+  handleModalOpen: () => void,
+  isAuth: boolean,
+}
 
-const Header = props => (
+const Header = (props: Props): React.Element<*> => (
   <Navbar inverse fluid collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
@@ -39,5 +38,4 @@ const Header = props => (
   </Navbar>
 );
 
-Header.propTypes = propTypes;
 export default Header;

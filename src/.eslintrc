@@ -5,9 +5,9 @@
     "node": true
   },
   "extends": [
+    "plugin:flowtype/recommended",
     "react-app",
-    "airbnb",
-    "plugin:flowtype/recommended"
+    "airbnb"
   ],
   "plugins": [
     "flowtype"
