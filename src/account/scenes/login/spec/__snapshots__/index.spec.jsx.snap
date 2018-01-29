@@ -1,86 +1,187 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login component snapshot test should display error message 1`] = `
-<div
-  className="login-container"
+<Grid
+  bsClass="container"
+  className="login"
+  componentClass="div"
+  fluid={false}
 >
-  <p>
-    test error
-  </p>
-  <form
-    className="login"
-  >
-    <input
-      className="username-input"
-      onChange={[Function]}
-      placeholder="Username"
-      value="testUsername"
-    />
-    <input
-      className="password-input"
-      onChange={[Function]}
-      placeholder="Password"
-      type="password"
-      value="testPassword"
-    />
-    <button
-      className="login-button"
-      onClick={[Function]}
-    >
-      Login
-    </button>
-  </form>
   <div>
-    <p>
-      New to My Saved Recipes? 
-      <Link
-        replace={false}
-        to="/account/register"
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="align-center"
+        componentClass="div"
+        xs={12}
       >
-        Create an account.
-      </Link>
-    </p>
+        <p
+          className="error-message"
+        >
+          test error
+        </p>
+      </Col>
+      <form
+        className="align-center"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}
+        >
+          <input
+            className="username-input"
+            onChange={[Function]}
+            placeholder="Username"
+            value="testUsername"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}
+        >
+          <input
+            className="password-input"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value="testPassword"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}
+        >
+          <Button
+            active={false}
+            block={false}
+            bsClass="btn"
+            bsStyle="default"
+            className="login-button"
+            disabled={false}
+            onClick={[Function]}
+          >
+            Login
+          </Button>
+        </Col>
+      </form>
+    </Row>
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="align-center"
+        componentClass="div"
+        xs={12}
+      >
+        <p>
+          New to My Saved Recipes? 
+          <Link
+            replace={false}
+            to="/account/register"
+          >
+            Create an account.
+          </Link>
+        </p>
+      </Col>
+    </Row>
   </div>
-</div>
+</Grid>
 `;
 
 exports[`Login component snapshot test should match snapshot 1`] = `
-<div
-  className="login-container"
+<Grid
+  bsClass="container"
+  className="login"
+  componentClass="div"
+  fluid={false}
 >
-  <form
-    className="login"
-  >
-    <input
-      className="username-input"
-      onChange={[Function]}
-      placeholder="Username"
-      value="testUsername"
-    />
-    <input
-      className="password-input"
-      onChange={[Function]}
-      placeholder="Password"
-      type="password"
-      value="testPassword"
-    />
-    <button
-      className="login-button"
-      onClick={[Function]}
-    >
-      Login
-    </button>
-  </form>
   <div>
-    <p>
-      New to My Saved Recipes? 
-      <Link
-        replace={false}
-        to="/account/register"
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="align-center"
+        componentClass="div"
+        xs={12}
+      />
+      <form
+        className="align-center"
       >
-        Create an account.
-      </Link>
-    </p>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}
+        >
+          <input
+            className="username-input"
+            onChange={[Function]}
+            placeholder="Username"
+            value="testUsername"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}
+        >
+          <input
+            className="password-input"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value="testPassword"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}
+        >
+          <Button
+            active={false}
+            block={false}
+            bsClass="btn"
+            bsStyle="default"
+            className="login-button"
+            disabled={false}
+            onClick={[Function]}
+          >
+            Login
+          </Button>
+        </Col>
+      </form>
+    </Row>
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="align-center"
+        componentClass="div"
+        xs={12}
+      >
+        <p>
+          New to My Saved Recipes? 
+          <Link
+            replace={false}
+            to="/account/register"
+          >
+            Create an account.
+          </Link>
+        </p>
+      </Col>
+    </Row>
   </div>
-</div>
+</Grid>
 `;
