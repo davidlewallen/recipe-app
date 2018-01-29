@@ -7,15 +7,14 @@ import '../assets/index.css';
 const Homepage = () => (
   <Grid className="homepage align-center">
     <Row>
-      <Col xs={12} sm={6} smOffset={3}>
+      <Col xs={12}>
         <h1>My Saved Recipes</h1>
       </Col>
     </Row>
     <Row>
       <Col
         className="login align-center"
-        xs={2}
-        xsOffset={5}
+        xs={12}
       >
         <Link
           className="link align-center border"
