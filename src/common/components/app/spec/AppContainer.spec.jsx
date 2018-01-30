@@ -16,6 +16,7 @@ describe('AppContainer', () => {
     history: { push: jest.fn(), replace: jest.fn() },
     location: { pathname: '/' },
   };
+
   beforeEach(() => {
     mock.reset();
     mock.onGet('/api/account/auth').reply(200, { isAuth: true });
@@ -24,9 +25,8 @@ describe('AppContainer', () => {
     instance = wrapper.instance();
   });
 
-  it('should render', (done) => {
+  it('should render', () => {
     expect(wrapper.find('div').exists()).toBe(true);
-    done();
   });
 
   describe('componentWillMount', () => {
