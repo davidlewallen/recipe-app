@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import LoginContainer from '../scenes/login/container/LoginContainer';
 import RegisterContainer from '../scenes/register/container/RegisterContainer';
 
-const { func } = PropTypes;
+const { bool, func } = PropTypes;
 const propTypes = {
+  isAuth: bool.isRequired,
   updateAuth: func.isRequired,
 };
 
@@ -15,10 +16,14 @@ const AccountRoutes = props => (
     <Route
       path="/account/login"
       render={routeProps => (
-        <LoginContainer
-          {...routeProps}
-          updateAuth={props.updateAuth}
-        />
+        props.isAuth
+          ? <Redirect to="/dashboard" />
+          : (
+            <LoginContainer
+              {...routeProps}
+              updateAuth={props.updateAuth}
+            />
+          )
       )}
     />
     <Route path="/account/register" component={RegisterContainer} />

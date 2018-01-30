@@ -20,6 +20,7 @@ describe('AppContainer', () => {
   beforeEach(() => {
     mock.reset();
     mock.onGet('/api/account/auth').reply(200, { isAuth: true });
+    mock.onGet('/api/recipe').reply(200, [{ title: '1', _id: 1 }]);
     wrapper = shallow(<AppContainer {...mockProps} />);
     instance = wrapper.instance();
   });
@@ -29,9 +30,9 @@ describe('AppContainer', () => {
   });
 
   describe('componentWillMount', () => {
-    it('should call componentWillMount', () => {
+    it('should call componentWillMount', async () => {
       const spy = jest.spyOn(instance, 'componentWillMount');
-      instance.componentWillMount();
+      await instance.componentWillMount();
       expect(spy).toHaveBeenCalled();
     });
 
@@ -95,13 +96,25 @@ describe('AppContainer', () => {
       expect(mountWrapper.find('HomepageContainer').exists()).toBe(true);
     });
 
-    it('should render DashboardRoutes on "/dashboard"', () => {
+    it('should render DashboardRoutes on "/dashboard" and isAuth state is true', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/dashboard']}>
           <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
+      mountWrapper.find('AppContainer').instance().setState({ isAuth: true });
+      mountWrapper.update();
       expect(mountWrapper.find('DashboardRoutes').exists()).toBe(true);
+    });
+
+    it('should redirect to /account/login if isAuth is false and an user tries to nav to /dashboard', () => {
+      const mountWrapper = mount(
+        <MemoryRouter initialEntries={['/dashboard']}>
+          <AppContainer {...mockProps} />
+        </MemoryRouter>,
+      );
+
+      expect(mountWrapper.find('LoginContainer').exists()).toBe(true);
     });
 
     it('should render AccountRoutes on "/account"', () => {
