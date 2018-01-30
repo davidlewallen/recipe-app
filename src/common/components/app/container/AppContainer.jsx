@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import HeaderContainer from '../../../components/header/container/HeaderContainer';
@@ -31,7 +31,7 @@ class AppContainer extends React.Component {
       response => response,
       error => (
         error.response.status === 401 && this.props.location.pathname !== '/'
-          ? this.props.history.push('/account/login')
+          ? this.setState({ isAuth: false })
           : Promise.reject(error)
       ),
     );
@@ -63,15 +63,22 @@ class AppContainer extends React.Component {
         <Route
           path="/dashboard"
           render={() => (
-            <DashboardRoutes
-              recipes={this.state.recipes}
-              updateRecipes={this.updateRecipes}
-            />
+            this.state.isAuth ? (
+              <DashboardRoutes
+                recipes={this.state.recipes}
+                updateRecipes={this.updateRecipes}
+              />
+            ) : <Redirect to="/account/login" />
           )}
         />
         <Route
           path="/account"
-          render={() => <AccountRoutes updateAuth={this.updateAuth} />}
+          render={() => (
+            <AccountRoutes
+              isAuth={this.state.isAuth}
+              updateAuth={this.updateAuth}
+            />
+          )}
         />
       </Switch>
     </div>
