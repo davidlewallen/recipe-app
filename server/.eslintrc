@@ -31,10 +31,6 @@
       1,
       80
     ],
-    "max-statements": [
-      1,
-      15
-    ],
     "new-cap": 1,
     "no-extend-native": 2,
     "no-mixed-spaces-and-tabs": 2,
