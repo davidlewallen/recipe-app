@@ -83,6 +83,31 @@ const submit = async (recipeURL, userId) => {
   }
 };
 
+const submitManual = async (body) => {
+  const parsedURL = URLParse(body.url);
+
+  try {
+    const recipe = new Recipe({
+      url: {
+        hostname: parsedURL.hostname,
+        href: parsedURL.href,
+        link: parsedURL.hostname + parsedURL.pathname,
+      },
+      title: body.title,
+      ingredients: body.ingredients,
+      instructions: body.instructions,
+      totalTime: body.totalTime,
+      imageURL: '',
+    });
+
+    // const result = await recipe.save();
+    // console.log('result', result);
+    // const savedRecipe = await savedRecipeToUser
+  } catch (err) {
+    console.log('err', err);
+  }
+};
+
 const remove = async (recipeId, userId) => {
   try {
     const savedRecipeResult = await Account.find({ savedRecipes: recipeId });
@@ -108,4 +133,5 @@ module.exports = {
   remove,
   getSavedRecipes,
   saveRecipeToUser,
+  submitManual,
 };
