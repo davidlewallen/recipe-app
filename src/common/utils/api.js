@@ -7,6 +7,7 @@ const API_ACCOUNT = `${API_ROOT}/account`;
 export const Recipe = {
   getRecipes: () => axios.get(`${API_RECIPE}`),
   submitRecipe: encodedURI => axios.post(`${API_RECIPE}/submit/${encodedURI}`),
+  submitManualRecipe: body => axios.post(`${API_RECIPE}/submit`, body),
   deleteRecipe: recipeId => axios.delete(`${API_RECIPE}/delete/${recipeId}`),
 };
 
