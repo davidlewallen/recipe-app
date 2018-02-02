@@ -9,7 +9,15 @@ router.use(isAuthenticated);
 
 router.get('/', async (req, res) => {
   try {
-    res.json(await Recipe.get(req.user._id))
+    res.json(await Recipe.get(req.user._id));
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+router.post('/submit', async (req, res) => {
+  try {
+    res.json(await Recipe.submitManual(req.body));
   } catch (err) {
     res.status(500).send(err);
   }
