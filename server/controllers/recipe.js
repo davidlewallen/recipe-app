@@ -6,33 +6,57 @@ const Account = require('../models/account');
 const { stripWebsite, isWebsiteProcessable } = require('./websiteRules');
 const NPWebsite = require('./npwebsite');
 
-const get = async (userId) => {
-  try {
-    return await getSavedRecipes(userId);
-  } catch (err) {
-    console.log('err', err);
-  }
-}
-
 const getSavedRecipes = async (userId) => {
   try {
-    const savedRecipeResult = await Account.findById(userId, 'savedRecipes')
+    const savedRecipeResult = await Account.findById(userId, 'savedRecipes');
     const recipeIds = savedRecipeResult.savedRecipes;
 
     return await Recipe.find({ _id: { $in: recipeIds } });
   } catch (err) {
     console.log('err', err);
   }
-}
+};
+
+const get = async (userId) => {
+  try {
+    return await getSavedRecipes(userId);
+  } catch (err) {
+    console.log('err', err);
+  }
+};
+
+const saveRecipeToUser = async (recipeId, userId) => {
+  const savedRecipeResult = await Account.find({
+    $and: [
+      { _id: userId },
+      { savedRecipes: recipeId }
+    ]
+  });
+  const isRecipeSaved = !!savedRecipeResult.length;
+
+  // If user hasnt saved the recipe, add it to account.savedRecipe
+  // Returns true if saved to user and false if not;
+  if (!isRecipeSaved) {
+    await Account.findByIdAndUpdate(
+      userId,
+      { $push: { savedRecipes: recipeId } },
+      { new: true },
+    );
+
+    return true;
+  } else {
+    return false;
+  }
+};
 
 const submit = async (recipeURL, userId) => {
-  const parsedURL = URLParse(recipeURL)
+  const parsedURL = URLParse(recipeURL);
 
   try {
     // Check to see if we can process the provide website
     if (isWebsiteProcessable(parsedURL)) {
       // Check to see if recipe is already in recipe collection
-      let result = await Recipe.findOne({ 'url.href': parsedURL.href })
+      let result = await Recipe.findOne({ 'url.href': parsedURL.href });
       const exists = !!result;
 
       // If recipe doesnt already exist, strip website and save to recipe
@@ -48,40 +72,16 @@ const submit = async (recipeURL, userId) => {
       if (!savedRecipe) {
         return { alreadyAdded: true };
       }
-      
+
       return result;
     }
     await NPWebsite.save(parsedURL, userId);
-    
+
     return { nonProcessable: true };
   } catch (err) {
     console.log('err', err);
   }
 };
-
-const saveRecipeToUser = async (recipeId, userId) => {
-  const savedRecipeResult = await Account.find({
-    $and: [
-      { _id: userId },
-      { savedRecipes: recipeId }
-    ]
-  });
-  const isRecipeSaved = !!savedRecipeResult.length;
-  
-  // If user hasnt saved the recipe, add it to account.savedRecipe
-  // Returns true if saved to user and false if not;
-  if (!isRecipeSaved) {
-    await Account.findByIdAndUpdate(
-      userId,
-      { $push: { savedRecipes: recipeId } },
-      { new: true },
-    );
-
-    return true;
-  } else {
-    return false;
-  }
-}
 
 const remove = async (recipeId, userId) => {
   try {
@@ -93,14 +93,14 @@ const remove = async (recipeId, userId) => {
         $pull: {
           savedRecipes: recipeId,
         }
-      })
+      });
     }
 
     return await getSavedRecipes(userId);
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 module.exports = {
   submit,
@@ -108,4 +108,4 @@ module.exports = {
   remove,
   getSavedRecipes,
   saveRecipeToUser,
-}
+};
