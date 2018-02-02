@@ -99,8 +99,12 @@ class SubmitRecipeContainer extends React.Component {
     this.setState({ url: '' });
   }
 
-  resetModal = () => {
+  handleModalClose = () => {
     this.props.handleModalClose();
+    this.resetModal();
+  }
+
+  resetModal = () => {
     this.setState({
       url: '',
       recipeTitle: '',
@@ -116,7 +120,7 @@ class SubmitRecipeContainer extends React.Component {
   render = () => (
     <SubmitRecipe
       show={this.props.show}
-      handleModalClose={this.props.handleModalClose}
+      handleModalClose={this.handleModalClose}
       submitRecipe={this.submitRecipe}
       handleURL={this.handleURL}
       url={this.state.url}
