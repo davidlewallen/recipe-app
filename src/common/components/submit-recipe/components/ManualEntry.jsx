@@ -23,6 +23,11 @@ const propTypes = {
 const ManualEntry = props => (
   <div>
     <Row>
+      <Col xs={12}>
+        <p>Ingredients and instructions need to be separated by new lines.</p>
+      </Col>
+    </Row>
+    <Row>
       <Col xs={12} className="align-center">
         <input
           placeholder="Recipe Link"
