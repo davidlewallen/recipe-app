@@ -86,10 +86,6 @@ class SubmitRecipeContainer extends React.Component {
     this.setState({ recipeMinute: value });
   }
 
-  submitManualRecipe = () => {
-    console.log('this.state', this.state);
-  }
-
   handleManualEntry = () => {
     this.setState({ manualEntry: true });
   }
@@ -102,6 +98,26 @@ class SubmitRecipeContainer extends React.Component {
   handleModalClose = () => {
     this.props.handleModalClose();
     this.resetModal();
+  }
+
+  submitManualRecipe = async () => {
+    const splitIngredients = this.state.recipeIngredients.split('\n');
+    const splitInstructions = this.state.recipeInstructions.split('\n');
+    const recipe = {
+      url: this.state.recipeLink,
+      title: this.state.recipeTitle,
+      ingredients: splitIngredients,
+      instructions: splitInstructions,
+      hour: this.state.recipeHour,
+      minute: this.state.recipeMinute,
+    };
+    console.log('recipe', recipe);
+
+    // try {
+    //   await Recipe.submitManualRecipe(recipe);
+    // } catch (err) {
+    //   console.log('err', err);
+    // }
   }
 
   resetModal = () => {
