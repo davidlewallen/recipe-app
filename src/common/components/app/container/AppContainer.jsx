@@ -23,6 +23,11 @@ class AppContainer extends React.Component {
     this.state = {
       recipes: [],
       isAuth: false,
+      user: {
+        email: '',
+        username: '',
+        id: '',
+      },
     };
   }
 
@@ -47,6 +52,10 @@ class AppContainer extends React.Component {
 
   updateAuth = (authValue) => {
     this.setState({ isAuth: authValue });
+  }
+
+  updateUser = (userObject) => {
+    this.setState({ user: { ...userObject } });
   }
 
   render = () => (
@@ -79,6 +88,8 @@ class AppContainer extends React.Component {
             <AccountRoutes
               isAuth={this.state.isAuth}
               updateAuth={this.updateAuth}
+              user={this.state.user}
+              updateUser={this.updateUser}
             />
           )}
         />
