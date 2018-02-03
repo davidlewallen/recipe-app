@@ -22,17 +22,7 @@ class SubmitRecipeContainer extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      url: '',
-      nonProcessable: false,
-      recipeLink: '',
-      recipeTitle: '',
-      recipeIngredients: '',
-      recipeInstructions: '',
-      recipeHour: '',
-      recipeMinute: '',
-      manualEntry: false,
-    };
+    this.state = { url: '' };
   }
 
   handleURL = (event) => {
@@ -46,13 +36,11 @@ class SubmitRecipeContainer extends React.Component {
       const encodedRecipeURI = encodeURIComponent(this.state.url);
       const { data } = await Recipe.submitRecipe(encodedRecipeURI);
 
-      if (data.nonProcessable) {
-        this.setState({ nonProcessable: true });
-      } else if (!data.alreadyAdded) {
-        this.props.handleModalClose();
+      if (!data.nonProcessable && !data.alreadyAdded) {
+        this.setState({ url: '' });
         this.props.updateRecipes([data, ...this.props.recipes]);
       }
-      this.setState({ url: '' });
+      this.props.handleModalClose();
     } catch (err) {
       console.error(err.response);
 
@@ -62,57 +50,6 @@ class SubmitRecipeContainer extends React.Component {
     }
   }
 
-  handleRecipeLink = ({ target: { value } }) => {
-    this.setState({ recipeLink: value });
-  }
-
-  handleRecipeTitle = ({ target: { value } }) => {
-    this.setState({ recipeTitle: value });
-  }
-
-  handleRecipeIngredients = ({ target: { value } }) => {
-    this.setState({ recipeIngredients: value });
-  }
-
-  handleRecipeInstructions = ({ target: { value } }) => {
-    this.setState({ recipeInstructions: value });
-  }
-
-  handleRecipeHour = ({ target: { value } }) => {
-    this.setState({ recipeHour: value });
-  }
-
-  handleRecipeMinute = ({ target: { value } }) => {
-    this.setState({ recipeMinute: value });
-  }
-
-  submitManualRecipe = () => {
-    console.log('this.state', this.state);
-  }
-
-  handleManualEntry = () => {
-    this.setState({ manualEntry: true });
-  }
-
-  handleWaitButton = () => {
-    this.handleModalClose();
-    this.setState({ url: '' });
-  }
-
-  resetModal = () => {
-    this.props.handleModalClose();
-    this.setState({
-      url: '',
-      recipeTitle: '',
-      recipeIngredients: '',
-      recipeInstructions: '',
-      recipeHour: '',
-      recipeMinute: '',
-      nonProcessable: false,
-      manualEntry: false,
-    });
-  }
-
   render = () => (
     <SubmitRecipe
       show={this.props.show}
@@ -120,24 +57,6 @@ class SubmitRecipeContainer extends React.Component {
       submitRecipe={this.submitRecipe}
       handleURL={this.handleURL}
       url={this.state.url}
-      nonProcessable={this.state.nonProcessable}
-      recipeLink={this.state.recipeLink}
-      recipeTitle={this.state.recipeTitle}
-      recipeIngredients={this.state.recipeIngredients}
-      recipeInstructions={this.state.recipeInstructions}
-      recipeHour={this.state.recipeHour}
-      recipeMinute={this.state.recipeMinute}
-      handleRecipeLink={this.handleRecipeLink}
-      handleRecipeTitle={this.handleRecipeTitle}
-      handleRecipeIngredients={this.handleRecipeIngredients}
-      handleRecipeInstructions={this.handleRecipeInstructions}
-      handleRecipeHour={this.handleRecipeHour}
-      handleRecipeMinute={this.handleRecipeMinute}
-      submitManualRecipe={this.submitManualRecipe}
-      manualEntry={this.state.manualEntry}
-      handleManualEntry={this.handleManualEntry}
-      handleWaitButton={this.handleWaitButton}
-      resetModal={this.resetModal}
     />
   )
 }
