@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import {
+  Grid,
+  Row,
+  Col,
+  Button,
+  FormGroup,
+  ControlLabel,
+  FormControl,
+} from 'react-bootstrap';
 
 const {
   string, func, shape, bool,
@@ -17,45 +25,44 @@ const propTypes = {
 
 const Login = props => (
   <Grid className="login">
-    <div>
-      <Row>
-        <Col xs={12} className="align-center">
-          {props.error.value && (
-            <p className="error-message">{props.error.message}</p>
-          )}
-        </Col>
-        <form className="align-center">
-          <Col xs={12}>
-            <input
+    <Row>
+      <Col xs={12}>
+        <form>
+          <FormGroup className="align-center">
+            {props.error.value && (
+              <p className="error-message">{props.error.message}</p>
+            )}
+            <ControlLabel>Username</ControlLabel>
+            <FormControl
+              id="username"
               className="username-input"
-              placeholder="Username"
+              type="text"
+              placeholder="E.g. JohnDoe123"
               value={props.username}
               onChange={props.handleUsername}
             />
-          </Col>
-          <Col xs={12}>
-            <input
+            <ControlLabel>Password</ControlLabel>
+            <FormControl
+              id="password"
               className="password-input"
-              placeholder="Password"
+              placeholder="E.g. 124!Jigzx"
               type="password"
               value={props.password}
               onChange={props.handlePassword}
             />
-          </Col>
-          <Col xs={12}>
             <Button
+              block
               className="login-button"
+              bsStyle="primary"
               onClick={props.login}
             >
               Login
             </Button>
-          </Col>
+            <div className="register-text">New to My Saved Recipes? <Link to="/account/register">Create an account.</Link></div>
+          </FormGroup>
         </form>
-      </Row>
-      <Row>
-        <Col xs={12} className="align-center"><p>New to My Saved Recipes? <Link to="/account/register">Create an account.</Link></p></Col>
-      </Row>
-    </div>
+      </Col>
+    </Row>
   </Grid>
 );
 
