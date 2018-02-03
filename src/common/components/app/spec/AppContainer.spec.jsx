@@ -65,6 +65,17 @@ describe('AppContainer', () => {
     // });
   // });
 
+  describe('getUser', () => {
+    it('should update user state', async () => {
+      await instance.getUser();
+      expect(instance.state.user).toEqual({
+        _id: '123',
+        username: 'test',
+        email: 'testEmail',
+      });
+    });
+  });
+
   describe('updateRecipes', () => {
     it('should update recipes state using an object', () => {
       const mockRecipe = { test: true };
@@ -88,6 +99,19 @@ describe('AppContainer', () => {
       expect(instance.state.isAuth).toBe(true);
       instance.updateAuth(false);
       expect(instance.state.isAuth).toBe(false);
+    });
+
+    it('should call getUser if authValue is truthy', () => {
+      const spy = jest.spyOn(instance, 'getUser');
+      instance.setState({ isAuth: false });
+      instance.updateAuth(true);
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it('should not call getUser if authValue is falsey', () => {
+      const spy = jest.spyOn(instance, 'getUser');
+      instance.updateAuth(false);
+      expect(spy).toHaveBeenCalledTimes(0);
     });
   });
 
