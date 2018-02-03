@@ -85,9 +85,9 @@ describe('AppContainer', () => {
 
   describe('updateAuth', () => {
     it('should update isAuth state', () => {
-      expect(instance.state.isAuth).toBe(false);
-      instance.updateAuth(true);
       expect(instance.state.isAuth).toBe(true);
+      instance.updateAuth(false);
+      expect(instance.state.isAuth).toBe(false);
     });
   });
 
@@ -107,17 +107,21 @@ describe('AppContainer', () => {
           <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
-      mountWrapper.find('AppContainer').instance().setState({ isAuth: true });
-      mountWrapper.update();
       expect(mountWrapper.find('DashboardRoutes').exists()).toBe(true);
     });
 
     it('should redirect to /account/login if isAuth is false and an user tries to nav to /dashboard', () => {
+      mock.reset();
+      mock.onGet('/api/account/auth').reply(200, { isAuth: false });
       const mountWrapper = mount(
-        <MemoryRouter initialEntries={['/dashboard']}>
+        <MemoryRouter initialEntries={['/']}>
           <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
+
+      mountWrapper.find('AppContainer').instance().setState({ isAuth: false });
+      mountWrapper.find('Router').prop('history').push('/dashboard');
+      mountWrapper.update();
 
       expect(mountWrapper.find('LoginContainer').exists()).toBe(true);
     });
