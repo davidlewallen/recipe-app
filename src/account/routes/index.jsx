@@ -38,10 +38,14 @@ const AccountRoutes = props => (
           : <LoginContainer {...routeProps} updateAuth={props.updateAuth} />
       )}
             />
-          )
+    <Route
+      path="/account/register"
+      render={routeProps => (
+        props.isAuth
+          ? <Redirect to="/dashboard" />
+          : <RegisterContainer {...routeProps} />
       )}
     />
-    <Route path="/account/register" component={RegisterContainer} />
   </Switch>
 );
 
