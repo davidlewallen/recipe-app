@@ -26,7 +26,7 @@ const propTypes = {
 const Login = props => (
   <Grid className="login">
     <Row>
-      <Col xs={12}>
+      <Col xs={12} sm={6} smOffset={3}>
         <form>
           <FormGroup className="align-center">
             {props.error.value && (
