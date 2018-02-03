@@ -24,7 +24,7 @@ const AccountRoutes = props => (
       exact
       path="/account"
       render={() => (
-        props.isAuth
+        props.isAuth && props.user.username
           ? <Overview user={props.user} />
           : <Redirect to="/account/login" />
       )}
@@ -32,7 +32,7 @@ const AccountRoutes = props => (
     <Route
       path="/account/login"
       render={routeProps => (
-        props.isAuth
+        props.isAuth && props.user.username
           ? <Redirect to="/dashboard" />
           : <LoginContainer {...routeProps} updateAuth={props.updateAuth} />
       )}
@@ -40,7 +40,7 @@ const AccountRoutes = props => (
     <Route
       path="/account/register"
       render={routeProps => (
-        props.isAuth
+        props.isAuth && props.user.username
           ? <Redirect to="/dashboard" />
           : <RegisterContainer {...routeProps} />
       )}
