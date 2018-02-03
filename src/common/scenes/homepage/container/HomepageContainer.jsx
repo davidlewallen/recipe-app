@@ -6,7 +6,11 @@ import '../assets/styles/index.css';
 
 class HomepageContainer extends React.Component {
   componentWillMount() {
-    console.log('homepage');
+    document.body.classList.add('homepage-img');
+  }
+
+  componentWillUnmount = () => {
+    document.body.classList.remove('homepage-img');
   }
 
   render = () => <Homepage />
