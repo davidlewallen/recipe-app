@@ -24,9 +24,7 @@ const Overview = ({ user }) => (
     <Row>
       <Col xs={12} md={4} mdOffset={4}>
         <form>
-          <FormGroup
-            controlId="formAccountInfo"
-          >
+          <FormGroup controlId="formAccountInfo">
             <ControlLabel>Username</ControlLabel>
             <FormControl
               disabled
