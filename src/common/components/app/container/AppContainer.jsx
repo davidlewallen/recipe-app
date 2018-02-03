@@ -22,7 +22,7 @@ class AppContainer extends React.Component {
 
     this.state = {
       recipes: [],
-      isAuth: false,
+      isAuth: true,
       user: {
         email: '',
         username: '',
