@@ -51,13 +51,15 @@ class AppContainer extends React.Component {
 
   render = () => (
     <div>
-      <HeaderContainer
-        history={this.props.history}
-        recipes={this.state.recipes}
-        updateRecipes={this.updateRecipes}
-        updateAuth={this.updateAuth}
-        isAuth={this.state.isAuth}
-      />
+      {this.props.location.pathname !== '/' && (
+        <HeaderContainer
+          history={this.props.history}
+          recipes={this.state.recipes}
+          updateRecipes={this.updateRecipes}
+          updateAuth={this.updateAuth}
+          isAuth={this.state.isAuth}
+        />
+      )}
       <Switch>
         <Route exact path="/" component={HomepageContainer} />
         <Route

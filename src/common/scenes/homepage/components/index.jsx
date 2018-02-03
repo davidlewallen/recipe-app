@@ -1,27 +1,24 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import '../assets/index.css';
-
 const Homepage = () => (
-  <Grid className="homepage align-center">
-    <Row>
-      <Col xs={12}>
-        <h1>My Saved Recipes</h1>
-      </Col>
-    </Row>
+  <Grid className="homepage">
     <Row>
       <Col
-        className="login align-center"
+        className="align-center"
         xs={12}
+        md={10}
+        mdOffset={1}
       >
-        <Link
-          className="link align-center border"
-          to="/account/login"
-        >
-          Login
-        </Link>
+        <div className="center-vertically">
+          <span>My Saved Recipes</span>
+          <Link to="/account/login">
+            <Button block bsStyle="primary">
+              Login
+            </Button>
+          </Link>
+        </div>
       </Col>
     </Row>
   </Grid>

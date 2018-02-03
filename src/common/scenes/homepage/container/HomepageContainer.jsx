@@ -2,12 +2,8 @@ import React from 'react';
 
 import Homepage from '../components';
 
-class HomepageContainer extends React.Component {
-  componentWillMount() {
-    console.log('homepage');
-  }
+import '../assets/styles/index.css';
 
-  render = () => <Homepage />
-}
+const HomepageContainer = () => <Homepage />;
 
 export default HomepageContainer;

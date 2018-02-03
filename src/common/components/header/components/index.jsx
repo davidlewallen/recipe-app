@@ -21,21 +21,25 @@ const Header = props => (
         <Navbar.Toggle />
       )}
     </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav pullRight>
-        <NavItem eventKey={1} onClick={props.handleModalOpen}>
-          + Add Recipe
-        </NavItem>
-        {/* <LinkContainer to="/account">
-          <NavItem eventKey={2}>
-            Account
+    {props.isAuth && (
+      <Navbar.Collapse>
+        <Nav pullRight>
+          <NavItem eventKey={1} onClick={props.handleModalOpen}>
+            + Add Recipe
           </NavItem>
-        </LinkContainer> */}
-        <NavItem eventKey={3} onClick={props.logout}>
-          Logout
-        </NavItem>
-      </Nav>
-    </Navbar.Collapse>
+          {/*
+            <LinkContainer to="/account">
+                <NavItem eventKey={2}>
+                  Account
+                </NavItem>
+            </LinkContainer>
+          */}
+          <NavItem eventKey={3} onClick={props.logout}>
+            Logout
+          </NavItem>
+        </Nav>
+      </Navbar.Collapse>
+    )}
   </Navbar>
 );
 
