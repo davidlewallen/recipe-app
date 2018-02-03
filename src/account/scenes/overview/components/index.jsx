@@ -9,6 +9,8 @@ import {
   FormControl,
 } from 'react-bootstrap';
 
+import '../assets/styles/index.css';
+
 const { shape, string } = PropTypes;
 const propTypes = {
   user: shape({
