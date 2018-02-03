@@ -4,6 +4,8 @@ const passport = require('passport');
 
 const Account = require('../models/account');
 
+const { isAuthenticated } = require('../utils');
+
 router.post('/login', (req, res, next) => {
   if (req.body.username === undefined || req.body.password === undefined) {
     return res
@@ -93,6 +95,10 @@ router.get('/auth', (req, res) => {
   const result = { isAuth };
 
   res.json(result);
+});
+
+router.get('/user', isAuthenticated, async (req, res) => {
+  res.json(await Account.getUser(req.user._id));
 });
 
 module.exports = router;
