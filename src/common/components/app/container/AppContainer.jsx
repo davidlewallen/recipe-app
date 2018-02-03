@@ -26,7 +26,7 @@ class AppContainer extends React.Component {
       user: {
         email: '',
         username: '',
-        id: '',
+        _id: '',
       },
     };
   }
@@ -40,9 +40,17 @@ class AppContainer extends React.Component {
           : Promise.reject(error)
       ),
     );
-
     const { data } = await Account.auth();
     this.setState({ isAuth: data.isAuth });
+
+    if (data.isAuth) {
+      await this.getUser();
+    }
+  }
+
+  getUser = async () => {
+    const { data: user } = await Account.getUser();
+    this.setState({ user });
   }
 
   updateRecipes = (updatedRecipes) => {
@@ -52,6 +60,7 @@ class AppContainer extends React.Component {
 
   updateAuth = (authValue) => {
     this.setState({ isAuth: authValue });
+    if (authValue) this.getUser();
   }
 
   updateUser = (userObject) => {
@@ -89,7 +98,6 @@ class AppContainer extends React.Component {
               isAuth={this.state.isAuth}
               updateAuth={this.updateAuth}
               user={this.state.user}
-              updateUser={this.updateUser}
             />
           )}
         />
