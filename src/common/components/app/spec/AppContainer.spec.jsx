@@ -21,6 +21,11 @@ describe('AppContainer', () => {
     mock.reset();
     mock.onGet('/api/account/auth').reply(200, { isAuth: true });
     mock.onGet('/api/recipe').reply(200, [{ title: '1', _id: 1 }]);
+    mock.onGet('/api/account/user').reply(200, {
+      _id: '123',
+      username: 'test',
+      email: 'testEmail',
+    });
     wrapper = shallow(<AppContainer {...mockProps} />);
     instance = wrapper.instance();
   });
