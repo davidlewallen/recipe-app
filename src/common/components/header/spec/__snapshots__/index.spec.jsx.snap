@@ -79,7 +79,13 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
         active={false}
         disabled={false}
         eventKey={3}
-        onClick={[MockFunction]}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
       >
         Logout
       </NavItem>
@@ -118,7 +124,13 @@ exports[`Header component should display + Add Recipe, Account, Logout if isAuth
         active={false}
         disabled={false}
         eventKey={1}
-        onClick={[MockFunction]}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
       >
         + Add Recipe
       </NavItem>
@@ -141,7 +153,13 @@ exports[`Header component should display + Add Recipe, Account, Logout if isAuth
         active={false}
         disabled={false}
         eventKey={3}
-        onClick={[MockFunction]}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
       >
         Logout
       </NavItem>
@@ -209,7 +227,13 @@ exports[`Header component should display menu if isAuth is true 1`] = `
         active={false}
         disabled={false}
         eventKey={3}
-        onClick={[MockFunction]}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
       >
         Logout
       </NavItem>
@@ -277,6 +301,26 @@ exports[`Header component should match snapshot 1`] = `
       </NavItem>
     </Nav>
   </NavbarCollapse>
+</Uncontrolled(Navbar)>
+`;
+
+exports[`Header component should not display + Add Recipe, Account, and Logout if isAuth is false 1`] = `
+<Uncontrolled(Navbar)
+  bsStyle="default"
+  collapseOnSelect={true}
+  fluid={true}
+  inverse={true}
+>
+  <NavbarHeader>
+    <NavbarBrand>
+      <Link
+        replace={false}
+        to="/"
+      >
+        My Saved Recipes
+      </Link>
+    </NavbarBrand>
+  </NavbarHeader>
 </Uncontrolled(Navbar)>
 `;
 

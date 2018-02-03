@@ -58,7 +58,7 @@ describe('Header component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  fit('should display + Add Recipe, Account, Logout if isAuth is true', () => {
+  it('should display + Add Recipe, Account, Logout if isAuth is true', () => {
     expect(wrapper.find('NavbarCollapse').exists()).toBe(true);
     expect(wrapper.find('NavItem').length).toBe(3);
     expect(wrapper.find('NavItem').at(0).prop('children')).toEqual('+ Add Recipe');
