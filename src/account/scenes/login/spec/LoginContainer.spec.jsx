@@ -34,6 +34,8 @@ describe('LoginContainer test', () => {
 
     mock.reset();
 
+    mock.onPost('/api/account/login').reply(200, true);
+
     wrapper = shallow(<LoginContainer {...props} />);
     instance = wrapper.instance();
   });
@@ -63,11 +65,10 @@ describe('LoginContainer test', () => {
     });
 
     it('should update error state with 400s', async () => {
+      mock.reset();
       mock.onPost('/api/account/login').reply(400, { message: 'error' });
-      const spy = jest.spyOn(instance, 'clearFields');
       await instance.login({ preventDefault: jest.fn() });
       expect(instance.state.error).toEqual({ value: true, message: 'error' });
-      expect(spy).toHaveBeenCalled();
     });
   });
 
