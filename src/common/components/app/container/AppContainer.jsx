@@ -51,8 +51,7 @@ class AppContainer extends React.Component {
 
   render = () => (
     <div>
-      {this.props.location.pathname !== '/' &&
-        this.props.location.pathname !== '/account/login' && (
+      {this.props.location.pathname !== '/' && (
         <HeaderContainer
           history={this.props.history}
           recipes={this.state.recipes}
