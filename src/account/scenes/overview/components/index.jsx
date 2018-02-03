@@ -9,13 +9,15 @@ import {
   FormControl,
 } from 'react-bootstrap';
 
-const { string } = PropTypes;
+const { shape, string } = PropTypes;
 const propTypes = {
-  username: string.isRequired,
-  email: string.isRequired,
+  user: shape({
+    username: string.isRequired,
+    email: string.isRequired,
+  }).isRequired,
 };
 
-const Overview = ({ username, email }) => (
+const Overview = ({ user }) => (
   <Grid className="overview">
     <Row>
       <Col xs={12}>
@@ -27,13 +29,13 @@ const Overview = ({ username, email }) => (
             <FormControl
               disabled
               type="text"
-              value={username}
+              value={user.username}
             />
             <ControlLabel>Email</ControlLabel>
             <FormControl
               disabled
               type="text"
-              value={email}
+              value={user.email}
             />
           </FormGroup>
         </form>
