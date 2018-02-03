@@ -4,6 +4,8 @@
 
 .login .error-message {
   color: red;
+  font-weight: bold;
+  font-size: 17px;
 }
 
 .login .form-group {
