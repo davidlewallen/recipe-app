@@ -35,10 +35,8 @@ const AccountRoutes = props => (
       render={routeProps => (
         props.isAuth
           ? <Redirect to="/dashboard" />
-          : (
-            <LoginContainer
-              {...routeProps}
-              updateAuth={props.updateAuth}
+          : <LoginContainer {...routeProps} updateAuth={props.updateAuth} />
+      )}
             />
           )
       )}
