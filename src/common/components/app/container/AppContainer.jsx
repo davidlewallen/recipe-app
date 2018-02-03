@@ -63,10 +63,6 @@ class AppContainer extends React.Component {
     if (authValue) this.getUser();
   }
 
-  updateUser = (userObject) => {
-    this.setState({ user: { ...userObject } });
-  }
-
   render = () => (
     <div>
       {this.props.location.pathname !== '/' && (

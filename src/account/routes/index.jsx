@@ -16,7 +16,6 @@ const propTypes = {
   isAuth: bool.isRequired,
   updateAuth: func.isRequired,
   user: objectOf(string.isRequired).isRequired,
-  updateUser: func.isRequired,
 };
 
 const AccountRoutes = props => (
@@ -26,7 +25,7 @@ const AccountRoutes = props => (
       path="/account"
       render={() => (
         props.isAuth
-          ? <Overview user={props.user} updateUser={props.updateUser} />
+          ? <Overview user={props.user} />
           : <Redirect to="/account/login" />
       )}
     />
