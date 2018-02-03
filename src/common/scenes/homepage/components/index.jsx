@@ -5,7 +5,12 @@ import { Link } from 'react-router-dom';
 const Homepage = () => (
   <Grid className="homepage">
     <Row>
-      <Col xs={12} className="align-center">
+      <Col
+        className="align-center"
+        xs={12}
+        md={10}
+        mdOffset={1}
+      >
         <div className="center-vertically">
           <span>My Saved Recipes</span>
           <Link to="/account/login">
