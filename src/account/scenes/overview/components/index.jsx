@@ -22,7 +22,7 @@ const propTypes = {
 const Overview = ({ user }) => (
   <Grid className="overview">
     <Row>
-      <Col xs={12}>
+      <Col xs={12} md={4} mdOffset={4}>
         <form>
           <FormGroup
             controlId="formAccountInfo"
