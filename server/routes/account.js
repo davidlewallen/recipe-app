@@ -43,10 +43,12 @@ router.post('/login', (req, res, next) => {
         return next(loginErr);
       }
 
+      const { _id, username, savedRecipes, email } = req.user;
       const userObject = {
-        _id: req.user.id,
-        username: req.user.username,
-        savedRecipes: req.user.savedRecipes,
+        _id,
+        username,
+        savedRecipes,
+        email,
       };
 
       return res.json(userObject);
