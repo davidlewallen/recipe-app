@@ -69,7 +69,6 @@ exports[`AcceptedWebsites should render and match snapshot 1`] = `
     >
       <Col
         bsClass="col"
-        className="align-center"
         componentClass="div"
         key="af86025c-af1f-5223-9a48-6da30a8c6430"
         xs={12}
@@ -77,12 +76,12 @@ exports[`AcceptedWebsites should render and match snapshot 1`] = `
         <div
           className="website-text"
         >
+          - 
           test
         </div>
       </Col>
       <Col
         bsClass="col"
-        className="align-center"
         componentClass="div"
         key="33ae19e9-bfd1-5d64-be34-6284c59ee481"
         xs={12}
@@ -90,6 +89,7 @@ exports[`AcceptedWebsites should render and match snapshot 1`] = `
         <div
           className="website-text"
         >
+          - 
           test2
         </div>
       </Col>
