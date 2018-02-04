@@ -17,7 +17,9 @@ img.recipe-image {
 }
 
 .recipe {
-  border: 2px solid #3333338c;
   border-radius: 1em;
   padding: 20px;
+  background-color: #333;
+  color: white;
+  border: 2px solid #1b1b1b
 }
