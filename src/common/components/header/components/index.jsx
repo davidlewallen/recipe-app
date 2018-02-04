@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import { LinkContainer } from 'react-router-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const { func, bool } = PropTypes;
 const propTypes = {
@@ -27,13 +27,13 @@ const Header = props => (
           <NavItem eventKey={1} onClick={props.handleModalOpen}>
             + Add Recipe
           </NavItem>
-          {/*
-            <LinkContainer to="/account">
-                <NavItem eventKey={2}>
-                  Account
-                </NavItem>
-            </LinkContainer>
-          */}
+
+          <LinkContainer to="/account">
+            <NavItem eventKey={2}>
+              Account
+            </NavItem>
+          </LinkContainer>
+
           <NavItem eventKey={3} onClick={props.logout}>
             Logout
           </NavItem>

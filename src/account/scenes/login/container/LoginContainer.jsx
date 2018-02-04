@@ -5,6 +5,8 @@ import Login from '../components';
 
 import { Account } from '../../../../common/utils/api';
 
+import '../assets/styles/index.css';
+
 const { shape, func } = PropTypes;
 const propTypes = {
   history: shape({ replace: func }).isRequired,
@@ -34,12 +36,14 @@ class LoginContainer extends Component {
       const body = { username, password };
 
       await Account.login(body);
+
       this.props.updateAuth(true);
+      this.clearFields();
+
       this.props.history.replace('/dashboard');
     } catch (err) {
       const { response } = err;
       if (response.status === 400) {
-        this.clearFields();
         this.setState({
           error: {
             value: true,

@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-const Account = require('../models/account');
+const AccountModel = require('../models/account');
+const Account = require('../controllers/account');
+
+const { isAuthenticated } = require('./utils');
 
 router.post('/login', (req, res, next) => {
   if (req.body.username === undefined || req.body.password === undefined) {
@@ -43,20 +46,14 @@ router.post('/login', (req, res, next) => {
         return next(loginErr);
       }
 
-      const userObject = {
-        _id: req.user.id,
-        username: req.user.username,
-        savedRecipes: req.user.savedRecipes,
-      };
-
-      return res.json(userObject);
+      return res.send(true);
     });
   })(req, res, next);
 });
 
 router.post('/register', (req, res) => {
-  Account.register(
-    new Account({
+  AccountModel.register(
+    new AccountModel({
       username: req.body.username,
       email: req.body.email,
     }),
@@ -75,12 +72,12 @@ router.post('/register', (req, res) => {
           _id: req.user._id,
           username: req.user.username,
           savedRecipes: req.user.savedRecipes,
-        }
-        res.send(userObject)
-      })
+        };
+        res.send(userObject);
+      });
     }
-  )}
-);
+  );
+});
 
 router.get('/logout', (req, res) => {
   req.logout();
@@ -92,6 +89,10 @@ router.get('/auth', (req, res) => {
   const result = { isAuth };
 
   res.json(result);
+});
+
+router.get('/user', isAuthenticated, async (req, res) => {
+  res.json(await Account.getUser(req.user._id));
 });
 
 module.exports = router;

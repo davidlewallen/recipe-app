@@ -21,6 +21,11 @@ describe('AppContainer', () => {
     mock.reset();
     mock.onGet('/api/account/auth').reply(200, { isAuth: true });
     mock.onGet('/api/recipe').reply(200, [{ title: '1', _id: 1 }]);
+    mock.onGet('/api/account/user').reply(200, {
+      _id: '123',
+      username: 'test',
+      email: 'testEmail',
+    });
     wrapper = shallow(<AppContainer {...mockProps} />);
     instance = wrapper.instance();
   });
@@ -60,6 +65,17 @@ describe('AppContainer', () => {
     // });
   // });
 
+  describe('getUser', () => {
+    it('should update user state', async () => {
+      await instance.getUser();
+      expect(instance.state.user).toEqual({
+        _id: '123',
+        username: 'test',
+        email: 'testEmail',
+      });
+    });
+  });
+
   describe('updateRecipes', () => {
     it('should update recipes state using an object', () => {
       const mockRecipe = { test: true };
@@ -80,9 +96,22 @@ describe('AppContainer', () => {
 
   describe('updateAuth', () => {
     it('should update isAuth state', () => {
-      expect(instance.state.isAuth).toBe(false);
-      instance.updateAuth(true);
       expect(instance.state.isAuth).toBe(true);
+      instance.updateAuth(false);
+      expect(instance.state.isAuth).toBe(false);
+    });
+
+    it('should call getUser if authValue is truthy', () => {
+      const spy = jest.spyOn(instance, 'getUser');
+      instance.setState({ isAuth: false });
+      instance.updateAuth(true);
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it('should not call getUser if authValue is falsey', () => {
+      const spy = jest.spyOn(instance, 'getUser');
+      instance.updateAuth(false);
+      expect(spy).toHaveBeenCalledTimes(0);
     });
   });
 
@@ -96,23 +125,33 @@ describe('AppContainer', () => {
       expect(mountWrapper.find('HomepageContainer').exists()).toBe(true);
     });
 
-    it('should render DashboardRoutes on "/dashboard" and isAuth state is true', () => {
+    it('should render DashboardRoutes on "/dashboard" and isAuth state is true and username is truthy', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/dashboard']}>
           <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
-      mountWrapper.find('AppContainer').instance().setState({ isAuth: true });
+
+      mountWrapper.find('AppContainer').instance().setState({ user: { username: 'test' } });
       mountWrapper.update();
       expect(mountWrapper.find('DashboardRoutes').exists()).toBe(true);
     });
 
     it('should redirect to /account/login if isAuth is false and an user tries to nav to /dashboard', () => {
+      mock.reset();
+      mock.onGet('/api/account/auth').reply(200, { isAuth: false });
       const mountWrapper = mount(
-        <MemoryRouter initialEntries={['/dashboard']}>
+        <MemoryRouter initialEntries={['/']}>
           <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
+
+      mountWrapper.find('AppContainer').instance().setState({
+        isAuth: false,
+        user: { username: '' },
+      });
+      mountWrapper.find('Router').prop('history').push('/dashboard');
+      mountWrapper.update();
 
       expect(mountWrapper.find('LoginContainer').exists()).toBe(true);
     });

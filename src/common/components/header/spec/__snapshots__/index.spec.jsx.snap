@@ -60,6 +60,21 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
       >
         + Add Recipe
       </NavItem>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/account"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={2}
+        >
+          Account
+        </NavItem>
+      </LinkContainer>
       <NavItem
         active={false}
         disabled={false}
@@ -79,7 +94,7 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
 </Uncontrolled(Navbar)>
 `;
 
-exports[`Header component should display + Add Recipe and Logout if isAuth is true 1`] = `
+exports[`Header component should display + Add Recipe, Account, Logout if isAuth is true 1`] = `
 <Uncontrolled(Navbar)
   bsStyle="default"
   collapseOnSelect={true}
@@ -119,6 +134,21 @@ exports[`Header component should display + Add Recipe and Logout if isAuth is tr
       >
         + Add Recipe
       </NavItem>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/account"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={2}
+        >
+          Account
+        </NavItem>
+      </LinkContainer>
       <NavItem
         active={false}
         disabled={false}
@@ -178,6 +208,21 @@ exports[`Header component should display menu if isAuth is true 1`] = `
       >
         + Add Recipe
       </NavItem>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/account"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={2}
+        >
+          Account
+        </NavItem>
+      </LinkContainer>
       <NavItem
         active={false}
         disabled={false}
@@ -231,6 +276,21 @@ exports[`Header component should match snapshot 1`] = `
       >
         + Add Recipe
       </NavItem>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/account"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={2}
+        >
+          Account
+        </NavItem>
+      </LinkContainer>
       <NavItem
         active={false}
         disabled={false}
@@ -244,7 +304,7 @@ exports[`Header component should match snapshot 1`] = `
 </Uncontrolled(Navbar)>
 `;
 
-exports[`Header component should not display + Add Recipe and Logout if isAuth is false 1`] = `
+exports[`Header component should not display + Add Recipe, Account, and Logout if isAuth is false 1`] = `
 <Uncontrolled(Navbar)
   bsStyle="default"
   collapseOnSelect={true}
