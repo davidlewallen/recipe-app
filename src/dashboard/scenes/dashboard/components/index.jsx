@@ -5,6 +5,7 @@ import { Grid, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import RecipeModal from '../../../components/recipe-modal/components';
 
 import '../assets/styles/index.css';
+import noImage from '../../../../common/assets/noImage.png';
 
 const {
   string,
@@ -84,7 +85,7 @@ const Dashboard = props => (
                             <img
                               className="recipe-image"
                               alt={recipe.title}
-                              src={recipe.imageURL}
+                              src={recipe.imageURL ? recipe.imageURL : noImage}
                             />
                           </div>
                         </Col>
