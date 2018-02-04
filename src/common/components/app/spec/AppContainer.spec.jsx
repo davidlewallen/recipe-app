@@ -125,12 +125,15 @@ describe('AppContainer', () => {
       expect(mountWrapper.find('HomepageContainer').exists()).toBe(true);
     });
 
-    it('should render DashboardRoutes on "/dashboard" and isAuth state is true', () => {
+    it('should render DashboardRoutes on "/dashboard" and isAuth state is true and username is truthy', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/dashboard']}>
           <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
+
+      mountWrapper.find('AppContainer').instance().setState({ user: { username: 'test' } });
+      mountWrapper.update();
       expect(mountWrapper.find('DashboardRoutes').exists()).toBe(true);
     });
 
@@ -143,7 +146,10 @@ describe('AppContainer', () => {
         </MemoryRouter>,
       );
 
-      mountWrapper.find('AppContainer').instance().setState({ isAuth: false });
+      mountWrapper.find('AppContainer').instance().setState({
+        isAuth: false,
+        user: { username: '' },
+      });
       mountWrapper.find('Router').prop('history').push('/dashboard');
       mountWrapper.update();
 
