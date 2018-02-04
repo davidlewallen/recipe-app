@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Row, Col, Button } from 'react-bootstrap';
 
+import '../assets/styles/index.css';
+
 const { bool, string, func } = PropTypes;
 const propTypes = {
   show: bool.isRequired,
@@ -30,7 +32,11 @@ const SubmitRecipe = props => (
           />
         </Col>
         <Col xs={12} md={4}>
-          <Button onClick={props.submitRecipe}>
+          <Button
+            block
+            bsStyle="primary"
+            onClick={props.submitRecipe}
+          >
             Submit
           </Button>
         </Col>

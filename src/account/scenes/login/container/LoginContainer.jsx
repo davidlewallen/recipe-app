@@ -5,6 +5,8 @@ import Login from '../components';
 
 import { Account } from '../../../../common/utils/api';
 
+import '../assets/styles/index.css';
+
 const { shape, func } = PropTypes;
 const propTypes = {
   history: shape({ replace: func }).isRequired,
@@ -34,12 +36,13 @@ class LoginContainer extends Component {
       const body = { username, password };
 
       await Account.login(body);
+
       this.props.updateAuth(true);
+
       this.props.history.replace('/dashboard');
     } catch (err) {
       const { response } = err;
       if (response.status === 400) {
-        this.clearFields();
         this.setState({
           error: {
             value: true,
@@ -58,10 +61,6 @@ class LoginContainer extends Component {
   handlePassword = (event) => {
     const password = event.target.value;
     this.setState({ password });
-  }
-
-  clearFields = () => {
-    this.setState({ username: '', password: '' });
   }
 
   render = () => (

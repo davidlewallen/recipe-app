@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homepage should render and match snapshot 1`] = `
+<Grid
+  bsClass="container"
+  className="homepage"
+  componentClass="div"
+  fluid={false}
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      className="align-center"
+      componentClass="div"
+      md={10}
+      mdOffset={1}
+      xs={12}
+    >
+      <div
+        className="center-vertically"
+      >
+        <span>
+          My Saved Recipes
+        </span>
+        <Link
+          replace={false}
+          to="/account/login"
+        >
+          <Button
+            active={false}
+            block={true}
+            bsClass="btn"
+            bsStyle="primary"
+            disabled={false}
+          >
+            Login
+          </Button>
+        </Link>
+      </div>
+    </Col>
+  </Row>
+</Grid>
+`;

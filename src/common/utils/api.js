@@ -15,4 +15,9 @@ export const Account = {
   register: body => axios.post(`${API_ACCOUNT}/register`, body),
   logout: () => axios.get(`${API_ACCOUNT}/logout`),
   auth: () => axios.get(`${API_ACCOUNT}/auth`),
+  getUser: () => axios.get(`${API_ACCOUNT}/user`),
+};
+
+export const Utils = {
+  getAcceptedWebsites: () => axios.get(`${API_ROOT}/approved`),
 };

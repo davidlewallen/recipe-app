@@ -1,0 +1,9 @@
+.overview label {
+  color: #9d9d9d;
+}
+
+.overview .form-group {
+  padding: 5px 10px 15px 10px;
+  background-color: #222222;
+  border-radius: 0.5em;
+}

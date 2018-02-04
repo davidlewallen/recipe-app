@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Account } from '../../../utils/api';
+import { Account, Utils } from '../../../utils/api';
 
 import Header from '../components';
-import SubmitRecipe from '../../submit-recipe/container/SubmitRecipeContainer';
+import SubmitRecipeContainer from '../../submit-recipe/container/SubmitRecipeContainer';
+import AcceptedWebsites from '../../acceptedWebsites/components';
 
 const {
   shape,
@@ -27,7 +28,14 @@ class HeaderContainer extends React.Component {
 
     this.state = {
       showModal: false,
+      showAcceptedModal: false,
+      acceptedWebsites: [],
     };
+  }
+
+  componentWillMount = async () => {
+    const { data: acceptedWebsites } = await Utils.getAcceptedWebsites();
+    this.setState({ acceptedWebsites });
   }
 
   logout = () => {
@@ -44,18 +52,30 @@ class HeaderContainer extends React.Component {
     this.setState({ showModal: false });
   }
 
+  handleAcceptedModal = () => {
+    this.setState(prevState => (
+      { showAcceptedModal: !prevState.showAcceptedModal }
+    ));
+  }
+
   render = () => (
     <div>
-      <SubmitRecipe
+      <SubmitRecipeContainer
         show={this.state.showModal}
         handleModalClose={this.handleModalClose}
         updateRecipes={this.props.updateRecipes}
         recipes={this.props.recipes}
       />
+      <AcceptedWebsites
+        show={this.state.showAcceptedModal}
+        handleAcceptedModal={this.handleAcceptedModal}
+        acceptedWebsites={this.state.acceptedWebsites}
+      />
       <Header
         logout={this.logout}
         handleModalOpen={this.handleModalOpen}
         isAuth={this.props.isAuth}
+        handleAcceptedModal={this.handleAcceptedModal}
       />
     </div>
   );

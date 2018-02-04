@@ -22,19 +22,30 @@ describe('Account Controller Test', () => {
   afterEach(async (done) => {
     await clearDB();
     done();
-  })
+  });
 
   afterAll(async () => {
     await mongoose.connection.close();
-  })
+  });
 
   it('should create a test account', async () => {
     let result = await AccountModel.find({});
     expect(result.length).toEqual(0);
-    
+
     await Account.createTestAccount('1');
 
     result = await AccountModel.find({});
     expect(result.length).toEqual(1);
-  })
-})
+  });
+
+  describe('getUser', () => {
+    it('should return users info', async () => {
+      const testAccount = await Account.createTestAccount('1');
+
+      let result = await Account.getUser(testAccount._id);
+      expect(result._id).toEqual(testAccount._id);
+      expect(result.username).toBe(testAccount.username);
+      expect(result.email).toBe(testAccount.email);
+    });
+  });
+});

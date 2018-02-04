@@ -7,92 +7,85 @@ exports[`Login component snapshot test should display error message 1`] = `
   componentClass="div"
   fluid={false}
 >
-  <div>
-    <Row
-      bsClass="row"
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
       componentClass="div"
+      sm={6}
+      smOffset={3}
+      xs={12}
     >
-      <Col
-        bsClass="col"
-        className="align-center"
-        componentClass="div"
-        xs={12}
-      >
-        <p
-          className="error-message"
+      <form>
+        <FormGroup
+          bsClass="form-group"
+          className="align-center"
         >
-          test error
-        </p>
-      </Col>
-      <form
-        className="align-center"
-      >
-        <Col
-          bsClass="col"
-          componentClass="div"
-          xs={12}
-        >
-          <input
+          <p
+            className="error-message"
+          >
+            test error
+          </p>
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Username
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
             className="username-input"
+            componentClass="input"
+            id="username"
             onChange={[Function]}
-            placeholder="Username"
+            placeholder="E.g. JohnDoe123"
+            type="text"
             value="testUsername"
           />
-        </Col>
-        <Col
-          bsClass="col"
-          componentClass="div"
-          xs={12}
-        >
-          <input
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Password
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
             className="password-input"
+            componentClass="input"
+            id="password"
             onChange={[Function]}
-            placeholder="Password"
+            placeholder="E.g. 124!Jigzx"
             type="password"
             value="testPassword"
           />
-        </Col>
-        <Col
-          bsClass="col"
-          componentClass="div"
-          xs={12}
-        >
           <Button
             active={false}
-            block={false}
+            block={true}
             bsClass="btn"
-            bsStyle="default"
+            bsStyle="primary"
             className="login-button"
             disabled={false}
             onClick={[Function]}
           >
             Login
           </Button>
-        </Col>
-      </form>
-    </Row>
-    <Row
-      bsClass="row"
-      componentClass="div"
-    >
-      <Col
-        bsClass="col"
-        className="align-center"
-        componentClass="div"
-        xs={12}
-      >
-        <p>
-          New to My Saved Recipes? 
-          <Link
-            replace={false}
-            to="/account/register"
+          <div
+            className="register-text"
           >
-            Create an account.
-          </Link>
-        </p>
-      </Col>
-    </Row>
-  </div>
+            New to My Saved Recipes? 
+            <Link
+              replace={false}
+              to="/account/register"
+            >
+              Create an account.
+            </Link>
+          </div>
+        </FormGroup>
+      </form>
+    </Col>
+  </Row>
 </Grid>
 `;
 
@@ -103,85 +96,79 @@ exports[`Login component snapshot test should match snapshot 1`] = `
   componentClass="div"
   fluid={false}
 >
-  <div>
-    <Row
-      bsClass="row"
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
       componentClass="div"
+      sm={6}
+      smOffset={3}
+      xs={12}
     >
-      <Col
-        bsClass="col"
-        className="align-center"
-        componentClass="div"
-        xs={12}
-      />
-      <form
-        className="align-center"
-      >
-        <Col
-          bsClass="col"
-          componentClass="div"
-          xs={12}
+      <form>
+        <FormGroup
+          bsClass="form-group"
+          className="align-center"
         >
-          <input
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Username
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
             className="username-input"
+            componentClass="input"
+            id="username"
             onChange={[Function]}
-            placeholder="Username"
+            placeholder="E.g. JohnDoe123"
+            type="text"
             value="testUsername"
           />
-        </Col>
-        <Col
-          bsClass="col"
-          componentClass="div"
-          xs={12}
-        >
-          <input
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Password
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
             className="password-input"
+            componentClass="input"
+            id="password"
             onChange={[Function]}
-            placeholder="Password"
+            placeholder="E.g. 124!Jigzx"
             type="password"
             value="testPassword"
           />
-        </Col>
-        <Col
-          bsClass="col"
-          componentClass="div"
-          xs={12}
-        >
           <Button
             active={false}
-            block={false}
+            block={true}
             bsClass="btn"
-            bsStyle="default"
+            bsStyle="primary"
             className="login-button"
             disabled={false}
             onClick={[Function]}
           >
             Login
           </Button>
-        </Col>
-      </form>
-    </Row>
-    <Row
-      bsClass="row"
-      componentClass="div"
-    >
-      <Col
-        bsClass="col"
-        className="align-center"
-        componentClass="div"
-        xs={12}
-      >
-        <p>
-          New to My Saved Recipes? 
-          <Link
-            replace={false}
-            to="/account/register"
+          <div
+            className="register-text"
           >
-            Create an account.
-          </Link>
-        </p>
-      </Col>
-    </Row>
-  </div>
+            New to My Saved Recipes? 
+            <Link
+              replace={false}
+              to="/account/register"
+            >
+              Create an account.
+            </Link>
+          </div>
+        </FormGroup>
+      </form>
+    </Col>
+  </Row>
 </Grid>
 `;

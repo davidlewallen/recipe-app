@@ -111,4 +111,15 @@ describe('Dashboard snapshot test', () => {
     button.simulate('click');
     expect(props.deleteRecipe).toHaveBeenCalledWith(props.recipes[0]._id);
   });
+
+  it('should render noImage if imageURL is empty', () => {
+    const component = shallow(
+      <Dashboard
+        {...props}
+        recipes={[{ title: 'Recipe', _id: 1, imageURL: '' }]}
+      />,
+    );
+
+    expect(component.find('img').at(0).prop('src')).toBe('noImage.png');
+  });
 });

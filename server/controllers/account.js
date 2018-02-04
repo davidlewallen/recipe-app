@@ -8,8 +8,18 @@ const createTestAccount = async (append) => {
   });
 
   return await account.save();
-}
+};
+
+const getUser = async (userId) => {
+  try {
+    const userResult = await Account.findById(userId, '_id username email');
+    return userResult;
+  } catch (err) {
+    console.log('err', err);
+  }
+};
 
 module.exports = {
   createTestAccount,
-}
+  getUser,
+};

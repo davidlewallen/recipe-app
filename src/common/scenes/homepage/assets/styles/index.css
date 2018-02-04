@@ -1,0 +1,36 @@
+.homepage .link {
+  font-size: 2em;
+}
+
+.homepage h1 {
+  color: white;
+}
+
+.homepage span {
+  color: white;
+  font-size: 2.2em;
+}
+
+.homepage>.row>div {
+  height: 100vh;
+}
+
+.homepage .center-vertically {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: inherit;
+  padding: inherit;
+}
+
+@media only screen and (min-width: 480px) {
+  .homepage span {
+    font-size: 3.2em;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .homepage span {
+    font-size: 4.2em;
+  }
+}

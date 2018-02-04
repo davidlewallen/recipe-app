@@ -34,6 +34,8 @@ describe('LoginContainer test', () => {
 
     mock.reset();
 
+    mock.onPost('/api/account/login').reply(200, true);
+
     wrapper = shallow(<LoginContainer {...props} />);
     instance = wrapper.instance();
   });
@@ -63,11 +65,10 @@ describe('LoginContainer test', () => {
     });
 
     it('should update error state with 400s', async () => {
+      mock.reset();
       mock.onPost('/api/account/login').reply(400, { message: 'error' });
-      const spy = jest.spyOn(instance, 'clearFields');
       await instance.login({ preventDefault: jest.fn() });
       expect(instance.state.error).toEqual({ value: true, message: 'error' });
-      expect(spy).toHaveBeenCalled();
     });
   });
 
@@ -98,21 +99,6 @@ describe('LoginContainer test', () => {
       expect(instance.state.password).toEqual(mockState.password);
       instance.handlePassword({ target: { value: 'test' } });
       expect(instance.state.password).toEqual('test');
-    });
-  });
-
-  describe('handleEmail', () => {
-    it('should call clearFields', () => {
-      const spy = jest.spyOn(instance, 'clearFields');
-      instance.clearFields();
-      expect(spy).toHaveBeenCalled();
-    });
-
-    it('should clear field state', () => {
-      instance.setState(mockState);
-      instance.clearFields();
-      expect(instance.state.username).toEqual('');
-      expect(instance.state.password).toEqual('');
     });
   });
 });

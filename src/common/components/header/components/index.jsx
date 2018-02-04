@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import { LinkContainer } from 'react-router-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const { func, bool } = PropTypes;
 const propTypes = {
   logout: func.isRequired,
   handleModalOpen: func.isRequired,
   isAuth: bool.isRequired,
+  handleAcceptedModal: func.isRequired,
 };
 
 const Header = props => (
@@ -21,21 +22,29 @@ const Header = props => (
         <Navbar.Toggle />
       )}
     </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav pullRight>
-        <NavItem eventKey={1} onClick={props.handleModalOpen}>
-          + Add Recipe
-        </NavItem>
-        {/* <LinkContainer to="/account">
-          <NavItem eventKey={2}>
-            Account
+    {props.isAuth && (
+      <Navbar.Collapse>
+        <Nav pullRight>
+          <NavItem eventKey={1} onClick={props.handleModalOpen}>
+            + Add Recipe
           </NavItem>
-        </LinkContainer> */}
-        <NavItem eventKey={3} onClick={props.logout}>
-          Logout
-        </NavItem>
-      </Nav>
-    </Navbar.Collapse>
+
+          <NavItem eventKey={2} onClick={props.handleAcceptedModal}>
+            Accepted Websites
+          </NavItem>
+
+          <LinkContainer to="/account">
+            <NavItem eventKey={3}>
+              Account
+            </NavItem>
+          </LinkContainer>
+
+          <NavItem eventKey={4} onClick={props.logout}>
+            Logout
+          </NavItem>
+        </Nav>
+      </Navbar.Collapse>
+    )}
   </Navbar>
 );
 

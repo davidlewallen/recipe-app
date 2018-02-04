@@ -4,7 +4,7 @@ const isAuthenticated = (req, res, next) => {
   } else {
     res.sendStatus(401);
   }
-}
+};
 
 module.exports = {
   isAuthenticated,
