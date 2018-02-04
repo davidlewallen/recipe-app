@@ -7,6 +7,8 @@ import Header from '../components';
 import SubmitRecipeContainer from '../../submit-recipe/container/SubmitRecipeContainer';
 import AcceptedWebsites from '../../acceptedWebsites/components';
 
+import '../assets/styles/index.css';
+
 const {
   shape,
   func,
