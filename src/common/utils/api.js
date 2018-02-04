@@ -17,3 +17,7 @@ export const Account = {
   auth: () => axios.get(`${API_ACCOUNT}/auth`),
   getUser: () => axios.get(`${API_ACCOUNT}/user`),
 };
+
+export const Utils = {
+  getAcceptedWebsites: () => axios.get(`${API_ROOT}/approved`),
+};
