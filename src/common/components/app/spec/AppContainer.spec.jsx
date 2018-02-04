@@ -122,6 +122,8 @@ describe('AppContainer', () => {
           <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
+      mountWrapper.find('AppContainer').instance().setState({ loading: false });
+      mountWrapper.update();
       expect(mountWrapper.find('HomepageContainer').exists()).toBe(true);
     });
 
@@ -132,7 +134,10 @@ describe('AppContainer', () => {
         </MemoryRouter>,
       );
 
-      mountWrapper.find('AppContainer').instance().setState({ user: { username: 'test' } });
+      mountWrapper.find('AppContainer').instance().setState({
+        user: { username: 'test' },
+        loading: false,
+      });
       mountWrapper.update();
       expect(mountWrapper.find('DashboardRoutes').exists()).toBe(true);
     });
@@ -149,6 +154,7 @@ describe('AppContainer', () => {
       mountWrapper.find('AppContainer').instance().setState({
         isAuth: false,
         user: { username: '' },
+        loading: false,
       });
       mountWrapper.find('Router').prop('history').push('/dashboard');
       mountWrapper.update();
@@ -162,6 +168,10 @@ describe('AppContainer', () => {
           <Route component={AppContainer} />
         </MemoryRouter>,
       );
+
+      mountWrapper.find('AppContainer').instance().setState({ loading: false });
+      mountWrapper.update();
+
       expect(mountWrapper.find('AccountRoutes').exists()).toBe(true);
     });
   });
