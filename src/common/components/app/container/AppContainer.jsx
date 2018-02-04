@@ -79,7 +79,7 @@ class AppContainer extends React.Component {
         <Route
           path="/dashboard"
           render={() => (
-            this.state.isAuth ? (
+            this.state.isAuth && this.state.user.username ? (
               <DashboardRoutes
                 recipes={this.state.recipes}
                 updateRecipes={this.updateRecipes}
