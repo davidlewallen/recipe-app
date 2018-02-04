@@ -29,7 +29,6 @@ router.post('/submit/:recipeURL',  async (req, res) => {
   }
 });
 
-// router.delete('/delete/:recipeId', Recipe.remove);
 router.delete('/delete/:recipeId', async (req, res) => {
   try {
     res.json(await Recipe.remove(req.params.recipeId, req.user._id));
