@@ -31,6 +31,8 @@ describe('AppContainer', () => {
   });
 
   it('should render', () => {
+    wrapper.setState({ loading: false });
+    wrapper.update();
     expect(wrapper.find('div').exists()).toBe(true);
   });
 
@@ -156,6 +158,7 @@ describe('AppContainer', () => {
         user: { username: '' },
         loading: false,
       });
+      mountWrapper.update();
       mountWrapper.find('Router').prop('history').push('/dashboard');
       mountWrapper.update();
 
