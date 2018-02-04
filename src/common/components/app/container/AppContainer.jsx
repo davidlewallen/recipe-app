@@ -46,6 +46,8 @@ class AppContainer extends React.Component {
 
     if (data.isAuth) {
       await this.getUser();
+    } else {
+      this.setState({ loading: false });
     }
   }
 
