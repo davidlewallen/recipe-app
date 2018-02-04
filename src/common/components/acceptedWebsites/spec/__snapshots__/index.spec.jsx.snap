@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AcceptedWebsites should render and match snapshot 1`] = `
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  className="accepted-websites-modal"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[MockFunction]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  show={true}
+>
+  <ModalHeader
+    bsClass="modal-header"
+    className="header"
+    closeButton={true}
+    closeLabel="Close"
+  >
+    <ModalTitle
+      bsClass="modal-title"
+      className="title"
+      componentClass="h4"
+    >
+      Accepted Websites
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        componentClass="div"
+        xs={12}
+      >
+        <div>
+          These are the websites that we can process at this moment
+        </div>
+        <div>
+          If a website isn't listed, go ahead and "+ Add Recipe" and our team will be notified.
+        </div>
+      </Col>
+    </Row>
+    <Row
+      bsClass="row"
+      className="website-list"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="align-center"
+        componentClass="div"
+        key="af86025c-af1f-5223-9a48-6da30a8c6430"
+        xs={12}
+      >
+        <div
+          className="website-text"
+        >
+          test
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="align-center"
+        componentClass="div"
+        key="33ae19e9-bfd1-5d64-be34-6284c59ee481"
+        xs={12}
+      >
+        <div
+          className="website-text"
+        >
+          test2
+        </div>
+      </Col>
+    </Row>
+  </ModalBody>
+</Modal>
+`;

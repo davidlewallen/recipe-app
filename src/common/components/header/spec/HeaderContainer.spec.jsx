@@ -67,4 +67,14 @@ describe('HeaderContainer', () => {
       expect(instance.state.showModal).toBe(false);
     });
   });
+
+  describe('handleAcceptedModal', () => {
+    it('should set showAcceptedModal to true if false and false if true', () => {
+      expect(instance.state.showAcceptedModal).toBe(false);
+      instance.handleAcceptedModal();
+      expect(instance.state.showAcceptedModal).toBe(true);
+      instance.handleAcceptedModal();
+      expect(instance.state.showAcceptedModal).toBe(false);
+    });
+  });
 });

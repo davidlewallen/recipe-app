@@ -47,6 +47,20 @@ describe('AppContainer', () => {
       await instance.componentWillMount();
       expect(instance.state.isAuth).toBe(true);
     });
+
+    it('should call getUser if data.isAuth is truthy', async () => {
+      const spy = jest.spyOn(instance, 'getUser');
+      await instance.componentWillMount();
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it('should set loading state to false if data.isAuth is falsey', async () => {
+      instance.setState({ loading: true });
+      mock.onGet('/api/account/auth').reply(200, { isAuth: false });
+      expect(instance.state.loading).toBe(true);
+      await instance.componentWillMount();
+      expect(instance.state.loading).toBe(false);
+    });
   });
 
   // describe('axios.intercepters', () => {
