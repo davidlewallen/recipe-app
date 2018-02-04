@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Account } from '../../../utils/api';
+import { Account, Utils } from '../../../utils/api';
 
 import Header from '../components';
 import SubmitRecipe from '../../submit-recipe/container/SubmitRecipeContainer';
@@ -27,7 +27,14 @@ class HeaderContainer extends React.Component {
 
     this.state = {
       showModal: false,
+      showAcceptedWebsites: false,
+      acceptedWebsites: [],
     };
+  }
+
+  componentWillMount = async () => {
+    const { data: acceptedWebsites } = await Utils.getAcceptedWebsites();
+    this.setState({ acceptedWebsites });
   }
 
   logout = () => {
