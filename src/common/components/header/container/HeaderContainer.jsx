@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { Account, Utils } from '../../../utils/api';
 
 import Header from '../components';
-import SubmitRecipe from '../../submit-recipe/container/SubmitRecipeContainer';
+import SubmitRecipeContainer from '../../submit-recipe/container/SubmitRecipeContainer';
+import AcceptedWebsites from '../../acceptedWebsites/components';
 
 const {
   shape,
@@ -51,6 +52,12 @@ class HeaderContainer extends React.Component {
     this.setState({ showModal: false });
   }
 
+  handleAcceptedModal = () => {
+    this.setState(prevState => (
+      { showAcceptedWebsites: !prevState.showAcceptedWebsites }
+    ));
+  }
+
   render = () => (
     <div>
       <SubmitRecipe
@@ -58,6 +65,11 @@ class HeaderContainer extends React.Component {
         handleModalClose={this.handleModalClose}
         updateRecipes={this.props.updateRecipes}
         recipes={this.props.recipes}
+      />
+      <AcceptedWebsites
+        show={this.state.showAcceptedWebsites}
+        handleAcceptedModal={this.handleAcceptedModal}
+        acceptedWebsites={this.state.acceptedWebsites}
       />
       <Header
         logout={this.logout}
