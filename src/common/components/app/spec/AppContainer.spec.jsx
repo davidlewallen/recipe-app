@@ -31,6 +31,8 @@ describe('AppContainer', () => {
   });
 
   it('should render', () => {
+    wrapper.setState({ loading: false });
+    wrapper.update();
     expect(wrapper.find('div').exists()).toBe(true);
   });
 
@@ -44,6 +46,20 @@ describe('AppContainer', () => {
     it('should check auth and update state', async () => {
       await instance.componentWillMount();
       expect(instance.state.isAuth).toBe(true);
+    });
+
+    it('should call getUser if data.isAuth is truthy', async () => {
+      const spy = jest.spyOn(instance, 'getUser');
+      await instance.componentWillMount();
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it('should set loading state to false if data.isAuth is falsey', async () => {
+      instance.setState({ loading: true });
+      mock.onGet('/api/account/auth').reply(200, { isAuth: false });
+      expect(instance.state.loading).toBe(true);
+      await instance.componentWillMount();
+      expect(instance.state.loading).toBe(false);
     });
   });
 
@@ -122,6 +138,8 @@ describe('AppContainer', () => {
           <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
+      mountWrapper.find('AppContainer').instance().setState({ loading: false });
+      mountWrapper.update();
       expect(mountWrapper.find('HomepageContainer').exists()).toBe(true);
     });
 
@@ -132,13 +150,15 @@ describe('AppContainer', () => {
         </MemoryRouter>,
       );
 
-      mountWrapper.find('AppContainer').instance().setState({ user: { username: 'test' } });
+      mountWrapper.find('AppContainer').instance().setState({
+        user: { username: 'test' },
+        loading: false,
+      });
       mountWrapper.update();
       expect(mountWrapper.find('DashboardRoutes').exists()).toBe(true);
     });
 
     it('should redirect to /account/login if isAuth is false and an user tries to nav to /dashboard', () => {
-      mock.reset();
       mock.onGet('/api/account/auth').reply(200, { isAuth: false });
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/']}>
@@ -149,7 +169,9 @@ describe('AppContainer', () => {
       mountWrapper.find('AppContainer').instance().setState({
         isAuth: false,
         user: { username: '' },
+        loading: false,
       });
+      mountWrapper.update();
       mountWrapper.find('Router').prop('history').push('/dashboard');
       mountWrapper.update();
 
@@ -162,6 +184,10 @@ describe('AppContainer', () => {
           <Route component={AppContainer} />
         </MemoryRouter>,
       );
+
+      mountWrapper.find('AppContainer').instance().setState({ loading: false });
+      mountWrapper.update();
+
       expect(mountWrapper.find('AccountRoutes').exists()).toBe(true);
     });
   });

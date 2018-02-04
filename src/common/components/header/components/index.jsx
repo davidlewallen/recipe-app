@@ -9,6 +9,7 @@ const propTypes = {
   logout: func.isRequired,
   handleModalOpen: func.isRequired,
   isAuth: bool.isRequired,
+  handleAcceptedModal: func.isRequired,
 };
 
 const Header = props => (
@@ -28,13 +29,17 @@ const Header = props => (
             + Add Recipe
           </NavItem>
 
+          <NavItem eventKey={2} onClick={props.handleAcceptedModal}>
+            Accepted Websites
+          </NavItem>
+
           <LinkContainer to="/account">
-            <NavItem eventKey={2}>
+            <NavItem eventKey={3}>
               Account
             </NavItem>
           </LinkContainer>
 
-          <NavItem eventKey={3} onClick={props.logout}>
+          <NavItem eventKey={4} onClick={props.logout}>
             Logout
           </NavItem>
         </Nav>

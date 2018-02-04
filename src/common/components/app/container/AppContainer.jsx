@@ -23,6 +23,7 @@ class AppContainer extends React.Component {
     this.state = {
       recipes: [],
       isAuth: true,
+      loading: true,
       user: {
         email: '',
         username: '',
@@ -45,12 +46,15 @@ class AppContainer extends React.Component {
 
     if (data.isAuth) {
       await this.getUser();
+    } else {
+      this.setState({ loading: false });
     }
   }
 
   getUser = async () => {
+    this.setState({ loading: true });
     const { data: user } = await Account.getUser();
-    this.setState({ user });
+    this.setState({ user, loading: false });
   }
 
   updateRecipes = (updatedRecipes) => {
@@ -63,7 +67,7 @@ class AppContainer extends React.Component {
     if (authValue) this.getUser();
   }
 
-  render = () => (
+  render = () => !this.state.loading && (
     <div>
       {this.props.location.pathname !== '/' && (
         <HeaderContainer

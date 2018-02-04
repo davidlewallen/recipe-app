@@ -101,19 +101,4 @@ describe('LoginContainer test', () => {
       expect(instance.state.password).toEqual('test');
     });
   });
-
-  describe('handleEmail', () => {
-    it('should call clearFields', () => {
-      const spy = jest.spyOn(instance, 'clearFields');
-      instance.clearFields();
-      expect(spy).toHaveBeenCalled();
-    });
-
-    it('should clear field state', () => {
-      instance.setState(mockState);
-      instance.clearFields();
-      expect(instance.state.username).toEqual('');
-      expect(instance.state.password).toEqual('');
-    });
-  });
 });

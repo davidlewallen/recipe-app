@@ -25,6 +25,7 @@ describe('HeaderContainer', () => {
     jest.resetAllMocks();
 
     mock.reset();
+    mock.onGet('/api/approved').reply(200, ['test', 'test2']);
 
     wrapper = shallow(<HeaderContainer {...props} />);
     instance = wrapper.instance();
@@ -64,6 +65,16 @@ describe('HeaderContainer', () => {
       instance.handleModalClose();
       expect(spy).toHaveBeenCalled();
       expect(instance.state.showModal).toBe(false);
+    });
+  });
+
+  describe('handleAcceptedModal', () => {
+    it('should set showAcceptedModal to true if false and false if true', () => {
+      expect(instance.state.showAcceptedModal).toBe(false);
+      instance.handleAcceptedModal();
+      expect(instance.state.showAcceptedModal).toBe(true);
+      instance.handleAcceptedModal();
+      expect(instance.state.showAcceptedModal).toBe(false);
     });
   });
 });

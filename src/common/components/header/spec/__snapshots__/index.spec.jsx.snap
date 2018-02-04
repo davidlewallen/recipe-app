@@ -60,6 +60,20 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
       >
         + Add Recipe
       </NavItem>
+      <NavItem
+        active={false}
+        disabled={false}
+        eventKey={2}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
+      >
+        Accepted Websites
+      </NavItem>
       <LinkContainer
         activeClassName="active"
         exact={false}
@@ -70,7 +84,7 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
         <NavItem
           active={false}
           disabled={false}
-          eventKey={2}
+          eventKey={3}
         >
           Account
         </NavItem>
@@ -78,7 +92,7 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
       <NavItem
         active={false}
         disabled={false}
-        eventKey={3}
+        eventKey={4}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -94,7 +108,7 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
 </Uncontrolled(Navbar)>
 `;
 
-exports[`Header component should display + Add Recipe, Account, Logout if isAuth is true 1`] = `
+exports[`Header component should display + Add Recipe, Accepted Websites, Account, Logout if isAuth is true 1`] = `
 <Uncontrolled(Navbar)
   bsStyle="default"
   collapseOnSelect={true}
@@ -134,6 +148,20 @@ exports[`Header component should display + Add Recipe, Account, Logout if isAuth
       >
         + Add Recipe
       </NavItem>
+      <NavItem
+        active={false}
+        disabled={false}
+        eventKey={2}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
+      >
+        Accepted Websites
+      </NavItem>
       <LinkContainer
         activeClassName="active"
         exact={false}
@@ -144,7 +172,7 @@ exports[`Header component should display + Add Recipe, Account, Logout if isAuth
         <NavItem
           active={false}
           disabled={false}
-          eventKey={2}
+          eventKey={3}
         >
           Account
         </NavItem>
@@ -152,7 +180,7 @@ exports[`Header component should display + Add Recipe, Account, Logout if isAuth
       <NavItem
         active={false}
         disabled={false}
-        eventKey={3}
+        eventKey={4}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -208,6 +236,20 @@ exports[`Header component should display menu if isAuth is true 1`] = `
       >
         + Add Recipe
       </NavItem>
+      <NavItem
+        active={false}
+        disabled={false}
+        eventKey={2}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
+      >
+        Accepted Websites
+      </NavItem>
       <LinkContainer
         activeClassName="active"
         exact={false}
@@ -218,7 +260,7 @@ exports[`Header component should display menu if isAuth is true 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={2}
+          eventKey={3}
         >
           Account
         </NavItem>
@@ -226,7 +268,7 @@ exports[`Header component should display menu if isAuth is true 1`] = `
       <NavItem
         active={false}
         disabled={false}
-        eventKey={3}
+        eventKey={4}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -276,6 +318,14 @@ exports[`Header component should match snapshot 1`] = `
       >
         + Add Recipe
       </NavItem>
+      <NavItem
+        active={false}
+        disabled={false}
+        eventKey={2}
+        onClick={[MockFunction]}
+      >
+        Accepted Websites
+      </NavItem>
       <LinkContainer
         activeClassName="active"
         exact={false}
@@ -286,7 +336,7 @@ exports[`Header component should match snapshot 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={2}
+          eventKey={3}
         >
           Account
         </NavItem>
@@ -294,7 +344,7 @@ exports[`Header component should match snapshot 1`] = `
       <NavItem
         active={false}
         disabled={false}
-        eventKey={3}
+        eventKey={4}
         onClick={[MockFunction]}
       >
         Logout
