@@ -38,7 +38,6 @@ class LoginContainer extends Component {
       await Account.login(body);
 
       this.props.updateAuth(true);
-      this.clearFields();
 
       this.props.history.replace('/dashboard');
     } catch (err) {
@@ -62,10 +61,6 @@ class LoginContainer extends Component {
   handlePassword = (event) => {
     const password = event.target.value;
     this.setState({ password });
-  }
-
-  clearFields = () => {
-    this.setState({ username: '', password: '' });
   }
 
   render = () => (
