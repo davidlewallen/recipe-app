@@ -28,7 +28,7 @@ class HeaderContainer extends React.Component {
 
     this.state = {
       showModal: false,
-      showAcceptedWebsites: false,
+      showAcceptedModal: false,
       acceptedWebsites: [],
     };
   }
@@ -54,7 +54,7 @@ class HeaderContainer extends React.Component {
 
   handleAcceptedModal = () => {
     this.setState(prevState => (
-      { showAcceptedWebsites: !prevState.showAcceptedWebsites }
+      { showAcceptedModal: !prevState.showAcceptedModal }
     ));
   }
 
@@ -67,7 +67,7 @@ class HeaderContainer extends React.Component {
         recipes={this.props.recipes}
       />
       <AcceptedWebsites
-        show={this.state.showAcceptedWebsites}
+        show={this.state.showAcceptedModal}
         handleAcceptedModal={this.handleAcceptedModal}
         acceptedWebsites={this.state.acceptedWebsites}
       />
