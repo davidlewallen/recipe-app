@@ -60,7 +60,7 @@ class HeaderContainer extends React.Component {
 
   render = () => (
     <div>
-      <SubmitRecipe
+      <SubmitRecipeContainer
         show={this.state.showModal}
         handleModalClose={this.handleModalClose}
         updateRecipes={this.props.updateRecipes}
@@ -75,6 +75,7 @@ class HeaderContainer extends React.Component {
         logout={this.logout}
         handleModalOpen={this.handleModalOpen}
         isAuth={this.props.isAuth}
+        handleAcceptedModal={this.handleAcceptedModal}
       />
     </div>
   );
