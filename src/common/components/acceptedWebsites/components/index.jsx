@@ -40,11 +40,10 @@ const AcceptedWebsites = props => (
       <Row className="website-list">
         {props.acceptedWebsites.map(website => (
           <Col
-            className="align-center"
             xs={12}
             key={genKey(website)}
           >
-            <div className="website-text">{website}</div>
+            <div className="website-text">- {website}</div>
           </Col>
         ))}
       </Row>
