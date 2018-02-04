@@ -9,7 +9,7 @@ router.use(isAuthenticated);
 
 router.get('/', async (req, res) => {
   try {
-    res.json(await Recipe.get(req.user._id))
+    res.json(await Recipe.get(req.user._id));
   } catch (err) {
     res.status(500).send(err);
   }
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.post('/submit/:recipeURL',  async (req, res) => {
   try {
     const result = await Recipe.submit(req.params.recipeURL, req.user._id);
-    
+
     if (result.nonProcessableWebsite) {
       res.status(403).send({ result });
     } else {
