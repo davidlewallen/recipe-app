@@ -4,6 +4,8 @@ import { Modal, Row, Col } from 'react-bootstrap';
 
 import genKey from '../../../utils/randomKeys';
 
+import '../assets/styles/index.css';
+
 const {
   arrayOf,
   string,
@@ -35,14 +37,14 @@ const AcceptedWebsites = props => (
           </div>
         </Col>
       </Row>
-      <Row>
+      <Row className="website-list">
         {props.acceptedWebsites.map(website => (
           <Col
             className="align-center"
             xs={12}
             key={genKey(website)}
           >
-            <div>{website}</div>
+            <div className="website-text">{website}</div>
           </Col>
         ))}
       </Row>

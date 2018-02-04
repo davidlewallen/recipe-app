@@ -1,0 +1,25 @@
+.accepted-websites-modal {
+  color: #9d9d9d;
+}
+
+.accepted-websites-modal .modal-content {
+  background-color: #222222;
+}
+
+.accepted-websites-modal button.close {
+  color: #9d9d9d;
+}
+
+.accepted-websites-modal .modal-header {
+  border-color: #9d9d9d;
+}
+
+.accepted-websites-modal .website-list {
+  margin-top: 10px;
+}
+
+.accepted-websites-modal .website-text {
+  border: 1px solid #9d9d9d;
+  border-radius: 1em;
+}
+
