@@ -145,7 +145,6 @@ describe('AppContainer', () => {
     });
 
     it('should redirect to /account/login if isAuth is false and an user tries to nav to /dashboard', () => {
-      mock.reset();
       mock.onGet('/api/account/auth').reply(200, { isAuth: false });
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/']}>

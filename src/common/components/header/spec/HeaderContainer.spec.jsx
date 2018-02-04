@@ -25,6 +25,7 @@ describe('HeaderContainer', () => {
     jest.resetAllMocks();
 
     mock.reset();
+    mock.onGet('/api/approved').reply(200, ['test', 'test2']);
 
     wrapper = shallow(<HeaderContainer {...props} />);
     instance = wrapper.instance();
