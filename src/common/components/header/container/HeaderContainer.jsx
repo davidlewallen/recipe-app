@@ -20,16 +20,18 @@ type Props = {
   updateAuth: () => void,
 }
 
-class HeaderContainer extends React.Component<Props> {
-  constructor() {
-    super();
+type State = {
+  showModal: boolean,
+  showAcceptedModal: boolean,
+  acceptedWebsites: Array<String>,
+}
 
-    this.state = {
-      showModal: false,
-      showAcceptedModal: false,
-      acceptedWebsites: [],
-    };
-  }
+class HeaderContainer extends React.Component<Props, State> {
+  state = {
+    showModal: false,
+    showAcceptedModal: false,
+    acceptedWebsites: [],
+  };
 
   componentWillMount = async () => {
     const { data: acceptedWebsites } = await Utils.getAcceptedWebsites();
