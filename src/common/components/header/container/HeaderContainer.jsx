@@ -1,5 +1,8 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import { type RouterHistory } from 'react-router-dom';
+import { type Recipes, type Recipe } from '../../../types';
 
 import { Account, Utils } from '../../../utils/api';
 
@@ -9,22 +12,15 @@ import AcceptedWebsites from '../../acceptedWebsites/components';
 
 import '../assets/styles/index.css';
 
-const {
-  shape,
-  func,
-  arrayOf,
-  object,
-  bool,
-} = PropTypes;
-const propTypes = {
-  history: shape({ replace: func.isRequired }).isRequired,
-  updateRecipes: func.isRequired,
-  recipes: arrayOf(object.isRequired).isRequired,
-  isAuth: bool.isRequired,
-  updateAuth: func.isRequired,
-};
+type Props = {
+  history: RouterHistory,
+  updateRecipes: (recipes: Recipes | Recipe) => void,
+  recipes: Recipes,
+  isAuth: boolean,
+  updateAuth: () => void,
+}
 
-class HeaderContainer extends React.Component {
+class HeaderContainer extends React.Component<Props> {
   constructor() {
     super();
 
@@ -83,5 +79,4 @@ class HeaderContainer extends React.Component {
   );
 }
 
-HeaderContainer.propTypes = propTypes;
 export default HeaderContainer;

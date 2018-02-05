@@ -1,24 +1,18 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Modal, Row, Col } from 'react-bootstrap';
 
 import genKey from '../../../utils/randomKeys';
 
 import '../assets/styles/index.css';
 
-const {
-  arrayOf,
-  string,
-  func,
-  bool,
-} = PropTypes;
-const propTypes = {
-  show: bool.isRequired,
-  handleAcceptedModal: func.isRequired,
-  acceptedWebsites: arrayOf(string.isRequired).isRequired,
-};
+type Props = {
+  show: boolean,
+  handleAcceptedModal: () => void,
+  acceptedWebsites: Array<String>,
+}
 
-const AcceptedWebsites = props => (
+const AcceptedWebsites: React$ComponentType<Props> = (props: Props) => (
   <Modal
     show={props.show}
     onHide={props.handleAcceptedModal}
@@ -38,7 +32,7 @@ const AcceptedWebsites = props => (
         </Col>
       </Row>
       <Row className="website-list">
-        {props.acceptedWebsites.map(website => (
+        {props.acceptedWebsites.map((website: String) => (
           <Col
             xs={12}
             key={genKey(website)}
@@ -51,5 +45,4 @@ const AcceptedWebsites = props => (
   </Modal>
 );
 
-AcceptedWebsites.propTypes = propTypes;
 export default AcceptedWebsites;
