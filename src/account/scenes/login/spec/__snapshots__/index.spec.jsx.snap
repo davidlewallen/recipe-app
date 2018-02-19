@@ -21,7 +21,7 @@ exports[`Login component snapshot test should display error message 1`] = `
       <form>
         <FormGroup
           bsClass="form-group"
-          className="align-center"
+          className="align-left"
         >
           <p
             className="error-message"
@@ -68,6 +68,7 @@ exports[`Login component snapshot test should display error message 1`] = `
             className="login-button"
             disabled={false}
             onClick={[Function]}
+            type="submit"
           >
             Login
           </Button>
@@ -110,7 +111,7 @@ exports[`Login component snapshot test should match snapshot 1`] = `
       <form>
         <FormGroup
           bsClass="form-group"
-          className="align-center"
+          className="align-left"
         >
           <ControlLabel
             bsClass="control-label"
@@ -152,6 +153,7 @@ exports[`Login component snapshot test should match snapshot 1`] = `
             className="login-button"
             disabled={false}
             onClick={[Function]}
+            type="submit"
           >
             Login
           </Button>

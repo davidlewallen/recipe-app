@@ -46,10 +46,25 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
       pullRight={true}
       stacked={false}
     >
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/dashboard"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={1}
+        >
+          My Recipes
+        </NavItem>
+      </LinkContainer>
       <NavItem
         active={false}
         disabled={false}
-        eventKey={1}
+        eventKey={2}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -63,7 +78,7 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
       <NavItem
         active={false}
         disabled={false}
-        eventKey={2}
+        eventKey={3}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -84,7 +99,7 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
         <NavItem
           active={false}
           disabled={false}
-          eventKey={3}
+          eventKey={4}
         >
           Account
         </NavItem>
@@ -92,7 +107,7 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
       <NavItem
         active={false}
         disabled={false}
-        eventKey={4}
+        eventKey={5}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -134,10 +149,25 @@ exports[`Header component should display + Add Recipe, Accepted Websites, Accoun
       pullRight={true}
       stacked={false}
     >
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/dashboard"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={1}
+        >
+          My Recipes
+        </NavItem>
+      </LinkContainer>
       <NavItem
         active={false}
         disabled={false}
-        eventKey={1}
+        eventKey={2}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -151,7 +181,7 @@ exports[`Header component should display + Add Recipe, Accepted Websites, Accoun
       <NavItem
         active={false}
         disabled={false}
-        eventKey={2}
+        eventKey={3}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -172,7 +202,7 @@ exports[`Header component should display + Add Recipe, Accepted Websites, Accoun
         <NavItem
           active={false}
           disabled={false}
-          eventKey={3}
+          eventKey={4}
         >
           Account
         </NavItem>
@@ -180,7 +210,7 @@ exports[`Header component should display + Add Recipe, Accepted Websites, Accoun
       <NavItem
         active={false}
         disabled={false}
-        eventKey={4}
+        eventKey={5}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -222,10 +252,25 @@ exports[`Header component should display menu if isAuth is true 1`] = `
       pullRight={true}
       stacked={false}
     >
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/dashboard"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={1}
+        >
+          My Recipes
+        </NavItem>
+      </LinkContainer>
       <NavItem
         active={false}
         disabled={false}
-        eventKey={1}
+        eventKey={2}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -239,7 +284,7 @@ exports[`Header component should display menu if isAuth is true 1`] = `
       <NavItem
         active={false}
         disabled={false}
-        eventKey={2}
+        eventKey={3}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -260,7 +305,7 @@ exports[`Header component should display menu if isAuth is true 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={3}
+          eventKey={4}
         >
           Account
         </NavItem>
@@ -268,7 +313,7 @@ exports[`Header component should display menu if isAuth is true 1`] = `
       <NavItem
         active={false}
         disabled={false}
-        eventKey={4}
+        eventKey={5}
         onClick={
           [MockFunction] {
             "calls": Array [
@@ -310,10 +355,25 @@ exports[`Header component should match snapshot 1`] = `
       pullRight={true}
       stacked={false}
     >
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/dashboard"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={1}
+        >
+          My Recipes
+        </NavItem>
+      </LinkContainer>
       <NavItem
         active={false}
         disabled={false}
-        eventKey={1}
+        eventKey={2}
         onClick={[MockFunction]}
       >
         + Add Recipe
@@ -321,7 +381,7 @@ exports[`Header component should match snapshot 1`] = `
       <NavItem
         active={false}
         disabled={false}
-        eventKey={2}
+        eventKey={3}
         onClick={[MockFunction]}
       >
         Accepted Websites
@@ -336,7 +396,7 @@ exports[`Header component should match snapshot 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={3}
+          eventKey={4}
         >
           Account
         </NavItem>
@@ -344,7 +404,7 @@ exports[`Header component should match snapshot 1`] = `
       <NavItem
         active={false}
         disabled={false}
-        eventKey={4}
+        eventKey={5}
         onClick={[MockFunction]}
       >
         Logout
