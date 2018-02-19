@@ -28,7 +28,7 @@ const Login = props => (
     <Row>
       <Col xs={12} sm={6} smOffset={3}>
         <form>
-          <FormGroup className="align-center">
+          <FormGroup className="align-left">
             {props.error.value && (
               <p className="error-message">{props.error.message}</p>
             )}
