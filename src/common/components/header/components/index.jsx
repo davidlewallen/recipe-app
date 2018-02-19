@@ -25,21 +25,27 @@ const Header = props => (
     {props.isAuth && (
       <Navbar.Collapse>
         <Nav pullRight>
-          <NavItem eventKey={1} onClick={props.handleModalOpen}>
+          <LinkContainer to="/dashboard">
+            <NavItem eventKey={1}>
+              My Recipes
+            </NavItem>
+          </LinkContainer>
+
+          <NavItem eventKey={2} onClick={props.handleModalOpen}>
             + Add Recipe
           </NavItem>
 
-          <NavItem eventKey={2} onClick={props.handleAcceptedModal}>
+          <NavItem eventKey={3} onClick={props.handleAcceptedModal}>
             Accepted Websites
           </NavItem>
 
           <LinkContainer to="/account">
-            <NavItem eventKey={3}>
+            <NavItem eventKey={4}>
               Account
             </NavItem>
           </LinkContainer>
 
-          <NavItem eventKey={4} onClick={props.logout}>
+          <NavItem eventKey={5} onClick={props.logout}>
             Logout
           </NavItem>
         </Nav>
