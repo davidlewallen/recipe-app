@@ -52,6 +52,7 @@ const Login = props => (
             />
             <Button
               block
+              type="submit"
               className="login-button"
               bsStyle="primary"
               onClick={props.login}
