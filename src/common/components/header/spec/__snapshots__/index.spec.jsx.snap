@@ -123,7 +123,7 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
 </Uncontrolled(Navbar)>
 `;
 
-exports[`Header component should display + Add Recipe, Accepted Websites, Account, Logout if isAuth is true 1`] = `
+exports[`Header component should display My Recipes,+ Add Recipe, Accepted Websites, Account, Logout if isAuth is true 1`] = `
 <Uncontrolled(Navbar)
   bsStyle="default"
   collapseOnSelect={true}
@@ -414,7 +414,7 @@ exports[`Header component should match snapshot 1`] = `
 </Uncontrolled(Navbar)>
 `;
 
-exports[`Header component should not display + Add Recipe, Account, and Logout if isAuth is false 1`] = `
+exports[`Header component should not display My Recipes, + Add Recipe, Account, and Logout if isAuth is false 1`] = `
 <Uncontrolled(Navbar)
   bsStyle="default"
   collapseOnSelect={true}
