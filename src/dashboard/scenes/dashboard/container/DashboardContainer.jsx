@@ -20,7 +20,6 @@ class DashboardContainer extends React.Component {
     super();
 
     this.state = {
-      loading: true,
       showModal: false,
       selectedRecipe: {
         title: '',
@@ -41,10 +40,8 @@ class DashboardContainer extends React.Component {
 
   getUserRecipes = async () => {
     try {
-      this.setState({ loading: true });
       const { data: recipes } = await Recipe.getRecipes();
       this.props.updateRecipes(recipes);
-      this.setState({ loading: false });
     } catch (err) {
       console.log(err);
     }
@@ -77,7 +74,6 @@ class DashboardContainer extends React.Component {
 
   render = () => (
     <Dashboard
-      loading={this.state.loading}
       recipes={this.props.recipes}
       deleteRecipe={this.deleteRecipe}
       showModal={this.state.showModal}
