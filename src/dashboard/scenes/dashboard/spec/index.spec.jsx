@@ -48,6 +48,7 @@ describe('Dashboard snapshot test', () => {
   it('should render Jumbotron with no recipe text if recipes length is falsy and loading is falsy', () => {
     const component = shallow(<Dashboard {...props} recipes={[]} />);
     expect(component.find('Jumbotron').exists()).toBe(true);
+    expect(component).toMatchSnapshot();
   });
 
   it('should render a .recipe-container if recipes length is truthy', () => {

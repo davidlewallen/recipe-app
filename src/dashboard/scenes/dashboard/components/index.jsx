@@ -45,9 +45,9 @@ const Dashboard = props => (
     {!props.recipes.length && !props.loading ? (
       <Row>
         <Col xs={12}>
-          <Jumbotron>
+          <Jumbotron className="align-center">
             <p>Looks like you have no recipes currently saved. You should add some!</p>
-            <p>To add recipes, click the menu button and select &quot;+ Add Recipe&quote;</p>
+            <p>To add recipes, click the menu button and select &quot;+ Add Recipe&quot;.</p>
           </Jumbotron>
         </Col>
       </Row>

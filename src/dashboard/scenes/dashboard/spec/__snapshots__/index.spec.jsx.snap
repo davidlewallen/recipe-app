@@ -243,3 +243,56 @@ exports[`Dashboard snapshot test should match snapshot 1`] = `
   </Row>
 </Grid>
 `;
+
+exports[`Dashboard snapshot test should render Jumbotron with no recipe text if recipes length is falsy and loading is falsy 1`] = `
+<Grid
+  bsClass="container"
+  className="dashboard"
+  componentClass="div"
+  fluid={false}
+>
+  <RecipeModal
+    deleteRecipe={[MockFunction]}
+    handleModalClose={[MockFunction]}
+    selectedRecipe={
+      Object {
+        "ingredients": Array [
+          "1",
+        ],
+        "instructions": Array [
+          "2",
+        ],
+        "title": "title",
+        "totalTime": "1 hour",
+        "url": Object {
+          "href": "www.randomurl.com",
+        },
+      }
+    }
+    showModal={false}
+  />
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <Jumbotron
+        bsClass="jumbotron"
+        className="align-center"
+        componentClass="div"
+      >
+        <p>
+          Looks like you have no recipes currently saved. You should add some!
+        </p>
+        <p>
+          To add recipes, click the menu button and select "+ Add Recipe".
+        </p>
+      </Jumbotron>
+    </Col>
+  </Row>
+</Grid>
+`;
