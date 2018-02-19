@@ -42,7 +42,7 @@ const Dashboard = props => (
       deleteRecipe={props.deleteRecipe}
     />
 
-    {!props.recipes.length && !props.loading ? (
+    {!props.recipes.length || !props.loading ? (
       <Row>
         <Col xs={12}>
           <Jumbotron className="align-center">
