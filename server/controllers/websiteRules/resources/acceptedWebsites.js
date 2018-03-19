@@ -5,7 +5,7 @@ const geniuskitchen = require('../geniuskitchen');
 
 const acceptedWebsites = [
   { hostname: 'www.foodnetwork.com', func: foodnetwork.strip },
-  { hostname: 'allrecipes.com', func: allrecipes.strip },
+  { hostname: 'www.allrecipes.com', func: allrecipes.strip },
   { hostname: 'www.myrecipes.com', func: myrecipes.strip },
   { hostname: 'www.realsimple.com', func: myrecipes.strip },
   { hostname: 'www.health.com', func: myrecipes.strip },
@@ -13,7 +13,7 @@ const acceptedWebsites = [
 ];
 
 const acceptedWebsitesTest = [
-  { hostname: 'allrecipes.com', func: allrecipes.strip },
+  { hostname: 'www.allrecipes.com', func: allrecipes.strip },
   { hostname: 'www.myrecipes.com', func: myrecipes.strip },
   { hostname: 'www.realsimple.com', func: myrecipes.strip },
   { hostname: 'www.health.com', func: myrecipes.strip },

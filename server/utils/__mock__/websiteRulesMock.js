@@ -16,7 +16,7 @@ module.exports = {
     ],
     title: 'Famous Butter Chicken',
     totalTime: '55 minutes',
-    imageURL: 'http://images.media-allrecipes.com/userphotos/560x315/296379.jpg',
+    imageURL: 'https://images.media-allrecipes.com/userphotos/560x315/296379.jpg',
     full: {
       ingredients: [
         '2 eggs, beaten',
@@ -32,7 +32,7 @@ module.exports = {
         '4) Bake in the preheated oven for 40 minutes, or until chicken is no longer pink and juices run clear.'],
       title: 'Famous Butter Chicken',
       totalTime: '55 minutes',
-      imageURL: 'http://images.media-allrecipes.com/userphotos/560x315/296379.jpg',
+      imageURL: 'https://images.media-allrecipes.com/userphotos/560x315/296379.jpg',
     },
   },
   foodnetwork: {
@@ -159,7 +159,7 @@ module.exports = {
     ],
     title: 'Citrusy Kale Salad W/ Blueberries and Pepitas (& Variations)',
     totalTime: '20 minutes',
-    imageURL: 'http://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/25/94/MwrTLl9tTi5LzTfU9XdA_kale%20salad-9820.jpg',
+    imageURL: 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/25/94/MwrTLl9tTi5LzTfU9XdA_kale%20salad-9820.jpg',
     full: {
       ingredients:
         ['1  bunch curly kale (I tried lacinato kale and next time will try Russian kale)',
@@ -179,7 +179,7 @@ module.exports = {
           '5) Add the avocado, berries and seeds and toss all together. Do not add the dressing, avocado, berries or seeds to the salad until just before serving.'],
       title: 'Citrusy Kale Salad W/ Blueberries and Pepitas (& Variations)',
       totalTime: '20 minutes',
-      imageURL: 'http://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/25/94/MwrTLl9tTi5LzTfU9XdA_kale%20salad-9820.jpg',
+      imageURL: 'https://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/46/25/94/MwrTLl9tTi5LzTfU9XdA_kale%20salad-9820.jpg',
     }
   },
   myrecipes: {
@@ -203,7 +203,7 @@ module.exports = {
     ],
     title: 'Superfood Crunch Granola',
     totalTime: '1 hour',
-    imageURL: 'http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=y0NyIBOU',
+    imageURL: 'http://cdn-image.myrecipes.com/sites/default/files/styles/medium_2x/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=GBXb_2YF',
     full: {
       ingredients:
         ['2 cups old-fashioned rolled oats',
@@ -225,7 +225,8 @@ module.exports = {
           '3) Immediately transfer granola to a large bowl and let cool completely, stirring occasionally. (Granola will crisp as it cools.) When it\'s cool, toss in goji berries. Store leftovers in an airtight container for up to 2 weeks.'],
       title: 'Superfood Crunch Granola',
       totalTime: '1 hour',
-      imageURL: 'http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=y0NyIBOU',    }
+      imageURL: 'http://cdn-image.myrecipes.com/sites/default/files/styles/medium_2x/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=GBXb_2YF',
+    }
   },
   realsimple: {
     ingredients: ['1 ounce dried porcini mushrooms',

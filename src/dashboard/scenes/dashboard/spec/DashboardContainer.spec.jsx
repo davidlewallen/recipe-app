@@ -106,7 +106,7 @@ describe('DashboardContainer test', () => {
 
     it('should delete a recipe and update state', async () => {
       await instance.deleteRecipe(1);
-      expect(props.updateRecipes).toHaveBeenCalledWith([mockRecipeList[1]]);
+      expect(props.updateRecipes).toHaveBeenCalledWith([mockRecipeList[0]]);
     });
 
     it('should log error if request is bad', async () => {
