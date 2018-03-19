@@ -41,7 +41,7 @@ class DashboardContainer extends React.Component {
   getUserRecipes = async () => {
     try {
       const { data: recipes } = await Recipe.getRecipes();
-      this.props.updateRecipes(recipes);
+      this.props.updateRecipes(recipes.reverse());
     } catch (err) {
       console.log(err);
     }
@@ -51,7 +51,7 @@ class DashboardContainer extends React.Component {
     try {
       const { data: recipes } = await Recipe.deleteRecipe(recipeId);
 
-      this.props.updateRecipes(recipes);
+      this.props.updateRecipes(recipes.reverse());
     } catch (err) {
       console.log(err);
     }
