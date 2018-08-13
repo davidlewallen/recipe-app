@@ -27,8 +27,8 @@ class LoginContainer extends Component {
     };
   }
 
-  login = async ({ preventDefault }) => {
-    preventDefault();
+  login = async (event) => {
+    event.preventDefault();
 
     try {
       const {
