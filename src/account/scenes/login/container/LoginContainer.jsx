@@ -27,19 +27,23 @@ class LoginContainer extends Component {
     };
   }
 
-  login = async (event) => {
-    event.preventDefault();
+  login = async ({ preventDefault }) => {
+    preventDefault();
 
     try {
-      const { username, password } = this.state;
+      const {
+        props: { history, updateAuth },
+        state: { username, password },
+      } = this;
 
-      const body = { username, password };
+      await Account.login({
+        username,
+        password,
+      });
 
-      await Account.login(body);
+      updateAuth(true);
 
-      this.props.updateAuth(true);
-
-      this.props.history.replace('/dashboard');
+      history.replace('/dashboard');
     } catch (err) {
       const { response } = err;
       if (response.status === 400) {
@@ -53,15 +57,13 @@ class LoginContainer extends Component {
     }
   }
 
-  handleUsername = (event) => {
-    const username = event.target.value;
-    this.setState({ username });
-  }
+  handleUsername = ({ target: { value: username } }) => (
+    this.setState({ username: username.trim() })
+  );
 
-  handlePassword = (event) => {
-    const password = event.target.value;
-    this.setState({ password });
-  }
+  handlePassword = ({ target: { value: password } }) => (
+    this.setState({ password: password.trim() })
+  );
 
   render = () => (
     <Login

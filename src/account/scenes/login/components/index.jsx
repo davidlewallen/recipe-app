@@ -1,19 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, func, shape, bool } from 'prop-types';
 import { Link } from 'react-router-dom';
-import {
-  Grid,
-  Row,
-  Col,
-  Button,
-  FormGroup,
-  ControlLabel,
-  FormControl,
-} from 'react-bootstrap';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
 
-const {
-  string, func, shape, bool,
-} = PropTypes;
 const propTypes = {
   username: string.isRequired,
   handleUsername: func.isRequired,
@@ -23,14 +18,16 @@ const propTypes = {
   login: func.isRequired,
 };
 
-const Login = props => (
+const Login = ({
+  error, username, handleUsername, password, handlePassword, login,
+}) => (
   <Grid className="login">
     <Row>
       <Col xs={12} sm={6} smOffset={3}>
         <form>
           <FormGroup className="align-left">
-            {props.error.value && (
-              <p className="error-message">{props.error.message}</p>
+            {error.value && (
+              <p className="error-message">{error.message}</p>
             )}
             <ControlLabel>Username</ControlLabel>
             <FormControl
@@ -38,8 +35,8 @@ const Login = props => (
               className="username-input"
               type="text"
               placeholder="E.g. JohnDoe123"
-              value={props.username}
-              onChange={props.handleUsername}
+              value={username}
+              onChange={handleUsername}
             />
             <ControlLabel>Password</ControlLabel>
             <FormControl
@@ -47,19 +44,24 @@ const Login = props => (
               className="password-input"
               placeholder="E.g. 124!Jigzx"
               type="password"
-              value={props.password}
-              onChange={props.handlePassword}
+              value={password}
+              onChange={handlePassword}
             />
             <Button
               block
               type="submit"
               className="login-button"
               bsStyle="primary"
-              onClick={props.login}
+              onClick={login}
             >
               Login
             </Button>
-            <div className="register-text">New to My Saved Recipes? <Link to="/account/register">Create an account.</Link></div>
+            <div className="register-text">
+              {'New to My Saved Recipes? '}
+              <Link to="/account/register">
+                Create an account.
+              </Link>
+            </div>
           </FormGroup>
         </form>
       </Col>
