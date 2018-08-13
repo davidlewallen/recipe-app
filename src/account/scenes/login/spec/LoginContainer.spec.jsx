@@ -85,6 +85,16 @@ describe('LoginContainer test', () => {
       instance.handleUsername({ target: { value: 'test' } });
       expect(instance.state.username).toEqual('test');
     });
+
+    it('should not allow space characters', () => {
+      instance.handleUsername({ target: { value: 'test' } });
+
+      expect(instance.state.username).toEqual('test');
+
+      instance.handleUsername({ target: { value: ' ' } });
+
+      expect(instance.state.username).not.toEqual('test');
+    });
   });
 
   describe('handlePassword', () => {
@@ -99,6 +109,16 @@ describe('LoginContainer test', () => {
       expect(instance.state.password).toEqual(mockState.password);
       instance.handlePassword({ target: { value: 'test' } });
       expect(instance.state.password).toEqual('test');
+    });
+
+    it('should not allow space characters', () => {
+      instance.handlePassword({ target: { value: 'test' } });
+
+      expect(instance.state.password).toEqual('test');
+
+      instance.handlePassword({ target: { value: ' ' } });
+
+      expect(instance.state.password).not.toEqual('test');
     });
   });
 });
