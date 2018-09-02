@@ -54,13 +54,15 @@ describe('Recipe Controller Test', () => {
       expect(result.length).toEqual(1);
     });
 
-    it('should return nonProcessable if url is not processable', async () => {
-      const url = 'http://http://www.seriouseats.com/recipes/2017/12/braised-chicken-aji-amarillo-coconut-milk-recipe.html/';
+    it('should add a recipe and give it "processable: false" if recipe can not be processed', async () => {
+      const url = 'https://www.google.com';
 
-      const result = await Recipe.submit(url, user._id);
+      await Recipe.submit(url, user._id);
 
-      expect(result.nonProcessable).toEqual(true);
-    });
+      const [recipe] = await RecipeModel.find({});
+
+      expect(recipe.processable).toBe(false);
+    })
 
     it('should add recipe id to account.savedRecipes array', async () => {
       const url = 'http://allrecipes.com/recipe/24002/famous-butter-chicken/';
