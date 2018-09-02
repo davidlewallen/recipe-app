@@ -7,7 +7,7 @@ const session = require('express-session');
 
 const server = require('./db');
 
-const scheduledTask = require('./utils/scheduledTask');
+// const scheduledTask = require('./utils/scheduledTask');
 
 const app = express();
 
@@ -46,6 +46,6 @@ app.get('/*', (req, res) => {
 
 app.listen(PORT, async () => {
   await server.start();
-  scheduledTask.runTasks();
+  // scheduledTask.runTasks();
   console.log(`API running on port ${PORT}`);
 });
