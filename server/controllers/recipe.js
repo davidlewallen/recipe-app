@@ -1,3 +1,4 @@
+const axios = require('axios');
 const URLParse = require('url-parse');
 
 const Recipe = require('../models/recipe');
@@ -29,34 +30,53 @@ const submit = async (recipeURL, userId) => {
   const parsedURL = URLParse(recipeURL)
 
   try {
-    // Check to see if we can process the provide website
-    if (isWebsiteProcessable(parsedURL)) {
-      // Check to see if recipe is already in recipe collection
-      let result = await Recipe.findOne({ 'url.href': parsedURL.href })
-      const exists = !!result;
+    // Check to see if recipe is already in recipe collection
+    let result = await Recipe.findOne({ 'url.href': parsedURL.href })
+    const recipeExists = Boolean(result);
 
-      // If recipe doesnt already exist, strip website and save to recipe
-      if (!exists) {
-        const recipe = new Recipe({ ...await stripWebsite(parsedURL) });
+    if (!recipeExists) {
+      // Check to see if we can process the provide website
+      if (isWebsiteProcessable(parsedURL)) {
+        // If recipe doesnt already exist, strip website and save to recipe
+        const recipe = new Recipe({ ...await stripWebsite(parsedURL)
+        });
         result = await recipe.save();
-      }
-      // If result is an array target index 0 and grab _id
-      // If result is an object target ._id
-      const recipeId = Array.isArray(result) ? result[0]._id : result._id;
+      } else {
+        const savedNPWebsite = await saveNonProcessableWebsite(result, parsedURL, userId);
 
-      const savedRecipe = await saveRecipeToUser(recipeId, userId);
-      if (!savedRecipe) {
-        return { alreadyAdded: true };
+        result = savedNPWebsite;
       }
-      
-      return result;
     }
-    await NPWebsite.save(parsedURL, userId);
-    
-    return { nonProcessable: true };
+
+    // If result is an array target index 0 and grab _id
+    // If result is an object target ._id
+    const recipeId = Array.isArray(result) ? result[0]._id : result._id;
+    const savedRecipe = await saveRecipeToUser(recipeId, userId);
+    if (!savedRecipe) {
+      return {
+        alreadyAdded: true
+      };
+    }
+
+    return result;    
   } catch (err) {
     console.log('err', err);
   }
+};
+
+const saveNonProcessableWebsite = async (result, parsedURL) => {
+  const { data: html } = await axios.get( parsedURL.href);
+  const title = html.split(/<title>|<\/title>/)[1] || 'n/a';
+  const url = {
+    hostname: parsedURL.hostname,
+    href: parsedURL.href,
+    link: parsedURL.hostname + parsedURL.pathname,
+  };
+
+  const recipe = new Recipe({ title, url, processable: false });
+  result = await recipe.save();
+
+  return result;
 };
 
 const saveRecipeToUser = async (recipeId, userId) => {
@@ -66,11 +86,14 @@ const saveRecipeToUser = async (recipeId, userId) => {
       { savedRecipes: recipeId }
     ]
   });
-  const isRecipeSaved = !!savedRecipeResult.length;
+  const recipeIsAlreadySaved = !!savedRecipeResult.length;
   
   // If user hasnt saved the recipe, add it to account.savedRecipe
   // Returns true if saved to user and false if not;
-  if (!isRecipeSaved) {
+  if (!recipeIsAlreadySaved) {
+    /**
+     * If recipe is not saved to 'savedRecipes' go ahead and save it
+     */
     await Account.findByIdAndUpdate(
       userId,
       { $push: { savedRecipes: recipeId } },
@@ -86,7 +109,7 @@ const saveRecipeToUser = async (recipeId, userId) => {
 const remove = async (recipeId, userId) => {
   try {
     const savedRecipeResult = await Account.find({ savedRecipes: recipeId });
-    const exists = !!savedRecipeResult.length;
+    const exists = Boolean(savedRecipeResult.length);
 
     if (exists) {
       await Account.findByIdAndUpdate(userId, {
