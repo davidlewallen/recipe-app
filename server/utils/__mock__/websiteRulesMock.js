@@ -203,7 +203,7 @@ module.exports = {
     ],
     title: 'Superfood Crunch Granola',
     totalTime: '1 hour',
-    imageURL: 'http://cdn-image.myrecipes.com/sites/default/files/styles/medium_2x/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=GBXb_2YF',
+    imageURL: 'https://cdn-image.myrecipes.com/sites/default/files/styles/medium_2x/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=Spa64xMs',
     full: {
       ingredients:
         ['2 cups old-fashioned rolled oats',
@@ -219,13 +219,13 @@ module.exports = {
           '1/4 cup extra-virgin olive oil',
           '3 tablespoons coconut oil, melted and cooled',
           '1/2 cup goji berries'],
-      instructions:
+        instructions:
         ['1) Preheat oven to 300ºF. Toss together oats, almonds, pumpkin seeds, hempseed, coconut, cinnamon, ginger, turmeric, and salt in a large bowl. Stir in syrup, olive oil, and coconut oil.',
           '2) Divide mixture between 2 large rimmed baking sheets and spread out evenly. Bake until golden and toasted, 40 to 45 minutes, stirring every 10 to 15 minutes and switching pans from top to bottom and front to back halfway through.',
           '3) Immediately transfer granola to a large bowl and let cool completely, stirring occasionally. (Granola will crisp as it cools.) When it\'s cool, toss in goji berries. Store leftovers in an airtight container for up to 2 weeks.'],
       title: 'Superfood Crunch Granola',
       totalTime: '1 hour',
-      imageURL: 'http://cdn-image.myrecipes.com/sites/default/files/styles/medium_2x/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=GBXb_2YF',
+      imageURL: 'https://cdn-image.myrecipes.com/sites/default/files/styles/medium_2x/public/1504900580/superfood%20crunch%20granola_0.jpg?itok=Spa64xMs',
     }
   },
   realsimple: {
@@ -280,7 +280,7 @@ module.exports = {
     ingredients: ['3 tablespoons fresh mint leaves',
       '1/2  English cucumber (about 7 oz.), peeled and chopped',
       '  Pinch of sea salt'],
-    instructions: ['1) Place all ingredients in a blender with 4 cups cool water; blend until smooth. Refrigerate for 30 minutes. Strain through a fine-mesh sieve into glasses and serve, or refrigerate to serve later.\n                          '],
+    instructions: ['1) Place all ingredients in a blender with 4 cups cool water; blend until smooth. Refrigerate for 30 minutes. Strain through a fine-mesh sieve into glasses and serve, or refrigerate to serve later.'],
     title: 'Cucumber Mint Tonic',
     totalTime: 'n/a',
     imageURL: '',
@@ -290,7 +290,7 @@ module.exports = {
           '1/2  English cucumber (about 7 oz.), peeled and chopped',
           '  Pinch of sea salt'],
       instructions:
-        ['1) Place all ingredients in a blender with 4 cups cool water; blend until smooth. Refrigerate for 30 minutes. Strain through a fine-mesh sieve into glasses and serve, or refrigerate to serve later.\n                          '],
+        ['1) Place all ingredients in a blender with 4 cups cool water; blend until smooth. Refrigerate for 30 minutes. Strain through a fine-mesh sieve into glasses and serve, or refrigerate to serve later.'],
       title: 'Cucumber Mint Tonic',
       totalTime: 'n/a',
       imageURL: '',
