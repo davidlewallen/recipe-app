@@ -36,9 +36,9 @@ class SubmitRecipeContainer extends React.Component {
       const encodedRecipeURI = encodeURIComponent(this.state.url);
       const { data } = await Recipe.submitRecipe(encodedRecipeURI);
 
-      if (!data.nonProcessable && !data.alreadyAdded) {
+      if (!data.alreadyAdded) {
         this.setState({ url: '' });
-        this.props.updateRecipes([data, ...this.props.recipes]);
+        this.props.updateRecipes([...this.props.recipes, data]);
       }
       this.props.handleModalClose();
     } catch (err) {
