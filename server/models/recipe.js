@@ -13,6 +13,7 @@ const RecipesSchema = new Schema({
   },
   title: String,
   created: { type: Date, default: Date.now },
+  processable: { type: Boolean, default: true },
 });
 
 module.exports = mongoose.model('Recipe', RecipesSchema);
