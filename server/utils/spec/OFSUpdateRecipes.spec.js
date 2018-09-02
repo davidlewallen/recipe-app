@@ -1,3 +1,4 @@
+test('placeholder', () => expect(true).toBe(true));
 // const mongoose = require('mongoose');
 
 // const server = require('../../db');
