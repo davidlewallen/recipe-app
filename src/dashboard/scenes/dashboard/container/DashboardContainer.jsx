@@ -23,6 +23,7 @@ class DashboardContainer extends React.Component {
       },
     },
     searchValue: '',
+    loadingRecipes: true,
   };
 
   componentDidMount = async () => {
@@ -32,12 +33,15 @@ class DashboardContainer extends React.Component {
   getUserRecipes = async () => {
     const { updateRecipes } = this.props;
 
+    this.setState({ loadingRecipes: true });
     try {
       const { data: recipes } = await Recipe.getRecipes();
       updateRecipes(recipes);
     } catch (err) {
       console.log(err);
     }
+
+    this.setState({ loadingRecipes: false });
   }
 
   deleteRecipe = async (recipeId) => {
@@ -63,7 +67,9 @@ class DashboardContainer extends React.Component {
   render = () => {
     const {
       props: { recipes },
-      state: { showModal, selectedRecipe, searchValue },
+      state: {
+        showModal, selectedRecipe, searchValue, loadingRecipes,
+      },
     } = this;
 
     return (
@@ -76,6 +82,7 @@ class DashboardContainer extends React.Component {
         selectedRecipe={selectedRecipe}
         searchValue={searchValue}
         handleSearch={this.handleSearch}
+        loadingRecipes={loadingRecipes}
       />
     );
   }

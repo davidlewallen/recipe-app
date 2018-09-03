@@ -26,11 +26,12 @@ const propTypes = {
   viewRecipe: func.isRequired,
   searchValue: string.isRequired,
   handleSearch: func.isRequired,
+  loadingRecipes: bool.isRequired,
 };
 
 const Dashboard = ({
   showModal, handleModalClose, selectedRecipe, deleteRecipe, recipes, searchValue, handleSearch,
-  viewRecipe,
+  viewRecipe, loadingRecipes,
 }) => (
   <Grid className="dashboard">
     <RecipeModal
@@ -40,7 +41,7 @@ const Dashboard = ({
       deleteRecipe={deleteRecipe}
     />
 
-    {!recipes.length ? (
+    {!recipes.length && !loadingRecipes ? (
       <Row>
         <Col xs={12}>
           <Jumbotron className="align-center">
