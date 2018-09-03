@@ -30,6 +30,7 @@ const propTypes = {
   viewRecipe: func.isRequired,// eslint-disable-line
   searchValue: string.isRequired,
   handleSearch: func.isRequired,
+  loadingRecipes: bool.isRequired,
 };
 
 const Dashboard = props => (
@@ -41,7 +42,7 @@ const Dashboard = props => (
       deleteRecipe={props.deleteRecipe}
     />
 
-    {!props.recipes.length ? (
+    {!props.recipes.length && !props.loadingRecipes ? (
       <Row>
         <Col xs={12}>
           <Jumbotron className="align-center">

@@ -39,12 +39,15 @@ class DashboardContainer extends React.Component {
   }
 
   getUserRecipes = async () => {
+    this.setState({ loadingRecipes: true });
     try {
       const { data: recipes } = await Recipe.getRecipes();
       this.props.updateRecipes(recipes);
     } catch (err) {
       console.log(err);
     }
+
+    this.setState({ loadingRecipes: false });
   }
 
   deleteRecipe = async (recipeId) => {
@@ -82,6 +85,7 @@ class DashboardContainer extends React.Component {
       selectedRecipe={this.state.selectedRecipe}
       searchValue={this.state.searchValue}
       handleSearch={this.handleSearch}
+      loadingRecipes={this.state.loadingRecipes}
     />
   );
 }
