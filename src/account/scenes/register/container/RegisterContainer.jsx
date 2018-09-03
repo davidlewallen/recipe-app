@@ -1,43 +1,41 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { shape, func } from 'prop-types';
 
 import Register from '../components';
 
 import { Account } from '../../../../common/utils/api';
 
-const { shape, func } = PropTypes;
-const propTypes = {
-  history: shape({ replace: func }).isRequired,
-};
-
 class RegisterContainer extends Component {
-  constructor() {
-    super();
+  static propTypes = { history: shape({ replace: func }).isRequired }
 
-    this.state = {
-      username: '',
-      password: '',
-      email: '',
-      error: {
-        value: false,
-        message: '',
-      },
-    };
-  }
+  state = {
+    username: '',
+    password: '',
+    email: '',
+    error: {
+      value: false,
+      message: '',
+    },
+  };
 
   register = async (event) => {
     event.preventDefault();
 
+    const {
+      props: { history },
+      state: { username, password, email },
+    } = this;
 
     const body = {
-      username: this.state.username,
-      password: this.state.password,
-      email: this.state.email,
+      username,
+      password,
+      email,
     };
 
     try {
       await Account.register(body);
-      this.props.history.replace('/dashboard');
+
+      history.replace('/dashboard');
     } catch (err) {
       if (err.response.status === 409 || err.response.status === 400) {
         this.setState({
@@ -50,34 +48,30 @@ class RegisterContainer extends Component {
     }
   }
 
-  handleUsername = (event) => {
-    const username = event.target.value;
-    this.setState({ username });
-  }
+  handleUsername = ({ target: { value } }) => this.setState({ username: value });
 
-  handlePassword = (event) => {
-    const password = event.target.value;
-    this.setState({ password });
-  }
+  handlePassword = ({ target: { value } }) => this.setState({ password: value });
 
-  handleEmail = (event) => {
-    const email = event.target.value;
-    this.setState({ email });
-  }
+  handleEmail = ({ target: { value } }) => this.setState({ email: value });
 
-  render = () => (
-    <Register
-      username={this.state.username}
-      handleUsername={this.handleUsername}
-      password={this.state.password}
-      handlePassword={this.handlePassword}
-      email={this.state.email}
-      handleEmail={this.handleEmail}
-      register={this.register}
-      error={this.state.error}
-    />
-  );
+  render = () => {
+    const {
+      username, password, email, error,
+    } = this.state;
+
+    return (
+      <Register
+        username={username}
+        handleUsername={this.handleUsername}
+        password={password}
+        handlePassword={this.handlePassword}
+        email={email}
+        handleEmail={this.handleEmail}
+        register={this.register}
+        error={error}
+      />
+    );
+  }
 }
 
-RegisterContainer.propTypes = propTypes;
 export default RegisterContainer;

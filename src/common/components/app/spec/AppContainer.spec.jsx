@@ -32,25 +32,25 @@ describe('AppContainer', () => {
 
   it('should render', () => {
     wrapper.setState({ loading: false });
-    wrapper.update();
-    expect(wrapper.find('div').exists()).toBe(true);
+
+    expect(wrapper.find('Fragment').exists()).toBe(true);
   });
 
-  describe('componentWillMount', () => {
-    it('should call componentWillMount', async () => {
-      const spy = jest.spyOn(instance, 'componentWillMount');
-      await instance.componentWillMount();
+  describe('componentDidMount', () => {
+    it('should call componentDidMount', async () => {
+      const spy = jest.spyOn(instance, 'componentDidMount');
+      await instance.componentDidMount();
       expect(spy).toHaveBeenCalled();
     });
 
     it('should check auth and update state', async () => {
-      await instance.componentWillMount();
+      await instance.componentDidMount();
       expect(instance.state.isAuth).toBe(true);
     });
 
     it('should call getUser if data.isAuth is truthy', async () => {
       const spy = jest.spyOn(instance, 'getUser');
-      await instance.componentWillMount();
+      await instance.componentDidMount();
       expect(spy).toHaveBeenCalled();
     });
 
@@ -58,7 +58,7 @@ describe('AppContainer', () => {
       instance.setState({ loading: true });
       mock.onGet('/api/account/auth').reply(200, { isAuth: false });
       expect(instance.state.loading).toBe(true);
-      await instance.componentWillMount();
+      await instance.componentDidMount();
       expect(instance.state.loading).toBe(false);
     });
   });
