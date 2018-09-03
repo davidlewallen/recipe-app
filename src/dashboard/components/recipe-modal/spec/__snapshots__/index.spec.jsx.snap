@@ -44,8 +44,7 @@ exports[`RecipeModal component should match snapshot 1`] = `
       <span
         className="total-time"
       >
-        Total Time: 
-        1 hour
+        Total Time: 1 hour
       </span>
     </ModalTitle>
   </ModalHeader>
@@ -63,8 +62,7 @@ exports[`RecipeModal component should match snapshot 1`] = `
       className="ingredient"
       key="a347ccac-5c74-51c8-b109-9dea71b3111e"
     >
-      - 
-      1
+      - 1
     </div>
     <div
       className="instruction-title"
@@ -85,6 +83,7 @@ exports[`RecipeModal component should match snapshot 1`] = `
     <a
       className="recipe-link"
       href="randomurl.com"
+      rel="noopener noreferrer"
       target="_blank"
     >
       Click here to view original recipe
@@ -97,6 +96,7 @@ exports[`RecipeModal component should match snapshot 1`] = `
       bsStyle="danger"
       disabled={false}
       onClick={[Function]}
+      type="button"
     >
       Delete
     </Button>
@@ -148,8 +148,7 @@ exports[`RecipeModal component should match snapshot with modal open 1`] = `
       <span
         className="total-time"
       >
-        Total Time: 
-        1 hour
+        Total Time: 1 hour
       </span>
     </ModalTitle>
   </ModalHeader>
@@ -167,8 +166,7 @@ exports[`RecipeModal component should match snapshot with modal open 1`] = `
       className="ingredient"
       key="a347ccac-5c74-51c8-b109-9dea71b3111e"
     >
-      - 
-      1
+      - 1
     </div>
     <div
       className="instruction-title"
@@ -189,6 +187,7 @@ exports[`RecipeModal component should match snapshot with modal open 1`] = `
     <a
       className="recipe-link"
       href="randomurl.com"
+      rel="noopener noreferrer"
       target="_blank"
     >
       Click here to view original recipe
@@ -201,6 +200,7 @@ exports[`RecipeModal component should match snapshot with modal open 1`] = `
       bsStyle="danger"
       disabled={false}
       onClick={[Function]}
+      type="button"
     >
       Delete
     </Button>

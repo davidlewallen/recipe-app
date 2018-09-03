@@ -12,7 +12,7 @@ import AcceptedWebsites from '../../acceptedWebsites/components';
 import '../assets/styles/index.css';
 
 class HeaderContainer extends React.Component {
-  propTypes = {
+  static propTypes = {
     history: shape({ replace: func.isRequired }).isRequired,
     updateRecipes: func.isRequired,
     recipes: arrayOf(object.isRequired).isRequired,
@@ -33,9 +33,11 @@ class HeaderContainer extends React.Component {
   }
 
   logout = () => {
+    const { updateAuth, history } = this.props;
+
     Account.logout();
-    this.props.updateAuth(false);
-    this.props.history.replace('/');
+    updateAuth(false);
+    history.replace('/');
   }
 
   handleModalOpen = () => this.setState({ showModal: true });
@@ -46,27 +48,34 @@ class HeaderContainer extends React.Component {
     this.setState(prevState => ({ showAcceptedModal: !prevState.showAcceptedModal }))
   );
 
-  render = () => (
-    <React.Fragment>
-      <SubmitRecipeContainer
-        show={this.state.showModal}
-        handleModalClose={this.handleModalClose}
-        updateRecipes={this.props.updateRecipes}
-        recipes={this.props.recipes}
-      />
-      <AcceptedWebsites
-        show={this.state.showAcceptedModal}
-        handleAcceptedModal={this.handleAcceptedModal}
-        acceptedWebsites={this.state.acceptedWebsites}
-      />
-      <Header
-        logout={this.logout}
-        handleModalOpen={this.handleModalOpen}
-        isAuth={this.props.isAuth}
-        handleAcceptedModal={this.handleAcceptedModal}
-      />
-    </React.Fragment>
-  );
+  render = () => {
+    const {
+      props: { updateRecipes, recipes, isAuth },
+      state: { showModal, showAcceptedModal, acceptedWebsites },
+    } = this;
+
+    return (
+      <React.Fragment>
+        <SubmitRecipeContainer
+          show={showModal}
+          handleModalClose={this.handleModalClose}
+          updateRecipes={updateRecipes}
+          recipes={recipes}
+        />
+        <AcceptedWebsites
+          show={showAcceptedModal}
+          handleAcceptedModal={this.handleAcceptedModal}
+          acceptedWebsites={acceptedWebsites}
+        />
+        <Header
+          logout={this.logout}
+          handleModalOpen={this.handleModalOpen}
+          isAuth={isAuth}
+          handleAcceptedModal={this.handleAcceptedModal}
+        />
+      </React.Fragment>
+    );
+  }
 }
 
 export default HeaderContainer;

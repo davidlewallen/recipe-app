@@ -61,10 +61,10 @@ describe('DashboardContainer test', () => {
     expect(wrapper).toBeTruthy();
   });
 
-  describe('componentWillMount', () => {
+  describe('componentDidMount', () => {
     it('should call getUserRecipes', () => {
       const spy = jest.spyOn(instance, 'getUserRecipes');
-      instance.componentWillMount();
+      instance.componentDidMount();
       expect(spy).toHaveBeenCalled();
     });
   });
@@ -106,7 +106,7 @@ describe('DashboardContainer test', () => {
 
     it('should delete a recipe and update state', async () => {
       await instance.deleteRecipe(1);
-      expect(props.updateRecipes).toHaveBeenCalledWith([mockRecipeList[0]]);
+      expect(props.updateRecipes).toHaveBeenCalledWith([mockRecipeList[1]]);
     });
 
     it('should log error if request is bad', async () => {

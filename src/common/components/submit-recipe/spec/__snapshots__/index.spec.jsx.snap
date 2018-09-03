@@ -75,6 +75,7 @@ exports[`SubmitRecipe component should render and match snapshot 1`] = `
           bsStyle="primary"
           disabled={false}
           onClick={[MockFunction]}
+          type="button"
         >
           Submit
         </Button>

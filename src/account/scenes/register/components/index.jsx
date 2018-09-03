@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-const {
+import {
   string, func, shape, bool,
-} = PropTypes;
+} from 'prop-types';
+
 const propTypes = {
   username: string.isRequired,
   handleUsername: func.isRequired,
@@ -15,34 +14,37 @@ const propTypes = {
   error: shape({ value: bool, message: string }).isRequired,
 };
 
-const Register = props => (
+const Register = ({
+  error, username, handleUsername, password, handlePassword, email, handleEmail, register,
+}) => (
   <div className="register-container">
-    {props.error.value && (
-      <p>{props.error.message}</p>
+    {error.value && (
+      <p>{error.message}</p>
     )}
     <form className="register">
       <input
         className="username-input"
         placeholder="Username"
-        value={props.username}
-        onChange={props.handleUsername}
+        value={username}
+        onChange={handleUsername}
       />
       <input
         className="password-input"
         placeholder="Password"
         type="password"
-        value={props.password}
-        onChange={props.handlePassword}
+        value={password}
+        onChange={handlePassword}
       />
       <input
         className="email-input"
         placeholder="Email Address"
-        value={props.email}
-        onChange={props.handleEmail}
+        value={email}
+        onChange={handleEmail}
       />
       <button
         className="register-button"
-        onClick={props.register}
+        onClick={register}
+        type="button"
       >
         Register
       </button>

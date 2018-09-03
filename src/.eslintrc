@@ -15,6 +15,7 @@
       "component": ["Link"],
       "aspects": ["noHref"]
     }],
-    "function-paren-newline": "off"
+    "function-paren-newline": "off",
+    "jsx-a11y/href-no-hash": "off"
   }
 }
