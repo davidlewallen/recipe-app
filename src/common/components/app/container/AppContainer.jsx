@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { shape, func, string } from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
@@ -10,29 +10,24 @@ import AccountRoutes from '../../../../account/routes';
 
 import { Account } from '../../../utils/api';
 
-
-const { func, shape, string } = PropTypes;
-const propTypes = {
-  history: shape({ push: func.isRequired }).isRequired,
-  location: shape({ pathname: string.isRequired }).isRequired,
-};
 class AppContainer extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      recipes: [],
-      isAuth: true,
-      loading: true,
-      user: {
-        email: '',
-        username: '',
-        _id: '',
-      },
-    };
+  propTypes = {
+    history: shape({ push: func.isRequired }).isRequired,
+    location: shape({ pathname: string.isRequired }).isRequired,
   }
 
-  componentWillMount = async () => {
+  state = {
+    recipes: [],
+    isAuth: true,
+    loading: true,
+    user: {
+      email: '',
+      username: '',
+      _id: '',
+    },
+  };
+
+  componentDidMount = async () => {
     axios.interceptors.response.use(
       response => response,
       error => (
@@ -41,6 +36,7 @@ class AppContainer extends React.Component {
           : Promise.reject(error)
       ),
     );
+
     const { data } = await Account.auth();
     this.setState({ isAuth: data.isAuth });
 
@@ -53,22 +49,26 @@ class AppContainer extends React.Component {
 
   getUser = async () => {
     this.setState({ loading: true });
+
     const { data: user } = await Account.getUser();
+
     this.setState({ user, loading: false });
   }
 
   updateRecipes = (updatedRecipes) => {
     const isArray = Array.isArray(updatedRecipes);
+
     this.setState({ recipes: isArray ? updatedRecipes : [updatedRecipes] });
   }
 
   updateAuth = (authValue) => {
     this.setState({ isAuth: authValue });
+
     if (authValue) this.getUser();
   }
 
   render = () => !this.state.loading && (
-    <div>
+    <React.Fragment>
       {this.props.location.pathname !== '/' && (
         <HeaderContainer
           history={this.props.history}
@@ -83,12 +83,13 @@ class AppContainer extends React.Component {
         <Route
           path="/dashboard"
           render={() => (
-            this.state.isAuth && this.state.user.username ? (
-              <DashboardRoutes
-                recipes={this.state.recipes}
-                updateRecipes={this.updateRecipes}
-              />
-            ) : <Redirect to="/account/login" />
+            this.state.isAuth && this.state.user.username
+              ? (
+                <DashboardRoutes
+                  recipes={this.state.recipes}
+                  updateRecipes={this.updateRecipes}
+                />
+              ) : <Redirect to="/account/login" />
           )}
         />
         <Route
@@ -102,9 +103,8 @@ class AppContainer extends React.Component {
           )}
         />
       </Switch>
-    </div>
+    </React.Fragment>
   )
 }
 
-AppContainer.propTypes = propTypes;
 export default AppContainer;
