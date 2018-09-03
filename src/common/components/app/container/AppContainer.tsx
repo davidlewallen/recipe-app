@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { shape, func, string } from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
