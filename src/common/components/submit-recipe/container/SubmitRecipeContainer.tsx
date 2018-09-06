@@ -1,25 +1,17 @@
-import React from 'react';
-import {
-  func, bool, arrayOf, object,
-} from 'prop-types';
+import * as React from 'react';
+
+import { IPropTypes, IState } from './types';
 
 import { Recipe } from '../../../utils/api';
 
 import SubmitRecipe from '../components';
 
-class SubmitRecipeContainer extends React.Component {
-  static propTypes = {
-    show: bool.isRequired,
-    handleModalClose: func.isRequired,
-    updateRecipes: func.isRequired,
-    recipes: arrayOf(object.isRequired).isRequired,
-  }
-
+class SubmitRecipeContainer extends React.Component<IPropTypes, IState> {
   state = { url: '' };
+  
+  handleURL = (event: { target: { value: String } }) => this.setState({ url: event.target.value });
 
-  handleURL = ({ target: { value } }) => this.setState({ url: value });
-
-  submitRecipe = async (event) => {
+  submitRecipe = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     try {

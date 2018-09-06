@@ -1,20 +1,15 @@
-import React from 'react';
-import {
-  arrayOf, string, func, bool,
-} from 'prop-types';
+import * as React from 'react';
 import { Modal, Row, Col } from 'react-bootstrap';
+
+import { IPropTypes } from './types';
 
 import genKey from '../../../utils/randomKeys';
 
 import '../assets/styles/index.css';
 
-const propTypes = {
-  show: bool.isRequired,
-  handleAcceptedModal: func.isRequired,
-  acceptedWebsites: arrayOf(string.isRequired).isRequired,
-};
-
-const AcceptedWebsites = ({ show, handleAcceptedModal, acceptedWebsites }) => (
+const AcceptedWebsites: React.StatelessComponent<IPropTypes> = ({
+  show, handleAcceptedModal, acceptedWebsites,
+}) => (
   <Modal
     show={show}
     onHide={handleAcceptedModal}
@@ -53,5 +48,4 @@ const AcceptedWebsites = ({ show, handleAcceptedModal, acceptedWebsites }) => (
   </Modal>
 );
 
-AcceptedWebsites.propTypes = propTypes;
 export default AcceptedWebsites;

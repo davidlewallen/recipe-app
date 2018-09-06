@@ -1,17 +1,11 @@
-import React from 'react';
-import { func, bool } from 'prop-types';
+import * as React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const propTypes = {
-  logout: func.isRequired,
-  handleModalOpen: func.isRequired,
-  isAuth: bool.isRequired,
-  handleAcceptedModal: func.isRequired,
-};
+import { IPropTypes } from './types';
 
-const Header = ({
+const Header: React.StatelessComponent<IPropTypes> = ({
   logout, handleModalOpen, isAuth, handleAcceptedModal,
 }) => (
   <Navbar inverse fluid collapseOnSelect>
@@ -57,5 +51,4 @@ const Header = ({
   </Navbar>
 );
 
-Header.propTypes = propTypes;
 export default Header;

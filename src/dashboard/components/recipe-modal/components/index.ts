@@ -1,27 +1,13 @@
-import React from 'react';
-import {
-  bool, func, shape, string, arrayOf,
-} from 'prop-types';
+import * as React from 'react';
 import { Modal, Button } from 'react-bootstrap';
+
+import { IPropTypes } from './types';
 
 import genKey from '../../../../common/utils/randomKeys';
 
 import '../assets/styles/index.css';
 
-const propTypes = {
-  showModal: bool.isRequired,
-  handleModalClose: func.isRequired,
-  selectedRecipe: shape({
-    title: string.isRequired,
-    ingredients: arrayOf(string).isRequired,
-    instructions: arrayOf(string).isRequired,
-    totalTime: string,
-    url: shape({ href: string.isRequired }).isRequired,
-  }).isRequired,
-  deleteRecipe: func.isRequired,
-};
-
-const RecipeModal = ({
+const RecipeModal: React.StatelessComponent<IPropTypes> = ({
   showModal, handleModalClose, selectedRecipe, deleteRecipe,
 }) => (
   <Modal
@@ -78,5 +64,4 @@ const RecipeModal = ({
   </Modal>
 );
 
-RecipeModal.propTypes = propTypes;
 export default RecipeModal;

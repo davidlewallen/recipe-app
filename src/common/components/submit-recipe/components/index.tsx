@@ -1,20 +1,13 @@
-import React from 'react';
-import { bool, string, func } from 'prop-types';
+import * as React from 'react';
 import {
   Modal, Row, Col, Button,
 } from 'react-bootstrap';
 
+import { IPropTypes } from './types';
+
 import '../assets/styles/index.css';
 
-const propTypes = {
-  show: bool.isRequired,
-  handleModalClose: func.isRequired,
-  submitRecipe: func.isRequired,
-  handleURL: func.isRequired,
-  url: string.isRequired,
-};
-
-const SubmitRecipe = ({
+const SubmitRecipe: React.StatelessComponent<IPropTypes> = ({
   show, handleModalClose, url, handleURL, submitRecipe,
 }) => (
   <Modal
@@ -51,5 +44,4 @@ const SubmitRecipe = ({
   </Modal>
 );
 
-SubmitRecipe.propTypes = propTypes;
 export default SubmitRecipe;

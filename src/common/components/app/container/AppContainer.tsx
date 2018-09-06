@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { shape, func, string } from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
+
+import { IPropTypes, IState, IRecipe } from './types';
 
 import HeaderContainer from '../../header/container/HeaderContainer';
 import HomepageContainer from '../../../scenes/homepage/container/HomepageContainer';
@@ -10,12 +11,7 @@ import AccountRoutes from '../../../../account/routes';
 
 import { Account } from '../../../utils/api';
 
-class AppContainer extends React.Component {
-  static propTypes = {
-    history: shape({ push: func.isRequired }).isRequired,
-    location: shape({ pathname: string.isRequired }).isRequired,
-  }
-
+class AppContainer extends React.Component<IPropTypes, IState> {
   state = {
     recipes: [],
     isAuth: true,
@@ -39,13 +35,18 @@ class AppContainer extends React.Component {
       ),
     );
 
-    const { data } = await Account.auth();
-    this.setState({ isAuth: data.isAuth });
+    try {
+      const { data } = await Account.auth();
+      this.setState({ isAuth: data.isAuth });
 
-    if (data.isAuth) {
-      await this.getUser();
-    } else {
-      this.setState({ loading: false });
+      if (data.isAuth) {
+        await this.getUser();
+      } else {
+        this.setState({ loading: false });
+      }
+    } catch (err) {
+      console.log(Object.keys(err));
+      console.log(err.request);
     }
   }
 
@@ -57,13 +58,11 @@ class AppContainer extends React.Component {
     this.setState({ user, loading: false });
   }
 
-  updateRecipes = (updatedRecipes) => {
-    const isArray = Array.isArray(updatedRecipes);
-
-    this.setState({ recipes: isArray ? updatedRecipes : [updatedRecipes] });
+  updateRecipes = (updatedRecipes: Array<IRecipe>) => {
+    this.setState({ recipes: updatedRecipes });
   }
 
-  updateAuth = (authValue) => {
+  updateAuth = (authValue: Boolean) => {
     this.setState({ isAuth: authValue });
 
     if (authValue) this.getUser();

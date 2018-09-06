@@ -1,7 +1,6 @@
-import React from 'react';
-import {
-  shape, func, arrayOf, object, bool,
-} from 'prop-types';
+import * as React from 'react';
+
+import { IPropTypes, IState } from './types';
 
 import { Account, Utils } from '../../../utils/api';
 
@@ -11,15 +10,7 @@ import AcceptedWebsites from '../../acceptedWebsites/components';
 
 import '../assets/styles/index.css';
 
-class HeaderContainer extends React.Component {
-  static propTypes = {
-    history: shape({ replace: func.isRequired }).isRequired,
-    updateRecipes: func.isRequired,
-    recipes: arrayOf(object.isRequired).isRequired,
-    isAuth: bool.isRequired,
-    updateAuth: func.isRequired,
-  }
-
+class HeaderContainer extends React.Component<IPropTypes, IState> {
   state = {
     showModal: false,
     showAcceptedModal: false,
