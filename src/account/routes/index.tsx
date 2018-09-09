@@ -1,46 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+
+import { IPropTypes } from './types';
 
 import Overview from '../scenes/overview/components';
 import LoginContainer from '../scenes/login/container/LoginContainer';
 import RegisterContainer from '../scenes/register/container/RegisterContainer';
 
-const {
-  bool,
-  func,
-  objectOf,
-  string,
-} = PropTypes;
-const propTypes = {
-  isAuth: bool.isRequired,
-  updateAuth: func.isRequired,
-  user: objectOf(string.isRequired).isRequired,
-};
-
-const AccountRoutes = props => (
+const AccountRoutes: React.StatelessComponent<IPropTypes> = ({
+  isAuth, user, updateAuth,
+}) => (
   <Switch>
     <Route
       exact
       path="/account"
       render={() => (
-        props.isAuth && props.user.username
-          ? <Overview user={props.user} />
+        isAuth && user.username
+          ? <Overview user={user} />
           : <Redirect to="/account/login" />
       )}
     />
     <Route
       path="/account/login"
-      render={routeProps => (
-        props.isAuth && props.user.username
-          ? <Redirect to="/dashboard" />
-          : <LoginContainer {...routeProps} updateAuth={props.updateAuth} />
-      )}
+      render={routeProps => {
+        if (isAuth && user.username) {
+          return <Redirect to="/dashboard" />
+        }
+
+        return <LoginContainer {...routeProps} updateAuth={updateAuth} />
+      }}
     />
     <Route
       path="/account/register"
       render={routeProps => (
-        props.isAuth && props.user.username
+        isAuth && user.username
           ? <Redirect to="/dashboard" />
           : <RegisterContainer {...routeProps} />
       )}
@@ -48,5 +41,4 @@ const AccountRoutes = props => (
   </Switch>
 );
 
-AccountRoutes.propTypes = propTypes;
 export default AccountRoutes;

@@ -51,7 +51,7 @@ const RecipeModal: React.StatelessComponent<IPropTypes> = ({
         href={selectedRecipe.url.href}
       >
         Click here to view original recipe
-      </a>
+    </a>
       <Button
         bsStyle="danger"
         bsSize="small"
@@ -59,7 +59,7 @@ const RecipeModal: React.StatelessComponent<IPropTypes> = ({
         type="button"
       >
         Delete
-      </Button>
+    </Button>
     </Modal.Footer>
   </Modal>
 );

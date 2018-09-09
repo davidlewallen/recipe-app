@@ -1,26 +1,12 @@
-import React from 'react';
-import {
-  string, func, shape, bool,
-} from 'prop-types';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
-import Button from 'react-bootstrap/lib/Button';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
+import {
+  Grid, Row, Col, Button, FormGroup, ControlLabel, FormControl,
+} from 'react-bootstrap';
 
-const propTypes = {
-  username: string.isRequired,
-  handleUsername: func.isRequired,
-  password: string.isRequired,
-  handlePassword: func.isRequired,
-  error: shape({ value: bool, message: string }).isRequired,
-  login: func.isRequired,
-};
+import { PropTypes } from './types';
 
-const Login = ({
+const Login: React.StatelessComponent<PropTypes> = ({
   error, username, handleUsername, password, handlePassword, login,
 }) => (
   <Grid className="login">
@@ -71,5 +57,4 @@ const Login = ({
   </Grid>
 );
 
-Login.propTypes = propTypes;
 export default Login;

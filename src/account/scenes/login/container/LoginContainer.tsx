@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
-import { shape, func } from 'prop-types';
+import * as React from 'react';
 
-import Login from '../components';
+import { IPropTypes, IState } from './types';
 
 import { Account } from '../../../../common/utils/api';
 
+import Login from '../components';
+
 import '../assets/styles/index.css';
 
-class LoginContainer extends Component {
-  static propTypes = {
-    history: shape({ replace: func }).isRequired,
-    updateAuth: func.isRequired,
-  }
-
+class LoginContainer extends React.Component<IPropTypes, IState> {
   state = {
     username: '',
     password: '',
@@ -22,7 +18,7 @@ class LoginContainer extends Component {
     },
   };
 
-  login = async (event) => {
+  login = async (event: Event) => {
     event.preventDefault();
 
     try {
@@ -52,11 +48,11 @@ class LoginContainer extends Component {
     }
   }
 
-  handleUsername = ({ target: { value: username } }) => (
+  handleUsername = ({ target: { value: username } }: { target: { value: string } }) => (
     this.setState({ username: username.trim() })
   );
 
-  handlePassword = ({ target: { value: password } }) => (
+  handlePassword = ({ target: { value: password } }: { target: { value: string } }) => (
     this.setState({ password: password.trim() })
   );
 
