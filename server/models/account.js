@@ -19,6 +19,11 @@ const AccountSchema = new Schema({
     },
   },
   savedRecipes: [Schema.Types.ObjectId],
+  verificationKey: { type: String },
+  needsVerification: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 AccountSchema.plugin(passportLocalMongoose);

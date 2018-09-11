@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const nodemailer = require('nodemailer');
 
 const AccountModel = require('../models/account');
 const Account = require('../controllers/account');
@@ -56,6 +57,7 @@ router.post('/register', (req, res) => {
     new AccountModel({
       username: req.body.username,
       email: req.body.email,
+      needsVerification: true,
     }),
     req.body.password,
     (err) => {
@@ -67,14 +69,41 @@ router.post('/register', (req, res) => {
 
         return res.status(409).send(err);
       }
-      passport.authenticate('local')(req, res, () => {
-        const userObject = {
-          _id: req.user._id,
-          username: req.user.username,
-          savedRecipes: req.user.savedRecipes,
-        };
-        res.send(userObject);
+      // passport.authenticate('local')(req, res, () => {
+      //   const userObject = {
+      //     _id: req.user._id,
+      //     username: req.user.username,
+      //     savedRecipes: req.user.savedRecipes,
+      //   };
+      //   res.send(userObject);
+      // });
+
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          // user: encodeURIComponent(process.env.EMAIL_USERNAME),
+          // pass: encodeURIComponent(process.env.EMAIL_PASSWORD),
+          user: 'lewallen.david@gmail.com',
+          pass: 'iYuHMMfI0Vr4',
+        }
       });
+
+      const mailOptions = {
+        from: 'lewallen.david@gmail.com',
+        to: req.body.email,
+        subject: 'My Saved Recipes - Email Verification',
+        text: 'This is a test email',
+      };
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+
+      return res.status(201).send('Account created successfully');
     }
   );
 });
