@@ -1,15 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const nodemailer = require('nodemailer');
+const uuidv1 = require('uuid/v1');
+const moment = require('moment');
 
 const AccountModel = require('../models/account');
 const Account = require('../controllers/account');
 
 const { isAuthenticated } = require('./utils');
-
-console.log(process.env.EMAIL_USERNAME);
-console.log(process.env.EMAIL_PASSWORD);
 
 router.post('/login', (req, res, next) => {
   if (req.body.username === undefined || req.body.password === undefined) {
@@ -55,12 +53,16 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
   AccountModel.register(
     new AccountModel({
       username: req.body.username,
       email: req.body.email,
-      needsVerification: true,
+      verification: {
+        status: false,
+        key: uuidv1(),
+        expires: moment().add(30, 'days'),
+      },
     }),
     req.body.password,
     (err) => {
@@ -73,7 +75,10 @@ router.post('/register', (req, res) => {
         return res.status(409).send(err);
       }
 
-      Account.sendVerificationEmail(res, req.body.email);
+      Account.sendVerificationEmail(req.body.email);
+
+      res.status(201).send('Account created successfully');
+
     }
   );
 });

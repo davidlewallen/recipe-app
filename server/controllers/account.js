@@ -21,7 +21,7 @@ const getUser = async (userId) => {
   }
 };
 
-const sendVerificationEmail = (res, email) => {
+const sendVerificationEmail = (email) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -44,8 +44,6 @@ const sendVerificationEmail = (res, email) => {
       console.log('Email sent: ' + info.response);
     }
   });
-
-  return res.status(201).send('Account created successfully');
 };
 
 module.exports = {
