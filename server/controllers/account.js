@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+
 const Account = require('../models/account');
 
 const createTestAccount = async (append) => {
@@ -19,7 +21,39 @@ const getUser = async (userId) => {
   }
 };
 
+const sendVerificationEmail = (email, verificationKey) => {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
+    }
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL_USERNAME,
+    to: email,
+    subject: 'My Saved Recipes - Email Verification',
+    text: `
+      Thank you for signing up with My Saved Recipes!
+
+      Please follow the link below to verify your account.
+
+      www.mysavedrecipes.com/email/verify?key=${verificationKey}
+    `,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+};
+
 module.exports = {
   createTestAccount,
   getUser,
+  sendVerificationEmail
 };

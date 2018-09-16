@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const uuidv1 = require('uuid/v1');
+const moment = require('moment');
 
 const AccountModel = require('../models/account');
 const Account = require('../controllers/account');
@@ -51,11 +53,18 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
+  const verificationKey = uuidv1();
+
   AccountModel.register(
     new AccountModel({
       username: req.body.username,
       email: req.body.email,
+      verification: {
+        status: false,
+        key: verificationKey,
+        expires: moment().add(30, 'days'),
+      },
     }),
     req.body.password,
     (err) => {
@@ -67,14 +76,10 @@ router.post('/register', (req, res) => {
 
         return res.status(409).send(err);
       }
-      passport.authenticate('local')(req, res, () => {
-        const userObject = {
-          _id: req.user._id,
-          username: req.user.username,
-          savedRecipes: req.user.savedRecipes,
-        };
-        res.send(userObject);
-      });
+
+      Account.sendVerificationEmail(req.body.email, verificationKey);
+
+      return res.status(201).send('Account created successfully');
     }
   );
 });
