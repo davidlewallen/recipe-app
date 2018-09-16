@@ -12,14 +12,9 @@ const createTestAccount = async (append) => {
   return await account.save();
 };
 
-const getUser = async (userId) => {
-  try {
-    const userResult = await Account.findById(userId, '_id username email');
-    return userResult;
-  } catch (err) {
-    console.log('err', err);
-  }
-};
+const getUserById = async userId =>  await Account.findById(userId, '_id username email');
+
+const getUserByUsername = async username => await Account.findOne({ 'username': username });
 
 const sendVerificationEmail = (email, verificationKey) => {
   const transporter = nodemailer.createTransport({
@@ -54,6 +49,7 @@ const sendVerificationEmail = (email, verificationKey) => {
 
 module.exports = {
   createTestAccount,
-  getUser,
+  getUserById,
+  getUserByUsername,
   sendVerificationEmail
 };

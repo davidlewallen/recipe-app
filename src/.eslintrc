@@ -6,6 +6,7 @@
   },
   "extends": ["react-app", "airbnb"],
   "rules": {
+    "max-len": ["error", { "code": 100 }],
     "no-underscore-dangle": "off",
     "import/no-unresolved": [
       2,
