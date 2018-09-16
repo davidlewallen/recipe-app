@@ -30,7 +30,7 @@ router.post('/login', (req, res, next) => {
     });
   }
 
-  passport.authenticate('local', (err, user, info) => {
+  passport.authenticate('local', async (err, user, info) => {
     if (err) {
       console.log('err', err);
       return next(err);
@@ -42,14 +42,20 @@ router.post('/login', (req, res, next) => {
         .json({ message: 'Incorrect username and/or password.'});
     }
 
-    req.login(user, loginErr => {
-      if (loginErr) {
-        console.log('loginErr', loginErr);
-        return next(loginErr);
-      }
+    const { verification } = await Account.getUserByUsername(req.body.username);
 
-      return res.send(true);
-    });
+    if (verification.status) {
+      req.login(user, loginErr => {
+        if (loginErr) {
+          console.log('loginErr', loginErr);
+          return next(loginErr);
+        }
+
+        return res.send(true);
+      });
+    }
+
+    return res.sendStatus(401);
   })(req, res, next);
 });
 
@@ -97,7 +103,7 @@ router.get('/auth', (req, res) => {
 });
 
 router.get('/user', isAuthenticated, async (req, res) => {
-  res.json(await Account.getUser(req.user._id));
+  res.json(await Account.getUserById(req.user._id));
 });
 
 module.exports = router;
