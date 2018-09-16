@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Overview from '../scenes/overview/components';
 import LoginContainer from '../scenes/login/container/LoginContainer';
 import RegisterContainer from '../scenes/register/container/RegisterContainer';
+import VerifyEmail from '../scenes/verify';
 
 const {
   bool,
@@ -45,6 +46,7 @@ const AccountRoutes = props => (
           : <RegisterContainer {...routeProps} />
       )}
     />
+    <Route path="/account/verify" component={VerifyEmail} />
   </Switch>
 );
 

@@ -35,7 +35,7 @@ class RegisterContainer extends Component {
     try {
       await Account.register(body);
 
-      history.replace('/dashboard');
+      history.replace('/account/verify');
     } catch (err) {
       if (err.response.status === 409 || err.response.status === 400) {
         this.setState({

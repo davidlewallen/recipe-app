@@ -24,23 +24,24 @@ class LoginContainer extends Component {
 
   login = async (event) => {
     event.preventDefault();
+    const {
+      props: { history, updateAuth },
+      state: { username, password },
+    } = this;
 
     try {
-      const {
-        props: { history, updateAuth },
-        state: { username, password },
-      } = this;
-
       await Account.login({
         username,
         password,
       });
 
       updateAuth(true);
-
       history.replace('/dashboard');
     } catch (err) {
       const { response } = err;
+      if (response.status === 403 && !response.data.verified) {
+        history.replace('/account/verify');
+      }
       if (response.status === 400) {
         this.setState({
           error: {
