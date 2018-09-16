@@ -16,6 +16,8 @@ export const Account = {
   logout: () => axios.get(`${API_ACCOUNT}/logout`),
   auth: () => axios.get(`${API_ACCOUNT}/auth`),
   getUser: () => axios.get(`${API_ACCOUNT}/user`),
+  verify: (id, key) => axios.get(`${API_ACCOUNT}/verify?id=${id}&key=${key}`),
+  resendVerification: id => axios.get(`${API_ACCOUNT}/verify/resend?id=${id}`),
 };
 
 export const Utils = {
