@@ -1,27 +1,42 @@
 const nodemailer = require('nodemailer');
+const uuidv1 = require('uuid/v1');
+const moment = require('moment');
 
-const Account = require('../models/account');
+const Account = require('../../models/account');
 
-const createTestAccount = async (append) => {
-  const account = new Account({
-    username: `testUsername${append}`,
-    password: `testPassword${append}`,
-    email: `testEmail${append}@test.com`,
-  });
+const setAccountToUnverified = async (id) => {
+  const verificationKey = uuidv1();
 
-  return await account.save();
+  await Account.findByIdAndUpdate(
+    id,
+    {
+      verification: {
+        status: false,
+        key: verificationKey,
+        expires: moment().add(7, 'days'),
+      },
+    },
+  );
+
+  return verificationKey;
 };
 
-const getUserById = async userId => (
-  await Account.findById(userId, '_id username email verification savedRecipes')
-);
+const setAccountToVerified = async (id) => {
+  await Account.findByIdAndUpdate(
+    id,
+    {
+      verification: {
+        status: true,
+      },
+    },
+  );
+};
 
-const getUserByUsername = async username => (
-  await Account.findOne({ 'username': username })
-);
+const sendVerificationEmail = async (user) => {
+  const verificationKey = await setAccountToUnverified(user._id);
 
-const sendVerificationEmail = (user) => {
-  const verificationParams = `id=${user._id}&key=${user.verification.key}`;
+  const verificationParams = `id=${user._id}&key=${verificationKey}`;
+
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -52,6 +67,12 @@ const sendVerificationEmail = (user) => {
   });
 };
 
+const resendVerificationEmail = async (id) => {
+  const user = await Account.findById(id);
+
+  return sendVerificationEmail(user);
+};
+
 const verify = async (res, user, key) => {
   if (user.verification.status) {
     return res.status(200).send({
@@ -61,26 +82,23 @@ const verify = async (res, user, key) => {
 
   if (user.verification.key === key) {
     if (Date.now() < new Date(user.verification.expires)) {
-      await Account.findByIdAndUpdate(
-        user._id, {
-          verification: {
-            status: true,
-          },
-        },
-      );
+      await setAccountToVerified(user._id);
+
       return res.sendStatus(200);
     } else {
-      return res.status(400).send({ verificationExpired: true });
+      return res.status(400).send({
+        verificationExpired: true
+      });
     }
   }
 
-  return res.status(400).send({ nonMatchingKey: true });
+  return res.status(400).send({
+    nonMatchingKey: true
+  });
 };
 
 module.exports = {
-  createTestAccount,
-  getUserById,
-  getUserByUsername,
   sendVerificationEmail,
+  resendVerificationEmail,
   verify,
 };

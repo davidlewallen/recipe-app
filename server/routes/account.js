@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const uuidv1 = require('uuid/v1');
-const moment = require('moment');
 
 const AccountModel = require('../models/account');
+
 const Account = require('../controllers/account');
 
 const { isAuthenticated } = require('./utils');
@@ -60,17 +59,10 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/register', async (req, res) => {
-  const verificationKey = uuidv1();
-
   AccountModel.register(
     new AccountModel({
       username: req.body.username,
       email: req.body.email,
-      verification: {
-        status: false,
-        key: verificationKey,
-        expires: moment().add(7, 'days'),
-      },
     }),
     req.body.password,
     (err, user) => {
@@ -83,7 +75,7 @@ router.post('/register', async (req, res) => {
         return res.status(409).send(err);
       }
 
-      Account.sendVerificationEmail(user);
+      Account.verification.sendVerificationEmail(user);
 
       return res.status(201).send('Account created successfully');
     }
@@ -109,7 +101,13 @@ router.get('/user', isAuthenticated, async (req, res) => {
 router.get('/verify', async (req, res) => {
   const user = await Account.getUserById(req.query.id);
 
-  return Account.verify(res, user, req.query.key);
+  return Account.verification.verify(res, user, req.query.key);
+});
+
+router.get('/verify/resend', async (req, res) => {
+  await Account.verification.resendVerificationEmail(req.query.id);
+
+  return res.sendStatus(200);
 });
 
 module.exports = router;
