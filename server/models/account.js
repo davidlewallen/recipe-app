@@ -19,7 +19,6 @@ const AccountSchema = new Schema({
     },
   },
   savedRecipes: [Schema.Types.ObjectId],
-  verificationKey: { type: String },
   verification: {
     status: {
       type: Boolean,
