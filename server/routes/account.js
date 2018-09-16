@@ -54,13 +54,15 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/register', async (req, res) => {
+  const verificationKey = uuidv1();
+
   AccountModel.register(
     new AccountModel({
       username: req.body.username,
       email: req.body.email,
       verification: {
         status: false,
-        key: uuidv1(),
+        key: verificationKey,
         expires: moment().add(30, 'days'),
       },
     }),
@@ -75,10 +77,9 @@ router.post('/register', async (req, res) => {
         return res.status(409).send(err);
       }
 
-      Account.sendVerificationEmail(req.body.email);
+      Account.sendVerificationEmail(req.body.email, verificationKey);
 
-      res.status(201).send('Account created successfully');
-
+      return res.status(201).send('Account created successfully');
     }
   );
 });

@@ -21,7 +21,7 @@ const getUser = async (userId) => {
   }
 };
 
-const sendVerificationEmail = (email) => {
+const sendVerificationEmail = (email, verificationKey) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -34,7 +34,13 @@ const sendVerificationEmail = (email) => {
     from: process.env.EMAIL_USERNAME,
     to: email,
     subject: 'My Saved Recipes - Email Verification',
-    text: 'This is a test email',
+    text: `
+      Thank you for signing up with My Saved Recipes!
+
+      Please follow the link below to verify your account.
+
+      www.mysavedrecipes.com/email/verify?key=${verificationKey}
+    `,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
