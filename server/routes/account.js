@@ -73,7 +73,7 @@ router.post('/register', async (req, res) => {
       },
     }),
     req.body.password,
-    (err) => {
+    (err, user) => {
       if (err) {
         console.log('error', err);
         if (err.hasOwnProperty('_message')) {
@@ -83,7 +83,7 @@ router.post('/register', async (req, res) => {
         return res.status(409).send(err);
       }
 
-      Account.sendVerificationEmail(req.body.email, verificationKey);
+      Account.sendVerificationEmail(user);
 
       return res.status(201).send('Account created successfully');
     }
@@ -104,6 +104,12 @@ router.get('/auth', (req, res) => {
 
 router.get('/user', isAuthenticated, async (req, res) => {
   res.json(await Account.getUserById(req.user._id));
+});
+
+router.get('/verify', async (req, res) => {
+  const user = await Account.getUserById(req.query.id);
+
+  return Account.verify(res, user, req.query.key);
 });
 
 module.exports = router;
