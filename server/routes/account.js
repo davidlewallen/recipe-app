@@ -69,7 +69,7 @@ router.post('/register', async (req, res) => {
       verification: {
         status: false,
         key: verificationKey,
-        expires: moment().add(30, 'days'),
+        expires: moment().add(7, 'days'),
       },
     }),
     req.body.password,

@@ -32,7 +32,10 @@ const AcceptedWebsites = ({ show, handleAcceptedModal, acceptedWebsites }) => (
             These are the websites that we can process at this moment
           </div>
           <div>
-            {'If a website isn\'t listed, go ahead and "+ Add Recipe" and our team will be notified.'}
+            {
+              'If a website isn\'t listed,'
+              + 'go ahead and "+ Add Recipe" and our team will be notified.'
+            }
           </div>
         </Col>
       </Row>

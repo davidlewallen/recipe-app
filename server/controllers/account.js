@@ -34,7 +34,7 @@ const sendVerificationEmail = (email, verificationKey) => {
 
       Please follow the link below to verify your account.
 
-      www.mysavedrecipes.com/email/verify?key=${verificationKey}
+      www.mysavedrecipes.com/#/email/verify?key=${verificationKey}
     `,
   };
 
