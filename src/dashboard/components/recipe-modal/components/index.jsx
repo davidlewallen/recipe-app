@@ -1,18 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+  bool, func, shape, string, arrayOf,
+} from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 
 import genKey from '../../../../common/utils/randomKeys';
 
 import '../assets/styles/index.css';
 
-const {
-  bool,
-  func,
-  shape,
-  string,
-  arrayOf,
-} = PropTypes;
 const propTypes = {
   showModal: bool.isRequired,
   handleModalClose: func.isRequired,
@@ -26,10 +21,12 @@ const propTypes = {
   deleteRecipe: func.isRequired,
 };
 
-const RecipeModal = props => (
+const RecipeModal = ({
+  showModal, handleModalClose, selectedRecipe, deleteRecipe,
+}) => (
   <Modal
-    show={props.showModal}
-    onHide={props.handleModalClose}
+    show={showModal}
+    onHide={handleModalClose}
     className="recipe-modal"
   >
     <Modal.Header
@@ -37,33 +34,43 @@ const RecipeModal = props => (
       className="header"
     >
       <Modal.Title className="title">
-        <span>{props.selectedRecipe.title}</span>
-        <span className="total-time">Total Time: {props.selectedRecipe.totalTime || 'n/a'}</span>
+        <span>
+          {selectedRecipe.title}
+        </span>
+        <span className="total-time">
+          {`Total Time: ${selectedRecipe.totalTime || 'n/a'}`}
+        </span>
       </Modal.Title>
     </Modal.Header>
     <Modal.Body className="body">
       <div className="ingredient-title">Ingredients:</div>
-      {props.selectedRecipe.ingredients.map(ingredient => (
-        <div className="ingredient" key={genKey(ingredient)}>- {ingredient}</div>
+      {selectedRecipe.ingredients.map(ingredient => (
+        <div className="ingredient" key={genKey(ingredient)}>
+          {`- ${ingredient}`}
+        </div>
       ))}
 
       <div className="instruction-title">Instructions:</div>
-      {props.selectedRecipe.instructions.map(instruction => (
-        <div className="instruction" key={genKey(instruction)}>{instruction}</div>
+      {selectedRecipe.instructions.map(instruction => (
+        <div className="instruction" key={genKey(instruction)}>
+          {instruction}
+        </div>
       ))}
     </Modal.Body>
     <Modal.Footer>
       <a
         className="recipe-link"
         target="_blank"
-        href={props.selectedRecipe.url.href}
+        rel="noopener noreferrer"
+        href={selectedRecipe.url.href}
       >
         Click here to view original recipe
       </a>
       <Button
         bsStyle="danger"
         bsSize="small"
-        onClick={() => props.deleteRecipe(props.selectedRecipe._id)}
+        onClick={() => deleteRecipe(selectedRecipe._id)}
+        type="button"
       >
         Delete
       </Button>

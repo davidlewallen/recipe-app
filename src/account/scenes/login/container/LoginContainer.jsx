@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { shape, func } from 'prop-types';
 
 import Login from '../components';
 
@@ -7,25 +7,20 @@ import { Account } from '../../../../common/utils/api';
 
 import '../assets/styles/index.css';
 
-const { shape, func } = PropTypes;
-const propTypes = {
-  history: shape({ replace: func }).isRequired,
-  updateAuth: func.isRequired,
-};
-
 class LoginContainer extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      username: '',
-      password: '',
-      error: {
-        value: false,
-        message: '',
-      },
-    };
+  static propTypes = {
+    history: shape({ replace: func }).isRequired,
+    updateAuth: func.isRequired,
   }
+
+  state = {
+    username: '',
+    password: '',
+    error: {
+      value: false,
+      message: '',
+    },
+  };
 
   login = async (event) => {
     event.preventDefault();
@@ -65,17 +60,20 @@ class LoginContainer extends Component {
     this.setState({ password: password.trim() })
   );
 
-  render = () => (
-    <Login
-      username={this.state.username}
-      handleUsername={this.handleUsername}
-      password={this.state.password}
-      handlePassword={this.handlePassword}
-      error={this.state.error}
-      login={this.login}
-    />
-  )
+  render = () => {
+    const { username, password, error } = this.state;
+
+    return (
+      <Login
+        username={username}
+        handleUsername={this.handleUsername}
+        password={password}
+        handlePassword={this.handlePassword}
+        error={error}
+        login={this.login}
+      />
+    );
+  }
 }
 
-LoginContainer.propTypes = propTypes;
 export default LoginContainer;

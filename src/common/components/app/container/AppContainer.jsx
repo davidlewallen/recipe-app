@@ -1,46 +1,44 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { shape, func, string } from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-import HeaderContainer from '../../../components/header/container/HeaderContainer';
+import HeaderContainer from '../../header/container/HeaderContainer';
 import HomepageContainer from '../../../scenes/homepage/container/HomepageContainer';
 import DashboardRoutes from '../../../../dashboard/routes';
 import AccountRoutes from '../../../../account/routes';
 
 import { Account } from '../../../utils/api';
 
-
-const { func, shape, string } = PropTypes;
-const propTypes = {
-  history: shape({ push: func.isRequired }).isRequired,
-  location: shape({ pathname: string.isRequired }).isRequired,
-};
 class AppContainer extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      recipes: [],
-      isAuth: true,
-      loading: true,
-      user: {
-        email: '',
-        username: '',
-        _id: '',
-      },
-    };
+  static propTypes = {
+    history: shape({ push: func.isRequired }).isRequired,
+    location: shape({ pathname: string.isRequired }).isRequired,
   }
 
-  componentWillMount = async () => {
+  state = {
+    recipes: [],
+    isAuth: true,
+    loading: true,
+    user: {
+      email: '',
+      username: '',
+      _id: '',
+    },
+  };
+
+  componentDidMount = async () => {
+    const { location } = this.props;
+
     axios.interceptors.response.use(
       response => response,
       error => (
-        error.response.status === 401 && this.props.location.pathname !== '/'
+        error.response.status === 401 && location.pathname !== '/'
           ? this.setState({ isAuth: false })
           : Promise.reject(error)
       ),
     );
+
     const { data } = await Account.auth();
     this.setState({ isAuth: data.isAuth });
 
@@ -53,58 +51,71 @@ class AppContainer extends React.Component {
 
   getUser = async () => {
     this.setState({ loading: true });
+
     const { data: user } = await Account.getUser();
+
     this.setState({ user, loading: false });
   }
 
   updateRecipes = (updatedRecipes) => {
     const isArray = Array.isArray(updatedRecipes);
+
     this.setState({ recipes: isArray ? updatedRecipes : [updatedRecipes] });
   }
 
   updateAuth = (authValue) => {
     this.setState({ isAuth: authValue });
+
     if (authValue) this.getUser();
   }
 
-  render = () => !this.state.loading && (
-    <div>
-      {this.props.location.pathname !== '/' && (
-        <HeaderContainer
-          history={this.props.history}
-          recipes={this.state.recipes}
-          updateRecipes={this.updateRecipes}
-          updateAuth={this.updateAuth}
-          isAuth={this.state.isAuth}
-        />
-      )}
-      <Switch>
-        <Route exact path="/" component={HomepageContainer} />
-        <Route
-          path="/dashboard"
-          render={() => (
-            this.state.isAuth && this.state.user.username ? (
-              <DashboardRoutes
-                recipes={this.state.recipes}
-                updateRecipes={this.updateRecipes}
+  render = () => {
+    const {
+      props: { location, history },
+      state: {
+        loading, recipes, isAuth, user,
+      },
+    } = this;
+
+    return !loading && (
+      <React.Fragment>
+        {location.pathname !== '/' && (
+          <HeaderContainer
+            history={history}
+            recipes={recipes}
+            updateRecipes={this.updateRecipes}
+            updateAuth={this.updateAuth}
+            isAuth={isAuth}
+          />
+        )}
+        <Switch>
+          <Route exact path="/" component={HomepageContainer} />
+          <Route
+            path="/dashboard"
+            render={() => (
+              isAuth && user.username
+                ? (
+                  <DashboardRoutes
+                    recipes={recipes}
+                    updateRecipes={this.updateRecipes}
+                  />
+                ) : <Redirect to="/account/login" />
+            )}
+          />
+          <Route
+            path="/account"
+            render={() => (
+              <AccountRoutes
+                isAuth={isAuth}
+                updateAuth={this.updateAuth}
+                user={user}
               />
-            ) : <Redirect to="/account/login" />
-          )}
-        />
-        <Route
-          path="/account"
-          render={() => (
-            <AccountRoutes
-              isAuth={this.state.isAuth}
-              updateAuth={this.updateAuth}
-              user={this.state.user}
-            />
-          )}
-        />
-      </Switch>
-    </div>
-  )
+            )}
+          />
+        </Switch>
+      </React.Fragment>
+    );
+  }
 }
 
-AppContainer.propTypes = propTypes;
 export default AppContainer;

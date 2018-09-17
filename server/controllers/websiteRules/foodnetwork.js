@@ -5,7 +5,7 @@ const stripIngredients = (dom) => {
     dom
     .window
     .document
-    .getElementsByClassName('o-Ingredients__a-ListItemText')
+    .getElementsByClassName('o-Ingredients__a-Ingredient')
   );
 
   const listOfIngredients = [];
@@ -24,7 +24,7 @@ const stripInstructions = (dom) => {
     .getElementsByClassName('o-Method__m-Body')[0]
   );
 
-  const listOfP = containingDiv.children;
+  const listOfP = containingDiv.children[0].children;
 
   const listOfInstructions = [];
   let counter = 1;
@@ -54,7 +54,7 @@ const stripTime = (dom) => {
     dom
     .window
     .document
-    .getElementsByClassName('o-RecipeInfo__a-Description--Total')[0].textContent
+    .getElementsByClassName('o-RecipeInfo__a-Description m-RecipeInfo__a-Description--Total')[0].textContent
   );
 
   return formatTime(totalTime);
@@ -65,10 +65,10 @@ const stripImageURL = (dom) => {
     dom
     .window
     .document
-    .getElementsByClassName('o-AssetMultiMedia__a-Image')[0].src
+    .getElementsByClassName('o-AssetMultiMedia__a-Image')[0]
   );
 
-  return imageURL;
+  return imageURL ? imageURL.src : null;
 };
 
 const foodnetwork = (dom) => {

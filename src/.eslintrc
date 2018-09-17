@@ -6,6 +6,7 @@
   },
   "extends": ["react-app", "airbnb"],
   "rules": {
+    "max-len": ["error", { "code": 100 }],
     "no-underscore-dangle": "off",
     "import/no-unresolved": [
       2,
@@ -15,6 +16,7 @@
       "component": ["Link"],
       "aspects": ["noHref"]
     }],
-    "function-paren-newline": "off"
+    "function-paren-newline": "off",
+    "jsx-a11y/href-no-hash": "off"
   }
 }

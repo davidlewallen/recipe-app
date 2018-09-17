@@ -1,46 +1,42 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+  func, bool, arrayOf, object,
+} from 'prop-types';
 
 import { Recipe } from '../../../utils/api';
 
 import SubmitRecipe from '../components';
 
-const {
-  func,
-  bool,
-  arrayOf,
-  object,
-} = PropTypes;
-const propTypes = {
-  show: bool.isRequired,
-  handleModalClose: func.isRequired,
-  updateRecipes: func.isRequired,
-  recipes: arrayOf(object.isRequired).isRequired,
-};
-
 class SubmitRecipeContainer extends React.Component {
-  constructor() {
-    super();
-
-    this.state = { url: '' };
+  static propTypes = {
+    show: bool.isRequired,
+    handleModalClose: func.isRequired,
+    updateRecipes: func.isRequired,
+    recipes: arrayOf(object.isRequired).isRequired,
   }
 
-  handleURL = (event) => {
-    this.setState({ url: event.target.value });
-  }
+  state = { url: '' };
+
+  handleURL = ({ target: { value } }) => this.setState({ url: value });
 
   submitRecipe = async (event) => {
     event.preventDefault();
 
     try {
-      const encodedRecipeURI = encodeURIComponent(this.state.url);
+      const {
+        props: { updateRecipes, recipes, handleModalClose },
+        state: { url },
+      } = this;
+      const encodedRecipeURI = encodeURIComponent(url);
       const { data } = await Recipe.submitRecipe(encodedRecipeURI);
 
       if (!data.alreadyAdded) {
         this.setState({ url: '' });
-        this.props.updateRecipes([...this.props.recipes, data]);
+
+        updateRecipes([...recipes, data]);
       }
-      this.props.handleModalClose();
+
+      handleModalClose();
     } catch (err) {
       console.error(err.response);
 
@@ -50,16 +46,22 @@ class SubmitRecipeContainer extends React.Component {
     }
   }
 
-  render = () => (
-    <SubmitRecipe
-      show={this.props.show}
-      handleModalClose={this.props.handleModalClose}
-      submitRecipe={this.submitRecipe}
-      handleURL={this.handleURL}
-      url={this.state.url}
-    />
-  )
+  render = () => {
+    const {
+      props: { show, handleModalClose },
+      state: { url },
+    } = this;
+
+    return (
+      <SubmitRecipe
+        show={show}
+        handleModalClose={handleModalClose}
+        submitRecipe={this.submitRecipe}
+        handleURL={this.handleURL}
+        url={url}
+      />
+    );
+  }
 }
 
-SubmitRecipeContainer.propTypes = propTypes;
 export default SubmitRecipeContainer;

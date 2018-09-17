@@ -35,6 +35,7 @@ exports[`Homepage should render and match snapshot 1`] = `
             bsClass="btn"
             bsStyle="primary"
             disabled={false}
+            type="button"
           >
             Login
           </Button>

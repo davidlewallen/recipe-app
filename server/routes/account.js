@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 
 const AccountModel = require('../models/account');
+
 const Account = require('../controllers/account');
 
 const { isAuthenticated } = require('./utils');
@@ -28,7 +29,7 @@ router.post('/login', (req, res, next) => {
     });
   }
 
-  passport.authenticate('local', (err, user, info) => {
+  passport.authenticate('local', async (err, user, info) => {
     if (err) {
       console.log('err', err);
       return next(err);
@@ -40,25 +41,31 @@ router.post('/login', (req, res, next) => {
         .json({ message: 'Incorrect username and/or password.'});
     }
 
-    req.login(user, loginErr => {
-      if (loginErr) {
-        console.log('loginErr', loginErr);
-        return next(loginErr);
-      }
+    const { verification } = await Account.getUserByUsername(req.body.username);
 
-      return res.send(true);
-    });
+    if (verification.status) {
+      req.login(user, loginErr => {
+        if (loginErr) {
+          console.log('loginErr', loginErr);
+          return next(loginErr);
+        }
+
+        return res.send(true);
+      });
+    }
+
+    return res.sendStatus(401);
   })(req, res, next);
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
   AccountModel.register(
     new AccountModel({
       username: req.body.username,
       email: req.body.email,
     }),
     req.body.password,
-    (err) => {
+    (err, user) => {
       if (err) {
         console.log('error', err);
         if (err.hasOwnProperty('_message')) {
@@ -67,14 +74,10 @@ router.post('/register', (req, res) => {
 
         return res.status(409).send(err);
       }
-      passport.authenticate('local')(req, res, () => {
-        const userObject = {
-          _id: req.user._id,
-          username: req.user.username,
-          savedRecipes: req.user.savedRecipes,
-        };
-        res.send(userObject);
-      });
+
+      Account.verification.sendVerificationEmail(user);
+
+      return res.status(201).send('Account created successfully');
     }
   );
 });
@@ -92,7 +95,19 @@ router.get('/auth', (req, res) => {
 });
 
 router.get('/user', isAuthenticated, async (req, res) => {
-  res.json(await Account.getUser(req.user._id));
+  res.json(await Account.getUserById(req.user._id));
+});
+
+router.get('/verify', async (req, res) => {
+  const user = await Account.getUserById(req.query.id);
+
+  return Account.verification.verify(res, user, req.query.key);
+});
+
+router.get('/verify/resend', async (req, res) => {
+  await Account.verification.resendVerificationEmail(req.query.id);
+
+  return res.sendStatus(200);
 });
 
 module.exports = router;

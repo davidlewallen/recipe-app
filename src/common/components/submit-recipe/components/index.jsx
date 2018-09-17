@@ -1,10 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Modal, Row, Col, Button } from 'react-bootstrap';
+import { bool, string, func } from 'prop-types';
+import {
+  Modal, Row, Col, Button,
+} from 'react-bootstrap';
 
 import '../assets/styles/index.css';
 
-const { bool, string, func } = PropTypes;
 const propTypes = {
   show: bool.isRequired,
   handleModalClose: func.isRequired,
@@ -13,29 +14,34 @@ const propTypes = {
   url: string.isRequired,
 };
 
-const SubmitRecipe = props => (
+const SubmitRecipe = ({
+  show, handleModalClose, url, handleURL, submitRecipe,
+}) => (
   <Modal
-    show={props.show}
-    onHide={props.handleModalClose}
+    show={show}
+    onHide={handleModalClose}
     className="submit-recipe-modal"
   >
     <Modal.Header closeButton className="header">
-      <Modal.Title className="title">Submit Recipe</Modal.Title>
+      <Modal.Title className="title">
+        Submit Recipe
+      </Modal.Title>
     </Modal.Header>
     <Modal.Body className="body">
       <Row>
         <Col xs={12} md={8}>
           <input
-            value={props.url}
+            value={url}
             placeholder="Recipe URL"
-            onChange={props.handleURL}
+            onChange={handleURL}
           />
         </Col>
         <Col xs={12} md={4}>
           <Button
             block
             bsStyle="primary"
-            onClick={props.submitRecipe}
+            onClick={submitRecipe}
+            type="button"
           >
             Submit
           </Button>

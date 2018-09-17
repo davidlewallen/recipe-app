@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { func, bool } from 'prop-types';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const { func, bool } = PropTypes;
 const propTypes = {
   logout: func.isRequired,
   handleModalOpen: func.isRequired,
@@ -12,17 +11,21 @@ const propTypes = {
   handleAcceptedModal: func.isRequired,
 };
 
-const Header = props => (
+const Header = ({
+  logout, handleModalOpen, isAuth, handleAcceptedModal,
+}) => (
   <Navbar inverse fluid collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to={props.isAuth ? '/dashboard' : '/'}>My Saved Recipes</Link>
+        <Link to={isAuth ? '/dashboard' : '/'}>
+          My Saved Recipes
+        </Link>
       </Navbar.Brand>
-      {props.isAuth && (
+      {isAuth && (
         <Navbar.Toggle />
       )}
     </Navbar.Header>
-    {props.isAuth && (
+    {isAuth && (
       <Navbar.Collapse>
         <Nav pullRight>
           <LinkContainer to="/dashboard">
@@ -31,11 +34,11 @@ const Header = props => (
             </NavItem>
           </LinkContainer>
 
-          <NavItem eventKey={2} onClick={props.handleModalOpen}>
+          <NavItem eventKey={2} onClick={handleModalOpen}>
             + Add Recipe
           </NavItem>
 
-          <NavItem eventKey={3} onClick={props.handleAcceptedModal}>
+          <NavItem eventKey={3} onClick={handleAcceptedModal}>
             Accepted Websites
           </NavItem>
 
@@ -45,7 +48,7 @@ const Header = props => (
             </NavItem>
           </LinkContainer>
 
-          <NavItem eventKey={5} onClick={props.logout}>
+          <NavItem eventKey={5} onClick={logout}>
             Logout
           </NavItem>
         </Nav>

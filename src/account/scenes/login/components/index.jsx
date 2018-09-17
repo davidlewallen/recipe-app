@@ -1,5 +1,7 @@
 import React from 'react';
-import { string, func, shape, bool } from 'prop-types';
+import {
+  string, func, shape, bool,
+} from 'prop-types';
 import { Link } from 'react-router-dom';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
