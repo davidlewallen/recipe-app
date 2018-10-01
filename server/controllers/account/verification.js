@@ -54,7 +54,7 @@ const sendVerificationEmail = async (user) => {
 
       Please follow the link below to verify your account.
 
-      www.mysavedrecipes.com/#/email/verify?${verificationParams}
+      www.mysavedrecipes.com/account/verify?${verificationParams}
     `,
   };
 
@@ -74,13 +74,13 @@ const resendVerificationEmail = async (id) => {
 };
 
 const verify = async (res, user, key) => {
-  if (user.verification.status) {
+  if (user && user.verification && user.verification.status) {
     return res.status(200).send({
       alreadyVerified: true
     });
   }
 
-  if (user.verification.key === key) {
+  if (user && user.verification && user.verification.key === key) {
     if (Date.now() < new Date(user.verification.expires)) {
       await setAccountToVerified(user._id);
 
@@ -101,4 +101,6 @@ module.exports = {
   sendVerificationEmail,
   resendVerificationEmail,
   verify,
+  setAccountToUnverified,
+  setAccountToVerified,
 };
