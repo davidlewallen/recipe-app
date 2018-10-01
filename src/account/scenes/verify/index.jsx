@@ -1,18 +1,50 @@
 import React from 'react';
-import Grid from 'react-bootstrap/lib/Grid';
-import Panel from 'react-bootstrap/lib/Panel';
+import { func, string } from 'prop-types';
 
-const VerifyEmail = () => (
-  <Grid>
-    <Panel>
-      <Panel.Body>
-        <div className="align-center">
-          To access your account,
-          please follow the steps included in the email that was just sent to you.
-        </div>
-      </Panel.Body>
-    </Panel>
-  </Grid>
-);
+import { Account } from '../../../common/utils/api';
 
-export default VerifyEmail;
+import VerifyEmail from './components';
+
+const propTypes = {
+  history: { replace: func.isRequired }.isRequired,
+  userId: string.isRequired,
+  verificationKey: string.isRequired,
+};
+class VerifyEmailContainer extends React.Component {
+  state = { verificationState: 'checking' }
+
+  componentDidMount = async () => {
+    await this.verifyEmail();
+  }
+
+  verifyEmail = async () => {
+    const { history, userId, verificationKey } = this.props;
+
+    try {
+      await Account.verify(userId, verificationKey);
+
+      this.setState({ verificationState: 'verified' });
+
+      setTimeout(() => history.replace('/dashboard'), 5000);
+    } catch (err) {
+      const { response } = err;
+      if (response.status === 400 && response.data.verificationExpired) {
+        this.setState({ verificationState: 'resend' });
+      } else if (response.status === 400 && response.data.nonMatchingKey) {
+        this.setState({ verificationState: 'nonMatching' });
+      }
+      throw err;
+    }
+  }
+
+  render() {
+    const { verificationState } = this.state;
+
+    return (
+      <VerifyEmail verificationState={verificationState} />
+    );
+  }
+}
+
+VerifyEmailContainer.propTypes = propTypes;
+export default VerifyEmailContainer;
