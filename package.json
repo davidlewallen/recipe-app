@@ -5,12 +5,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
-    "cross-env": "^5.2.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "moment": "^2.22.2",
     "mongoose": "^4.13.7",
-    "morgan": "^1.9.1",
     "nodemailer": "^4.6.8",
     "passport": "^0.4.0",
     "passport-local-mongoose": "^5.0.1",
@@ -23,22 +21,31 @@
     "uuid": "^3.3.2",
     "validator": "^10.8.0"
   },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.15.0",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "morgan": "^1.9.1",
+    "enzyme-to-json": "^3.3.1"
+  },
   "scripts": {
     "start": "node ./server/index.js",
     "start:dev": "react-scripts start",
     "server:prod": "cross-env PORT=3001 NODE_ENV=production nodemon -w ./server ./server/index.js",
     "server:dev": "cross-env PORT=3001 NODE_ENV=dev nodemon -w ./server ./server/index.js",
-    "server:test": "cross-env NODE_ENV=test react-scripts jest --testPathPattern=server --watch --no-cache --i",
-    "server:coverage": "cross-env NODE_ENV=test react-scripts jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
+    "server:test": "cross-env NODE_ENV=test jest --testPathPattern=server --watch",
+    "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "react-scripts build",
-    "test": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch",
+    "test": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src",
     "test:v": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch --verbose",
     "test:coverage": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch --coverage",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "root": true
   },
   "browserslist": [
     ">0.2%",
@@ -46,5 +53,11 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testEnvironment": "node"
+  }
 }

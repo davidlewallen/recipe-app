@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { MemoryRouter, Route } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
@@ -178,10 +178,10 @@ describe('AppContainer', () => {
       expect(mountWrapper.find('LoginContainer').exists()).toBe(true);
     });
 
-    it('should render AccountRoutes on "/account"', () => {
+    fit('should render AccountRoutes on "/account"', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/account']}>
-          <Route component={AppContainer} />
+          <AppContainer {...mockProps} />
         </MemoryRouter>,
       );
 

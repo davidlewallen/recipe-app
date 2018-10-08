@@ -30,6 +30,7 @@ describe('Dashboard snapshot test', () => {
       url: { href: 'www.randomurl.com' },
     },
     loading: false,
+    loadingRecipes: false,
     searchValue: '',
     handleSearch: jest.fn(),
   };

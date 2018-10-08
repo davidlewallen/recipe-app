@@ -25,7 +25,7 @@ describe('RealSimple Rules Test', () => {
   });
 
   describe('stripIngredients', () => {
-    it('should strip ingredients from website', () => {
+    fit('should strip ingredients from website', () => {
       const results = stripIngredients(dom);
 
       expect(results).toEqual(expectedData.realsimple.ingredients);
