@@ -37,7 +37,7 @@
     "server:test": "cross-env NODE_ENV=test jest --testPathPattern=server --watch",
     "server:coverage": "cross-env NODE_ENV=test jest --testPathPattern=/server --no-cache --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "build": "react-scripts build",
-    "test": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src",
+    "test": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom",
     "test:v": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch --verbose",
     "test:coverage": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch --coverage",
     "eject": "react-scripts eject",
@@ -57,7 +57,6 @@
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ],
-    "testEnvironment": "node"
+    ]
   }
 }
