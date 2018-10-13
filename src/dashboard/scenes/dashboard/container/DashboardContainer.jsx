@@ -34,12 +34,10 @@ class DashboardContainer extends React.Component {
     const { updateRecipes } = this.props;
 
     this.setState({ loadingRecipes: true });
-    try {
-      const { data: recipes } = await Recipe.getRecipes();
-      updateRecipes(recipes);
-    } catch (err) {
-      console.log(err);
-    }
+
+    const { data: recipes } = await Recipe.getRecipes();
+
+    updateRecipes(recipes);
 
     this.setState({ loadingRecipes: false });
   }

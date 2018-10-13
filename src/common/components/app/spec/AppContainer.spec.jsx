@@ -178,7 +178,7 @@ describe('AppContainer', () => {
       expect(mountWrapper.find('LoginContainer').exists()).toBe(true);
     });
 
-    fit('should render AccountRoutes on "/account"', () => {
+    it('should render AccountRoutes on "/account"', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/account']}>
           <AppContainer {...mockProps} />
