@@ -9,7 +9,8 @@ const mock = new MockAdapter(axios);
 
 describe('SubmitRecipeContainer test', () => {
   const mockRecipeList = [
-    { title: 'recipe 1', _id: 1 }, { title: 'recipe 2', _id: 2 },
+    { title: 'recipe 1', _id: 1 },
+    { title: 'recipe 2', _id: 2 },
   ];
 
   const mockProps = {
@@ -48,7 +49,6 @@ describe('SubmitRecipeContainer test', () => {
     });
   });
 
-
   describe('submitRecipe', () => {
     it('should call submitRecipe', () => {
       mock.onPost('/api/recipe/submit/%27%27').reply(200);
@@ -76,13 +76,17 @@ describe('SubmitRecipeContainer test', () => {
       await instance.submitRecipe({ preventDefault: jest.fn() });
       expect(instance.state.url).toBe('');
       setTimeout(() => {
-        expect(mockProps.updateRecipes)
-          .toHaveBeenCalledWith([mockRecipeList[0], mockRecipeList[1]]);
+        expect(mockProps.updateRecipes).toHaveBeenCalledWith([
+          mockRecipeList[0],
+          mockRecipeList[1],
+        ]);
       });
     });
 
     it('should not call updateRecipes if alreadyAdded: true', async () => {
-      mock.onPost('/api/recipe/submit/randomurl').reply(200, { alreadyAdded: true });
+      mock
+        .onPost('/api/recipe/submit/randomurl')
+        .reply(200, { alreadyAdded: true });
       instance.setState({ url: 'randomurl' });
 
       await instance.submitRecipe({ preventDefault: jest.fn() });
@@ -90,14 +94,18 @@ describe('SubmitRecipeContainer test', () => {
     });
 
     it('should not call updateRecipes if nonProcessable: true', async () => {
-      mock.onPost('/api/recie/submit/%27%27').reply(200, { nonProcessable: true });
+      mock
+        .onPost('/api/recie/submit/%27%27')
+        .reply(200, { nonProcessable: true });
 
       await instance.submitRecipe({ preventDefault: jest.fn() });
       expect(mockProps.updateRecipes).toHaveBeenCalledTimes(0);
     });
 
     it('should alert the user if website is not processable', async () => {
-      mock.onPost('/api/recipe/submit/randomurl').reply(403, { nonProcessable: true });
+      mock
+        .onPost('/api/recipe/submit/randomurl')
+        .reply(403, { nonProcessable: true });
       instance.setState({ url: 'randomurl' });
       window.alert = jest.fn();
       window.console.error = jest.fn();

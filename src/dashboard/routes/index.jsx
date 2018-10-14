@@ -25,6 +25,5 @@ const DashboardRoutes = props => (
   </Switch>
 );
 
-
 DashboardRoutes.propTypes = propTypes;
 export default DashboardRoutes;

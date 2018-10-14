@@ -9,7 +9,7 @@ class DashboardContainer extends React.Component {
   static propTypes = {
     recipes: arrayOf(object.isRequired).isRequired,
     updateRecipes: func.isRequired,
-  }
+  };
 
   state = {
     showModal: false,
@@ -28,7 +28,7 @@ class DashboardContainer extends React.Component {
 
   componentDidMount = async () => {
     await this.getUserRecipes();
-  }
+  };
 
   getUserRecipes = async () => {
     const { updateRecipes } = this.props;
@@ -40,9 +40,9 @@ class DashboardContainer extends React.Component {
     updateRecipes(recipes);
 
     this.setState({ loadingRecipes: false });
-  }
+  };
 
-  deleteRecipe = async (recipeId) => {
+  deleteRecipe = async recipeId => {
     const { updateRecipes } = this.props;
 
     try {
@@ -51,23 +51,23 @@ class DashboardContainer extends React.Component {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   handleModalClose = () => this.setState({ showModal: false });
 
-  viewRecipe = recipe => this.setState({
-    showModal: true,
-    selectedRecipe: recipe,
-  });
+  viewRecipe = recipe =>
+    this.setState({
+      showModal: true,
+      selectedRecipe: recipe,
+    });
 
-  handleSearch = ({ target: { value } }) => this.setState({ searchValue: value });
+  handleSearch = ({ target: { value } }) =>
+    this.setState({ searchValue: value });
 
   render = () => {
     const {
       props: { recipes },
-      state: {
-        showModal, selectedRecipe, searchValue, loadingRecipes,
-      },
+      state: { showModal, selectedRecipe, searchValue, loadingRecipes },
     } = this;
 
     return (
@@ -83,7 +83,7 @@ class DashboardContainer extends React.Component {
         loadingRecipes={loadingRecipes}
       />
     );
-  }
+  };
 }
 
 export default DashboardContainer;

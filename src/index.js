@@ -12,7 +12,7 @@ ReactDOM.render(
   <Router>
     <Route component={AppContainer} />
   </Router>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
 // serviceWorker();

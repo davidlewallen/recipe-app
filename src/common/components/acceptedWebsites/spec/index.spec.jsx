@@ -26,6 +26,11 @@ describe('AcceptedWebsites', () => {
   });
 
   it('should generate keys from website text', () => {
-    expect(wrapper.find('Col').at(1).key()).toBe(genKey(mockProps.acceptedWebsites[0]));
+    expect(
+      wrapper
+        .find('Col')
+        .at(1)
+        .key()
+    ).toBe(genKey(mockProps.acceptedWebsites[0]));
   });
 });

@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  shape, func, arrayOf, object, bool,
-} from 'prop-types';
+import { shape, func, arrayOf, object, bool } from 'prop-types';
 
 import { Account, Utils } from '../../../utils/api';
 
@@ -18,7 +16,7 @@ class HeaderContainer extends React.Component {
     recipes: arrayOf(object.isRequired).isRequired,
     isAuth: bool.isRequired,
     updateAuth: func.isRequired,
-  }
+  };
 
   state = {
     showModal: false,
@@ -30,7 +28,7 @@ class HeaderContainer extends React.Component {
     const { data: acceptedWebsites } = await Utils.getAcceptedWebsites();
 
     this.setState({ acceptedWebsites });
-  }
+  };
 
   logout = () => {
     const { updateAuth, history } = this.props;
@@ -38,15 +36,16 @@ class HeaderContainer extends React.Component {
     Account.logout();
     updateAuth(false);
     history.replace('/');
-  }
+  };
 
   handleModalOpen = () => this.setState({ showModal: true });
 
   handleModalClose = () => this.setState({ showModal: false });
 
-  handleAcceptedModal = () => (
-    this.setState(prevState => ({ showAcceptedModal: !prevState.showAcceptedModal }))
-  );
+  handleAcceptedModal = () =>
+    this.setState(prevState => ({
+      showAcceptedModal: !prevState.showAcceptedModal,
+    }));
 
   render = () => {
     const {
@@ -75,7 +74,7 @@ class HeaderContainer extends React.Component {
         />
       </React.Fragment>
     );
-  }
+  };
 }
 
 export default HeaderContainer;

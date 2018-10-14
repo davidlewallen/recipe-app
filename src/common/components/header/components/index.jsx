@@ -11,27 +11,19 @@ const propTypes = {
   handleAcceptedModal: func.isRequired,
 };
 
-const Header = ({
-  logout, handleModalOpen, isAuth, handleAcceptedModal,
-}) => (
+const Header = ({ logout, handleModalOpen, isAuth, handleAcceptedModal }) => (
   <Navbar inverse fluid collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to={isAuth ? '/dashboard' : '/'}>
-          My Saved Recipes
-        </Link>
+        <Link to={isAuth ? '/dashboard' : '/'}>My Saved Recipes</Link>
       </Navbar.Brand>
-      {isAuth && (
-        <Navbar.Toggle />
-      )}
+      {isAuth && <Navbar.Toggle />}
     </Navbar.Header>
     {isAuth && (
       <Navbar.Collapse>
         <Nav pullRight>
           <LinkContainer to="/dashboard">
-            <NavItem eventKey={1}>
-              My Recipes
-            </NavItem>
+            <NavItem eventKey={1}>My Recipes</NavItem>
           </LinkContainer>
 
           <NavItem eventKey={2} onClick={handleModalOpen}>
@@ -43,9 +35,7 @@ const Header = ({
           </NavItem>
 
           <LinkContainer to="/account">
-            <NavItem eventKey={4}>
-              Account
-            </NavItem>
+            <NavItem eventKey={4}>Account</NavItem>
           </LinkContainer>
 
           <NavItem eventKey={5} onClick={logout}>

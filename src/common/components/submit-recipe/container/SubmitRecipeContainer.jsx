@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  func, bool, arrayOf, object,
-} from 'prop-types';
+import { func, bool, arrayOf, object } from 'prop-types';
 
 import { Recipe } from '../../../utils/api';
 
@@ -13,13 +11,13 @@ class SubmitRecipeContainer extends React.Component {
     handleModalClose: func.isRequired,
     updateRecipes: func.isRequired,
     recipes: arrayOf(object.isRequired).isRequired,
-  }
+  };
 
   state = { url: '' };
 
   handleURL = ({ target: { value } }) => this.setState({ url: value });
 
-  submitRecipe = async (event) => {
+  submitRecipe = async event => {
     event.preventDefault();
 
     try {
@@ -44,7 +42,7 @@ class SubmitRecipeContainer extends React.Component {
         alert('We cant process this website currently');
       }
     }
-  }
+  };
 
   render = () => {
     const {
@@ -61,7 +59,7 @@ class SubmitRecipeContainer extends React.Component {
         url={url}
       />
     );
-  }
+  };
 }
 
 export default SubmitRecipeContainer;

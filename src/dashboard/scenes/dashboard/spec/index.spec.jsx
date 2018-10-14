@@ -75,12 +75,21 @@ describe('Dashboard snapshot test', () => {
     expect(component.find('div.recipe').length).toBe(2);
     component.setProps({ searchValue: 'Recipe 1' });
     expect(component.find('div.recipe').length).toBe(1);
-    expect(component.find('div.recipe').find('div').at(1).text()).toBe(props.recipes[0].title);
+    expect(
+      component
+        .find('div.recipe')
+        .find('div')
+        .at(1)
+        .text()
+    ).toBe(props.recipes[0].title);
   });
 
   it('should display the title', () => {
     const component = shallow(<Dashboard {...props} />);
-    const title = component.find('.header').at(0).childAt(0);
+    const title = component
+      .find('.header')
+      .at(0)
+      .childAt(0);
     expect(title.text()).toBe(props.recipes[0].title);
   });
 
@@ -99,12 +108,19 @@ describe('Dashboard snapshot test', () => {
   });
 
   it('should display "n/a" for time if totalTime is undefined', () => {
-    const component = shallow(<Dashboard {...props} recipes={[{ title: 'Recipe', _id: 1 }]} />);
+    const component = shallow(
+      <Dashboard {...props} recipes={[{ title: 'Recipe', _id: 1 }]} />
+    );
     const recipe = component.find('.recipe');
     const footer = recipe.find('.footer');
     const time = footer.find('Col');
 
-    expect(time.children().at(1).text()).toBe('n/a');
+    expect(
+      time
+        .children()
+        .at(1)
+        .text()
+    ).toBe('n/a');
   });
 
   it('should should call deleteRecipe with the recipe id when the Delete button is clicked', () => {
@@ -119,9 +135,14 @@ describe('Dashboard snapshot test', () => {
       <Dashboard
         {...props}
         recipes={[{ title: 'Recipe', _id: 1, imageURL: '' }]}
-      />,
+      />
     );
 
-    expect(component.find('img').at(0).prop('src')).toBe('noImage.png');
+    expect(
+      component
+        .find('img')
+        .at(0)
+        .prop('src')
+    ).toBe('noImage.png');
   });
 });

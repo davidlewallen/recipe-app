@@ -11,7 +11,7 @@ class LoginContainer extends Component {
   static propTypes = {
     history: shape({ replace: func }).isRequired,
     updateAuth: func.isRequired,
-  }
+  };
 
   state = {
     username: '',
@@ -22,7 +22,7 @@ class LoginContainer extends Component {
     },
   };
 
-  login = async (event) => {
+  login = async event => {
     event.preventDefault();
 
     try {
@@ -50,15 +50,13 @@ class LoginContainer extends Component {
         });
       }
     }
-  }
+  };
 
-  handleUsername = ({ target: { value: username } }) => (
-    this.setState({ username: username.trim() })
-  );
+  handleUsername = ({ target: { value: username } }) =>
+    this.setState({ username: username.trim() });
 
-  handlePassword = ({ target: { value: password } }) => (
-    this.setState({ password: password.trim() })
-  );
+  handlePassword = ({ target: { value: password } }) =>
+    this.setState({ password: password.trim() });
 
   render = () => {
     const { username, password, error } = this.state;
@@ -73,7 +71,7 @@ class LoginContainer extends Component {
         login={this.login}
       />
     );
-  }
+  };
 }
 
 export default LoginContainer;

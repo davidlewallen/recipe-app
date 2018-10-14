@@ -52,7 +52,7 @@ describe('LoginContainer test', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should log into an account and redirect to \'/\'', async () => {
+    it("should log into an account and redirect to '/'", async () => {
       instance.setState(mockState);
       mock.onPost('/api/account/login').reply(200, {
         savedRecipes: [],

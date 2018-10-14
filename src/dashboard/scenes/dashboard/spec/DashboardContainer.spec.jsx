@@ -76,7 +76,7 @@ describe('DashboardContainer test', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should call updateRecipes with the user\'s recipes', async () => {
+    it("should call updateRecipes with the user's recipes", async () => {
       await instance.getUserRecipes();
       expect(instance.props.updateRecipes).toHaveBeenCalledWith(mockRecipeList);
     });

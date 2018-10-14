@@ -6,7 +6,7 @@ import Register from '../components';
 import { Account } from '../../../../common/utils/api';
 
 class RegisterContainer extends Component {
-  static propTypes = { history: shape({ replace: func }).isRequired }
+  static propTypes = { history: shape({ replace: func }).isRequired };
 
   state = {
     username: '',
@@ -18,7 +18,7 @@ class RegisterContainer extends Component {
     },
   };
 
-  register = async (event) => {
+  register = async event => {
     event.preventDefault();
 
     const {
@@ -46,18 +46,18 @@ class RegisterContainer extends Component {
         });
       }
     }
-  }
+  };
 
-  handleUsername = ({ target: { value } }) => this.setState({ username: value });
+  handleUsername = ({ target: { value } }) =>
+    this.setState({ username: value });
 
-  handlePassword = ({ target: { value } }) => this.setState({ password: value });
+  handlePassword = ({ target: { value } }) =>
+    this.setState({ password: value });
 
   handleEmail = ({ target: { value } }) => this.setState({ email: value });
 
   render = () => {
-    const {
-      username, password, email, error,
-    } = this.state;
+    const { username, password, email, error } = this.state;
 
     return (
       <Register
@@ -71,7 +71,7 @@ class RegisterContainer extends Component {
         error={error}
       />
     );
-  }
+  };
 }
 
 export default RegisterContainer;

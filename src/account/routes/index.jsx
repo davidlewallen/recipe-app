@@ -6,12 +6,7 @@ import Overview from '../scenes/overview/components';
 import LoginContainer from '../scenes/login/container/LoginContainer';
 import RegisterContainer from '../scenes/register/container/RegisterContainer';
 
-const {
-  bool,
-  func,
-  objectOf,
-  string,
-} = PropTypes;
+const { bool, func, objectOf, string } = PropTypes;
 const propTypes = {
   isAuth: bool.isRequired,
   updateAuth: func.isRequired,
@@ -23,27 +18,33 @@ const AccountRoutes = props => (
     <Route
       exact
       path="/account"
-      render={() => (
-        props.isAuth && props.user.username
-          ? <Overview user={props.user} />
-          : <Redirect to="/account/login" />
-      )}
+      render={() =>
+        props.isAuth && props.user.username ? (
+          <Overview user={props.user} />
+        ) : (
+          <Redirect to="/account/login" />
+        )
+      }
     />
     <Route
       path="/account/login"
-      render={routeProps => (
-        props.isAuth && props.user.username
-          ? <Redirect to="/dashboard" />
-          : <LoginContainer {...routeProps} updateAuth={props.updateAuth} />
-      )}
+      render={routeProps =>
+        props.isAuth && props.user.username ? (
+          <Redirect to="/dashboard" />
+        ) : (
+          <LoginContainer {...routeProps} updateAuth={props.updateAuth} />
+        )
+      }
     />
     <Route
       path="/account/register"
-      render={routeProps => (
-        props.isAuth && props.user.username
-          ? <Redirect to="/dashboard" />
-          : <RegisterContainer {...routeProps} />
-      )}
+      render={routeProps =>
+        props.isAuth && props.user.username ? (
+          <Redirect to="/dashboard" />
+        ) : (
+          <RegisterContainer {...routeProps} />
+        )
+      }
     />
   </Switch>
 );

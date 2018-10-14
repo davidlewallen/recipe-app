@@ -64,21 +64,21 @@ describe('AppContainer', () => {
   });
 
   // describe('axios.intercepters', () => {
-    // it('should return error if api calls are not 401', async () => {
-    //   mock.onGet('/api/account/auth').reply(500, { error: 'test' });
-    //   instance.mockCall = () => axios.get('/api/account/auth');
-    //   await instance.mockCall();
-    //   expect(instance.props.history.push).toHaveBeenCalledTimes(0);
-    // });
+  // it('should return error if api calls are not 401', async () => {
+  //   mock.onGet('/api/account/auth').reply(500, { error: 'test' });
+  //   instance.mockCall = () => axios.get('/api/account/auth');
+  //   await instance.mockCall();
+  //   expect(instance.props.history.push).toHaveBeenCalledTimes(0);
+  // });
 
-    // it('should redirect to /account/login if api calls error 401 and location is not "/"', async () => {
-    //   mock.onGet('/mockCall').reply(401);
-    //   wrapper.setProps({ location: { pathname: '/dashboard' } });
-    //   instance.mockCall = () => axios.get('/mockCall');
+  // it('should redirect to /account/login if api calls error 401 and location is not "/"', async () => {
+  //   mock.onGet('/mockCall').reply(401);
+  //   wrapper.setProps({ location: { pathname: '/dashboard' } });
+  //   instance.mockCall = () => axios.get('/mockCall');
 
-    //   await instance.mockCall();
-    //   expect(instance.props.history.push).toHaveBeenCalled();
-    // });
+  //   await instance.mockCall();
+  //   expect(instance.props.history.push).toHaveBeenCalled();
+  // });
   // });
 
   describe('getUser', () => {
@@ -136,9 +136,12 @@ describe('AppContainer', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/']}>
           <AppContainer {...mockProps} />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
-      mountWrapper.find('AppContainer').instance().setState({ loading: false });
+      mountWrapper
+        .find('AppContainer')
+        .instance()
+        .setState({ loading: false });
       mountWrapper.update();
       expect(mountWrapper.find('HomepageContainer').exists()).toBe(true);
     });
@@ -147,13 +150,16 @@ describe('AppContainer', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/dashboard']}>
           <AppContainer {...mockProps} />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
 
-      mountWrapper.find('AppContainer').instance().setState({
-        user: { username: 'test' },
-        loading: false,
-      });
+      mountWrapper
+        .find('AppContainer')
+        .instance()
+        .setState({
+          user: { username: 'test' },
+          loading: false,
+        });
       mountWrapper.update();
       expect(mountWrapper.find('DashboardRoutes').exists()).toBe(true);
     });
@@ -163,16 +169,22 @@ describe('AppContainer', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/']}>
           <AppContainer {...mockProps} />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
 
-      mountWrapper.find('AppContainer').instance().setState({
-        isAuth: false,
-        user: { username: '' },
-        loading: false,
-      });
+      mountWrapper
+        .find('AppContainer')
+        .instance()
+        .setState({
+          isAuth: false,
+          user: { username: '' },
+          loading: false,
+        });
       mountWrapper.update();
-      mountWrapper.find('Router').prop('history').push('/dashboard');
+      mountWrapper
+        .find('Router')
+        .prop('history')
+        .push('/dashboard');
       mountWrapper.update();
 
       expect(mountWrapper.find('LoginContainer').exists()).toBe(true);
@@ -182,10 +194,13 @@ describe('AppContainer', () => {
       const mountWrapper = mount(
         <MemoryRouter initialEntries={['/account']}>
           <AppContainer {...mockProps} />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
 
-      mountWrapper.find('AppContainer').instance().setState({ loading: false });
+      mountWrapper
+        .find('AppContainer')
+        .instance()
+        .setState({ loading: false });
       mountWrapper.update();
 
       expect(mountWrapper.find('AccountRoutes').exists()).toBe(true);
