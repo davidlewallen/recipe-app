@@ -9,8 +9,7 @@ const setAccountToUnverified = async (id) => {
   const verificationKey = uuidv1();
 
   await Account.findByIdAndUpdate(
-    id,
-    {
+    id, {
       verification: {
         status: false,
         key: verificationKey,
@@ -24,8 +23,7 @@ const setAccountToUnverified = async (id) => {
 
 const setAccountToVerified = async (id) => {
   await Account.findByIdAndUpdate(
-    id,
-    {
+    id, {
       verification: {
         status: true,
       },
@@ -75,26 +73,26 @@ const resendVerificationEmail = async (id) => {
 };
 
 const verify = async (res, user, key) => {
-  if (get(user, 'user.verification.status')) {
+  if (get(user, 'verification.status')) {
     return res.status(200).send({
       alreadyVerified: true
     });
   }
 
-  if (get(user, 'user.verification.key') === key) {
-    if (Date.now() < new Date(user.verification.expires)) {
-      await setAccountToVerified(user._id);
+  if (get(user, 'verification.key') !== key) {
+    return res.status(400).send({
+      nonMatchingKey: true
+    });
+  }
 
-      return res.sendStatus(200);
-    } else {
-      return res.status(400).send({
-        verificationExpired: true
-      });
-    }
+  if (Date.now() < new Date(user.verification.expires)) {
+    await setAccountToVerified(user._id);
+
+    return res.sendStatus(200);
   }
 
   return res.status(400).send({
-    nonMatchingKey: true
+    verificationExpired: true
   });
 };
 
