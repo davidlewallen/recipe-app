@@ -8,10 +8,10 @@
   },
   "extends": [
     "airbnb",
-    "prettier",
+    "prettier"
   ],
   "plugins": [
-    "prettier",
+    "prettier"
   ],
   "rules": {
     "import/no-unresolved": [
