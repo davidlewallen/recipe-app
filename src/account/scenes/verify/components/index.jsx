@@ -9,9 +9,9 @@ const propTypes = {
   handleResendVerification: func.isRequired,
 };
 
-const Verifying = () => <p>Verifying email address...</p>;
+export const Verifying = () => <p>Verifying email address...</p>;
 
-const Verified = () => (
+export const Verified = () => (
   <React.Fragment>
     <p>Thank you for verifying your email.</p>
     <p>You will be redirected to the login page in 5 seconds.</p>
@@ -19,7 +19,7 @@ const Verified = () => (
 );
 
 const ResendPropTypes = { handleResendVerification: func.isRequired };
-const Resend = ({ handleResendVerification }) => (
+export const Resend = ({ handleResendVerification }) => (
   <React.Fragment>
     <p>
       Your email verification expired. Click below to resend verification email.
@@ -30,16 +30,16 @@ const Resend = ({ handleResendVerification }) => (
   </React.Fragment>
 );
 
-const Resent = () => (
+Resend.propTypes = ResendPropTypes;
+
+export const Resent = () => (
   <p>
     To access your account, please follow the steps included in the email that
     was just sent to you.
   </p>
 );
 
-Resend.propTypes = ResendPropTypes;
-
-const Invalid = () => (
+export const Invalid = () => (
   <React.Fragment>
     <p>Your verification key did not match.</p>
     <p>Please contact support.</p>
