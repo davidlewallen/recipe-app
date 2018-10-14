@@ -105,7 +105,9 @@ describe('Login Full Rendering Test', () => {
       .simulate('click', { preventDefault: jest.fn() });
     setTimeout(() => {
       expect(spy).toHaveBeenCalled();
-      expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');
+      expect(instance.props.history.replace).toHaveBeenCalledWith(
+        '/account/verify'
+      );
       done();
     });
   });
