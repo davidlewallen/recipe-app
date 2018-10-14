@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VerifyEmailPrompt should match snapshot 1`] = `
+<Grid
+  bsClass="container"
+  componentClass="div"
+  fluid={false}
+>
+  <Uncontrolled(Panel)>
+    <PanelBody
+      bsClass="panel"
+      className="align-center"
+      collapsible={false}
+    >
+      To access your account, please follow the steps included in the email that was just sent to you.
+    </PanelBody>
+  </Uncontrolled(Panel)>
+</Grid>
+`;

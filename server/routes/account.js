@@ -54,7 +54,7 @@ router.post('/login', (req, res, next) => {
       });
     }
 
-    return res.sendStatus(401);
+    return res.status(403).send({ verified: false });
   })(req, res, next);
 });
 

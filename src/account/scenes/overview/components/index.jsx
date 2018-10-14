@@ -11,11 +11,14 @@ import {
 
 import '../assets/styles/index.css';
 
-const { shape, string } = PropTypes;
+const { shape, string, bool } = PropTypes;
 const propTypes = {
   user: shape({
     username: string.isRequired,
     email: string.isRequired,
+    verification: shape({
+      status: bool.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

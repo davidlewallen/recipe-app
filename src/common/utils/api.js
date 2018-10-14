@@ -11,11 +11,40 @@ export const Recipe = {
 };
 
 export const Account = {
-  login: body => axios.post(`${API_ACCOUNT}/login`, body),
-  register: body => axios.post(`${API_ACCOUNT}/register`, body),
-  logout: () => axios.get(`${API_ACCOUNT}/logout`),
-  auth: () => axios.get(`${API_ACCOUNT}/auth`),
-  getUser: () => axios.get(`${API_ACCOUNT}/user`),
+  endpoints: {
+    login: `${API_ACCOUNT}/login`,
+    register: `${API_ACCOUNT}/register`,
+    logout: `${API_ACCOUNT}/logout`,
+    auth: `${API_ACCOUNT}/auth`,
+    getUser: `${API_ACCOUNT}/user`,
+    verify(id, key) {
+      return `${API_ACCOUNT}/verify?id=${id}&key=${key}`;
+    },
+    resendVerification(id) {
+      return `${API_ACCOUNT}/verify/resend?id=${id}`;
+    },
+  },
+  login(body) {
+    return axios.post(this.endpoints.login, body);
+  },
+  register(body) {
+    return axios.post(this.endpoints.register, body);
+  },
+  logout() {
+    return axios.get(this.endpoints.logout);
+  },
+  auth() {
+    return axios.get(this.endpoints.auth);
+  },
+  getUser() {
+    return axios.get(this.endpoints.getUser);
+  },
+  verify(id, key) {
+    return axios.get(this.endpoints.verify(id, key));
+  },
+  resendVerification(id) {
+    return axios.get(this.endpoints.resendVerification(id));
+  },
 };
 
 export const Utils = {

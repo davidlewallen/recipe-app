@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Verify should render 1`] = `
+<VerifyEmail
+  handleResendVerification={[Function]}
+  verificationState="checking"
+/>
+`;

@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const uuidv1 = require('uuid/v1');
 const moment = require('moment');
+const get = require('lodash').get;
 
 const Account = require('../../models/account');
 
@@ -8,8 +9,7 @@ const setAccountToUnverified = async (id) => {
   const verificationKey = uuidv1();
 
   await Account.findByIdAndUpdate(
-    id,
-    {
+    id, {
       verification: {
         status: false,
         key: verificationKey,
@@ -23,8 +23,7 @@ const setAccountToUnverified = async (id) => {
 
 const setAccountToVerified = async (id) => {
   await Account.findByIdAndUpdate(
-    id,
-    {
+    id, {
       verification: {
         status: true,
       },
@@ -45,6 +44,11 @@ const sendVerificationEmail = async (user) => {
     }
   });
 
+  const url = `${process.env.NODE_ENV === 'dev'
+    ? 'http://localhost:3000'
+    : 'www.mysavedrecipes.com'
+  }/account/verify?${verificationParams}`;
+
   const mailOptions = {
     from: process.env.EMAIL_USERNAME,
     to: user.email,
@@ -54,7 +58,7 @@ const sendVerificationEmail = async (user) => {
 
       Please follow the link below to verify your account.
 
-      www.mysavedrecipes.com/#/email/verify?${verificationParams}
+      ${url}
     `,
   };
 
@@ -74,26 +78,26 @@ const resendVerificationEmail = async (id) => {
 };
 
 const verify = async (res, user, key) => {
-  if (user.verification.status) {
+  if (get(user, 'verification.status')) {
     return res.status(200).send({
       alreadyVerified: true
     });
   }
 
-  if (user.verification.key === key) {
-    if (Date.now() < new Date(user.verification.expires)) {
-      await setAccountToVerified(user._id);
+  if (get(user, 'verification.key') !== key) {
+    return res.status(400).send({
+      nonMatchingKey: true
+    });
+  }
 
-      return res.sendStatus(200);
-    } else {
-      return res.status(400).send({
-        verificationExpired: true
-      });
-    }
+  if (Date.now() < new Date(user.verification.expires)) {
+    await setAccountToVerified(user._id);
+
+    return res.sendStatus(200);
   }
 
   return res.status(400).send({
-    nonMatchingKey: true
+    verificationExpired: true
   });
 };
 
@@ -101,4 +105,6 @@ module.exports = {
   sendVerificationEmail,
   resendVerificationEmail,
   verify,
+  setAccountToUnverified,
+  setAccountToVerified,
 };
