@@ -44,6 +44,11 @@ const sendVerificationEmail = async (user) => {
     }
   });
 
+  const url = `${process.env.NODE_ENV === 'dev'
+    ? 'http://localhost:3000'
+    : 'www.mysavedrecipes.com'
+  }/account/verify?${verificationParams}`;
+
   const mailOptions = {
     from: process.env.EMAIL_USERNAME,
     to: user.email,
@@ -53,7 +58,7 @@ const sendVerificationEmail = async (user) => {
 
       Please follow the link below to verify your account.
 
-      www.mysavedrecipes.com/account/verify?${verificationParams}
+      ${url}
     `,
   };
 
