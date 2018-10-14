@@ -11,9 +11,9 @@ module.exports = {
     let uri;
 
     if (process.env.NODE_ENV === 'dev') {
-      uri = `mongodb://${USERNAME}:${PASSWORD}@ds163836.mlab.com:63836/recipe-dev`;
+      uri = 'mongodb://127.0.0.1:27017/recipe-app';
     } else if (process.env.NODE_ENV === 'test') {
-      uri = `mongodb://${USERNAME}:${PASSWORD}@ds133547.mlab.com:33547/recipe-test`;
+      uri = 'mongodb://127.0.0.1:27017/recipe-app-test';
     } else {
       uri = `mongodb://${USERNAME}:${PASSWORD}@ds161446.mlab.com:61446/recipe`;
     }
