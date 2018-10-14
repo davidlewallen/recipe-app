@@ -33,7 +33,11 @@ describe('Login Full Rendering Test', () => {
 
     mock.reset();
 
-    wrapper = mount(<MemoryRouter><RegisterContainer {...props} /></MemoryRouter>);
+    wrapper = mount(
+      <MemoryRouter>
+        <RegisterContainer {...props} />
+      </MemoryRouter>
+    );
     // const router = wrapper.find('Router');
     const container = wrapper.find('RegisterContainer');
     instance = container.instance();
@@ -56,7 +60,6 @@ describe('Login Full Rendering Test', () => {
     expect(emailInput.length).toBe(1);
     expect(emailInput.text()).toBe('');
 
-
     instance.setState({
       username: '',
       password: '',
@@ -67,9 +70,15 @@ describe('Login Full Rendering Test', () => {
     expect(instance.state.password).toEqual('');
     expect(instance.state.email).toEqual('');
 
-    usernameInput.at(0).simulate('change', { target: { value: 'testUsername' } });
-    passwordInput.at(0).simulate('change', { target: { value: 'testPassword' } });
-    emailInput.at(0).simulate('change', { target: { value: 'test@email.com' } });
+    usernameInput
+      .at(0)
+      .simulate('change', { target: { value: 'testUsername' } });
+    passwordInput
+      .at(0)
+      .simulate('change', { target: { value: 'testPassword' } });
+    emailInput
+      .at(0)
+      .simulate('change', { target: { value: 'test@email.com' } });
     usernameInput = wrapper.find('input.username-input');
     passwordInput = wrapper.find('input.password-input');
     emailInput = wrapper.find('input.email-input');
@@ -85,16 +94,20 @@ describe('Login Full Rendering Test', () => {
     expect(emailInput.props().value).toEqual('test@email.com');
   });
 
-  test('that a user can click the register button', (done) => {
+  test('that a user can click the register button', done => {
     mock.onPost('/api/account/register').reply(200);
     const spy = jest.spyOn(instance, 'register');
 
     instance.setState(mockState);
 
-    wrapper.find('button.register-button').simulate('click', { preventDefault: jest.fn() });
+    wrapper
+      .find('button.register-button')
+      .simulate('click', { preventDefault: jest.fn() });
     setTimeout(() => {
       expect(spy).toHaveBeenCalled();
-      expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');
+      expect(instance.props.history.replace).toHaveBeenCalledWith(
+        '/account/verify'
+      );
       done();
     });
   });

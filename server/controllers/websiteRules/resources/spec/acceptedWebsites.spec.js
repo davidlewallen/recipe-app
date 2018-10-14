@@ -6,7 +6,7 @@ describe('Accepted Websites Test', () => {
   });
 
   it('should return acceptedWebsites array if TEST_AW is falsy', () => {
-    expect(acceptedWebsites().length).toEqual(6);
+    expect(acceptedWebsites().length).toEqual(5);
   });
 
   it('should return acceptedWebsitesTest array if TEST_AW is truthy', () => {

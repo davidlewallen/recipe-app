@@ -70,6 +70,12 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
             "calls": Array [
               Array [],
             ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
           }
         }
       >
@@ -83,6 +89,12 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
           [MockFunction] {
             "calls": Array [
               Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
             ],
           }
         }
@@ -112,6 +124,12 @@ exports[`Header component logo should link to "/dashboard" if isAuth is true 1`]
           [MockFunction] {
             "calls": Array [
               Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
             ],
           }
         }
@@ -173,6 +191,12 @@ exports[`Header component should display My Recipes,+ Add Recipe, Accepted Websi
             "calls": Array [
               Array [],
             ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
           }
         }
       >
@@ -186,6 +210,12 @@ exports[`Header component should display My Recipes,+ Add Recipe, Accepted Websi
           [MockFunction] {
             "calls": Array [
               Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
             ],
           }
         }
@@ -215,6 +245,12 @@ exports[`Header component should display My Recipes,+ Add Recipe, Accepted Websi
           [MockFunction] {
             "calls": Array [
               Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
             ],
           }
         }
@@ -276,6 +312,12 @@ exports[`Header component should display menu if isAuth is true 1`] = `
             "calls": Array [
               Array [],
             ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
           }
         }
       >
@@ -289,6 +331,12 @@ exports[`Header component should display menu if isAuth is true 1`] = `
           [MockFunction] {
             "calls": Array [
               Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
             ],
           }
         }
@@ -318,6 +366,12 @@ exports[`Header component should display menu if isAuth is true 1`] = `
           [MockFunction] {
             "calls": Array [
               Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
             ],
           }
         }

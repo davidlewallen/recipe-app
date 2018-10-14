@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AppContainer from './common/components/app/container/AppContainer';
 
-import registerServiceWorker from './registerServiceWorker';
+// import serviceWorker from './serviceWorker';
 
 import './common/assets/styles/app.css';
 
@@ -12,7 +12,7 @@ ReactDOM.render(
   <Router>
     <Route component={AppContainer} />
   </Router>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
-registerServiceWorker();
+// serviceWorker();

@@ -44,7 +44,7 @@ router.post('/login', (req, res, next) => {
     const { verification } = await Account.getUserByUsername(req.body.username);
 
     if (verification.status) {
-      req.login(user, loginErr => {
+      return req.login(user, loginErr => {
         if (loginErr) {
           console.log('loginErr', loginErr);
           return next(loginErr);
@@ -54,7 +54,7 @@ router.post('/login', (req, res, next) => {
       });
     }
 
-    return res.sendStatus(401);
+    return res.status(403).send({ verified: false });
   })(req, res, next);
 });
 

@@ -52,11 +52,15 @@ describe('RegisterContainer test', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should register an account and redirect to \'/\'', async () => {
+    it("should register an account and redirect to '/'", async () => {
       instance.setState(mockState);
-      mock.onPost('/api/account/register').reply(200, { savedRecipes: [], _id: 1, username: 'testUsername' });
+      mock
+        .onPost('/api/account/register')
+        .reply(200, { savedRecipes: [], _id: 1, username: 'testUsername' });
       await instance.register({ preventDefault: jest.fn() });
-      expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');
+      expect(instance.props.history.replace).toHaveBeenCalledWith(
+        '/account/verify'
+      );
     });
 
     it('should update error state on 409s', async () => {
@@ -66,7 +70,10 @@ describe('RegisterContainer test', () => {
         .reply(409, { message: mockErrorMessage });
       instance.setState(mockState);
       await instance.register({ preventDefault: jest.fn() });
-      expect(instance.state.error).toEqual({ value: true, message: mockErrorMessage });
+      expect(instance.state.error).toEqual({
+        value: true,
+        message: mockErrorMessage,
+      });
     });
 
     it('should update error state on 400s', async () => {
@@ -76,7 +83,10 @@ describe('RegisterContainer test', () => {
         .reply(400, { message: mockErrorMessage });
       instance.setState(mockState);
       await instance.register({ preventDefault: jest.fn() });
-      expect(instance.state.error).toEqual({ value: true, message: mockErrorMessage });
+      expect(instance.state.error).toEqual({
+        value: true,
+        message: mockErrorMessage,
+      });
     });
   });
 

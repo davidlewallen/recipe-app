@@ -11,11 +11,14 @@ import {
 
 import '../assets/styles/index.css';
 
-const { shape, string } = PropTypes;
+const { shape, string, bool } = PropTypes;
 const propTypes = {
   user: shape({
     username: string.isRequired,
     email: string.isRequired,
+    verification: shape({
+      status: bool.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
@@ -26,17 +29,9 @@ const Overview = ({ user }) => (
         <form>
           <FormGroup controlId="formAccountInfo">
             <ControlLabel>Username</ControlLabel>
-            <FormControl
-              disabled
-              type="text"
-              value={user.username}
-            />
+            <FormControl disabled type="text" value={user.username} />
             <ControlLabel>Email</ControlLabel>
-            <FormControl
-              disabled
-              type="text"
-              value={user.email}
-            />
+            <FormControl disabled type="text" value={user.email} />
           </FormGroup>
         </form>
       </Col>

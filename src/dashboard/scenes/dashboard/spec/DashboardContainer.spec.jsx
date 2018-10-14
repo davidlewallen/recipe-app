@@ -76,19 +76,9 @@ describe('DashboardContainer test', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should call updateRecipes with the user\'s recipes', async () => {
+    it("should call updateRecipes with the user's recipes", async () => {
       await instance.getUserRecipes();
       expect(instance.props.updateRecipes).toHaveBeenCalledWith(mockRecipeList);
-    });
-
-    it('should log an error if getUserRecipes api fails', async () => {
-      mock.reset();
-      mock.onGet().reply(500);
-      const clog = console.log;
-      window.console.log = jest.fn();
-      await instance.getUserRecipes();
-      expect(window.console.log).toHaveBeenCalled();
-      window.console.log = clog;
     });
   });
 

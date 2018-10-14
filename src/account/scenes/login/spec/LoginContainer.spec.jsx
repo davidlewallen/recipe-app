@@ -5,6 +5,8 @@ import axios from 'axios';
 
 import LoginContainer from '../container/LoginContainer';
 
+import { Account } from '../../../../common/utils/api';
+
 const mock = new MockAdapter(axios);
 
 describe('LoginContainer test', () => {
@@ -18,7 +20,7 @@ describe('LoginContainer test', () => {
     },
   };
 
-  const props = {
+  const mockProps = {
     ...mockHistory,
     updateAuth: jest.fn(),
   };
@@ -36,7 +38,7 @@ describe('LoginContainer test', () => {
 
     mock.onPost('/api/account/login').reply(200, true);
 
-    wrapper = shallow(<LoginContainer {...props} />);
+    wrapper = shallow(<LoginContainer {...mockProps} />);
     instance = wrapper.instance();
   });
 
@@ -52,7 +54,7 @@ describe('LoginContainer test', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should log into an account and redirect to \'/\'', async () => {
+    it("should log into an account and redirect to '/'", async () => {
       instance.setState(mockState);
       mock.onPost('/api/account/login').reply(200, {
         savedRecipes: [],
@@ -69,6 +71,14 @@ describe('LoginContainer test', () => {
       mock.onPost('/api/account/login').reply(400, { message: 'error' });
       await instance.login({ preventDefault: jest.fn() });
       expect(instance.state.error).toEqual({ value: true, message: 'error' });
+    });
+
+    it('should redirect to "/account/verify" if status is 403 and verified is false', async () => {
+      mock.onPost(Account.endpoints.login).reply(403, { verified: false });
+
+      await instance.login({ preventDefault: jest.fn() });
+
+      expect(mockProps.history.replace).toHaveBeenCalledWith('/account/verify');
     });
   });
 

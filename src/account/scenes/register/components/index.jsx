@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  string, func, shape, bool,
-} from 'prop-types';
+import { string, func, shape, bool } from 'prop-types';
 
 const propTypes = {
   username: string.isRequired,
@@ -15,12 +13,17 @@ const propTypes = {
 };
 
 const Register = ({
-  error, username, handleUsername, password, handlePassword, email, handleEmail, register,
+  error,
+  username,
+  handleUsername,
+  password,
+  handlePassword,
+  email,
+  handleEmail,
+  register,
 }) => (
   <div className="register-container">
-    {error.value && (
-      <p>{error.message}</p>
-    )}
+    {error.value && <p>{error.message}</p>}
     <form className="register">
       <input
         className="username-input"
@@ -41,11 +44,7 @@ const Register = ({
         value={email}
         onChange={handleEmail}
       />
-      <button
-        className="register-button"
-        onClick={register}
-        type="button"
-      >
+      <button className="register-button" onClick={register} type="button">
         Register
       </button>
     </form>
