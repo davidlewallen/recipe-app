@@ -15,7 +15,6 @@ const stripWebsite = async (parsedURL) => {
     const res = await axios.get(parsedURL.href);
     const html = res.data;
     const dom = new JSDOM(html);
-    console.log('dom', dom)
 
     // Get hostname's strip function by filtering by hostname
     // returning an array
