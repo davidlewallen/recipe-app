@@ -21,7 +21,7 @@ export const Account = {
       return `${API_ACCOUNT}/verify?id=${id}&key=${key}`;
     },
     resendVerification(id) {
-      return `${this.verify}/resend?id=${id}`;
+      return `${API_ACCOUNT}/verify/resend?id=${id}`;
     },
   },
   login(body) {
