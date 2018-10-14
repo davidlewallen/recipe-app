@@ -11,11 +11,11 @@ const propTypes = {
   verificationKey: string.isRequired,
 };
 class VerifyEmailContainer extends React.Component {
-  state = { verificationState: 'checking' }
+  state = { verificationState: 'checking' };
 
   componentDidMount = async () => {
     await this.verifyEmail();
-  }
+  };
 
   verifyEmail = async () => {
     const { history, userId, verificationKey } = this.props;
@@ -35,14 +35,12 @@ class VerifyEmailContainer extends React.Component {
       }
       throw err;
     }
-  }
+  };
 
   render() {
     const { verificationState } = this.state;
 
-    return (
-      <VerifyEmail verificationState={verificationState} />
-    );
+    return <VerifyEmail verificationState={verificationState} />;
   }
 }
 
