@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const uuidv1 = require('uuid/v1');
 const moment = require('moment');
+const get = require('lodash').get;
 
 const Account = require('../../models/account');
 
@@ -74,13 +75,13 @@ const resendVerificationEmail = async (id) => {
 };
 
 const verify = async (res, user, key) => {
-  if (user && user.verification && user.verification.status) {
+  if (get(user, 'user.verification.status')) {
     return res.status(200).send({
       alreadyVerified: true
     });
   }
 
-  if (user && user.verification && user.verification.key === key) {
+  if (get(user, 'user.verification.key') === key) {
     if (Date.now() < new Date(user.verification.expires)) {
       await setAccountToVerified(user._id);
 
