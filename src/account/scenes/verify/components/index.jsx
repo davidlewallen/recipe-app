@@ -1,57 +1,62 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, func } from 'prop-types';
 import Grid from 'react-bootstrap/lib/Grid';
 import Panel from 'react-bootstrap/lib/Panel';
+import Button from 'react-bootstrap/lib/Button';
 
-const propTypes = { verificationState: string.isRequired };
+const propTypes = {
+  verificationState: string.isRequired,
+  handleResendVerification: func.isRequired,
+};
 
-const Verifying = () => (
-  <p className="align-cente r">
-    Verifying email address...
-  </p>
-);
+const Verifying = () => <p>Verifying email address...</p>;
 
 const Verified = () => (
   <React.Fragment>
-    <p className="align-center">
-      Thank you for verifying your email.
-    </p>
-    <p className="align-center">
-      You will be redirected to the login page in 5 seconds.
-    </p>
+    <p>Thank you for verifying your email.</p>
+    <p>You will be redirected to the login page in 5 seconds.</p>
   </React.Fragment>
 );
 
-const Resend = () => (
+const ResendPropTypes = { handleResendVerification: func.isRequired };
+const Resend = ({ handleResendVerification }) => (
   <React.Fragment>
-    <p className="align-center">
+    <p>
       Your email verification expired. Click below to resend verification email.
     </p>
-    <button type="button">
+    <Button type="button" bsStyle="primary" onClick={handleResendVerification}>
       Resend Verification Email
-    </button>
+    </Button>
   </React.Fragment>
 );
+
+const Resent = () => (
+  <p>
+    To access your account, please follow the steps included in the email that
+    was just sent to you.
+  </p>
+);
+
+Resend.propTypes = ResendPropTypes;
 
 const Invalid = () => (
   <React.Fragment>
-    <p className="align-center">
-      Your verification key did not match.
-    </p>
-    <p className="align-center">
-      Please contact support.
-    </p>
+    <p>Your verification key did not match.</p>
+    <p>Please contact support.</p>
   </React.Fragment>
 );
 
-const VerifyEmail = ({ verificationState }) => (
+const VerifyEmail = ({ verificationState, handleResendVerification }) => (
   <Grid>
     <Panel>
-      <Panel.Body>
+      <Panel.Body className="align-center">
         {verificationState === 'checking' && <Verifying />}
         {verificationState === 'verified' && <Verified />}
-        {verificationState === 'resend' && <Resend />}
+        {verificationState === 'resend' && (
+          <Resend handleResendVerification={handleResendVerification} />
+        )}
         {verificationState === 'nonMatching' && <Invalid />}
+        {verificationState === 'resent' && <Resent />}
       </Panel.Body>
     </Panel>
   </Grid>

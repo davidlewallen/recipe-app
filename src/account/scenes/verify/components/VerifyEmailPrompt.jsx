@@ -5,11 +5,9 @@ import Panel from 'react-bootstrap/lib/Panel';
 const VerifyEmailPrompt = () => (
   <Grid>
     <Panel>
-      <Panel.Body>
-        <div className="align-center">
-          To access your account,
-          please follow the steps included in the email that was just sent to you.
-        </div>
+      <Panel.Body className="align-center">
+        To access your account, please follow the steps included in the email
+        that was just sent to you.
       </Panel.Body>
     </Panel>
   </Grid>

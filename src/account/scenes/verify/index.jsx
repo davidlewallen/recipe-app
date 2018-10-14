@@ -37,10 +37,23 @@ class VerifyEmailContainer extends React.Component {
     }
   };
 
+  handleResendVerification = async () => {
+    const { userId } = this.props;
+
+    await Account.resendVerification(userId);
+
+    this.setState({ verificationState: 'resent' });
+  };
+
   render() {
     const { verificationState } = this.state;
 
-    return <VerifyEmail verificationState={verificationState} />;
+    return (
+      <VerifyEmail
+        verificationState={verificationState}
+        handleResendVerification={this.handleResendVerification}
+      />
+    );
   }
 }
 
