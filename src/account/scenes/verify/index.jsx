@@ -1,12 +1,12 @@
 import React from 'react';
-import { func, string } from 'prop-types';
+import { func, string, shape } from 'prop-types';
 
 import { Account } from '../../../common/utils/api';
 
 import VerifyEmail from './components';
 
 const propTypes = {
-  history: { replace: func.isRequired }.isRequired,
+  history: shape({ replace: func.isRequired }).isRequired,
   userId: string.isRequired,
   verificationKey: string.isRequired,
 };
@@ -29,11 +29,12 @@ class VerifyEmailContainer extends React.Component {
     } catch (err) {
       const { response } = err;
       if (response.status === 400 && response.data.verificationExpired) {
-        this.setState({ verificationState: 'resend' });
-      } else if (response.status === 400 && response.data.nonMatchingKey) {
-        this.setState({ verificationState: 'nonMatching' });
+        return this.setState({ verificationState: 'resend' });
       }
-      throw err;
+
+      if (response.status === 400 && response.data.nonMatchingKey) {
+        return this.setState({ verificationState: 'nonMatching' });
+      }
     }
   };
 
