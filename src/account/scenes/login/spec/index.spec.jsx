@@ -20,7 +20,9 @@ describe('Login component snapshot test', () => {
   });
 
   it('should display error message', () => {
-    const component = shallow(<Login {...props} error={{ value: true, message: 'test error' }} />);
+    const component = shallow(
+      <Login {...props} error={{ value: true, message: 'test error' }} />
+    );
 
     expect(component).toMatchSnapshot();
   });

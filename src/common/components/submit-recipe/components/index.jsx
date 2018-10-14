@@ -1,8 +1,6 @@
 import React from 'react';
 import { bool, string, func } from 'prop-types';
-import {
-  Modal, Row, Col, Button,
-} from 'react-bootstrap';
+import { Modal, Row, Col, Button } from 'react-bootstrap';
 
 import '../assets/styles/index.css';
 
@@ -15,34 +13,23 @@ const propTypes = {
 };
 
 const SubmitRecipe = ({
-  show, handleModalClose, url, handleURL, submitRecipe,
+  show,
+  handleModalClose,
+  url,
+  handleURL,
+  submitRecipe,
 }) => (
-  <Modal
-    show={show}
-    onHide={handleModalClose}
-    className="submit-recipe-modal"
-  >
+  <Modal show={show} onHide={handleModalClose} className="submit-recipe-modal">
     <Modal.Header closeButton className="header">
-      <Modal.Title className="title">
-        Submit Recipe
-      </Modal.Title>
+      <Modal.Title className="title">Submit Recipe</Modal.Title>
     </Modal.Header>
     <Modal.Body className="body">
       <Row>
         <Col xs={12} md={8}>
-          <input
-            value={url}
-            placeholder="Recipe URL"
-            onChange={handleURL}
-          />
+          <input value={url} placeholder="Recipe URL" onChange={handleURL} />
         </Col>
         <Col xs={12} md={4}>
-          <Button
-            block
-            bsStyle="primary"
-            onClick={submitRecipe}
-            type="button"
-          >
+          <Button block bsStyle="primary" onClick={submitRecipe} type="button">
             Submit
           </Button>
         </Col>

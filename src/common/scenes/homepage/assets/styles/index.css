@@ -11,7 +11,7 @@
   font-size: 2.2em;
 }
 
-.homepage>.row>div {
+.homepage > .row > div {
   height: 100vh;
 }
 

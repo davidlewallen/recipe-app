@@ -43,7 +43,7 @@ describe('HeaderContainer', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should redirect to \'/\'', async () => {
+    it("should redirect to '/'", async () => {
       mock.onGet('/api/account/logout').reply(200);
       await instance.logout();
       expect(instance.props.history.replace).toHaveBeenCalledWith('/');

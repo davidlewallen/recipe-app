@@ -44,7 +44,7 @@ router.post('/login', (req, res, next) => {
     const { verification } = await Account.getUserByUsername(req.body.username);
 
     if (verification.status) {
-      req.login(user, loginErr => {
+      return req.login(user, loginErr => {
         if (loginErr) {
           console.log('loginErr', loginErr);
           return next(loginErr);

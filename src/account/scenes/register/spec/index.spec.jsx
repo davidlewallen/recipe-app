@@ -22,7 +22,9 @@ describe('Register component snapshot test', () => {
   });
 
   it('should display error messages', () => {
-    const component = shallow(<Register {...props} error={{ value: true, message: 'testError' }} />);
+    const component = shallow(
+      <Register {...props} error={{ value: true, message: 'testError' }} />
+    );
 
     expect(component).toMatchSnapshot();
   });

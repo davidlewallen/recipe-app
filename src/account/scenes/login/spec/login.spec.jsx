@@ -32,7 +32,11 @@ describe('Login Full Rendering Test', () => {
 
     mock.reset();
 
-    wrapper = mount(<MemoryRouter><LoginContainer {...props} /></MemoryRouter>);
+    wrapper = mount(
+      <MemoryRouter>
+        <LoginContainer {...props} />
+      </MemoryRouter>
+    );
     // const router = wrapper.find('Router');
     const container = wrapper.find('LoginContainer');
     instance = container.instance();
@@ -51,13 +55,20 @@ describe('Login Full Rendering Test', () => {
     expect(passwordInput.length).toBe(1);
     expect(passwordInput.text()).toBe('');
 
-
-    instance.setState({ username: '', password: '', error: { value: false, message: '' } });
+    instance.setState({
+      username: '',
+      password: '',
+      error: { value: false, message: '' },
+    });
     expect(instance.state.username).toEqual('');
     expect(instance.state.password).toEqual('');
 
-    usernameInput.at(0).simulate('change', { target: { value: 'testUsername' } });
-    passwordInput.at(0).simulate('change', { target: { value: 'testPassword' } });
+    usernameInput
+      .at(0)
+      .simulate('change', { target: { value: 'testUsername' } });
+    passwordInput
+      .at(0)
+      .simulate('change', { target: { value: 'testPassword' } });
     usernameInput = wrapper.find('input.username-input');
     passwordInput = wrapper.find('input.password-input');
 
@@ -69,13 +80,15 @@ describe('Login Full Rendering Test', () => {
     expect(passwordInput.props().value).toEqual('testPassword');
   });
 
-  test('that a user can click the login button', (done) => {
+  test('that a user can click the login button', done => {
     mock.onPost('/api/account/login').reply(200);
     const spy = jest.spyOn(instance, 'login');
 
     instance.setState(mockState);
 
-    wrapper.find('button.login-button').simulate('click', { preventDefault: jest.fn() });
+    wrapper
+      .find('button.login-button')
+      .simulate('click', { preventDefault: jest.fn() });
     setTimeout(() => {
       expect(spy).toHaveBeenCalled();
       expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');

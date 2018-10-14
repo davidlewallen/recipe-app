@@ -3,6 +3,9 @@
 .config
 .env
 
+# build products
+src/**/*.css
+
 # dependencies
 /node_modules
 
