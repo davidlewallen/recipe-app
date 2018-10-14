@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Invalid should matchsnapshot 1`] = `
+<Fragment>
+  <p>
+    Your verification key did not match.
+  </p>
+  <p>
+    Please contact support.
+  </p>
+</Fragment>
+`;
+
+exports[`Resend should matchsnapshot 1`] = `
+<Fragment>
+  <p>
+    Your email verification expired. Click below to resend verification email.
+  </p>
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="primary"
+    disabled={false}
+    onClick={[MockFunction]}
+    type="button"
+  >
+    Resend Verification Email
+  </Button>
+</Fragment>
+`;
+
+exports[`Resent should matchsnapshot 1`] = `
+<p>
+  To access your account, please follow the steps included in the email that was just sent to you.
+</p>
+`;
+
+exports[`Verified should matchsnapshot 1`] = `
+<Fragment>
+  <p>
+    Thank you for verifying your email.
+  </p>
+  <p>
+    You will be redirected to the login page in 5 seconds.
+  </p>
+</Fragment>
+`;
+
+exports[`VerifyEmail Component should render 1`] = `
+<Grid
+  bsClass="container"
+  componentClass="div"
+  fluid={false}
+>
+  <Uncontrolled(Panel)>
+    <PanelBody
+      bsClass="panel"
+      className="align-center"
+      collapsible={false}
+    />
+  </Uncontrolled(Panel)>
+</Grid>
+`;
+
+exports[`Verifying should matchsnapshot 1`] = `
+<p>
+  Verifying email address...
+</p>
+`;
