@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  bool, func, shape, string, arrayOf,
-} from 'prop-types';
+import { bool, func, shape, string, arrayOf } from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 
 import genKey from '../../../../common/utils/randomKeys';
@@ -22,21 +20,15 @@ const propTypes = {
 };
 
 const RecipeModal = ({
-  showModal, handleModalClose, selectedRecipe, deleteRecipe,
+  showModal,
+  handleModalClose,
+  selectedRecipe,
+  deleteRecipe,
 }) => (
-  <Modal
-    show={showModal}
-    onHide={handleModalClose}
-    className="recipe-modal"
-  >
-    <Modal.Header
-      closeButton
-      className="header"
-    >
+  <Modal show={showModal} onHide={handleModalClose} className="recipe-modal">
+    <Modal.Header closeButton className="header">
       <Modal.Title className="title">
-        <span>
-          {selectedRecipe.title}
-        </span>
+        <span>{selectedRecipe.title}</span>
         <span className="total-time">
           {`Total Time: ${selectedRecipe.totalTime || 'n/a'}`}
         </span>

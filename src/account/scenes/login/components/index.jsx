@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  string, func, shape, bool,
-} from 'prop-types';
+import { string, func, shape, bool } from 'prop-types';
 import { Link } from 'react-router-dom';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
@@ -21,16 +19,19 @@ const propTypes = {
 };
 
 const Login = ({
-  error, username, handleUsername, password, handlePassword, login,
+  error,
+  username,
+  handleUsername,
+  password,
+  handlePassword,
+  login,
 }) => (
   <Grid className="login">
     <Row>
       <Col xs={12} sm={6} smOffset={3}>
         <form>
           <FormGroup className="align-left">
-            {error.value && (
-              <p className="error-message">{error.message}</p>
-            )}
+            {error.value && <p className="error-message">{error.message}</p>}
             <ControlLabel>Username</ControlLabel>
             <FormControl
               id="username"
@@ -60,9 +61,7 @@ const Login = ({
             </Button>
             <div className="register-text">
               {'New to My Saved Recipes? '}
-              <Link to="/account/register">
-                Create an account.
-              </Link>
+              <Link to="/account/register">Create an account.</Link>
             </div>
           </FormGroup>
         </form>

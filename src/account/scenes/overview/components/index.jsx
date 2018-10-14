@@ -26,17 +26,9 @@ const Overview = ({ user }) => (
         <form>
           <FormGroup controlId="formAccountInfo">
             <ControlLabel>Username</ControlLabel>
-            <FormControl
-              disabled
-              type="text"
-              value={user.username}
-            />
+            <FormControl disabled type="text" value={user.username} />
             <ControlLabel>Email</ControlLabel>
-            <FormControl
-              disabled
-              type="text"
-              value={user.email}
-            />
+            <FormControl disabled type="text" value={user.email} />
           </FormGroup>
         </form>
       </Col>

@@ -2,21 +2,30 @@
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "node": true
+    "jest": true,
+    "es6": true,
+    "node": true,
   },
-  "extends": ["react-app", "airbnb"],
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
-    "max-len": ["error", { "code": 100 }],
-    "no-underscore-dangle": "off",
     "import/no-unresolved": [
       2,
       { "caseSensitive": false }
     ],
-    "jsx-a11y/anchor-is-valid": [ "error", {
-      "component": ["Link"],
-      "aspects": ["noHref"]
-    }],
-    "function-paren-newline": "off",
-    "jsx-a11y/href-no-hash": "off"
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "trailingComma": "es5"
+    }]
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }
