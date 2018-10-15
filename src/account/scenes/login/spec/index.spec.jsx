@@ -5,12 +5,11 @@ import Login from '../components';
 
 describe('Login component snapshot test', () => {
   const props = {
-    username: 'testUsername',
-    handleUsername: () => {},
     password: 'testPassword',
-    handlePassword: () => {},
+    email: 'test@email.com',
     error: { value: false, message: '' },
-    login: () => {},
+    login: jest.fn(),
+    handleInputChange: jest.fn(),
   };
 
   it('should match snapshot', () => {

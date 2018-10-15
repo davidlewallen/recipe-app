@@ -14,7 +14,7 @@ class LoginContainer extends Component {
   };
 
   state = {
-    username: '',
+    email: '',
     password: '',
     error: {
       value: false,
@@ -26,16 +26,17 @@ class LoginContainer extends Component {
     event.preventDefault();
     const {
       props: { history, updateAuth },
-      state: { username, password },
+      state: { email, password },
     } = this;
 
     try {
       await Account.login({
-        username,
+        email,
         password,
       });
 
       updateAuth(true);
+
       history.replace('/dashboard');
     } catch (err) {
       const { response } = err;
@@ -53,23 +54,19 @@ class LoginContainer extends Component {
     }
   };
 
-  handleUsername = ({ target: { value: username } }) =>
-    this.setState({ username: username.trim() });
-
-  handlePassword = ({ target: { value: password } }) =>
-    this.setState({ password: password.trim() });
+  handleInputChange = ({ target: { name, value } }) =>
+    this.setState({ [name]: value });
 
   render = () => {
-    const { username, password, error } = this.state;
+    const { email, password, error } = this.state;
 
     return (
       <Login
-        username={username}
-        handleUsername={this.handleUsername}
+        email={email}
         password={password}
-        handlePassword={this.handlePassword}
         error={error}
         login={this.login}
+        handleInputChange={this.handleInputChange}
       />
     );
   };

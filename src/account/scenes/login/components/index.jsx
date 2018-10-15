@@ -10,46 +10,41 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 
 const propTypes = {
-  username: string.isRequired,
-  handleUsername: func.isRequired,
+  email: string.isRequired,
   password: string.isRequired,
-  handlePassword: func.isRequired,
   error: shape({ value: bool, message: string }).isRequired,
   login: func.isRequired,
+  handleInputChange: func.isRequired,
 };
 
-const Login = ({
-  error,
-  username,
-  handleUsername,
-  password,
-  handlePassword,
-  login,
-}) => (
+const Login = ({ error, email, password, login, handleInputChange }) => (
   <Grid className="login">
     <Row>
       <Col xs={12} sm={6} smOffset={3}>
         <form>
           <FormGroup className="align-left">
             {error.value && <p className="error-message">{error.message}</p>}
-            <ControlLabel>Username</ControlLabel>
+
+            <ControlLabel>Email Address</ControlLabel>
             <FormControl
-              id="username"
-              className="username-input"
+              name="email"
+              className="email-input"
               type="text"
-              placeholder="E.g. JohnDoe123"
-              value={username}
-              onChange={handleUsername}
+              placeholder="E.g. john@doe.com"
+              value={email}
+              onChange={handleInputChange}
             />
+
             <ControlLabel>Password</ControlLabel>
             <FormControl
-              id="password"
+              name="password"
               className="password-input"
               placeholder="E.g. 124!Jigzx"
               type="password"
               value={password}
-              onChange={handlePassword}
+              onChange={handleInputChange}
             />
+
             <Button
               block
               type="submit"
@@ -59,6 +54,7 @@ const Login = ({
             >
               Login
             </Button>
+
             <div className="register-text">
               {'New to My Saved Recipes? '}
               <Link to="/account/register">Create an account.</Link>

@@ -12,7 +12,7 @@ const mock = new MockAdapter(axios);
 describe('LoginContainer test', () => {
   const mockHistory = { history: { replace: jest.fn() } };
   const mockState = {
-    username: 'testUsername',
+    email: 'test@test.com',
     password: 'testPassword',
     error: {
       value: false,
@@ -48,28 +48,35 @@ describe('LoginContainer test', () => {
 
   describe('login', () => {
     it('should call login', () => {
-      mock.onPost('/api/account/login').reply(200);
       const spy = jest.spyOn(instance, 'login');
+
+      mock.onPost('/api/account/login').reply(200);
+
       instance.login({ preventDefault: jest.fn() });
+
       expect(spy).toHaveBeenCalled();
     });
 
     it("should log into an account and redirect to '/'", async () => {
-      instance.setState(mockState);
       mock.onPost('/api/account/login').reply(200, {
         savedRecipes: [],
         _id: 1,
-        username: 'testUsername',
+        email: 'test@test.com',
       });
 
+      instance.setState(mockState);
+
       await instance.login({ preventDefault: jest.fn() });
+
       expect(instance.props.history.replace).toHaveBeenCalledWith('/dashboard');
     });
 
     it('should update error state with 400s', async () => {
       mock.reset();
       mock.onPost('/api/account/login').reply(400, { message: 'error' });
+
       await instance.login({ preventDefault: jest.fn() });
+
       expect(instance.state.error).toEqual({ value: true, message: 'error' });
     });
 
@@ -82,53 +89,25 @@ describe('LoginContainer test', () => {
     });
   });
 
-  describe('handleUsername', () => {
-    it('should call handleUsername', () => {
-      const spy = jest.spyOn(instance, 'handleUsername');
-      instance.handleUsername({ target: { value: '' } });
-      expect(spy).toHaveBeenCalled();
+  describe('handleInputChange', () => {
+    it('should update email state', () => {
+      const expectedState = 'test';
+
+      instance.handleInputChange({
+        target: { name: 'email', value: expectedState },
+      });
+
+      expect(wrapper.state('email')).toEqual(expectedState);
     });
 
-    it('should update state', () => {
-      instance.setState(mockState);
-      expect(instance.state.username).toEqual(mockState.username);
-      instance.handleUsername({ target: { value: 'test' } });
-      expect(instance.state.username).toEqual('test');
-    });
+    it('should update password state', () => {
+      const expectedState = 'test';
 
-    it('should not allow space characters', () => {
-      instance.handleUsername({ target: { value: 'test' } });
+      instance.handleInputChange({
+        target: { name: 'password', value: expectedState },
+      });
 
-      expect(instance.state.username).toEqual('test');
-
-      instance.handleUsername({ target: { value: ' ' } });
-
-      expect(instance.state.username).not.toEqual('test');
-    });
-  });
-
-  describe('handlePassword', () => {
-    it('should call handlePassword', () => {
-      const spy = jest.spyOn(instance, 'handlePassword');
-      instance.handlePassword({ target: { value: '' } });
-      expect(spy).toHaveBeenCalled();
-    });
-
-    it('should update state', () => {
-      instance.setState(mockState);
-      expect(instance.state.password).toEqual(mockState.password);
-      instance.handlePassword({ target: { value: 'test' } });
-      expect(instance.state.password).toEqual('test');
-    });
-
-    it('should not allow space characters', () => {
-      instance.handlePassword({ target: { value: 'test' } });
-
-      expect(instance.state.password).toEqual('test');
-
-      instance.handlePassword({ target: { value: ' ' } });
-
-      expect(instance.state.password).not.toEqual('test');
+      expect(wrapper.state('password')).toEqual(expectedState);
     });
   });
 });

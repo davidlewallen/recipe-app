@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { shape, func } from 'prop-types';
+import get from 'lodash/get';
 
 import Register from '../components';
 
@@ -9,8 +10,8 @@ class RegisterContainer extends Component {
   static propTypes = { history: shape({ replace: func }).isRequired };
 
   state = {
-    username: '',
     password: '',
+    passwordConf: '',
     email: '',
     error: {
       value: false,
@@ -23,21 +24,34 @@ class RegisterContainer extends Component {
 
     const {
       props: { history },
-      state: { username, password, email },
+      state: { password, email },
     } = this;
 
     const body = {
-      username,
       password,
       email,
     };
 
     try {
+      this.validatePassword();
+
       await Account.register(body);
 
       history.replace('/account/verify');
     } catch (err) {
-      if (err.response.status === 409 || err.response.status === 400) {
+      if (err.message) {
+        this.setState({
+          error: {
+            value: true,
+            message: err.message,
+          },
+        });
+      }
+
+      if (
+        get(err, 'response.status') === 409 ||
+        get(err, 'response.status') === 400
+      ) {
         this.setState({
           error: {
             value: true,
@@ -48,27 +62,30 @@ class RegisterContainer extends Component {
     }
   };
 
-  handleUsername = ({ target: { value } }) =>
-    this.setState({ username: value });
+  validatePassword = () => {
+    const { password, passwordConf } = this.state;
 
-  handlePassword = ({ target: { value } }) =>
-    this.setState({ password: value });
+    const isEqual = password === passwordConf;
 
-  handleEmail = ({ target: { value } }) => this.setState({ email: value });
+    if (!isEqual && password) {
+      throw new Error('Passwords must match.');
+    }
+  };
+
+  handleInputChange = ({ target: { name, value } }) =>
+    this.setState({ [name]: value });
 
   render = () => {
-    const { username, password, email, error } = this.state;
+    const { password, passwordConf, email, error } = this.state;
 
     return (
       <Register
-        username={username}
-        handleUsername={this.handleUsername}
         password={password}
-        handlePassword={this.handlePassword}
+        passwordConf={passwordConf}
         email={email}
-        handleEmail={this.handleEmail}
         register={this.register}
         error={error}
+        handleInputChange={this.handleInputChange}
       />
     );
   };

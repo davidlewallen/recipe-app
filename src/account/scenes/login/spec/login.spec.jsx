@@ -45,37 +45,29 @@ describe('Login Full Rendering Test', () => {
   afterAll(() => {
     mock.restore();
   });
-  test('that a user can update the username and password input', () => {
-    const spy = jest.spyOn(instance, 'handleUsername');
-    const spy2 = jest.spyOn(instance, 'handlePassword');
-    let usernameInput = wrapper.find('input.username-input');
+  test('that a user can update the email and password input', () => {
+    const spy = jest.spyOn(instance, 'handleInputChange');
+    let emailInput = wrapper.find('input.email-input');
     let passwordInput = wrapper.find('input.password-input');
-    expect(usernameInput.length).toBe(1);
-    expect(usernameInput.text()).toBe('');
-    expect(passwordInput.length).toBe(1);
-    expect(passwordInput.text()).toBe('');
 
     instance.setState({
-      username: '',
+      email: '',
       password: '',
       error: { value: false, message: '' },
     });
-    expect(instance.state.username).toEqual('');
-    expect(instance.state.password).toEqual('');
 
-    usernameInput
-      .at(0)
-      .simulate('change', { target: { value: 'testUsername' } });
-    passwordInput
-      .at(0)
-      .simulate('change', { target: { value: 'testPassword' } });
-    usernameInput = wrapper.find('input.username-input');
+    emailInput.at(0).simulate('change', {
+      target: { name: 'email', value: 'test@email.com' },
+    });
+    passwordInput.at(0).simulate('change', {
+      target: { name: 'password', value: 'testPassword' },
+    });
+    emailInput = wrapper.find('input.email-input');
     passwordInput = wrapper.find('input.password-input');
 
-    expect(spy).toHaveBeenCalled();
-    expect(spy2).toHaveBeenCalled();
-    expect(instance.state.username).toEqual('testUsername');
-    expect(usernameInput.props().value).toEqual('testUsername');
+    expect(spy).toHaveBeenCalledTimes(2);
+    expect(instance.state.email).toEqual('test@email.com');
+    expect(emailInput.props().value).toEqual('test@email.com');
     expect(instance.state.password).toEqual('testPassword');
     expect(passwordInput.props().value).toEqual('testPassword');
   });

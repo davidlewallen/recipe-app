@@ -24,23 +24,25 @@ exports[`Register component snapshot test should display error messages 1`] = `
         <FormGroup
           bsClass="form-group"
         >
-          <p>
+          <p
+            className="error-message"
+          >
             testError
           </p>
           <ControlLabel
             bsClass="control-label"
             srOnly={false}
           >
-            Username
+            Email Address
           </ControlLabel>
           <FormControl
             bsClass="form-control"
-            className="username-input"
+            className="email-input"
             componentClass="input"
-            onChange={[Function]}
-            placeholder="E.g. JohnDoe123"
-            type="text"
-            value="testUsername"
+            name="email"
+            onChange={[MockFunction]}
+            placeholder="E.g. john@doe.com"
+            value="test@email.com"
           />
           <ControlLabel
             bsClass="control-label"
@@ -52,7 +54,8 @@ exports[`Register component snapshot test should display error messages 1`] = `
             bsClass="form-control"
             className="password-input"
             componentClass="input"
-            onChange={[Function]}
+            name="password"
+            onChange={[MockFunction]}
             placeholder="E.g. 124!Jigzx"
             type="password"
             value="testPassword"
@@ -61,15 +64,17 @@ exports[`Register component snapshot test should display error messages 1`] = `
             bsClass="control-label"
             srOnly={false}
           >
-            Email Address
+            Confirm Password
           </ControlLabel>
           <FormControl
             bsClass="form-control"
-            className="email-input"
+            className="passwordConf-input"
             componentClass="input"
-            onChange={[Function]}
-            placeholder="E.g. john@doe.com"
-            value="test@email.com"
+            name="passwordConf"
+            onChange={[MockFunction]}
+            placeholder="E.g. 124!Jigzx"
+            type="password"
+            value="testPassword"
           />
           <Button
             active={false}
@@ -78,7 +83,7 @@ exports[`Register component snapshot test should display error messages 1`] = `
             bsStyle="primary"
             className="register-button"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="submit"
           >
             Register
@@ -129,16 +134,16 @@ exports[`Register component snapshot test should match snapshot 1`] = `
             bsClass="control-label"
             srOnly={false}
           >
-            Username
+            Email Address
           </ControlLabel>
           <FormControl
             bsClass="form-control"
-            className="username-input"
+            className="email-input"
             componentClass="input"
-            onChange={[Function]}
-            placeholder="E.g. JohnDoe123"
-            type="text"
-            value="testUsername"
+            name="email"
+            onChange={[MockFunction]}
+            placeholder="E.g. john@doe.com"
+            value="test@email.com"
           />
           <ControlLabel
             bsClass="control-label"
@@ -150,7 +155,8 @@ exports[`Register component snapshot test should match snapshot 1`] = `
             bsClass="form-control"
             className="password-input"
             componentClass="input"
-            onChange={[Function]}
+            name="password"
+            onChange={[MockFunction]}
             placeholder="E.g. 124!Jigzx"
             type="password"
             value="testPassword"
@@ -159,15 +165,17 @@ exports[`Register component snapshot test should match snapshot 1`] = `
             bsClass="control-label"
             srOnly={false}
           >
-            Email Address
+            Confirm Password
           </ControlLabel>
           <FormControl
             bsClass="form-control"
-            className="email-input"
+            className="passwordConf-input"
             componentClass="input"
-            onChange={[Function]}
-            placeholder="E.g. john@doe.com"
-            value="test@email.com"
+            name="passwordConf"
+            onChange={[MockFunction]}
+            placeholder="E.g. 124!Jigzx"
+            type="password"
+            value="testPassword"
           />
           <Button
             active={false}
@@ -176,7 +184,7 @@ exports[`Register component snapshot test should match snapshot 1`] = `
             bsStyle="primary"
             className="register-button"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="submit"
           >
             Register

@@ -12,57 +12,56 @@ import { Link } from 'react-router-dom';
 import '../index.css';
 
 const propTypes = {
-  username: string.isRequired,
-  handleUsername: func.isRequired,
   password: string.isRequired,
-  handlePassword: func.isRequired,
+  passwordConf: string.isRequired,
   email: string.isRequired,
-  handleEmail: func.isRequired,
   register: func.isRequired,
+  handleInputChange: func.isRequired,
   error: shape({ value: bool, message: string }).isRequired,
 };
 
 const Register = ({
   error,
-  username,
-  handleUsername,
   password,
-  handlePassword,
+  passwordConf,
   email,
-  handleEmail,
   register,
+  handleInputChange,
 }) => (
   <Grid className="register-container">
     <Row>
       <Col xs={12} sm={6} smOffset={3}>
         <form className="register">
           <FormGroup>
-            {error.value && <p>{error.message}</p>}
+            {error.value && <p className="error-message">{error.message}</p>}
 
-            <ControlLabel>Username</ControlLabel>
+            <ControlLabel>Email Address</ControlLabel>
             <FormControl
-              type="text"
-              className="username-input"
-              placeholder="E.g. JohnDoe123"
-              value={username}
-              onChange={handleUsername}
+              name="email"
+              className="email-input"
+              placeholder="E.g. john@doe.com"
+              value={email}
+              onChange={handleInputChange}
             />
 
             <ControlLabel>Password</ControlLabel>
             <FormControl
+              name="password"
               className="password-input"
               type="password"
               placeholder="E.g. 124!Jigzx"
               value={password}
-              onChange={handlePassword}
+              onChange={handleInputChange}
             />
 
-            <ControlLabel>Email Address</ControlLabel>
+            <ControlLabel>Confirm Password</ControlLabel>
             <FormControl
-              className="email-input"
-              placeholder="E.g. john@doe.com"
-              value={email}
-              onChange={handleEmail}
+              name="passwordConf"
+              className="passwordConf-input"
+              type="password"
+              placeholder="E.g. 124!Jigzx"
+              value={passwordConf}
+              onChange={handleInputChange}
             />
 
             <Button

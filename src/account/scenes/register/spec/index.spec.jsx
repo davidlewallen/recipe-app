@@ -5,14 +5,12 @@ import Register from '../components';
 
 describe('Register component snapshot test', () => {
   const props = {
-    username: 'testUsername',
-    handleUsername: () => {},
     password: 'testPassword',
-    handlePassword: () => {},
+    passwordConf: 'testPassword',
     email: 'test@email.com',
-    handleEmail: () => {},
-    register: () => {},
+    register: jest.fn(),
     error: { value: false, message: '' },
+    handleInputChange: jest.fn(),
   };
 
   it('should match snapshot', () => {

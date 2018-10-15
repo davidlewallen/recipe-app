@@ -32,17 +32,17 @@ exports[`Login component snapshot test should display error message 1`] = `
             bsClass="control-label"
             srOnly={false}
           >
-            Username
+            Email Address
           </ControlLabel>
           <FormControl
             bsClass="form-control"
-            className="username-input"
+            className="email-input"
             componentClass="input"
-            id="username"
-            onChange={[Function]}
-            placeholder="E.g. JohnDoe123"
+            name="email"
+            onChange={[MockFunction]}
+            placeholder="E.g. john@doe.com"
             type="text"
-            value="testUsername"
+            value="test@email.com"
           />
           <ControlLabel
             bsClass="control-label"
@@ -54,8 +54,8 @@ exports[`Login component snapshot test should display error message 1`] = `
             bsClass="form-control"
             className="password-input"
             componentClass="input"
-            id="password"
-            onChange={[Function]}
+            name="password"
+            onChange={[MockFunction]}
             placeholder="E.g. 124!Jigzx"
             type="password"
             value="testPassword"
@@ -67,7 +67,7 @@ exports[`Login component snapshot test should display error message 1`] = `
             bsStyle="primary"
             className="login-button"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="submit"
           >
             Login
@@ -117,17 +117,17 @@ exports[`Login component snapshot test should match snapshot 1`] = `
             bsClass="control-label"
             srOnly={false}
           >
-            Username
+            Email Address
           </ControlLabel>
           <FormControl
             bsClass="form-control"
-            className="username-input"
+            className="email-input"
             componentClass="input"
-            id="username"
-            onChange={[Function]}
-            placeholder="E.g. JohnDoe123"
+            name="email"
+            onChange={[MockFunction]}
+            placeholder="E.g. john@doe.com"
             type="text"
-            value="testUsername"
+            value="test@email.com"
           />
           <ControlLabel
             bsClass="control-label"
@@ -139,8 +139,8 @@ exports[`Login component snapshot test should match snapshot 1`] = `
             bsClass="form-control"
             className="password-input"
             componentClass="input"
-            id="password"
-            onChange={[Function]}
+            name="password"
+            onChange={[MockFunction]}
             placeholder="E.g. 124!Jigzx"
             type="password"
             value="testPassword"
@@ -152,7 +152,7 @@ exports[`Login component snapshot test should match snapshot 1`] = `
             bsStyle="primary"
             className="login-button"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="submit"
           >
             Login
