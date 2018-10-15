@@ -4,7 +4,6 @@ const verification = require('./verification');
 
 const createTestAccount = async (append) => {
   const account = new Account({
-    username: `testUsername${append}`,
     password: `testPassword${append}`,
     email: `testEmail${append}@test.com`,
   });
@@ -13,18 +12,18 @@ const createTestAccount = async (append) => {
 };
 
 const getUserById = async userId => (
-  await Account.findById(userId, '_id username email verification savedRecipes')
+  await Account.findById(userId, '_id email verification savedRecipes')
 );
 
-const getUserByUsername = async username => (
+const getUserByEmail = async email => (
   await Account.findOne({
-    'username': username
+    'email': email
   })
 );
 
 module.exports = {
   createTestAccount,
   getUserById,
-  getUserByUsername,
+  getUserByEmail,
   verification,
 };

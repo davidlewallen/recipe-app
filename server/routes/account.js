@@ -6,27 +6,29 @@ const AccountModel = require('../models/account');
 
 const Account = require('../controllers/account');
 
-const { isAuthenticated } = require('./utils');
+const {
+  isAuthenticated
+} = require('./utils');
 
 router.post('/login', (req, res, next) => {
-  if (req.body.username === undefined || req.body.password === undefined) {
+  if (req.body.email === undefined || req.body.password === undefined) {
     return res
       .status(400)
       .json({
-        message: 'Body should contain a "username" and "password" field'
+        message: 'Body should contain a "email" and "password" field'
       });
-  } else if (!req.body.username) {
+  } else if (!req.body.email) {
     return res
       .status(400)
       .json({
-        message: 'Enter a valid username'
+        message: 'Enter a valid email'
       });
   } else if (!req.body.password) {
     return res
-    .status(400)
-    .json({
-      message: 'Enter a valid password'
-    });
+      .status(400)
+      .json({
+        message: 'Enter a valid password'
+      });
   }
 
   passport.authenticate('local', async (err, user, info) => {
@@ -38,10 +40,14 @@ router.post('/login', (req, res, next) => {
     if (!user) {
       return res
         .status(400)
-        .json({ message: 'Incorrect username and/or password.'});
+        .json({
+          message: 'Incorrect email and/or password.'
+        });
     }
 
-    const { verification } = await Account.getUserByUsername(req.body.username);
+    const {
+      verification
+    } = await Account.getUserByEmail(req.body.email);
 
     if (verification.status) {
       return req.login(user, loginErr => {
@@ -54,22 +60,25 @@ router.post('/login', (req, res, next) => {
       });
     }
 
-    return res.status(403).send({ verified: false });
+    return res.status(403).send({
+      verified: false
+    });
   })(req, res, next);
 });
 
 router.post('/register', async (req, res) => {
   AccountModel.register(
     new AccountModel({
-      username: req.body.username,
-      email: req.body.email,
+      email: req.body.email
     }),
     req.body.password,
     (err, user) => {
       if (err) {
         console.log('error', err);
         if (err.hasOwnProperty('_message')) {
-          return res.status(400).json({ message: err.errors.email.message });
+          return res.status(400).json({
+            message: err.errors.email.message
+          });
         }
 
         return res.status(409).send(err);
@@ -89,7 +98,9 @@ router.get('/logout', (req, res) => {
 
 router.get('/auth', (req, res) => {
   const isAuth = req.isAuthenticated();
-  const result = { isAuth };
+  const result = {
+    isAuth
+  };
 
   res.json(result);
 });

@@ -44,17 +44,15 @@ describe('Account Controller Test', () => {
       const result = await Account.getUserById(testAccount._id);
 
       expect(result._id).toEqual(testAccount._id);
-      expect(result.username).toBe(testAccount.username);
       expect(result.email).toBe(testAccount.email);
     });
   });
-  describe('getUserByUsername', () => {
+  describe('getUserByEmail', () => {
     it('should return users info', async () => {
       const testAccount = await Account.createTestAccount('1');
-      const result = await Account.getUserByUsername(testAccount.username);
-      
+      const result = await Account.getUserByEmail(testAccount.email);
+
       expect(result._id).toEqual(testAccount._id);
-      expect(result.username).toBe(testAccount.username);
       expect(result.email).toBe(testAccount.email);
     });
   });

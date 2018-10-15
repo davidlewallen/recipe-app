@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
-const { isEmail } = require('validator');
+const {
+  isEmail
+} = require('validator');
 
 const AccountSchema = new Schema({
-  username: {
+  password: {
     type: String,
-    required: true,
+    required: [true, 'No password given.']
   },
-  password: { type: String },
   email: {
     type: String,
     required: [true, 'No email given.'],
@@ -24,8 +25,12 @@ const AccountSchema = new Schema({
       type: Boolean,
       default: true,
     },
-    key: { type: String },
-    expires: { type: Date },
+    key: {
+      type: String
+    },
+    expires: {
+      type: Date
+    },
   },
 });
 
