@@ -1,78 +1,200 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Register component snapshot test should display error messages 1`] = `
-<div
+<Grid
+  bsClass="container"
   className="register-container"
+  componentClass="div"
+  fluid={false}
 >
-  <p>
-    testError
-  </p>
-  <form
-    className="register"
+  <Row
+    bsClass="row"
+    componentClass="div"
   >
-    <input
-      className="username-input"
-      onChange={[Function]}
-      placeholder="Username"
-      value="testUsername"
-    />
-    <input
-      className="password-input"
-      onChange={[Function]}
-      placeholder="Password"
-      type="password"
-      value="testPassword"
-    />
-    <input
-      className="email-input"
-      onChange={[Function]}
-      placeholder="Email Address"
-      value="test@email.com"
-    />
-    <button
-      className="register-button"
-      onClick={[Function]}
-      type="button"
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={6}
+      smOffset={3}
+      xs={12}
     >
-      Register
-    </button>
-  </form>
-</div>
+      <form
+        className="register"
+      >
+        <FormGroup
+          bsClass="form-group"
+        >
+          <p>
+            testError
+          </p>
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Username
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
+            className="username-input"
+            componentClass="input"
+            onChange={[Function]}
+            placeholder="E.g. JohnDoe123"
+            type="text"
+            value="testUsername"
+          />
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Password
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
+            className="password-input"
+            componentClass="input"
+            onChange={[Function]}
+            placeholder="E.g. 124!Jigzx"
+            type="password"
+            value="testPassword"
+          />
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Email Address
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
+            className="email-input"
+            componentClass="input"
+            onChange={[Function]}
+            placeholder="E.g. john@doe.com"
+            value="test@email.com"
+          />
+          <Button
+            active={false}
+            block={true}
+            bsClass="btn"
+            bsStyle="primary"
+            className="register-button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            Register
+          </Button>
+          <div
+            className="already-registered-text"
+          >
+            Already have an account? 
+            <Link
+              replace={false}
+              to="/account/login"
+            >
+              Sign in here.
+            </Link>
+          </div>
+        </FormGroup>
+      </form>
+    </Col>
+  </Row>
+</Grid>
 `;
 
 exports[`Register component snapshot test should match snapshot 1`] = `
-<div
+<Grid
+  bsClass="container"
   className="register-container"
+  componentClass="div"
+  fluid={false}
 >
-  <form
-    className="register"
+  <Row
+    bsClass="row"
+    componentClass="div"
   >
-    <input
-      className="username-input"
-      onChange={[Function]}
-      placeholder="Username"
-      value="testUsername"
-    />
-    <input
-      className="password-input"
-      onChange={[Function]}
-      placeholder="Password"
-      type="password"
-      value="testPassword"
-    />
-    <input
-      className="email-input"
-      onChange={[Function]}
-      placeholder="Email Address"
-      value="test@email.com"
-    />
-    <button
-      className="register-button"
-      onClick={[Function]}
-      type="button"
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={6}
+      smOffset={3}
+      xs={12}
     >
-      Register
-    </button>
-  </form>
-</div>
+      <form
+        className="register"
+      >
+        <FormGroup
+          bsClass="form-group"
+        >
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Username
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
+            className="username-input"
+            componentClass="input"
+            onChange={[Function]}
+            placeholder="E.g. JohnDoe123"
+            type="text"
+            value="testUsername"
+          />
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Password
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
+            className="password-input"
+            componentClass="input"
+            onChange={[Function]}
+            placeholder="E.g. 124!Jigzx"
+            type="password"
+            value="testPassword"
+          />
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Email Address
+          </ControlLabel>
+          <FormControl
+            bsClass="form-control"
+            className="email-input"
+            componentClass="input"
+            onChange={[Function]}
+            placeholder="E.g. john@doe.com"
+            value="test@email.com"
+          />
+          <Button
+            active={false}
+            block={true}
+            bsClass="btn"
+            bsStyle="primary"
+            className="register-button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            Register
+          </Button>
+          <div
+            className="already-registered-text"
+          >
+            Already have an account? 
+            <Link
+              replace={false}
+              to="/account/login"
+            >
+              Sign in here.
+            </Link>
+          </div>
+        </FormGroup>
+      </form>
+    </Col>
+  </Row>
+</Grid>
 `;
