@@ -75,7 +75,11 @@ router.post('/register', async (req, res) => {
         return res.status(409).send(err);
       }
 
-      Account.verification.sendVerificationEmail(user);
+      // This is so that we can test login flow without needing to verify email.
+      // Email Verificiaton should be manually checked on third-party email
+      if (process.env.NODE_ENV !== 'test') {
+        Account.verification.sendVerificationEmail(user);
+      }
 
       return res.status(201).send('Account created successfully');
     }
@@ -106,6 +110,12 @@ router.get('/verify', async (req, res) => {
 
 router.get('/verify/resend', async (req, res) => {
   await Account.verification.resendVerificationEmail(req.query.id);
+
+  return res.sendStatus(200);
+});
+
+router.get('/createtestaccount', async (req, res) => {
+  await Account.createTestAccount('1');
 
   return res.sendStatus(200);
 });
