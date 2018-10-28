@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import SubmitRecipe from '../components';
+import SubmitRecipe from '../SubmitRecipe';
 
 describe('SubmitRecipe component', () => {
   let wrapper = null;

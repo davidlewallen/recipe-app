@@ -4,7 +4,7 @@ import { shape, func, arrayOf, object, bool } from 'prop-types';
 import { Account, Utils } from '../../../utils/api';
 
 import Header from '../components';
-import SubmitRecipeContainer from '../../submit-recipe/container/SubmitRecipeContainer';
+import SubmitRecipeContainer from '../../SubmitRecipe';
 import AcceptedWebsites from '../../acceptedWebsites/components';
 
 import '../assets/styles/index.css';
