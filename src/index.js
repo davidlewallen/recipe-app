@@ -6,7 +6,7 @@ import AppContainer from './common/components/app/container/AppContainer';
 
 // import serviceWorker from './serviceWorker';
 
-import './common/assets/styles/app.css';
+import './common/assets/styles/app.scss';
 
 ReactDOM.render(
   <Router>
