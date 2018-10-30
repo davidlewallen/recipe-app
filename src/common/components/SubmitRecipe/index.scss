@@ -4,6 +4,58 @@
   border-radius: initial;
 }
 
+.submit__field-group-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.submit__field-group-wrapper button {
+  margin-left: 16px;
+  height: 100%;
+  padding: 5px 8px;
+}
+
+.submit__field-group-wrapper .form-group {
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+
+.submit__plus-minus {
+  position: relative;
+  top: 12px;
+
+  button {
+    margin-left: 5px;
+    padding: 6px;
+    border: 0px;
+  }
+
+  svg {
+    position: relative;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+  }
+
+  svg:first-child path {
+    fill: #5cb85c;
+  }
+
+  svg:nth-child(2) path {
+    stroke: #d43f3a;
+  }
+}
+
+.submit__button-group div:first-child {
+  margin-bottom: 16px;
+
+  @media (min-width: 768px) {
+    margin-bottom: initial;
+  }
+}
+
 .submit .control-label {
   color: initial;
 }
@@ -15,8 +67,4 @@
 .submit .website-text {
   border: 1px solid #9d9d9d;
   border-radius: 1em;
-}
-
-.submit button {
-  margin-top: 10px;
 }

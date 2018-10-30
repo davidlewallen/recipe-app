@@ -7,15 +7,15 @@ import HelpBlock from 'react-bootstrap/lib/HelpBlock';
 
 const propTypes = {
   id: string.isRequired,
-  label: string.isRequired,
+  label: string,
   help: string,
 };
 
-const defaultProps = { help: undefined };
+const defaultProps = { help: undefined, label: undefined };
 
 const FieldGroup = ({ id, label, help, ...props }) => (
   <FormGroup controlId={id}>
-    <ControlLabel>{label}</ControlLabel>
+    {label && <ControlLabel>{label}</ControlLabel>}
     <FormControl {...props} />
     {help && <HelpBlock>{help}</HelpBlock>}
   </FormGroup>

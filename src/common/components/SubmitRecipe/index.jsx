@@ -16,6 +16,8 @@ class SubmitRecipeContainer extends React.Component {
     recipes: arrayOf(object.isRequired).isRequired,
   };
 
+  initialState = {};
+
   state = {
     url: '',
     manualRecipe: {
@@ -25,6 +27,10 @@ class SubmitRecipeContainer extends React.Component {
       notes: '',
     },
     showManualSubmit: false,
+  };
+
+  componentDidMount = () => {
+    this.initialState = { ...this.state };
   };
 
   handleURL = ({ target: { value } }) => this.setState({ url: value });
@@ -60,6 +66,42 @@ class SubmitRecipeContainer extends React.Component {
     }));
   };
 
+  handleAddInput = (type, index) =>
+    this.setState(prevState => {
+      const original = prevState.manualRecipe[type];
+
+      const beginning = original.slice(0, index + 1);
+      const ending = original.slice(index + 1);
+
+      const newData = beginning.concat('', ending);
+
+      return {
+        manualRecipe: {
+          ...prevState.manualRecipe,
+          [type]: newData,
+        },
+      };
+    });
+
+  handleRemoveInput = (type, index) =>
+    this.setState(prevState => {
+      const original = prevState.manualRecipe[type];
+
+      const beginning = original.slice(0, index);
+      const ending = original.slice(index + 1);
+
+      const newData = beginning.concat(ending);
+
+      return {
+        manualRecipe: {
+          ...prevState.manualRecipe,
+          [type]: newData,
+        },
+      };
+    });
+
+  handleCancelRecipe = () => this.setState(this.initialState);
+
   submitRecipe = async event => {
     event.preventDefault();
 
@@ -93,17 +135,22 @@ class SubmitRecipeContainer extends React.Component {
       state: { url, showManualSubmit, manualRecipe },
     } = this;
 
+    const handlers = {
+      handleURL: this.handleURL,
+      handleInputChange: this.handleInputChange,
+      handleIngredientInstructionChange: this.handleIngredientInstructionChange,
+      handleManualSubmit: this.handleManualSubmit,
+      handleAddInput: this.handleAddInput,
+      handleRemoveInput: this.handleRemoveInput,
+      handleCancelRecipe: this.handleCancelRecipe,
+    };
+
     if (!showManualSubmit) {
       return (
         <ManualSubmitRecipe
+          {...handlers}
           url={url}
-          handleURL={this.handleURL}
           manualRecipe={manualRecipe}
-          handleInputChange={this.handleInputChange}
-          handleIngredientInstructionChange={
-            this.handleIngredientInstructionChange
-          }
-          handleManualSubmit={this.handleManualSubmit}
         />
       );
     }

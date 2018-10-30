@@ -4,24 +4,19 @@
     "browser": true,
     "jest": true,
     "es6": true,
-    "node": true,
+    "node": true
   },
-  "extends": [
-    "airbnb",
-    "prettier"
-  ],
-  "plugins": [
-    "prettier"
-  ],
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "import/no-unresolved": [
-      2,
-      { "caseSensitive": false }
-    ],
-    "prettier/prettier": ["error", {
-      "singleQuote": true,
-      "trailingComma": "es5"
-    }]
+    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ]
   },
   "parserOptions": {
     "ecmaFeatures": {

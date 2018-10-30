@@ -1,24 +1,20 @@
-label {
+.register-container label {
   color: white;
 }
 
-.error-message {
+.register-container .error-message {
   color: red;
   font-weight: bold;
   font-size: 17px;
 }
 
-.form-group {
+.register-container .form-group {
   padding: 5px 10px 15px 10px;
   background-color: #222;
   border-radius: 0.5em;
 }
 
-button {
-  margin-top: 25px;
-}
-
-.already-registered-text {
+.register-container .already-registered-text {
   margin-top: 25px;
   color: white;
 }
