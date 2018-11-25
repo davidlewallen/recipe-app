@@ -1,16 +1,17 @@
 import React from 'react';
-import { func, bool, arrayOf, object } from 'prop-types';
-
-import { Recipe } from '../../../utils/api';
+import { func, bool } from 'prop-types';
 
 import SubmitRecipe from '../components';
 
+import { Recipe } from '../../../utils/api';
+import { RecipeContext } from '../../../context';
+
 class SubmitRecipeContainer extends React.Component {
+  static contextType = RecipeContext;
+
   static propTypes = {
     show: bool.isRequired,
     handleModalClose: func.isRequired,
-    updateRecipes: func.isRequired,
-    recipes: arrayOf(object.isRequired).isRequired,
   };
 
   state = { url: '' };
@@ -22,7 +23,8 @@ class SubmitRecipeContainer extends React.Component {
 
     try {
       const {
-        props: { updateRecipes, recipes, handleModalClose },
+        context: { updateRecipes, recipes },
+        props: { handleModalClose },
         state: { url },
       } = this;
       const encodedRecipeURI = encodeURIComponent(url);

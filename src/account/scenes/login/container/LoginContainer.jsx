@@ -4,13 +4,15 @@ import { shape, func } from 'prop-types';
 import Login from '../components';
 
 import { Account } from '../../../../common/utils/api';
+import { AuthContext } from '../../../../common/context';
 
 import '../assets/styles/index.css';
 
 class LoginContainer extends Component {
+  static contextType = AuthContext;
+
   static propTypes = {
     history: shape({ replace: func }).isRequired,
-    updateAuth: func.isRequired,
   };
 
   state = {
@@ -25,7 +27,8 @@ class LoginContainer extends Component {
   login = async event => {
     event.preventDefault();
     const {
-      props: { history, updateAuth },
+      props: { history },
+      context: { updateAuth },
       state: { username, password },
     } = this;
 

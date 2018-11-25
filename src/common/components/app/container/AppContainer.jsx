@@ -5,10 +5,11 @@ import axios from 'axios';
 
 import HeaderContainer from '../../header/container/HeaderContainer';
 import HomepageContainer from '../../../scenes/homepage/container/HomepageContainer';
-import DashboardRoutes from '../../../../dashboard/routes';
+import DashboardContainer from '../../../../dashboard/scenes/dashboard/container/DashboardContainer';
 import AccountRoutes from '../../../../account/routes';
 
 import { Account } from '../../../utils/api';
+import { AuthContext, RecipeContext } from '../../../context';
 
 class AppContainer extends React.Component {
   static propTypes = {
@@ -75,45 +76,39 @@ class AppContainer extends React.Component {
     } = this;
 
     return (
-      !loading && (
-        <React.Fragment>
-          {location.pathname !== '/' && (
-            <HeaderContainer
-              history={history}
-              recipes={recipes}
-              updateRecipes={this.updateRecipes}
-              updateAuth={this.updateAuth}
-              isAuth={isAuth}
-            />
-          )}
-          <Switch>
-            <Route exact path="/" component={HomepageContainer} />
-            <Route
-              path="/dashboard"
-              render={() =>
-                isAuth && user.username ? (
-                  <DashboardRoutes
-                    recipes={recipes}
-                    updateRecipes={this.updateRecipes}
-                  />
-                ) : (
-                  <Redirect to="/account/login" />
-                )
-              }
-            />
-            <Route
-              path="/account"
-              render={() => (
-                <AccountRoutes
-                  isAuth={isAuth}
-                  updateAuth={this.updateAuth}
-                  user={user}
-                />
+      <AuthContext.Provider value={{ isAuth, updateAuth: this.updateAuth }}>
+        <RecipeContext.Provider
+          value={{ recipes, updateRecipes: this.updateRecipes }}
+        >
+          {!loading && (
+            <React.Fragment>
+              {location.pathname !== '/' && (
+                <HeaderContainer history={history} />
               )}
-            />
-          </Switch>
-        </React.Fragment>
-      )
+              <Switch>
+                <Route exact path="/" component={HomepageContainer} />
+                <Route
+                  path="/dashboard"
+                  render={() =>
+                    isAuth && user.username ? (
+                      <DashboardContainer
+                        recipes={recipes}
+                        updateRecipes={this.updateRecipes}
+                      />
+                    ) : (
+                      <Redirect to="/account/login" />
+                    )
+                  }
+                />
+                <Route
+                  path="/account"
+                  render={() => <AccountRoutes isAuth={isAuth} user={user} />}
+                />
+              </Switch>
+            </React.Fragment>
+          )}
+        </RecipeContext.Provider>
+      </AuthContext.Provider>
     );
   };
 }
