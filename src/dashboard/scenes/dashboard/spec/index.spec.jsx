@@ -93,12 +93,12 @@ describe('Dashboard snapshot test', () => {
     expect(title.text()).toBe(props.recipes[0].title);
   });
 
-  it('should render img with recipe image and an alt', () => {
-    const component = shallow(<Dashboard {...props} />);
-    const img = component.find('img').at(0);
-    expect(img.props().src).toBe(props.recipes[0].imageURL);
-    expect(img.props().alt).toBe(props.recipes[0].title);
-  });
+  // it('should render img with recipe image and an alt', () => {
+  //   const component = shallow(<Dashboard {...props} />);
+  //   const img = component.find('img').at(0);
+  //   expect(img.props().src).toBe(props.recipes[0].imageURL);
+  //   expect(img.props().alt).toBe(props.recipes[0].title);
+  // });
 
   it('should should call viewRecipe with the recipe when the View button is clicked', () => {
     const component = shallow(<Dashboard {...props} />);
