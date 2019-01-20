@@ -5,7 +5,7 @@ import { Grid, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import RecipeModal from '../../../components/recipe-modal/components';
 
 import '../assets/styles/index.css';
-import noImage from '../../../../common/assets/noImage.png';
+// import noImage from '../../../../common/assets/noImage.png';
 
 const propTypes = {
   deleteRecipe: func.isRequired,
@@ -86,7 +86,7 @@ const Dashboard = ({
                           <div>{recipe.title}</div>
                         </Col>
                       </Row>
-                      <Row>
+                      {/* <Row>
                         <Col xs={12}>
                           <div className="image-container">
                             <img
@@ -96,7 +96,7 @@ const Dashboard = ({
                             />
                           </div>
                         </Col>
-                      </Row>
+                      </Row> */}
                       <Row>
                         <Col xs={12} className="footer align-center">
                           <Button
