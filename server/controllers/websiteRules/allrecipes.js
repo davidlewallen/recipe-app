@@ -1,11 +1,9 @@
 const formatTime = require('../../utils/formatTime');
+const stripTitle = require('./strippingStrategies/title');
 
-const stripIngredients = (dom) => {
-  const listOfIngredientsSpan = (
-    dom
-    .window
-    .document
-    .getElementsByClassName('recipe-ingred_txt')
+const stripIngredients = dom => {
+  const listOfIngredientsSpan = dom.window.document.getElementsByClassName(
+    'recipe-ingred_txt'
   );
 
   const listOfIngredients = [];
@@ -18,12 +16,9 @@ const stripIngredients = (dom) => {
   return listOfIngredients;
 };
 
-const stripInstructions = (dom) => {
-  const listOfInstructionsSpan = (
-    dom
-    .window
-    .document
-    .getElementsByClassName('recipe-directions__list--item')
+const stripInstructions = dom => {
+  const listOfInstructionsSpan = dom.window.document.getElementsByClassName(
+    'recipe-directions__list--item'
   );
 
   const listOfInstructions = [];
@@ -38,40 +33,22 @@ const stripInstructions = (dom) => {
   return listOfInstructions;
 };
 
-const stripTitle = (dom) => {
-  const title = (
-    dom
-    .window
-    .document
-    .getElementsByClassName('recipe-summary__h1')[0].textContent
-  );
-
-  return title;
-};
-
-const stripTime = (dom) => {
-  const totalTime = (
-    dom
-    .window
-    .document
-    .getElementsByClassName('ready-in-time')[0].textContent
-  );
+const stripTime = dom => {
+  const totalTime = dom.window.document.getElementsByClassName(
+    'ready-in-time'
+  )[0].textContent;
 
   return formatTime(totalTime);
 };
 
-const stripImageURL = (dom) => {
-  const imageURL = (
-    dom
-    .window
-    .document
-    .getElementsByClassName('rec-photo')[0].src
-  );
+const stripImageURL = dom => {
+  const imageURL = dom.window.document.getElementsByClassName('rec-photo')[0]
+    .src;
 
   return imageURL;
 };
 
-const allrecipes = (dom) => {
+const allrecipes = dom => {
   const ingredients = stripIngredients(dom);
   const instructions = stripInstructions(dom);
   const title = stripTitle(dom);
@@ -79,11 +56,11 @@ const allrecipes = (dom) => {
   const imageURL = stripImageURL(dom);
 
   return {
-    'ingredients': ingredients,
-    'instructions': instructions,
-    'title': title,
-    'totalTime': totalTime,
-    'imageURL': imageURL
+    ingredients: ingredients,
+    instructions: instructions,
+    title: title,
+    totalTime: totalTime,
+    imageURL: imageURL,
   };
 };
 
