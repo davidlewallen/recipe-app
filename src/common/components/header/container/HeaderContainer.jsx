@@ -1,5 +1,5 @@
 import React from 'react';
-import { shape, func, arrayOf, object, bool } from 'prop-types';
+import { shape, func, bool } from 'prop-types';
 
 import { Account, Utils } from '../../../utils/api';
 
@@ -12,8 +12,6 @@ import '../assets/styles/index.css';
 class HeaderContainer extends React.Component {
   static propTypes = {
     history: shape({ replace: func.isRequired }).isRequired,
-    updateRecipes: func.isRequired,
-    recipes: arrayOf(object.isRequired).isRequired,
     isAuth: bool.isRequired,
     updateAuth: func.isRequired,
   };
@@ -49,7 +47,7 @@ class HeaderContainer extends React.Component {
 
   render = () => {
     const {
-      props: { updateRecipes, recipes, isAuth },
+      props: { isAuth },
       state: { showModal, showAcceptedModal, acceptedWebsites },
     } = this;
 
@@ -58,8 +56,6 @@ class HeaderContainer extends React.Component {
         <SubmitRecipeContainer
           show={showModal}
           handleModalClose={this.handleModalClose}
-          updateRecipes={updateRecipes}
-          recipes={recipes}
         />
         <AcceptedWebsites
           show={showAcceptedModal}

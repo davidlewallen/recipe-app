@@ -17,7 +17,6 @@ class AppContainer extends React.Component {
   };
 
   state = {
-    recipes: [],
     isAuth: true,
     loading: true,
     user: {
@@ -56,12 +55,6 @@ class AppContainer extends React.Component {
     this.setState({ user, loading: false });
   };
 
-  updateRecipes = updatedRecipes => {
-    const isArray = Array.isArray(updatedRecipes);
-
-    this.setState({ recipes: isArray ? updatedRecipes : [updatedRecipes] });
-  };
-
   updateAuth = authValue => {
     this.setState({ isAuth: authValue });
 
@@ -71,7 +64,7 @@ class AppContainer extends React.Component {
   render = () => {
     const {
       props: { location, history },
-      state: { loading, recipes, isAuth, user },
+      state: { loading, isAuth, user },
     } = this;
 
     return (
@@ -80,8 +73,6 @@ class AppContainer extends React.Component {
           {location.pathname !== '/' && (
             <HeaderContainer
               history={history}
-              recipes={recipes}
-              updateRecipes={this.updateRecipes}
               updateAuth={this.updateAuth}
               isAuth={isAuth}
             />
@@ -92,10 +83,7 @@ class AppContainer extends React.Component {
               path="/dashboard"
               render={() =>
                 isAuth && user.username ? (
-                  <DashboardRoutes
-                    recipes={recipes}
-                    updateRecipes={this.updateRecipes}
-                  />
+                  <DashboardRoutes />
                 ) : (
                   <Redirect to="/account/login" />
                 )

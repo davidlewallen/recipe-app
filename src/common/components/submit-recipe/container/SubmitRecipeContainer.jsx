@@ -1,16 +1,17 @@
 import React from 'react';
-import { func, bool, arrayOf, object } from 'prop-types';
+import { func, bool } from 'prop-types';
 
 import { Recipe } from '../../../utils/api';
 
 import SubmitRecipe from '../components';
+import RecipeContext from '../../../context/RecipeContext';
 
 class SubmitRecipeContainer extends React.Component {
+  static contextType = RecipeContext;
+
   static propTypes = {
     show: bool.isRequired,
     handleModalClose: func.isRequired,
-    updateRecipes: func.isRequired,
-    recipes: arrayOf(object.isRequired).isRequired,
   };
 
   state = { url: '' };
@@ -21,17 +22,18 @@ class SubmitRecipeContainer extends React.Component {
     event.preventDefault();
 
     try {
-      const {
-        props: { updateRecipes, recipes, handleModalClose },
-        state: { url },
-      } = this;
+      const { handleModalClose } = this.props;
+      const { recipes, setRecipes } = this.context;
+      const { url } = this.state;
+
       const encodedRecipeURI = encodeURIComponent(url);
+
       const { data } = await Recipe.submitRecipe(encodedRecipeURI);
 
       if (!data.alreadyAdded) {
         this.setState({ url: '' });
 
-        updateRecipes([...recipes, data]);
+        setRecipes([...recipes, data]);
       }
 
       handleModalClose();
