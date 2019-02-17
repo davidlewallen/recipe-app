@@ -4,14 +4,18 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AppContainer from './common/components/app/container/AppContainer';
 
+import { RecipeProvider } from './common/context/RecipeContext';
+
 // import serviceWorker from './serviceWorker';
 
 import './common/assets/styles/app.css';
 
 ReactDOM.render(
-  <Router>
-    <Route component={AppContainer} />
-  </Router>,
+  <RecipeProvider>
+    <Router>
+      <Route component={AppContainer} />
+    </Router>
+  </RecipeProvider>,
   document.getElementById('root')
 );
 
