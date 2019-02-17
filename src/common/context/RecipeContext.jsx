@@ -9,12 +9,12 @@ const { Provider, Consumer } = RecipeContext;
 
 const propTypes = { children: node.isRequired };
 
-const RecipeProvider = React.memo(({ children }) => {
+function RecipeProvider({ children }) {
   console.log('RecipeProvider rendered');
   const [recipes, setRecipes] = useState([]);
 
   return <Provider value={{ recipes, setRecipes }}>{children}</Provider>;
-});
+}
 
 RecipeProvider.propTypes = propTypes;
 
