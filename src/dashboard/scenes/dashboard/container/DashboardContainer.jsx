@@ -1,15 +1,12 @@
 import React from 'react';
-import { func, arrayOf, object } from 'prop-types';
+
+import RecipeContext from '../../../../common/context/RecipeContext';
+import { Recipe } from '../../../../common/utils/api';
 
 import Dashboard from '../components';
 
-import { Recipe } from '../../../../common/utils/api';
-
 class DashboardContainer extends React.Component {
-  static propTypes = {
-    recipes: arrayOf(object.isRequired).isRequired,
-    updateRecipes: func.isRequired,
-  };
+  static contextType = RecipeContext;
 
   state = {
     showModal: false,
@@ -31,23 +28,22 @@ class DashboardContainer extends React.Component {
   };
 
   getUserRecipes = async () => {
-    const { updateRecipes } = this.props;
-
-    this.setState({ loadingRecipes: true });
+    const { setRecipes } = this.context;
 
     const { data: recipes } = await Recipe.getRecipes();
 
-    updateRecipes(recipes);
+    setRecipes(recipes);
 
     this.setState({ loadingRecipes: false });
   };
 
   deleteRecipe = async recipeId => {
-    const { updateRecipes } = this.props;
+    const { setRecipes } = this.context;
 
     try {
       const { data: recipes } = await Recipe.deleteRecipe(recipeId);
-      updateRecipes(recipes);
+
+      setRecipes(recipes);
     } catch (err) {
       console.log(err);
     }
@@ -66,8 +62,8 @@ class DashboardContainer extends React.Component {
 
   render = () => {
     const {
-      props: { recipes },
       state: { showModal, selectedRecipe, searchValue, loadingRecipes },
+      context: { recipes },
     } = this;
 
     return (
