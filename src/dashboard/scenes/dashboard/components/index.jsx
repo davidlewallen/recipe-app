@@ -1,6 +1,10 @@
 import React from 'react';
 import { string, func, arrayOf, object, bool, shape } from 'prop-types';
-import { Grid, Row, Col, Button, Jumbotron } from 'react-bootstrap';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 
 import RecipeModal from '../../../components/recipe-modal/components';
 
