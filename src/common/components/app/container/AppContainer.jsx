@@ -1,6 +1,6 @@
 import React from 'react';
 import { shape, func, string } from 'prop-types';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 import { RecipeProvider } from '../../../context/RecipeContext';
@@ -8,10 +8,10 @@ import UserContext from '../../../context/UserContext';
 
 import HeaderContainer from '../../header/container/HeaderContainer';
 import HomepageContainer from '../../../scenes/homepage/container/HomepageContainer';
-import DashboardRoutes from '../../../../dashboard/routes';
+import DashboardContainer from '../../../../dashboard/scenes/dashboard/container/DashboardContainer';
 import AccountRoutes from '../../../../account/routes';
 
-class AppContainer extends React.Component {
+class AppContainer extends React.PureComponent {
   static contextType = UserContext;
 
   static propTypes = {
@@ -43,18 +43,10 @@ class AppContainer extends React.Component {
         {!userLoading && (
           <React.Fragment>
             {location.pathname !== '/' && <HeaderContainer history={history} />}
+
             <Switch>
               <Route exact path="/" component={HomepageContainer} />
-              <Route
-                path="/dashboard"
-                render={() =>
-                  userAuth && user.username ? (
-                    <DashboardRoutes />
-                  ) : (
-                    <Redirect to="/account/login" />
-                  )
-                }
-              />
+              <Route path="/dashboard" component={DashboardContainer} />
               <Route
                 path="/account"
                 render={() => <AccountRoutes userAuth={userAuth} user={user} />}

@@ -1,6 +1,8 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 import RecipeContext from '../../../../common/context/RecipeContext';
+import { UserConsumer } from '../../../../common/context/UserContext';
 import { Recipe } from '../../../../common/utils/api';
 
 import Dashboard from '../components';
@@ -24,8 +26,14 @@ class DashboardContainer extends React.Component {
   };
 
   componentDidMount = async () => {
+    this.IS_MOUNTED = true;
+
     await this.getUserRecipes();
   };
+
+  componentWillUnmount() {
+    this.IS_MOUNTED = false;
+  }
 
   getUserRecipes = async () => {
     const { setRecipes } = this.context;
@@ -34,7 +42,7 @@ class DashboardContainer extends React.Component {
 
     setRecipes(recipes);
 
-    this.setState({ loadingRecipes: false });
+    if (this.IS_MOUNTED) this.setState({ loadingRecipes: false });
   };
 
   deleteRecipe = async recipeId => {
@@ -67,17 +75,25 @@ class DashboardContainer extends React.Component {
     } = this;
 
     return (
-      <Dashboard
-        recipes={recipes}
-        deleteRecipe={this.deleteRecipe}
-        showModal={showModal}
-        handleModalClose={this.handleModalClose}
-        viewRecipe={this.viewRecipe}
-        selectedRecipe={selectedRecipe}
-        searchValue={searchValue}
-        handleSearch={this.handleSearch}
-        loadingRecipes={loadingRecipes}
-      />
+      <UserConsumer>
+        {({ userAuth, user }) =>
+          userAuth && user.username ? (
+            <Dashboard
+              recipes={recipes}
+              deleteRecipe={this.deleteRecipe}
+              showModal={showModal}
+              handleModalClose={this.handleModalClose}
+              viewRecipe={this.viewRecipe}
+              selectedRecipe={selectedRecipe}
+              searchValue={searchValue}
+              handleSearch={this.handleSearch}
+              loadingRecipes={loadingRecipes}
+            />
+          ) : (
+            <Redirect to="/account/login" />
+          )
+        }
+      </UserConsumer>
     );
   };
 }
