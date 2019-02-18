@@ -1,5 +1,5 @@
 import React from 'react';
-import { shape, func, arrayOf, object, bool } from 'prop-types';
+import { shape, func } from 'prop-types';
 
 import { Account, Utils } from '../../../utils/api';
 
@@ -8,14 +8,13 @@ import SubmitRecipeContainer from '../../submit-recipe/container/SubmitRecipeCon
 import AcceptedWebsites from '../../acceptedWebsites/components';
 
 import '../assets/styles/index.css';
+import UserContext from '../../../context/UserContext';
 
 class HeaderContainer extends React.Component {
+  static contextType = UserContext;
+
   static propTypes = {
     history: shape({ replace: func.isRequired }).isRequired,
-    updateRecipes: func.isRequired,
-    recipes: arrayOf(object.isRequired).isRequired,
-    isAuth: bool.isRequired,
-    updateAuth: func.isRequired,
   };
 
   state = {
@@ -31,10 +30,13 @@ class HeaderContainer extends React.Component {
   };
 
   logout = () => {
-    const { updateAuth, history } = this.props;
+    const { history } = this.props;
+    const { setUserAuth } = this.context;
 
     Account.logout();
-    updateAuth(false);
+
+    setUserAuth(false);
+
     history.replace('/');
   };
 
@@ -49,7 +51,7 @@ class HeaderContainer extends React.Component {
 
   render = () => {
     const {
-      props: { updateRecipes, recipes, isAuth },
+      context: { userAuth },
       state: { showModal, showAcceptedModal, acceptedWebsites },
     } = this;
 
@@ -58,8 +60,6 @@ class HeaderContainer extends React.Component {
         <SubmitRecipeContainer
           show={showModal}
           handleModalClose={this.handleModalClose}
-          updateRecipes={updateRecipes}
-          recipes={recipes}
         />
         <AcceptedWebsites
           show={showAcceptedModal}
@@ -69,7 +69,7 @@ class HeaderContainer extends React.Component {
         <Header
           logout={this.logout}
           handleModalOpen={this.handleModalOpen}
-          isAuth={isAuth}
+          isAuth={userAuth}
           handleAcceptedModal={this.handleAcceptedModal}
         />
       </React.Fragment>

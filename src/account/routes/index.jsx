@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { bool, shape, string } from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -9,40 +9,32 @@ import RegisterContainer from '../scenes/register/container/RegisterContainer';
 import VerifyEmailPrompt from '../scenes/verify/components/VerifyEmailPrompt';
 import VerifyEmailContainer from '../scenes/verify';
 
-const { bool, func, objectOf, string } = PropTypes;
 const propTypes = {
-  isAuth: bool.isRequired,
-  updateAuth: func.isRequired,
-  user: objectOf(string.isRequired).isRequired,
+  userAuth: bool.isRequired,
+  user: shape({
+    username: string.isRequire,
+    email: string.isRequire,
+    verification: shape({ status: bool }),
+  }).isRequired,
 };
 
-const AccountRoutes = props => (
+const AccountRoutes = ({ userAuth, user }) => (
   <Switch>
-    <Route
-      exact
-      path="/account"
-      render={() =>
-        props.isAuth && props.user.username ? (
-          <Overview user={props.user} />
-        ) : (
-          <Redirect to="/account/login" />
-        )
-      }
-    />
+    <Route exact path="/account" component={Overview} />
     <Route
       path="/account/login"
       render={routeProps =>
-        props.isAuth && props.user.username ? (
+        userAuth && user.username ? (
           <Redirect to="/dashboard" />
         ) : (
-          <LoginContainer {...routeProps} updateAuth={props.updateAuth} />
+          <LoginContainer {...routeProps} />
         )
       }
     />
     <Route
       path="/account/register"
       render={routeProps =>
-        props.isAuth && props.user.username ? (
+        userAuth && user.username ? (
           <Redirect to="/dashboard" />
         ) : (
           <RegisterContainer {...routeProps} />
