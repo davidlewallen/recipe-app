@@ -39,10 +39,7 @@ class SubmitRecipeContainer extends React.Component {
       handleModalClose();
     } catch (err) {
       console.error(err.response);
-
-      if (err && err.response && err.response.status === 403) {
-        alert('We cant process this website currently');
-      }
+      alert('We cant process this website currently');
     }
   };
 

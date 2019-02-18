@@ -6,11 +6,13 @@ import Login from '../components';
 import { Account } from '../../../../common/utils/api';
 
 import '../assets/styles/index.css';
+import UserContext from '../../../../common/context/UserContext';
 
 class LoginContainer extends Component {
+  static contextType = UserContext;
+
   static propTypes = {
     history: shape({ replace: func }).isRequired,
-    updateAuth: func.isRequired,
   };
 
   state = {
@@ -24,9 +26,11 @@ class LoginContainer extends Component {
 
   login = async event => {
     event.preventDefault();
+
     const {
-      props: { history, updateAuth },
+      props: { history },
       state: { username, password },
+      context: { setUserAuth },
     } = this;
 
     try {
@@ -35,13 +39,19 @@ class LoginContainer extends Component {
         password,
       });
 
-      updateAuth(true);
+      console.log('logged in successfully');
+
+      setUserAuth(true);
+
       history.replace('/dashboard');
+      console.log('should have redirected');
     } catch (err) {
       const { response } = err;
+
       if (response.status === 403 && !response.data.verified) {
         history.replace('/account/verify');
       }
+
       if (response.status === 400) {
         this.setState({
           error: {

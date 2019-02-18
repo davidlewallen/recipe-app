@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import {
   Grid,
   Row,
@@ -8,36 +7,38 @@ import {
   ControlLabel,
   FormControl,
 } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
+
+import UserContext from '../../../../common/context/UserContext';
 
 import '../assets/styles/index.css';
 
-const { shape, string, bool } = PropTypes;
-const propTypes = {
-  user: shape({
-    username: string.isRequired,
-    email: string.isRequired,
-    verification: shape({
-      status: bool.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
+function Overview() {
+  const {
+    userAuth,
+    user: { username, email },
+  } = useContext(UserContext);
 
-const Overview = ({ user }) => (
-  <Grid className="overview">
-    <Row>
-      <Col xs={12} md={4} mdOffset={4}>
-        <form>
-          <FormGroup controlId="formAccountInfo">
-            <ControlLabel>Username</ControlLabel>
-            <FormControl disabled type="text" value={user.username} />
-            <ControlLabel>Email</ControlLabel>
-            <FormControl disabled type="text" value={user.email} />
-          </FormGroup>
-        </form>
-      </Col>
-    </Row>
-  </Grid>
-);
+  if (!userAuth) {
+    return <Redirect to="/account/login" />;
+  }
 
-Overview.propTypes = propTypes;
+  return (
+    <Grid className="overview">
+      <Row>
+        <Col xs={12} md={4} mdOffset={4}>
+          <form>
+            <FormGroup controlId="formAccountInfo">
+              <ControlLabel>Username</ControlLabel>
+              <FormControl disabled type="text" value={username} />
+              <ControlLabel>Email</ControlLabel>
+              <FormControl disabled type="text" value={email} />
+            </FormGroup>
+          </form>
+        </Col>
+      </Row>
+    </Grid>
+  );
+}
+
 export default Overview;
