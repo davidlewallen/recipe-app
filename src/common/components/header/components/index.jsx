@@ -1,6 +1,8 @@
 import React from 'react';
 import { func, bool } from 'prop-types';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/lib/Navbar';
+import Nav from 'react-bootstrap/lib/Nav';
+import NavItem from 'react-bootstrap/lib/NavItem';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
