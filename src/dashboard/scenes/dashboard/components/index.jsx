@@ -47,12 +47,12 @@ const Dashboard = ({
     {!recipes.length && !loadingRecipes ? (
       <Row>
         <Col xs={12}>
-          <Jumbotron className="align-center">
-            <p>
+          <Jumbotron className="NoRecipes align-center">
+            <p className="NoRecipes__Copy">
               Looks like you have no recipes currently saved. You should add
               some!
             </p>
-            <p>
+            <p className="NoRecipes__Copy">
               To add recipes, click the menu button and select &quot;+ Add
               Recipe&quot;.
             </p>
