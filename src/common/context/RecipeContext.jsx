@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unused-state */
-
 import React, { useState } from 'react';
 import { node } from 'prop-types';
 
