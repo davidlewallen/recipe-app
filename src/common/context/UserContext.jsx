@@ -9,8 +9,7 @@ const { Provider, Consumer } = UserContext;
 
 const propTypes = { children: node.isRequired };
 
-function UserProvider({ children }) {
-  console.log('UserProvider rendered');
+const UserProvider = React.memo(({ children }) => {
   const [user, setUser] = useState({ username: '', email: '', _id: '' });
   const [userLoading, setUserLoading] = useState(true);
   const [userAuth, setUserAuth] = useState(false);
@@ -27,32 +26,25 @@ function UserProvider({ children }) {
   }
 
   async function initialize() {
-    console.log(2);
     const {
       data: { isAuth: authStatus },
     } = await Account.auth();
 
     setUserAuth(authStatus);
 
-    console.log('authStatus', authStatus);
-
     if (authStatus) {
       await getUser();
     } else {
-      console.log(4);
       setUserLoading(false);
     }
   }
 
   useEffect(() => {
-    console.log('1');
     initialize();
   }, []);
 
   useEffect(() => {
-    console.log(3);
     if (userAuth) {
-      console.log(5);
       getUser();
     }
   }, [userAuth]);
@@ -62,7 +54,7 @@ function UserProvider({ children }) {
       {children}
     </Provider>
   );
-}
+});
 
 UserProvider.propTypes = propTypes;
 

@@ -39,12 +39,9 @@ class LoginContainer extends Component {
         password,
       });
 
-      console.log('logged in successfully');
-
       setUserAuth(true);
 
       history.replace('/dashboard');
-      console.log('should have redirected');
     } catch (err) {
       const { response } = err;
 
