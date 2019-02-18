@@ -1,6 +1,7 @@
 import React from 'react';
 import { bool, func, shape, string, arrayOf } from 'prop-types';
-import { Modal, Button } from 'react-bootstrap';
+import Modal from 'react-bootstrap/lib/Modal';
+import Button from 'react-bootstrap/lib/Button';
 
 import genKey from '../../../../common/utils/randomKeys';
 
