@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { bool, shape, string } from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -10,16 +9,7 @@ import VerifyEmailPrompt from '../scenes/verify/components/VerifyEmailPrompt';
 import VerifyEmailContainer from '../scenes/verify';
 import UserContext from '../../common/context/UserContext';
 
-const propTypes = {
-  userAuth: bool.isRequired,
-  user: shape({
-    username: string.isRequire,
-    email: string.isRequire,
-    verification: shape({ status: bool }),
-  }).isRequired,
-};
-
-const AccountRoutes = () => {
+function AccountRoutes() {
   const { userAuth, user } = useContext(UserContext);
 
   return (
@@ -66,7 +56,6 @@ const AccountRoutes = () => {
       />
     </Switch>
   );
-};
+}
 
-AccountRoutes.propTypes = propTypes;
 export default AccountRoutes;
