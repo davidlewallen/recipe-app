@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { bool, shape, string } from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import queryString from 'query-string';
@@ -8,6 +8,7 @@ import LoginContainer from '../scenes/login/container/LoginContainer';
 import RegisterContainer from '../scenes/register/container/RegisterContainer';
 import VerifyEmailPrompt from '../scenes/verify/components/VerifyEmailPrompt';
 import VerifyEmailContainer from '../scenes/verify';
+import UserContext from '../../common/context/UserContext';
 
 const propTypes = {
   userAuth: bool.isRequired,
@@ -18,50 +19,54 @@ const propTypes = {
   }).isRequired,
 };
 
-const AccountRoutes = ({ userAuth, user }) => (
-  <Switch>
-    <Route exact path="/account" component={Overview} />
-    <Route
-      path="/account/login"
-      render={routeProps =>
-        userAuth && user.username ? (
-          <Redirect to="/dashboard" />
-        ) : (
-          <LoginContainer {...routeProps} />
-        )
-      }
-    />
-    <Route
-      path="/account/register"
-      render={routeProps =>
-        userAuth && user.username ? (
-          <Redirect to="/dashboard" />
-        ) : (
-          <RegisterContainer {...routeProps} />
-        )
-      }
-    />
+const AccountRoutes = () => {
+  const { userAuth, user } = useContext(UserContext);
 
-    <Route
-      path="/account/verify"
-      render={({ location, history }) => {
-        const queryParams = queryString.parse(location.search);
-
-        if (queryParams.id) {
-          return (
-            <VerifyEmailContainer
-              userId={queryParams.id}
-              verificationKey={queryParams.key}
-              history={history}
-            />
-          );
+  return (
+    <Switch>
+      <Route exact path="/account" component={Overview} />
+      <Route
+        path="/account/login"
+        render={routeProps =>
+          userAuth && user.username ? (
+            <Redirect to="/dashboard" />
+          ) : (
+            <LoginContainer {...routeProps} />
+          )
         }
+      />
+      <Route
+        path="/account/register"
+        render={routeProps =>
+          userAuth && user.username ? (
+            <Redirect to="/dashboard" />
+          ) : (
+            <RegisterContainer {...routeProps} />
+          )
+        }
+      />
 
-        return <VerifyEmailPrompt />;
-      }}
-    />
-  </Switch>
-);
+      <Route
+        path="/account/verify"
+        render={({ location, history }) => {
+          const queryParams = queryString.parse(location.search);
+
+          if (queryParams.id) {
+            return (
+              <VerifyEmailContainer
+                userId={queryParams.id}
+                verificationKey={queryParams.key}
+                history={history}
+              />
+            );
+          }
+
+          return <VerifyEmailPrompt />;
+        }}
+      />
+    </Switch>
+  );
+};
 
 AccountRoutes.propTypes = propTypes;
 export default AccountRoutes;
