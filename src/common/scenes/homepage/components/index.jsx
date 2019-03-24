@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/lib/Col';
 import Button from 'react-bootstrap/lib/Button';
 import { Link } from 'react-router-dom';
 
+import '../assets/styles/index.css';
+
 const Homepage = () => (
   <Grid className="homepage">
     <Row>

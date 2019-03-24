@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, Suspense } from 'react';
+import React, { useState, useContext, useEffect, Suspense } from 'react';
 import { shape, func, string } from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
-import { RecipeProvider } from '../../../context/RecipeContext';
+import RecipeContext from '../../../context/RecipeContext';
 import UserContext from '../../../context/UserContext';
 
 import HeaderContainer from '../../header/container/HeaderContainer';
 
-const HomepageContainer = React.lazy(() =>
-  import('../../../scenes/homepage/container/HomepageContainer')
+const Homepage = React.lazy(() =>
+  import('../../../scenes/homepage/components')
 );
 const DashboardContainer = React.lazy(() =>
   import('../../../../dashboard/scenes/dashboard/container/DashboardContainer')
@@ -22,6 +22,7 @@ const propTypes = {
 };
 
 function AppContainer({ history, location }) {
+  const [recipes, setRecipes] = useState([]);
   const { userLoading, setUserAuth } = useContext(UserContext);
 
   useEffect(() => {
@@ -35,21 +36,21 @@ function AppContainer({ history, location }) {
   }, []);
 
   return (
-    <RecipeProvider>
+    <RecipeContext.Provider value={{ recipes, setRecipes }}>
       <Suspense fallback={<p>Loading...</p>}>
         {!userLoading && (
           <React.Fragment>
             {location.pathname !== '/' && <HeaderContainer history={history} />}
 
             <Switch>
-              <Route exact path="/" component={HomepageContainer} />
+              <Route exact path="/" component={Homepage} />
               <Route path="/dashboard" component={DashboardContainer} />
               <Route path="/account" component={AccountRoutes} />
             </Switch>
           </React.Fragment>
         )}
       </Suspense>
-    </RecipeProvider>
+    </RecipeContext.Provider>
   );
 }
 
