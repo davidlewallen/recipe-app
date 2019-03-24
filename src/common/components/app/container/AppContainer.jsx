@@ -1,28 +1,31 @@
-import React from 'react';
+import React, { useState, useContext, useEffect, Suspense } from 'react';
 import { shape, func, string } from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
-import { RecipeProvider } from '../../../context/RecipeContext';
+import RecipeContext from '../../../context/RecipeContext';
 import UserContext from '../../../context/UserContext';
 
 import HeaderContainer from '../../header/container/HeaderContainer';
-import HomepageContainer from '../../../scenes/homepage/container/HomepageContainer';
-import DashboardContainer from '../../../../dashboard/scenes/dashboard/container/DashboardContainer';
-import AccountRoutes from '../../../../account/routes';
 
-class AppContainer extends React.PureComponent {
-  static contextType = UserContext;
+const Homepage = React.lazy(() =>
+  import('../../../scenes/homepage/components')
+);
+const DashboardContainer = React.lazy(() =>
+  import('../../../../dashboard/scenes/dashboard/container/DashboardContainer')
+);
+const AccountRoutes = React.lazy(() => import('../../../../account/routes'));
 
-  static propTypes = {
-    history: shape({ push: func.isRequired }).isRequired,
-    location: shape({ pathname: string.isRequired }).isRequired,
-  };
+const propTypes = {
+  history: shape({ push: func.isRequired }).isRequired,
+  location: shape({ pathname: string.isRequired }).isRequired,
+};
 
-  componentDidMount = async () => {
-    const { location } = this.props;
-    const { setUserAuth } = this.context;
+function AppContainer({ history, location }) {
+  const [recipes, setRecipes] = useState([]);
+  const { userLoading, setUserAuth } = useContext(UserContext);
 
+  useEffect(() => {
     axios.interceptors.response.use(
       response => response,
       error =>
@@ -30,33 +33,27 @@ class AppContainer extends React.PureComponent {
           ? setUserAuth(false)
           : Promise.reject(error)
     );
-  };
+  }, []);
 
-  render = () => {
-    const {
-      props: { location, history },
-      context: { userLoading, userAuth, user },
-    } = this;
-
-    return (
-      <RecipeProvider>
+  return (
+    <RecipeContext.Provider value={{ recipes, setRecipes }}>
+      <Suspense fallback={<p>Loading...</p>}>
         {!userLoading && (
           <React.Fragment>
             {location.pathname !== '/' && <HeaderContainer history={history} />}
 
             <Switch>
-              <Route exact path="/" component={HomepageContainer} />
+              <Route exact path="/" component={Homepage} />
               <Route path="/dashboard" component={DashboardContainer} />
-              <Route
-                path="/account"
-                render={() => <AccountRoutes userAuth={userAuth} user={user} />}
-              />
+              <Route path="/account" component={AccountRoutes} />
             </Switch>
           </React.Fragment>
         )}
-      </RecipeProvider>
-    );
-  };
+      </Suspense>
+    </RecipeContext.Provider>
+  );
 }
+
+AppContainer.propTypes = propTypes;
 
 export default AppContainer;
