@@ -4,16 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "express-session": "^1.15.6",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
-    "mongoose": "^4.13.18",
-    "morgan": "^1.9.1",
-    "nodemailer": "^4.6.8",
-    "passport": "^0.4.0",
-    "passport-local-mongoose": "^5.0.1",
     "prop-types": "^15.6.2",
     "query-string": "^6.2.0",
     "react": "^16.8.5",
@@ -22,8 +14,7 @@
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.5",
-    "uuid": "^3.3.2",
-    "validator": "^10.8.0"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",
@@ -51,14 +42,8 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "start": "node ./server/index.js",
-    "start:dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "server:prod": "cross-env PORT=3001 NODE_ENV=production nodemon -w ./server ./server/index.js",
-    "server:dev": "cross-env PORT=3001 NODE_ENV=dev nodemon -w ./server ./server/index.js",
-    "server:automation": "cross-env PORT=3001 NODE_ENV=test nodemon -w ./server ./server/index.js",
-    "server:test": "cross-env NODE_ENV=test jest --env=node --testPathPattern=server --watch --i",
-    "server:coverage": "cross-env NODE_ENV=test jest --env=node --testPathPattern=/server --coverage --collectCoverageFrom=server/**/*.{js,jsx,mjs} --i --watch",
     "test": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom",
     "test:v": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch --verbose",
     "test:coverage": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch --coverage",
