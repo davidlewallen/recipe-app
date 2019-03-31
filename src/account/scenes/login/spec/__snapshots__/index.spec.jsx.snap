@@ -77,7 +77,6 @@ exports[`Login component snapshot test should display error message 1`] = `
           >
             New to My Saved Recipes? 
             <Link
-              replace={false}
               to="/account/register"
             >
               Create an account.
@@ -162,7 +161,6 @@ exports[`Login component snapshot test should match snapshot 1`] = `
           >
             New to My Saved Recipes? 
             <Link
-              replace={false}
               to="/account/register"
             >
               Create an account.
