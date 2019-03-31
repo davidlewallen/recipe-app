@@ -18,7 +18,6 @@
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",
-    "cross-env": "^5.2.0",
     "cypress": "^3.1.5",
     "cypress-eslint-preprocessor": "^1.2.2",
     "enzyme": "^3.7.0",
@@ -44,9 +43,9 @@
     "precommit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom",
-    "test:v": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch --verbose",
-    "test:coverage": "cross-env NODE_ENV=test react-scripts test --testPathPattern=src --env=jsdom --watch --coverage",
+    "test": "react-scripts test --testPathPattern=src --env=jsdom",
+    "test:v": "react-scripts test --testPathPattern=src --env=jsdom --watch --verbose",
+    "test:coverage": "react-scripts test --testPathPattern=src --env=jsdom --watch --coverage",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build"
   },
