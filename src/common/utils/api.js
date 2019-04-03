@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const API_ROOT =
-  process.env.NODE_ENV === 'production' ? 'https://136.49.155.52/api' : '/api';
+  process.env.NODE_ENV === 'production'
+    ? 'https://api.mysavedrecipes.com/api'
+    : '/api';
 const API_RECIPE = `${API_ROOT}/recipe`;
 const API_ACCOUNT = `${API_ROOT}/account`;
 
