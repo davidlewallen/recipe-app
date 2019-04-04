@@ -28,7 +28,7 @@ export const Account = {
     },
   },
   login(body) {
-    return axios.post(this.endpoints.login, body);
+    return axios.post(this.endpoints.login, body, { withCredentials: true });
   },
   register(body) {
     return axios.post(this.endpoints.register, body);
