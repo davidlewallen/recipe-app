@@ -40,7 +40,7 @@ export const Account = {
     return axios.get(this.endpoints.auth);
   },
   getUser() {
-    return axios.get(this.endpoints.getUser);
+    return axios.get(this.endpoints.getUser, { withCredentials: true });
   },
   verify(id, key) {
     return axios.get(this.endpoints.verify(id, key));
