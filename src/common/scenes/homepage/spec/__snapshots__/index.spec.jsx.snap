@@ -26,7 +26,6 @@ exports[`Homepage should render and match snapshot 1`] = `
           My Saved Recipes
         </span>
         <Link
-          replace={false}
           to="/account/login"
         >
           <Button

@@ -88,7 +88,6 @@ exports[`Register component snapshot test should display error messages 1`] = `
           >
             Already have an account? 
             <Link
-              replace={false}
               to="/account/login"
             >
               Sign in here.
@@ -186,7 +185,6 @@ exports[`Register component snapshot test should match snapshot 1`] = `
           >
             Already have an account? 
             <Link
-              replace={false}
               to="/account/login"
             >
               Sign in here.
