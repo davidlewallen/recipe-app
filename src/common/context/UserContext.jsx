@@ -13,7 +13,8 @@ const UserProvider = React.memo(({ children }) => {
   const [user, setUser] = useState({ username: '', email: '', _id: '' });
   const [userLoading, setUserLoading] = useState(true);
   const [userAuth, setUserAuth] = useState(true);
-  const [firstLoad, setFirstLoad] = useState(true);
+
+  let firstLoad = true;
 
   async function getUser() {
     const { data } = await Account.getUser();
@@ -26,22 +27,22 @@ const UserProvider = React.memo(({ children }) => {
     setUserLoading(false);
   }
 
-  async function initialize() {
-    const {
-      data: { isAuth: authStatus },
-    } = await Account.auth();
-
-    setFirstLoad(false);
-    setUserAuth(authStatus);
-
-    if (authStatus) {
-      await getUser();
-    } else {
-      setUserLoading(false);
-    }
-  }
-
   useEffect(() => {
+    async function initialize() {
+      const {
+        data: { isAuth },
+      } = await Account.auth();
+
+      firstLoad = false;
+      setUserAuth(isAuth);
+
+      if (isAuth) {
+        await getUser();
+      } else {
+        setUserLoading(false);
+      }
+    }
+
     initialize();
   }, []);
 

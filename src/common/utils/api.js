@@ -3,14 +3,16 @@ import axios from 'axios';
 const API_ROOT =
   process.env.NODE_ENV === 'production'
     ? 'https://mysavedrecipes.com/api'
-    : '/api';
+    : 'http://127.0.0.1:3001/api';
 const API_RECIPE = `${API_ROOT}/recipe`;
 const API_ACCOUNT = `${API_ROOT}/account`;
 
 export const Recipe = {
   getRecipes: () => axios.get(`${API_RECIPE}`, { withCredentials: true }),
-  submitRecipe: encodedURI => axios.post(`${API_RECIPE}/submit/${encodedURI}`, { withCredentials: true }),
-  deleteRecipe: recipeId => axios.delete(`${API_RECIPE}/delete/${recipeId}`, { withCredentials: true }),
+  submitRecipe: encodedURI =>
+    axios.post(`${API_RECIPE}/submit/${encodedURI}`, { withCredentials: true }),
+  deleteRecipe: recipeId =>
+    axios.delete(`${API_RECIPE}/delete/${recipeId}`, { withCredentials: true }),
 };
 
 export const Account = {
@@ -46,10 +48,13 @@ export const Account = {
     return axios.get(this.endpoints.verify(id, key), { withCredentials: true });
   },
   resendVerification(id) {
-    return axios.get(this.endpoints.resendVerification(id), { withCredentials: true });
+    return axios.get(this.endpoints.resendVerification(id), {
+      withCredentials: true,
+    });
   },
 };
 
 export const Utils = {
-  getAcceptedWebsites: () => axios.get(`${API_ROOT}/approved`, { withCredentials: true }),
+  getAcceptedWebsites: () =>
+    axios.get(`${API_ROOT}/approved`, { withCredentials: true }),
 };
