@@ -1,9 +1,12 @@
 import axios from 'axios';
 
-const API_ROOT =
-  process.env.NODE_ENV === 'production'
-    ? 'https://mysavedrecipes.com/api'
-    : 'http://127.0.0.1:3001/api';
+let API_ROOT = 'http://127.0.0.1:3001/api';
+
+if (process.env.REACT_APP_PROXY === 'production')
+  API_ROOT = 'https://mysavedrecipes.com/api';
+if (process.env.REACT_APP_PROXY === 'beta')
+  API_ROOT = 'https://beta.mysavedrecipes.com/api';
+
 const API_RECIPE = `${API_ROOT}/recipe`;
 const API_ACCOUNT = `${API_ROOT}/account`;
 
