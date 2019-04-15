@@ -10,7 +10,7 @@ import VerifyEmailContainer from '../scenes/verify';
 import UserContext from '../../common/context/UserContext';
 
 function AccountRoutes() {
-  const { userAuth, user } = useContext(UserContext);
+  const { userAuth: isLoggedIn } = useContext(UserContext);
 
   return (
     <Switch>
@@ -18,7 +18,7 @@ function AccountRoutes() {
       <Route
         path="/account/login"
         render={routeProps =>
-          userAuth && user.username ? (
+          isLoggedIn ? (
             <Redirect to="/dashboard" />
           ) : (
             <LoginContainer {...routeProps} />
@@ -28,7 +28,7 @@ function AccountRoutes() {
       <Route
         path="/account/register"
         render={routeProps =>
-          userAuth && user.username ? (
+          isLoggedIn ? (
             <Redirect to="/dashboard" />
           ) : (
             <RegisterContainer {...routeProps} />
