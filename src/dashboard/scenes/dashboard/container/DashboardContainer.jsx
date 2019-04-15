@@ -76,8 +76,8 @@ class DashboardContainer extends React.Component {
 
     return (
       <UserConsumer>
-        {({ userAuth, user }) =>
-          userAuth && user.username ? (
+        {({ userAuth }) =>
+          userAuth ? (
             <Dashboard
               recipes={recipes}
               deleteRecipe={this.deleteRecipe}
