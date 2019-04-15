@@ -14,8 +14,6 @@ const UserProvider = React.memo(({ children }) => {
   const [userLoading, setUserLoading] = useState(true);
   const [userAuth, setUserAuth] = useState(true);
 
-  let firstLoad = true;
-
   async function getUser() {
     const { data } = await Account.getUser();
 
@@ -33,7 +31,6 @@ const UserProvider = React.memo(({ children }) => {
         data: { isAuth },
       } = await Account.auth();
 
-      firstLoad = false;
       setUserAuth(isAuth);
 
       if (isAuth) {
@@ -47,9 +44,7 @@ const UserProvider = React.memo(({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (userAuth && !firstLoad) {
-      getUser();
-    }
+    if (userAuth) getUser();
   }, [userAuth]);
 
   return (
