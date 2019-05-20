@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-let API_ROOT = 'http://127.0.0.1:3001/api';
+axios.defaults.withCredentials = true;
+
+let API_ROOT = 'http://localhost:3001/api';
 
 if (process.env.REACT_APP_PROXY === 'production')
   API_ROOT = 'https://mysavedrecipes.com/api';
@@ -11,11 +13,9 @@ const API_RECIPE = `${API_ROOT}/recipe`;
 const API_ACCOUNT = `${API_ROOT}/account`;
 
 export const Recipe = {
-  getRecipes: () => axios.get(`${API_RECIPE}`, { withCredentials: true }),
-  submitRecipe: encodedURI =>
-    axios.post(`${API_RECIPE}/submit/${encodedURI}`, { withCredentials: true }),
-  deleteRecipe: recipeId =>
-    axios.delete(`${API_RECIPE}/delete/${recipeId}`, { withCredentials: true }),
+  getRecipes: () => axios.get(`${API_RECIPE}`),
+  submitRecipe: encodedURI => axios.post(`${API_RECIPE}/submit/${encodedURI}`),
+  deleteRecipe: recipeId => axios.delete(`${API_RECIPE}/delete/${recipeId}`),
 };
 
 export const Account = {
@@ -33,31 +33,28 @@ export const Account = {
     },
   },
   login(body) {
-    return axios.post(this.endpoints.login, body, { withCredentials: true });
+    return axios.post(this.endpoints.login, body);
   },
   register(body) {
-    return axios.post(this.endpoints.register, body, { withCredentials: true });
+    return axios.post(this.endpoints.register, body);
   },
   logout() {
-    return axios.get(this.endpoints.logout, { withCredentials: true });
+    return axios.get(this.endpoints.logout);
   },
   auth() {
-    return axios.get(this.endpoints.auth, { withCredentials: true });
+    return axios.get(this.endpoints.auth);
   },
   getUser() {
-    return axios.get(this.endpoints.getUser, { withCredentials: true });
+    return axios.get(this.endpoints.getUser);
   },
   verify(id, key) {
-    return axios.get(this.endpoints.verify(id, key), { withCredentials: true });
+    return axios.get(this.endpoints.verify(id, key));
   },
   resendVerification(id) {
-    return axios.get(this.endpoints.resendVerification(id), {
-      withCredentials: true,
-    });
+    return axios.get(this.endpoints.resendVerification(id));
   },
 };
 
 export const Utils = {
-  getAcceptedWebsites: () =>
-    axios.get(`${API_ROOT}/approved`, { withCredentials: true }),
+  getAcceptedWebsites: () => axios.get(`${API_ROOT}/approved`),
 };
