@@ -18,7 +18,7 @@ class HeaderContainer extends React.Component {
   };
 
   state = {
-    showModal: true,
+    showModal: false,
     showAcceptedModal: false,
     acceptedWebsites: [],
   };
