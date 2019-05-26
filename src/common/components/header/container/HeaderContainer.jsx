@@ -4,7 +4,7 @@ import { shape, func } from 'prop-types';
 import { Account, Utils } from '../../../utils/api';
 
 import Header from '../components';
-import SubmitRecipeContainer from '../../submit-recipe/container/SubmitRecipeContainer';
+import SubmitRecipe from '../../submit-recipe';
 import AcceptedWebsites from '../../acceptedWebsites/components';
 
 import '../assets/styles/index.css';
@@ -57,7 +57,7 @@ class HeaderContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <SubmitRecipeContainer
+        <SubmitRecipe
           show={showModal}
           handleModalClose={this.handleModalClose}
         />
