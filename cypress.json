@@ -1,4 +1,5 @@
 {
   "baseUrl": "http://localhost:3000",
-  "projectId": "batmh8"
+  "projectId": "batmh8",
+  "random": "stuff"
 }
