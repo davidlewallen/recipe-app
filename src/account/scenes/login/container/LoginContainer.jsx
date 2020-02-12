@@ -1,43 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
 import { shape, func } from 'prop-types';
-
-import Login from '../components';
+import { Link } from 'react-router-dom';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
 
 import { Account } from '../../../../common/utils/api';
 
 import '../assets/styles/index.css';
 import UserContext from '../../../../common/context/UserContext';
 
-class LoginContainer extends Component {
-  static contextType = UserContext;
+const propTypes = { history: shape({ replace: func.isRequired }).isRequired };
 
-  static propTypes = {
-    history: shape({ replace: func }).isRequired,
-  };
+const Login = ({ history }) => {
+  const { setUserAuth } = useContext(UserContext);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState({ value: false, message: '' });
 
-  state = {
-    username: '',
-    password: '',
-    error: {
-      value: false,
-      message: '',
-    },
-  };
+  const updateError = ({ value, message }) =>
+    setError({ ...error, ...value, ...message });
 
-  login = async event => {
+  const handleLogin = async event => {
     event.preventDefault();
 
-    const {
-      props: { history },
-      state: { username, password },
-      context: { setUserAuth },
-    } = this;
-
     try {
-      await Account.login({
-        username,
-        password,
-      });
+      await Account.login({ username, password });
 
       setUserAuth(true);
 
@@ -50,36 +42,56 @@ class LoginContainer extends Component {
       }
 
       if (response.status === 400) {
-        this.setState({
-          error: {
-            value: true,
-            message: response.data.message,
-          },
-        });
+        updateError({ value: true, message: response.data.message });
       }
     }
   };
+  return (
+    <Grid className="login">
+      <Row>
+        <Col xs={12} sm={6} smOffset={3}>
+          <form>
+            <FormGroup className="align-left">
+              {error.value && <p className="error-message">{error.message}</p>}
+              <ControlLabel>Username</ControlLabel>
+              <FormControl
+                id="username"
+                className="username-input"
+                type="text"
+                placeholder="E.g. JohnDoe123"
+                value={username}
+                onChange={e => setUsername(e.target.value.trim())}
+              />
+              <ControlLabel>Password</ControlLabel>
+              <FormControl
+                id="password"
+                className="password-input"
+                placeholder="E.g. 124!Jigzx"
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value.trim())}
+              />
+              <Button
+                block
+                type="submit"
+                className="login-button"
+                bsStyle="primary"
+                onClick={handleLogin}
+              >
+                Login
+              </Button>
+              <div className="register-text">
+                {'New to My Saved Recipes? '}
+                <Link to="/account/register">Create an account.</Link>
+              </div>
+            </FormGroup>
+          </form>
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
 
-  handleUsername = ({ target: { value: username } }) =>
-    this.setState({ username: username.trim() });
+Login.propTypes = propTypes;
 
-  handlePassword = ({ target: { value: password } }) =>
-    this.setState({ password: password.trim() });
-
-  render = () => {
-    const { username, password, error } = this.state;
-
-    return (
-      <Login
-        username={username}
-        handleUsername={this.handleUsername}
-        password={password}
-        handlePassword={this.handlePassword}
-        error={error}
-        login={this.login}
-      />
-    );
-  };
-}
-
-export default LoginContainer;
+export default Login;
