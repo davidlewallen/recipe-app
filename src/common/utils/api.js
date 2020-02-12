@@ -5,9 +5,9 @@ axios.defaults.withCredentials = true;
 let API_ROOT = 'http://127.0.0.1:3001/api';
 
 if (process.env.REACT_APP_PROXY === 'production')
-  API_ROOT = 'https://mysavedrecipes.com/api';
+  API_ROOT = 'https://msr-backend.herokuapp.com/api';
 if (process.env.REACT_APP_PROXY === 'beta')
-  API_ROOT = 'https://beta.mysavedrecipes.com/api';
+  API_ROOT = 'https://msr-backend-beta.heroku.com/api';
 if (process.env.NODE_ENV === 'development')
   API_ROOT = 'http://localhost:3001/api';
 
