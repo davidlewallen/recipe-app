@@ -1,101 +1,164 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 
+import '../assets/styles/index.css';
+import RecipeModal from '../../../components/recipe-modal/components';
+import noImage from '../../../../common/assets/noImage.png';
 import RecipeContext from '../../../../common/context/RecipeContext';
-import { UserConsumer } from '../../../../common/context/UserContext';
+import UserContext from '../../../../common/context/UserContext';
 import { Recipe } from '../../../../common/utils/api';
 
-import Dashboard from '../components';
+const DashboardContainer = () => {
+  const history = useHistory();
+  const recipeContext = useContext(RecipeContext);
+  const userContext = useContext(UserContext);
+  const [showModal, setShowModal] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
+  const [loadingRecipes, setLoadingRecipes] = useState(false);
+  const [selectedRecipe, setSelectedRecipe] = useState({
+    _id: 0,
+    title: '',
+    ingredients: [],
+    instructions: [],
+    url: { href: '' },
+  });
 
-class DashboardContainer extends React.Component {
-  static contextType = RecipeContext;
-
-  state = {
-    showModal: false,
-    selectedRecipe: {
-      title: '',
-      ingredients: [],
-      instructions: [],
-      totalTime: '',
-      url: {
-        href: '',
-      },
-    },
-    searchValue: '',
-    loadingRecipes: true,
-  };
-
-  componentDidMount = async () => {
-    this.IS_MOUNTED = true;
-
-    await this.getUserRecipes();
-  };
-
-  componentWillUnmount() {
-    this.IS_MOUNTED = false;
-  }
-
-  getUserRecipes = async () => {
-    const { setRecipes } = this.context;
-
-    const { data: recipes } = await Recipe.getRecipes();
-
-    setRecipes(recipes);
-
-    if (this.IS_MOUNTED) this.setState({ loadingRecipes: false });
-  };
-
-  deleteRecipe = async recipeId => {
-    const { setRecipes } = this.context;
-
-    try {
-      const { data: recipes } = await Recipe.deleteRecipe(recipeId);
+  useEffect(() => {
+    async function fetchRecipes() {
+      setLoadingRecipes(true);
+      const { setRecipes } = recipeContext;
+      const { data: recipes } = await Recipe.getRecipes();
 
       setRecipes(recipes);
-    } catch (err) {
-      console.log(err);
+
+      setLoadingRecipes(false);
     }
+
+    fetchRecipes();
+  }, []);
+
+  const deleteRecipe = async recipeId => {
+    const { setRecipes } = recipeContext;
+    const { data: recipes } = await Recipe.deleteRecipe(recipeId);
+
+    setRecipes(recipes);
   };
 
-  handleModalClose = () => this.setState({ showModal: false });
+  const handleModalClose = () => setShowModal(false);
 
-  viewRecipe = recipe =>
-    this.setState({
-      showModal: true,
-      selectedRecipe: recipe,
-    });
+  const viewRecipe = recipe => {
+    setShowModal(true);
+    setSelectedRecipe(recipe);
+  };
 
-  handleSearch = ({ target: { value } }) =>
-    this.setState({ searchValue: value });
+  const handleSearch = event => setSearchValue(event.target.value);
 
-  render = () => {
-    const {
-      state: { showModal, selectedRecipe, searchValue, loadingRecipes },
-      context: { recipes },
-    } = this;
+  if (!userContext.userAuth) history.push('/account/login');
 
-    return (
-      <UserConsumer>
-        {({ userAuth }) =>
-          userAuth ? (
-            <Dashboard
-              recipes={recipes}
-              deleteRecipe={this.deleteRecipe}
-              showModal={showModal}
-              handleModalClose={this.handleModalClose}
-              viewRecipe={this.viewRecipe}
-              selectedRecipe={selectedRecipe}
-              searchValue={searchValue}
-              handleSearch={this.handleSearch}
-              loadingRecipes={loadingRecipes}
+  return (
+    <Grid className="dashboard">
+      <RecipeModal
+        showModal={showModal}
+        handleModalClose={handleModalClose}
+        selectedRecipe={selectedRecipe}
+        deleteRecipe={deleteRecipe}
+      />
+
+      {!recipeContext.recipes.length && !loadingRecipes ? (
+        <Row>
+          <Col xs={12}>
+            <Jumbotron className="NoRecipes align-center">
+              <p className="NoRecipes__Copy">
+                Looks like you have no recipes currently saved. You should add
+                some!
+              </p>
+              <p className="NoRecipes__Copy">
+                To add recipes, click the menu button and select &quot;+ Add
+                Recipe&quot;.
+              </p>
+            </Jumbotron>
+          </Col>
+        </Row>
+      ) : (
+        <Row className="recipe-container">
+          <Col xs={12} className="recipe-search">
+            <input
+              placeholder="Search..."
+              value={searchValue}
+              onChange={handleSearch}
             />
-          ) : (
-            <Redirect to="/account/login" />
-          )
-        }
-      </UserConsumer>
-    );
-  };
-}
+          </Col>
+          {recipeContext.recipes.map(
+            recipe =>
+              recipe.title
+                .toLowerCase()
+                .includes(searchValue.toLowerCase()) && (
+                <Col
+                  className="margin-bottom"
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  // eslint-disable-next-line no-underscore-dangle
+                  key={recipe._id}
+                >
+                  <div className="recipe">
+                    <Row>
+                      <Col xs={12} className="card">
+                        <Row>
+                          <Col xs={12} className="header align-center">
+                            <div>{recipe.title}</div>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col xs={12}>
+                            <div className="image-container">
+                              <img
+                                className="recipe-image"
+                                alt={recipe.title}
+                                src={
+                                  recipe.imageURL ? recipe.imageURL : noImage
+                                }
+                              />
+                            </div>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col xs={12} className="footer align-center">
+                            <Button
+                              className="float-left"
+                              bsStyle="primary"
+                              bsSize="xsmall"
+                              onClick={() => viewRecipe(recipe)}
+                            >
+                              View
+                            </Button>
+                            {recipe.totalTime || 'n/a'}
+                            <Button
+                              className="float-right"
+                              bsStyle="danger"
+                              bsSize="xsmall"
+                              // eslint-disable-next-line no-underscore-dangle
+                              onClick={() => deleteRecipe(recipe._id)}
+                            >
+                              Delete
+                            </Button>
+                          </Col>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </div>
+                </Col>
+              )
+          )}
+        </Row>
+      )}
+    </Grid>
+  );
+};
 
 export default DashboardContainer;
