@@ -1,38 +1,48 @@
-import React from 'react';
-import { shape, func } from 'prop-types';
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 import { Account, Utils } from '../../../utils/api';
 
-import Header from '../components';
+// import Header from '../components';
 import SubmitRecipe from '../../submit-recipe';
 import AcceptedWebsites from '../../acceptedWebsites/components';
 
 import '../assets/styles/index.css';
 import UserContext from '../../../context/UserContext';
 
-class HeaderContainer extends React.Component {
-  static contextType = UserContext;
+const useStyles = makeStyles(theme => ({
+  root: { flexGrow: 1 },
+  menuButton: { marginRight: theme.spacing(2) },
+  title: { flexGrow: 1 },
+  button: { color: '#fff' },
+}));
 
-  static propTypes = {
-    history: shape({ replace: func.isRequired }).isRequired,
-  };
+const Header = () => {
+  const classes = useStyles();
+  const history = useHistory();
+  const [showModal, setShowModal] = useState(false);
+  const [showAcceptedModal, setShowAcceptedModal] = useState(false);
+  const [acceptedWebsites, setAcceptedWebsite] = useState([]);
+  const { userAuth: isAuth, setUserAuth } = useContext(UserContext);
 
-  state = {
-    showModal: false,
-    showAcceptedModal: false,
-    acceptedWebsites: [],
-  };
+  useEffect(() => {
+    const fetchAcceptedWebsites = async () => {
+      const { data: websites } = await Utils.getAcceptedWebsites();
 
-  componentDidMount = async () => {
-    const { data: acceptedWebsites } = await Utils.getAcceptedWebsites();
+      setAcceptedWebsite(websites);
+    };
 
-    this.setState({ acceptedWebsites });
-  };
+    fetchAcceptedWebsites();
+  }, []);
 
-  logout = () => {
-    const { history } = this.props;
-    const { setUserAuth } = this.context;
-
+  const logout = () => {
     Account.logout();
 
     setUserAuth(false);
@@ -40,41 +50,47 @@ class HeaderContainer extends React.Component {
     history.replace('/');
   };
 
-  handleModalOpen = () => this.setState({ showModal: true });
+  return (
+    <>
+      <SubmitRecipe
+        show={showModal}
+        handleModalClose={() => setShowModal(false)}
+      />
+      <AcceptedWebsites
+        show={showAcceptedModal}
+        handleAcceptedModal={() => setShowAcceptedModal(!showAcceptedModal)}
+        acceptedWebsites={acceptedWebsites}
+      />
 
-  handleModalClose = () => this.setState({ showModal: false });
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            My Saved Recipes
+          </Typography>
+          {isAuth ? (
+            <Button color="inherit" className={classes.button} onClick={logout}>
+              Logout
+            </Button>
+          ) : (
+            <Button
+              color="inherit"
+              className={classes.button}
+              onClick={() => history.push('/account/login')}
+            >
+              Login
+            </Button>
+          )}
+        </Toolbar>
+      </AppBar>
+    </>
+  );
+};
 
-  handleAcceptedModal = () =>
-    this.setState(prevState => ({
-      showAcceptedModal: !prevState.showAcceptedModal,
-    }));
-
-  render = () => {
-    const {
-      context: { userAuth },
-      state: { showModal, showAcceptedModal, acceptedWebsites },
-    } = this;
-
-    return (
-      <React.Fragment>
-        <SubmitRecipe
-          show={showModal}
-          handleModalClose={this.handleModalClose}
-        />
-        <AcceptedWebsites
-          show={showAcceptedModal}
-          handleAcceptedModal={this.handleAcceptedModal}
-          acceptedWebsites={acceptedWebsites}
-        />
-        <Header
-          logout={this.logout}
-          handleModalOpen={this.handleModalOpen}
-          isAuth={userAuth}
-          handleAcceptedModal={this.handleAcceptedModal}
-        />
-      </React.Fragment>
-    );
-  };
-}
-
-export default HeaderContainer;
+export default Header;
