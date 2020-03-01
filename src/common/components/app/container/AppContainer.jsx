@@ -6,7 +6,7 @@ import axios from 'axios';
 import RecipeContext from '../../../context/RecipeContext';
 import UserContext from '../../../context/UserContext';
 
-import HeaderContainer from '../../header/container/HeaderContainer';
+import Header from '../../header/container/HeaderContainer';
 
 const Homepage = React.lazy(() =>
   import('../../../scenes/homepage/components')
@@ -17,11 +17,10 @@ const DashboardContainer = React.lazy(() =>
 const AccountRoutes = React.lazy(() => import('../../../../account/routes'));
 
 const propTypes = {
-  history: shape({ push: func.isRequired }).isRequired,
   location: shape({ pathname: string.isRequired }).isRequired,
 };
 
-function AppContainer({ history, location }) {
+function AppContainer({ location }) {
   const [recipes, setRecipes] = useState([]);
   const { userLoading, setUserAuth } = useContext(UserContext);
 
@@ -40,7 +39,7 @@ function AppContainer({ history, location }) {
       <Suspense fallback={<p>Loading...</p>}>
         {!userLoading && (
           <React.Fragment>
-            {location.pathname !== '/' && <HeaderContainer history={history} />}
+            {location.pathname !== '/' && <Header />}
 
             <Switch>
               <Route exact path="/" component={Homepage} />
