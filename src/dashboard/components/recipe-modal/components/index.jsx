@@ -27,6 +27,7 @@ const RecipeModal = ({
   deleteRecipe,
 }) => {
   function handleDeleteRecipe() {
+    // eslint-disable-next-line no-underscore-dangle
     deleteRecipe(selectedRecipe._id);
     handleModalClose();
   }
