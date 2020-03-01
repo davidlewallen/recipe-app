@@ -1,27 +1,21 @@
 import React from 'react';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
-import Button from 'react-bootstrap/lib/Button';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
 
 import '../assets/styles/index.css';
 
 const Homepage = () => (
-  <Grid className="homepage">
-    <Row>
-      <Col className="align-center" xs={12} md={10} mdOffset={1}>
-        <div className="center-vertically">
-          <span>My Saved Recipes</span>
-          <Link to="/account/login">
-            <Button block bsStyle="primary" type="button">
-              Login
-            </Button>
-          </Link>
-        </div>
-      </Col>
-    </Row>
-  </Grid>
+  <Box>
+    <Container>
+      <span>My Saved Recipes</span>
+      <Link to="/account/login">
+        <Button variant="contained" color="primary">
+          Login
+        </Button>
+      </Link>
+    </Container>
+  </Box>
 );
-
 export default Homepage;
