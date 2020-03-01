@@ -1,13 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { shape, func } from 'prop-types';
 import { Link } from 'react-router-dom';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
-import Button from 'react-bootstrap/lib/Button';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
+import Container from '@material-ui/core/Container';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import { Account } from '../../../../common/utils/api';
 
@@ -47,48 +43,42 @@ const Login = ({ history }) => {
     }
   };
   return (
-    <Grid className="login">
-      <Row>
-        <Col xs={12} sm={6} smOffset={3}>
-          <form>
-            <FormGroup className="align-left">
-              {error.value && <p className="error-message">{error.message}</p>}
-              <ControlLabel>Username</ControlLabel>
-              <FormControl
-                id="username"
-                className="username-input"
-                type="text"
-                placeholder="E.g. JohnDoe123"
-                value={username}
-                onChange={e => setUsername(e.target.value.trim())}
-              />
-              <ControlLabel>Password</ControlLabel>
-              <FormControl
-                id="password"
-                className="password-input"
-                placeholder="E.g. 124!Jigzx"
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value.trim())}
-              />
-              <Button
-                block
-                type="submit"
-                className="login-button"
-                bsStyle="primary"
-                onClick={handleLogin}
-              >
-                Login
-              </Button>
-              <div className="register-text">
-                {'New to My Saved Recipes? '}
-                <Link to="/account/register">Create an account.</Link>
-              </div>
-            </FormGroup>
-          </form>
-        </Col>
-      </Row>
-    </Grid>
+    <Container>
+      {/* <Paper> */}
+      <form onSubmit={handleLogin} id="login-form">
+        <TextField
+          label="Username"
+          id="username"
+          className="username-input"
+          type="text"
+          placeholder="E.g. JohnDoe123"
+          value={username}
+          onChange={e => setUsername(e.target.value.trim())}
+        />
+        <TextField
+          label="Password"
+          id="password"
+          className="password-input"
+          placeholder="E.g. 124!Jigzx"
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value.trim())}
+        />
+        <Button
+          form="login-form"
+          variant="contained"
+          color="primary"
+          type="submit"
+          className="login-button"
+        >
+          Login
+        </Button>
+      </form>
+      <div className="register-text">
+        {'New to My Saved Recipes? '}
+        <Link to="/account/register">Create an account.</Link>
+      </div>
+    </Container>
   );
 };
 
