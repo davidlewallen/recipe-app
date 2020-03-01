@@ -12,6 +12,7 @@ import noImage from '../../../../common/assets/noImage.png';
 import RecipeContext from '../../../../common/context/RecipeContext';
 import UserContext from '../../../../common/context/UserContext';
 import { Recipe } from '../../../../common/utils/api';
+import get from '../../../../common/utils/get';
 
 const DashboardContainer = () => {
   const history = useHistory();
@@ -32,9 +33,9 @@ const DashboardContainer = () => {
     async function fetchRecipes() {
       setLoadingRecipes(true);
       const { setRecipes } = recipeContext;
-      const { data: recipes } = await Recipe.getRecipes();
+      const recipesResponse = await Recipe.getRecipes();
 
-      setRecipes(recipes);
+      setRecipes(get(recipesResponse, 'data', []));
 
       setLoadingRecipes(false);
     }
